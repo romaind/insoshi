@@ -61,7 +61,7 @@ describe PersonMailer do
      end
      
      it "should have the right requester" do
-       @email.body.should =~ /#{@person.name}/
+       @email.body.should =~ /#{@person.last_name}/
      end
      
      it "should have a URL to the connection" do
@@ -94,7 +94,7 @@ describe PersonMailer do
      end
      
      it "should have the right commenter" do
-       @email.body.should =~ /#{@commenter.name}/
+       @email.body.should =~ /#{@commenter.last_name}/
      end
      
      it "should have a link to the comment" do
@@ -125,7 +125,7 @@ describe PersonMailer do
      end
      
      it "should have the right commenter" do
-       @email.body.should =~ /#{@commenter.name}/
+       @email.body.should =~ /#{@commenter.last_name}/
      end
      
      it "should have a link to the comment" do

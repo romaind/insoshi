@@ -180,9 +180,9 @@ describe PeopleController do
     end
     
     it "should allow mass assignment to name" do
-      put :update, :id => @person, :person => { :name => "Foo Bar" },
+      put :update, :id => @person, :person => { :last_name => "Foo Bar" },
                    :type => "info_edit"
-      assigns(:person).name.should == "Foo Bar"
+      assigns(:person).last_name.should == "Foo Bar"
       response.should redirect_to(person_url(assigns(:person)))
     end
       

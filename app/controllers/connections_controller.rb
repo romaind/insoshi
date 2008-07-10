@@ -35,15 +35,15 @@ class ConnectionsController < ApplicationController
     
     respond_to do |format|
       contact = @connection.contact
-      name = contact.name
+      last_name = contact.last_name
       case params[:commit]
       when "Accept"
         @connection.accept
         flash[:notice] = %(Accepted connection with
-                           <a href="#{person_url(contact)}">#{name}</a>)
+                           <a href="#{person_url(contact)}">#{last_name}</a>)
       when "Decline"
         @connection.breakup
-        flash[:notice] = "Declined connection with #{name}"
+        flash[:notice] = "Declined connection with #{last_name}"
       end
       format.html { redirect_to(home_url) }
     end
@@ -53,7 +53,7 @@ class ConnectionsController < ApplicationController
     @connection.breakup
     
     respond_to do |format|
-      flash[:success] = "Ended connection with #{@connection.contact.name}"
+      flash[:success] = "Ended connection with #{@connection.contact.last_name}"
       format.html { redirect_to( person_connections_url(current_person)) }
     end
   end

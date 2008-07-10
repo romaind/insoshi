@@ -1,10 +1,10 @@
 <%- column_div :type => :primary do -%>
   <% if current_person?(@message.sender) %>
     <% other_person = @message.recipient %>
-    <% heading = "Message sent to #{h other_person.name}" %>
+    <% heading = "Message sent to #{h other_person.last_name}" %>
   <% else %>
     <% other_person = @message.sender %>
-    <% heading = "Message from #{h other_person.name}" %>
+    <% heading = "Message from #{h other_person.last_name}" %>
   <% end %>
   
   <h2><%= heading %></h2>

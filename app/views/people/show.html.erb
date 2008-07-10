@@ -1,6 +1,6 @@
 <%- column_div :type => :primary do -%>
   <div class="profile vcard">
-    <h2>Profile: <span class="fn n"><%= h @person.name %></span></h2>
+    <h2>Profile: <span class="fn n"><%= h @person.last_name %></span></h2>
     <%- if admin? and not @person.active? -%>
       <p class="error">This person is not active</p>
     <%- end -%>
@@ -20,32 +20,32 @@
     <%- end -%>
     <div class="toolbox">
       <%= image_tag @person.main_photo, :class => "profile-image photo",
-                                        :alt => h(@person.name) %>
+                                        :alt => h(@person.last_name) %>
 
       <%- unless current_person?(@person) -%>
         <ul class="tools">
          <%- if logged_in? -%>
           <%- unless Connection.exists?(@person, current_person) -%>
             <li>
-            <%= link_to "Connect with #{h @person.name}!",
+            <%= link_to "Connect with #{h @person.last_name}!",
                         person_connections_path(@person), :method => :post %>
             </li>
           <%- end -%>
           <%- if Connection.connected?(@person, current_person) -%>
           <li>
-            <%= h @person.name %> is one of your contacts
+            <%= h @person.last_name %> is one of your contacts
             <br />
            (<%= link_to "end connection", 
                connection_path(Connection.conn(current_person, @person)), 
                :method => :delete,
               :confirm => 
-"Are you sure you want to end connection with #{h @person.name}?" %>)
+"Are you sure you want to end connection with #{h @person.last_name}?" %>)
           
           </li>
           <%- end -%>
           <li><%= email_link @person %></li>
         <%- end -%>
-          <li><%= link_to "#{h @person.name}'s blog",
+          <li><%= link_to "#{h @person.last_name}'s blog",
                   blog_path(@person.blog) %></li>
           <%- if current_person.admin? -%>
           <li>

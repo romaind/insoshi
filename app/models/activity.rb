@@ -1,7 +1,7 @@
 # == Schema Information
 # Schema version: 26
 #
-# Table name: activities
+# Table last_name: activities
 #
 #  id         :integer(11)     not null, primary key
 #  public     :boolean(1)      
