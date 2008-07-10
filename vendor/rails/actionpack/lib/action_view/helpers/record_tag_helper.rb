@@ -21,7 +21,7 @@ module ActionView
       #
       #    <% content_tag_for(:tr, @person) do %>
       #      <td><%=h @person.first_name %></td>
-      #      <td><%=h @person.last_name %></td>
+      #      <td><%=h @person.name %></td>
       #    <% end %>
       #
       # would produce hthe following HTML (assuming @person is an instance of

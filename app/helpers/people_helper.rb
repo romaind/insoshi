@@ -9,11 +9,11 @@ module PeopleHelper
   def image_link(person, options = {})
     link = options[:link] || person
     image = options[:image] || :icon
-    image_options = { :title => h(person.last_name), :alt => h(person.last_name) }
+    image_options = { :title => h(person.name), :alt => h(person.name) }
     unless options[:image_options].nil?
       image_options.merge!(options[:image_options]) 
     end
-    link_options =  { :title => h(person.last_name) }
+    link_options =  { :title => h(person.name) }
     unless options[:link_options].nil?                    
       link_options.merge!(options[:link_options])
     end
@@ -21,7 +21,7 @@ module PeopleHelper
     # This is a hack needed for the way the designer handled rastered images
     # (with a 'vcard' class).
     if options[:vcard]
-      content = %(#{content}#{content_tag(:span, h(person.last_name), 
+      content = %(#{content}#{content_tag(:span, h(person.name), 
                                                  :class => "fn" )})
     end
     link_to(content, link, link_options)
@@ -32,11 +32,11 @@ module PeopleHelper
   def person_link(text, person = nil, html_options = nil)
     if person.nil?
       person = text
-      text = person.last_name
+      text = person.name
     elsif person.is_a?(Hash)
       html_options = person
       person = text
-      text = person.last_name
+      text = person.name
     end
     # We normally write link_to(..., person) for brevity, but that breaks
     # activities_helper_spec due to an RSpec bug.

@@ -15,10 +15,10 @@
       <% end %>
     <%- else -%>
       <p>
-      You must be connected to <%= h @person.last_name %> to leave a wall comment.
+      You must be connected to <%= h @person.name %> to leave a wall comment.
       </p>
       <p>
-      <%= link_to "Connect with #{h @person.last_name} now",
+      <%= link_to "Connect with #{h @person.name} now",
                   person_connections_path(@person), :method => :post %>
       </p>
     <%- end -%>

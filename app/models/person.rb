@@ -32,14 +32,14 @@ class Person < ActiveRecord::Base
 
   attr_accessor :password, :verify_password, :new_password,
                 :sorted_photos
-  attr_accessible :email, :password, :password_confirmation, :last_name,
+  attr_accessible :email, :password, :password_confirmation, :name,
                   :description, :connection_notifications,
                   :message_notifications, :wall_comment_notifications,
                   :blog_comment_notifications
-  acts_as_ferret :fields => [ :last_name, :description ] if search?
+  acts_as_ferret :fields => [ :name, :description ] if search?
 
   MAX_EMAIL = MAX_PASSWORD = SMALL_STRING_LENGTH
-  MAX_LAST_NAME = SMALL_STRING_LENGTH
+  MAX_NAME = SMALL_STRING_LENGTH
   MAX_DESCRIPTION = MAX_TEXT_LENGTH
   EMAIL_REGEX = /\A[A-Z0-9\._%-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}\z/i
   TRASH_TIME_AGO = 1.month.ago
@@ -86,14 +86,14 @@ class Person < ActiveRecord::Base
                                             :limit => FEED_SIZE
   has_many :page_views, :order => 'created_at DESC'
   
-  validates_presence_of     :email, :last_name
+  validates_presence_of     :email, :name
   validates_presence_of     :password,              :if => :password_required?
   validates_presence_of     :password_confirmation, :if => :password_required?
   validates_length_of       :password, :within => 4..MAX_PASSWORD,
                                        :if => :password_required?
   validates_confirmation_of :password, :if => :password_required?
   validates_length_of       :email, :within => 6..MAX_EMAIL
-  validates_length_of       :last_name,  :maximum => MAX_LAST_NAME
+  validates_length_of       :name,  :maximum => MAX_NAME
   validates_length_of       :description, :maximum => MAX_DESCRIPTION
   validates_format_of       :email,
                             :with => EMAIL_REGEX,
@@ -165,7 +165,7 @@ class Person < ActiveRecord::Base
   # converts params[:id] into an int, and in Ruby
   # '1-michael-hartl'.to_i == 1
   def to_param
-    "#{id}-#{last_name.to_safe_uri}"
+    "#{id}-#{name.to_safe_uri}"
   end
 
   ## Feeds

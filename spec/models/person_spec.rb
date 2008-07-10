@@ -36,8 +36,8 @@ describe Person do
     end
 
     it "should require name" do
-      p = create_person(:last_name => nil)
-      p.errors.on(:last_name).should_not be_nil
+      p = create_person(:name => nil)
+      p.errors.on(:name).should_not be_nil
     end
 
     it "should strip spaces in email field" do
@@ -52,7 +52,7 @@ describe Person do
   
   describe "length validations" do
     it "should enforce a maximum name length" do
-      @person.should have_maximum(:name, Person::MAX_LAST_NAME)
+      @person.should have_maximum(:name, Person::MAX_NAME)
     end
     
     it "should enforce a maximum description length" do
@@ -106,7 +106,7 @@ describe Person do
     end
 
     it "should have a safe uri" do
-      @person.last_name = "Michael & Hartl"
+      @person.name = "Michael & Hartl"
       param = "#{@person.id}-michael-and-hartl"
       @person.to_param.should == param
     end
@@ -460,7 +460,7 @@ describe Person do
       record = Person.new({ :email => 'quire@example.com',
                             :password => 'quire',
                             :password_confirmation => 'quire',
-                            :last_name => 'Quire',
+                            :name => 'Quire',
                             :description => 'A new person' }.merge(options))
       record.valid?
       record.save! if options[:save]

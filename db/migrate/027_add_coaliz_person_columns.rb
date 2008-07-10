@@ -1,6 +1,5 @@
 class AddCoalizPersonColumns < ActiveRecord::Migration
   def self.up
-    rename_column   :people, :name, :last_name
     add_column      :people, :first_name, :string, :default => nil
     #add_column      :people, :area, :string, :default => nil
     #add_column      :people, :stars, :string, :default => nil
@@ -19,7 +18,6 @@ class AddCoalizPersonColumns < ActiveRecord::Migration
 
   def self.down
     remove_column     :people, :first_name
-    rename_column     :people, :last_name, :name
     #remove_column    :people, :area
     #remove_column    :people, :stars
     remove_column     :people, :gender

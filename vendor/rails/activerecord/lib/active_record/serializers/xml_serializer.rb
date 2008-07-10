@@ -95,7 +95,7 @@ module ActiveRecord #:nodoc:
     #   firm.to_xml do |xml|
     #     xml.creator do
     #       xml.first_name "David"
-    #       xml.last_name "Heinemeier Hansson"
+    #       xml.name "Heinemeier Hansson"
     #     end
     #   end
     #

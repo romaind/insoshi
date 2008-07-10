@@ -291,7 +291,7 @@ if ActiveRecord::Base.connection.supports_migrations?
 
       bob = Person.find(:first)
       assert_equal 'bob', bob.first_name
-      assert_equal 'bobsen', bob.last_name
+      assert_equal 'bobsen', bob.name
       assert_equal "I was born ....", bob.bio
       assert_equal 18, bob.age
 
@@ -305,7 +305,7 @@ if ActiveRecord::Base.connection.supports_migrations?
       assert_equal true, bob.male?
 
       assert_equal String, bob.first_name.class
-      assert_equal String, bob.last_name.class
+      assert_equal String, bob.name.class
       assert_equal String, bob.bio.class
       assert_equal Fixnum, bob.age.class
       assert_equal Time, bob.birthday.class

@@ -305,7 +305,7 @@ module ActiveRecord
     #
     #   person = Account.find(:first).people.find_or_create_by_name("David Heinemeier Hansson")
     #   person.first_name # => "David"
-    #   person.last_name  # => "Heinemeier Hansson"
+    #   person.name  # => "Heinemeier Hansson"
     #
     # If you need to share the same extensions between many associations, you can use a named extension module. Example:
     #
