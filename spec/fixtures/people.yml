@@ -3,7 +3,7 @@
 
 quentin:
   email: quentin@example.com
-  last_name: Quentin
+  name: Quentin
   description: I'm Quentin
   crypted_password: <%= password %>
   created_at: <%= 5.days.ago.to_s :db %>
@@ -17,7 +17,7 @@ quentin:
 
 aaron:
   email: aaron@example.com
-  last_name: Aaron
+  name: Aaron
   description: I'm Aaron
   crypted_password: <%= password %>
   created_at: <%= 1.day.ago.to_s :db %>
@@ -30,7 +30,7 @@ aaron:
 
 kelly:
   email: kelly@example.com
-  last_name: Kelly
+  name: Kelly
   description: I'm Kelly
   crypted_password: <%= password %>
   created_at: <%= 1.day.ago.to_s :db %>
@@ -42,7 +42,7 @@ kelly:
   
 admin:
   email: admin@example.com
-  last_name: admin
+  name: admin
   description: I'm the admin!
   admin: true
   crypted_password: <%= password %>
