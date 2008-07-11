@@ -76,7 +76,7 @@ class PeopleController < ApplicationController
       person.email_verified = true; person.save!
       self.current_person = person
       flash[:success] = "Email verified. Your profile is active!"
-      redirect_to person
+      redirect_to edit_person_path(person)
     end
   end
 
