@@ -86,9 +86,9 @@ class Person < ActiveRecord::Base
                                             :limit => FEED_SIZE
   has_many :page_views, :order => 'created_at DESC'
   
-  validates_presence_of     :email, :on => :create
+  validates_presence_of     :email, :on => :create, :if => :pending
   validates_presence_of     :email, :first_name, :name, :on => :update,
-                            :if => :active?
+                            :if => :active
   validates_presence_of     :password,              :if => :password_required?
   validates_presence_of     :password_confirmation, :if => :password_required?
   validates_length_of       :password, :within => 4..MAX_PASSWORD,
@@ -96,7 +96,7 @@ class Person < ActiveRecord::Base
   validates_confirmation_of :password, :if => :password_required?
   validates_length_of       :email, :within => 6..MAX_EMAIL
   validates_length_of       :name,  :maximum => MAX_NAME, :on => :update,
-                            :if => :active?
+                            :if => :active
   validates_length_of       :description, :maximum => MAX_DESCRIPTION
   validates_format_of       :email,
                             :with => EMAIL_REGEX,
@@ -111,6 +111,14 @@ class Person < ActiveRecord::Base
   before_update :set_old_description
   after_update :log_activity_description_changed
   before_destroy :destroy_activities, :destroy_feeds
+  
+  acts_as_state_machine :initial => :pending
+  state :active
+  
+  event :be_active do
+    transitions :to => :active, :from => :pending
+  end
+  
 
   class << self
 
