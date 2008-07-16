@@ -73,11 +73,10 @@ class PeopleController < ApplicationController
     else
       cookies.delete :auth_token
       person = verification.person
-      debugger
       person.email_verified = true; person.save!
       person.be_active!
       self.current_person = person
-      flash[:success] = "Email verified. Your profile is active!"
+      flash[:success] = "Email verified. Your profile is active! Please fill your personnal informations !!"
       redirect_to edit_person_path(person)
     end
   end
