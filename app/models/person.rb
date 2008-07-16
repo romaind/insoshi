@@ -40,10 +40,10 @@ class Person < ActiveRecord::Base
 
   acts_as_state_machine :initial => :pending
   state :pending
-  state :active
+  state :actived
   
   event :be_active do
-    transitions :to => :active, :from => :pending
+    transitions :to => :actived, :from => :pending
   end
 
   MAX_EMAIL = MAX_PASSWORD = SMALL_STRING_LENGTH
@@ -94,17 +94,18 @@ class Person < ActiveRecord::Base
                                             :limit => FEED_SIZE
   has_many :page_views, :order => 'created_at DESC'
   
-  validates_presence_of     :email, :on => :create
-  validates_presence_of     :email, :first_name, :name, :on => :update# ,
-  #                             :if => :active
+  validates_presence_of     :email, :on => :create,
+                                :if => :pending?
+  validates_presence_of     :email, :first_name, :name,
+                                :if => :actived?
   validates_presence_of     :password,              :if => :password_required?
   validates_presence_of     :password_confirmation, :if => :password_required?
   validates_length_of       :password, :within => 4..MAX_PASSWORD,
                                        :if => :password_required?
   validates_confirmation_of :password, :if => :password_required?
   validates_length_of       :email, :within => 6..MAX_EMAIL
-  validates_length_of       :name,  :maximum => MAX_NAME, :on => :update# ,
-  #                             :if => :active
+  validates_length_of       :name,  :maximum => MAX_NAME, :on => :update,
+                                :if => :actived?
   validates_length_of       :description, :maximum => MAX_DESCRIPTION
   validates_format_of       :email,
                             :with => EMAIL_REGEX,
