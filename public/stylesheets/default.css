@@ -1,3 +1,41 @@
-@import url(reset.css);
-@import url(typography.css);
-@import url(skin.css);
+body {
+  background: url(../images/background_squares.jpg);
+  background-repeat: repeat;
+  font: 11pt Tahoma,Georgia,Verdana,sans-serif;
+  height: 100%; }
+
+#global {
+  width: 994px;
+  margin-left: auto;
+  margin-right: auto; }
+
+#header {
+  background: url(../images/header.jpg);
+  background-repeat: no-repeat;
+  padding-left: 10px;
+  width: 994px;
+  height: 108px;
+  color: white; }
+  #header #logo {
+    width: 120px;
+    margin-top: 15px;
+    margin-left: 5px;
+    float: left; }
+  #header #searchbox {
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 413px; }
+    #header #searchbox #p_keyword {
+      width: 183px; }
+    #header #searchbox #adv_search {
+      color: white;
+      font-size: 8pt;
+      position: absolute;
+      text-decoration: none;
+      margin-top: 5px;
+      margin-left: 158px; }
+    #header #searchbox #go {
+      position: absolute;
+      margin-left: 10px;
+      margin-top: 5px;
+      width: 38px; }
