@@ -11,6 +11,10 @@ class AddAdmin < ActiveRecord::Migration
                         :description => "")
     person.admin = true
     person.save!
+    
+    # Create the admin user
+    # execute "INSERT INTO `people` (`email`, `name`, `first_name`, `crypted_password`, `state`, `description`, `admin`, `created_at`) VALUES('admin@coaliz.com', 'admin', 'user', 'ec8c99fc5e2905916dd5f467f1b6c522871b6dd3', 'active', '', 1, NOW())"
+    
   end
 
   def self.down
