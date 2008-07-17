@@ -1,21 +1,26 @@
 body {
-  background: url(../images/background_squares.jpg);
+  background-image: url(../images/background_squares.jpg);
   background-repeat: repeat;
   font: 11pt Tahoma,Georgia,Verdana,sans-serif;
   height: 100%; }
 
+/* *********Centered Page********** */
 #global {
   width: 994px;
   margin-left: auto;
   margin-right: auto; }
 
+/* *********Header elements********** */
 #header {
-  background: url(../images/header.jpg);
+  background-image: url(../images/header.jpg);
   background-repeat: no-repeat;
   padding-left: 10px;
   width: 994px;
   height: 108px;
   color: white; }
+  #header a {
+    color: white;
+    text-decoration: none; }
   #header #logo {
     width: 120px;
     margin-top: 15px;
@@ -28,14 +33,60 @@ body {
     #header #searchbox #p_keyword {
       width: 183px; }
     #header #searchbox #adv_search {
-      color: white;
       font-size: 8pt;
       position: absolute;
-      text-decoration: none;
       margin-top: 5px;
-      margin-left: 158px; }
+      margin-left: 156px; }
     #header #searchbox #go {
       position: absolute;
       margin-left: 10px;
       margin-top: 5px;
       width: 38px; }
+  #header #languages {
+    float: right;
+    margin-right: 30px;
+    margin-top: 25px; }
+    #header #languages #uk {
+      margin-right: 5px; }
+    #header #languages #fr {
+      margin-right: 5px; }
+  #header #menus {
+    padding-top: 87px; }
+    #header #menus #gallery {
+      margin-left: 132px; }
+    #header #menus #news {
+      margin-left: 157px; }
+    #header #menus #mypage {
+      margin-left: 137px; }
+    #header #menus #creativecontests {
+      margin-left: 79px; }
+    #header #menus #coaliz {
+      margin-left: 89px; }
+
+/* *********Page Content********** */
+#content {
+  background-color: #EFEFEF;
+  border: 1px solid #DDDDDD;
+  width: 988px;
+  margin-left: 2px;
+  min-height: 500px; }
+  #content #toolbox {
+    float: right;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left: 10px; }
+    #content #toolbox #login {
+      background-image: url(../images/login.jpg);
+      color: white;
+      width: 187px;
+      height: 101px;
+      margin-bottom: 10px; }
+    #content #toolbox #newproject {
+      background-image: url(../images/newproject.jpg);
+      width: 187px;
+      height: 55px;
+      margin-bottom: 10px; }
+    #content #toolbox #feedback {
+      background-image: url(../images/feedback.jpg);
+      width: 187px;
+      height: 202px; }
