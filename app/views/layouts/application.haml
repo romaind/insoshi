@@ -10,7 +10,7 @@
 
       #header
         %span
-          =image_tag ("logo.jpg", :id => "logo")
+          =link_to image_tag ("logo.jpg", :id => "logo"), :action =>"index"
         %span#searchbox
           -form_for (:search, :url => { :action => :index }) do |form|
           %label{ :for =>"p" } Search
