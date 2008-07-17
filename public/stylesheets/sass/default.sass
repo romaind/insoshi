@@ -1,22 +1,30 @@
 body
-  :background url(../images/background_squares.jpg)
-  :background-repeat repeat
+  :background
+    :image url(../images/background_squares.jpg)
+    :repeat repeat
   :font 11pt Tahoma,Georgia,Verdana,sans-serif
   :height 100%
 
+/**********Centered Page**********
 #global
   :width 994px
   :margin
     :left auto
     :right auto
 
+/**********Header elements**********
 #header
-  :background url(../images/header.jpg)
-  :background-repeat no-repeat
+  :background
+    :image url(../images/header.jpg)
+    :repeat no-repeat
   :padding-left 10px	
   :width 994px
   :height 108px
   :color white
+  
+  a
+    :color white
+    :text-decoration none
 
   #logo
     :width 120px
@@ -33,13 +41,11 @@ body
     #p_keyword
       :width 183px
     #adv_search
-      :color white
       :font-size 8pt
       :position absolute
-      :text-decoration none
       :margin
         :top 5px
-        :left 158px
+        :left 156px
     #go
       :position absolute
       :margin
@@ -48,3 +54,71 @@ body
       :width 38px
 
   #languages
+    :float right
+    :margin
+      :right 30px
+      :top 25px
+    #uk
+      :margin
+        :right 5px
+    #fr
+      :margin
+        :right 5px
+  #menus
+    :padding
+      :top 87px
+    #gallery
+      :margin
+        :left 132px
+    #news
+      :margin
+        :left 157px
+    #mypage
+      :margin
+        :left 137px
+    #creativecontests
+      :margin
+        :left 79px
+    #coaliz
+      :margin
+        :left 89px
+
+/**********Page Content**********
+#content
+  :background
+    :color #EFEFEF
+  :border 1px solid #DDDDDD
+  :width 988px
+  :margin
+    :left 2px
+  :min-height 500px
+
+  #toolbox
+    :float right
+    :margin
+      :top 10px
+      :right 10px
+      :left 10px
+
+    #login
+      :background
+        :image url(../images/login.jpg)
+      :color white
+      :width 187px
+      :height 101px
+      :margin
+        :bottom 10px
+
+    #newproject
+      :background
+        :image url(../images/newproject.jpg)
+      :width 187px
+      :height 55px
+      :margin
+        :bottom 10px
+
+    #feedback
+      :background
+        :image url(../images/feedback.jpg)
+      :width 187px
+      :height 202px

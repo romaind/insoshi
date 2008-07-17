@@ -7,6 +7,7 @@
     = javascript_include_tag :defaults
   %body
     #global
+
       #header
         %span
           =image_tag ("logo.jpg", :id => "logo")
@@ -15,7 +16,24 @@
           %label{ :for =>"p" } Search
           =text_field ("p", :keyword)
           =image_submit_tag ("go.jpg", :id => "go")
-          =link_to "Advanced search", {:controller =>"search", :action => "index"}, {:id =>"adv_search"}
+          =link_to "Advanced search", { :controller =>"search", :action => "index" }, { :id =>"adv_search" }
           -end
         %span#languages
-          
+          -form_for (:language, :url => { :action => :index }) do |form|
+          =image_submit_tag ("uk_on.jpg", :id => "uk", :onMouseOver => "this.src = 'images/uk_on.jpg'")
+          =image_submit_tag ("fr_off.jpg", :id => "fr", :title => "Coming soon", :onMouseOver => "this.src = 'images/fr_on.jpg'", :onMouseOver => "this.src = 'images/fr_off.jpg'")
+          =image_submit_tag ("es_off.jpg", :id => "es", :title => "Coming soon", :onMouseOver => "this.src = 'images/es_on.jpg'", :onMouseOver => "this.src = 'images/es_off.jpg'")
+          -end
+        #menus
+          =link_to "Gallery",{ :controller => "gallery", :action => "index" }, { :id =>"gallery" }
+          =link_to "News",{ :controller => "news", :action => "index" }, { :id =>"news" }
+          =link_to "My Page",{ :controller => "my_page", :action => "index" }, { :id =>"mypage" }
+          =link_to "Creative Contests",{ :controller => "creative_contest", :action => "index" }, { :id =>"creativecontests" }
+          =link_to "What is Coaliz ?",{ :controller => "coaliz", :action => "index" }, { :id =>"coaliz" }
+
+      #content
+        #toolbox
+          #login
+          #newproject
+          #feedback
+        =yield     
