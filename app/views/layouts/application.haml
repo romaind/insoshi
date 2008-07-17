@@ -22,8 +22,8 @@
         %span#languages
           -form_for (:language, :url => { :action => :index }) do |form|
           =image_submit_tag ("uk_on.jpg", :id => "uk", :onMouseOver => "this.src = 'images/uk_on.jpg'")
-          =image_submit_tag ("fr_off.jpg", :id => "fr", :title => "Coming soon", :onMouseOver => "this.src = 'images/fr_on.jpg'", :onMouseOver => "this.src = 'images/fr_off.jpg'")
-          =image_submit_tag ("es_off.jpg", :id => "es", :title => "Coming soon", :onMouseOver => "this.src = 'images/es_on.jpg'", :onMouseOver => "this.src = 'images/es_off.jpg'")
+          =image_submit_tag ("fr_off.jpg", :id => "fr", :title => "Coming soon", :onMouseOver => "this.src = 'images/fr_on.jpg'", :onMouseOut => "this.src = 'images/fr_off.jpg'")
+          =image_submit_tag ("es_off.jpg", :id => "es", :title => "Coming soon", :onMouseOver => "this.src = 'images/es_on.jpg'", :onMouseOut => "this.src = 'images/es_off.jpg'")
           -end
 
         #menus
