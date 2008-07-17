@@ -122,21 +122,42 @@ body {
   padding-right: 10px;
   padding-top: 10px;
   min-height: 500px; }
-  #main #content {
-    color: #333333; }
-  #main #description {
+
+/* *********Index content********** */
+#content {
+  color: #333333; }
+  #content #description {
     float: right;
     font-size: 10pt;
     width: 196px; }
-    #main #description #desc_message {
+    #content #description #desc_message {
       background-color: white;
       padding-left: 5px;
       padding-right: 5px; }
-      #main #description #desc_message h4 {
+      #content #description #desc_message h4 {
         margin-top: 0; }
-      #main #description #desc_message p {
+      #content #description #desc_message p {
         text-align: justify;
         margin-top: 20px;
         margin-bottom: 0; }
-      #main #description #desc_message p:first-letter {
+      #content #description #desc_message p:first-letter {
         margin-left: 5px; }
+
+#lastprojectstab {
+  background-image: url(../images/block2GreenTab.gif);
+  background-repeat: no-repeat;
+  background-color: #EFEFEF;
+  width: 392px;
+  height: 24px; }
+  #lastprojectstab h4 {
+    color: white;
+    font-size: 10pt;
+    padding-left: 96px;
+    padding-top: 5px; }
+
+#lastprojects {
+  background-image: url(../images/menuShadowX1.gif);
+  background-repeat: repeat-y;
+  width: 392px;
+  padding-left: 10px;
+  padding-right: 10px; }
