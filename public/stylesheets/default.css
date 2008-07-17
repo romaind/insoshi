@@ -3,6 +3,8 @@ body {
   background-repeat: repeat;
   font: 11pt Tahoma,Georgia,Verdana,sans-serif;
   height: 100%; }
+  body img {
+    border: 0; }
 
 /* *********Centered Page********** */
 #global {
@@ -81,10 +83,7 @@ body {
       width: 187px;
       height: 101px;
       margin-bottom: 10px; }
-    #content #toolbox #newproject {
-      background-image: url(../images/newproject.jpg);
-      width: 187px;
-      height: 55px;
+    #content #toolbox img {
       margin-bottom: 10px; }
     #content #toolbox #feedback {
       background-image: url(../images/feedback.jpg);
