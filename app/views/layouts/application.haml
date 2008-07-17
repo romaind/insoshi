@@ -18,12 +18,14 @@
           =image_submit_tag ("go.jpg", :id => "go")
           =link_to "Advanced search", { :controller =>"search", :action => "index" }, { :id =>"adv_search" }
           -end
+
         %span#languages
           -form_for (:language, :url => { :action => :index }) do |form|
           =image_submit_tag ("uk_on.jpg", :id => "uk", :onMouseOver => "this.src = 'images/uk_on.jpg'")
           =image_submit_tag ("fr_off.jpg", :id => "fr", :title => "Coming soon", :onMouseOver => "this.src = 'images/fr_on.jpg'", :onMouseOver => "this.src = 'images/fr_off.jpg'")
           =image_submit_tag ("es_off.jpg", :id => "es", :title => "Coming soon", :onMouseOver => "this.src = 'images/es_on.jpg'", :onMouseOver => "this.src = 'images/es_off.jpg'")
           -end
+
         #menus
           =link_to "Gallery",{ :controller => "gallery", :action => "index" }, { :id =>"gallery" }
           =link_to "News",{ :controller => "news", :action => "index" }, { :id =>"news" }
@@ -31,9 +33,27 @@
           =link_to "Creative Contests",{ :controller => "creative_contest", :action => "index" }, { :id =>"creativecontests" }
           =link_to "What is Coaliz ?",{ :controller => "coaliz", :action => "index" }, { :id =>"coaliz" }
 
-      #content
-        #toolbox
+      #main
+        %span#toolbox
           #login
+            -if !(@person.nil?)
+            = render (:partial => "person", :object => @person)
+            -else
+            %h3 Welcome Anonymous
+            -end
           =link_to image_tag ("newproject.jpg"), { :controller =>"newproject", :action => "index" },{ :id => "newproject" }
           #feedback
-        =yield     
+            #title
+              LEAVE A FEEDBACK
+            #subtitle
+              REPORT A BUG
+            #formbody
+              -form_for (:feedback, :url => { :action => :index }) do |form|
+              %textarea#feedback_message
+              #thanks	
+                =image_submit_tag ("send.jpg", :id =>"send")
+                Thank you !
+              -end
+
+        %span#content
+          =yield     
