@@ -66,26 +66,57 @@ body {
       margin-left: 89px; }
 
 /* *********Page Content********** */
-#content {
+#main {
   background-color: #EFEFEF;
   border: 1px solid #DDDDDD;
-  width: 988px;
+  width: 968px;
   margin-left: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
   min-height: 500px; }
-  #content #toolbox {
+  #main #toolbox {
     float: right;
     margin-top: 10px;
-    margin-right: 10px;
     margin-left: 10px; }
-    #content #toolbox #login {
+    #main #toolbox #login {
       background-image: url(../images/login.jpg);
+      background-repeat: no-repeat;
       color: white;
+      text-align: right;
       width: 187px;
       height: 101px;
+      padding-top: 10px; }
+      #main #toolbox #login h3 {
+        font-size: 8pt;
+        font-weight: normal;
+        padding: 0;
+        padding-right: 10px;
+        margin: 0;
+        margin-bottom: 5px; }
+    #main #toolbox img {
       margin-bottom: 10px; }
-    #content #toolbox img {
-      margin-bottom: 10px; }
-    #content #toolbox #feedback {
+    #main #toolbox #feedback {
       background-image: url(../images/feedback.jpg);
+      background-repeat: no-repeat;
       width: 187px;
       height: 202px; }
+      #main #toolbox #feedback #title {
+        margin-left: 30px;
+        padding-top: 10px;
+        color: white; }
+      #main #toolbox #feedback #subtitle {
+        margin-left: 45px;
+        color: white; }
+      #main #toolbox #feedback #formbody {
+        padding-top: 5px;
+        margin-left: 20px;
+        font-size: 8pt; }
+        #main #toolbox #feedback #formbody #feedback_message {
+          width: 145px;
+          height: 100px;
+          margin-bottom: 15px; }
+        #main #toolbox #feedback #formbody #thanks {
+          color: #FF9900; }
+        #main #toolbox #feedback #formbody #send {
+          float: right;
+          margin-right: 20px; }

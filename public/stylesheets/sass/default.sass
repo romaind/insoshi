@@ -87,30 +87,45 @@ body
         :left 89px
 
 /**********Page Content**********
-#content
+#main
   :background
     :color #EFEFEF
   :border 1px solid #DDDDDD
-  :width 988px
+  :width 968px
   :margin
     :left 2px
+  :padding
+    :left 10px
+    :right 10px
   :min-height 500px
 
   #toolbox
     :float right
     :margin
       :top 10px
-      :right 10px
       :left 10px
 
     #login
       :background
         :image url(../images/login.jpg)
+        :repeat no-repeat
       :color white
+      :text-align right
       :width 187px
       :height 101px
-      :margin
-        :bottom 10px
+      :padding
+        :top 10px
+
+      h3
+        :font
+          :size 8pt
+          :weight normal
+        :padding 0
+        :padding
+          :right 10px
+        :margin 0
+        :margin
+          :bottom 5px
 
     img
       :margin
@@ -119,5 +134,40 @@ body
     #feedback
       :background
         :image url(../images/feedback.jpg)
+        :repeat no-repeat
       :width 187px
       :height 202px
+
+      #title
+        :margin
+          :left 30px
+        :padding
+          :top 10px
+        :color white
+
+      #subtitle
+        :margin
+          :left 45px
+        :color white
+
+     
+      #formbody
+        :padding
+          :top 5px
+        :margin
+          :left 20px
+        :font
+          :size 8pt
+
+        #feedback_message
+          :width 145px
+          :height 100px
+          :margin
+            :bottom 15px
+
+        #thanks
+          :color #FF9900
+        #send
+          :float right
+          :margin
+            :right 20px
