@@ -34,6 +34,6 @@
       #content
         #toolbox
           #login
-          #newproject
+          =link_to image_tag ("newproject.jpg"), { :controller =>"newproject", :action => "index" },{ :id => "newproject" }
           #feedback
         =yield     
