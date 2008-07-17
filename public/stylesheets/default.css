@@ -213,3 +213,13 @@ body {
   text-align: right; }
   #lastproject #lastprojectbottom a {
     color: #333333; }
+  #main #description {
+    float: right;
+    font-size: 10pt;
+    width: 196px; }
+    #main #description #desc_message {
+      background-color: white;
+      padding-left: 5px;
+      padding-right: 5px; }
+      #main #description #desc_message h4 {
+        margin-top: 0; }
