@@ -7,6 +7,8 @@ body
 
   img
     :border 0
+    :margin 0
+    :padding 0
 
 /**********Centered Page**********
 #global
@@ -86,6 +88,22 @@ body
       :margin
         :left 89px
 
+
+/**********Page content**********
+#main
+  :background
+    :color #EFEFEF
+  :border 1px solid #DDDDDD
+  :width 968px
+  :margin
+    :left 2px
+  :padding
+    :left 10px
+    :right 10px
+    :top 20px
+    :bottom 10px
+  :min-height 500px
+
 /**********Toolbox**********
 #toolbox
   :float right
@@ -158,21 +176,6 @@ body
         :margin
           :right 20px
 
-/**********Page content**********
-#main
-  :background
-    :color #EFEFEF
-  :border 1px solid #DDDDDD
-  :width 968px
-  :margin
-    :left 2px
-  :padding
-    :left 10px
-    :right 10px
-    :top 10px
-    :bottom 10px
-  :min-height 500px
-
 /**********Index content**********
 #content
   :color #333333
@@ -204,11 +207,12 @@ body
           :bottom 0
 
       p:first-letter
-        :margin-left 5px
+        :margin
+          :left 5px
 
 #lastprojectstab
   :background
-    :image url(../images/block2GreenTab.gif)
+    :image url(../images/lastproj_tab.gif)
     :repeat no-repeat
     :color #EFEFEF
   :width 392px
@@ -223,18 +227,22 @@ body
       :top 5px
 #lastprojects
   :background
-    :image url(../images/menuShadowX1.gif)
-    :repeat repeat-y
-  :width 392px
+    :color white
+  :border
+    :left 1px solid #DDDDDD
+    :right 1px solid #DDDDDD
+  :width 370px
   :padding
     :left 10px
     :right 10px
+    :top 10px
 
   p
     :text-align justify
-    :margin
-      :top 20px
-      :bottom 10px
+    :margin 0
+    :padding
+      :bottom 5px
+      :top 5px
 
   p:first-letter
-    :margin-left 5px
+    :margin-left 20px
