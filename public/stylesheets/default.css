@@ -71,10 +71,10 @@ body {
 #main {
   background-color: #EFEFEF;
   border: 1px solid #DDDDDD;
-  width: 968px;
+  width: 976px;
   margin-left: 2px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
   padding-top: 20px;
   padding-bottom: 10px;
   min-height: 500px; }
@@ -82,7 +82,8 @@ body {
 /* *********Toolbox********** */
 #toolbox {
   float: right;
-  margin-left: 10px; }
+  margin-left: 7px;
+  margin-right: 3px; }
   #toolbox #login {
     background-image: url(../images/login.jpg);
     background-repeat: no-repeat;
@@ -132,13 +133,14 @@ body {
   #content #description {
     float: right;
     font-size: 10pt;
-    width: 196px; }
+    width: 190px; }
     #content #description #desc_message {
       background-color: white;
       border-left: 1px solid #DDDDDD;
       border-right: 1px solid #DDDDDD;
       padding-left: 5px;
-      padding-right: 5px; }
+      padding-right: 5px;
+      height: 395px; }
       #content #description #desc_message h4 {
         margin-top: 0; }
       #content #description #desc_message p {
@@ -174,3 +176,11 @@ body {
     padding-top: 5px; }
   #lastproject #lastprojects_content p:first-letter {
     margin-left: 20px; }
+#lastproject #lastprojectbottom {
+  background-image: url(../images/lastproj_bottom.gif);
+  background-repeat: no-repeat;
+  width: 392px;
+  height: 24px;
+  text-align: right; }
+  #lastproject #lastprojectbottom a {
+    color: #333333; }
