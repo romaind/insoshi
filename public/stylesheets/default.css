@@ -233,7 +233,7 @@ body {
         margin-left: 5px; }
 
 #lastprojectstab {
-  background-image: url(../images/block2GreenTab.gif);
+  background-image: url(../images/lastproj_tab.gif);
   background-repeat: no-repeat;
   background-color: #EFEFEF;
   width: 392px;
@@ -245,9 +245,10 @@ body {
     padding-top: 5px; }
 
 #lastprojects {
-  background-image: url(../images/menuShadowX1.gif);
-  background-repeat: repeat-y;
-  width: 392px;
+  background-color: white;
+  border-left: 1px solid #DDDDDD;
+  border-right: 1px solid #DDDDDD;
+  width: 370px;
   padding-left: 10px;
   padding-right: 10px; }
 
