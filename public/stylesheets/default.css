@@ -219,6 +219,8 @@ body {
     width: 196px; }
     #content #description #desc_message {
       background-color: white;
+      border-left: 1px solid #DDDDDD;
+      border-right: 1px solid #DDDDDD;
       padding-left: 5px;
       padding-right: 5px; }
       #content #description #desc_message h4 {
