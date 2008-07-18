@@ -34,10 +34,23 @@
           =link_to "What is Coaliz ?",{ :controller => "coaliz", :action => "index" }, { :id =>"coaliz" }
 
       #main
+        -if logged_in?
         %span#toolbox
           #login
-            -if !(@person.nil?)
-            = render (:partial => "person", :object => @person)
+            Welcome,
+            =h current_person.name
+            =link_to "Sign out", logout_path
+            -if current_person.admin?
+              -if admin_view?
+                =link_to "Standard view", home_path
+              -else
+                =link_to "Admin view", admin_preferences_path
+        -else
+        %span#toolbox
+          #login
+            =link_to "Sign in", login_path
+            -if global_prefs.can_send_mail?
+              =link_to "I forgot my password", new_password_reminder_path
             -else
             %h3 Welcome Anonymous
             -end
@@ -48,10 +61,9 @@
               REPORT A BUG
             #formbody
               -form_for (:feedback, :url => { :action => :index }) do |form|
-              %textarea#feedback_message
-              #thanks	
+                %textarea#feedback_message
+                #thanks	
                 =image_submit_tag ("send.jpg", :id =>"send")
-                Thank you !
               -end
 
         %span#content
