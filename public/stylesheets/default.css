@@ -148,19 +148,18 @@ body {
       #content #description #desc_message p:first-letter {
         margin-left: 5px; }
 
-#lastprojectstab {
+#lastproject #lastprojectstab {
   background-image: url(../images/lastproj_tab.gif);
   background-repeat: no-repeat;
   background-color: #EFEFEF;
   width: 392px;
   height: 24px; }
-  #lastprojectstab h4 {
+  #lastproject #lastprojectstab h4 {
     color: white;
     font-size: 10pt;
     padding-left: 96px;
     padding-top: 5px; }
-
-#lastprojects {
+#lastproject #lastprojects_content {
   background-color: white;
   border-left: 1px solid #DDDDDD;
   border-right: 1px solid #DDDDDD;
@@ -168,10 +167,10 @@ body {
   padding-left: 10px;
   padding-right: 10px;
   padding-top: 10px; }
-  #lastprojects p {
+  #lastproject #lastprojects_content p {
     text-align: justify;
     margin: 0;
     padding-bottom: 5px;
     padding-top: 5px; }
-  #lastprojects p:first-letter {
+  #lastproject #lastprojects_content p:first-letter {
     margin-left: 20px; }
