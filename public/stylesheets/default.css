@@ -222,7 +222,8 @@ body {
       border-left: 1px solid #DDDDDD;
       border-right: 1px solid #DDDDDD;
       padding-left: 5px;
-      padding-right: 5px; }
+      padding-right: 5px;
+      height: 395px; }
       #content #description #desc_message h4 {
         margin-top: 0; }
       #content #description #desc_message p {
