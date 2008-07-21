@@ -12,12 +12,7 @@
         %span
           =link_to image_tag ("logo.jpg", :id => "logo"), { :controller => "home", :action =>"index" }
         %span#searchbox
-          -form_for (:search, :url => { :action => :index }) do |form|
-          %label{ :for =>"p" } Search
-          =text_field ("p", :keyword)
-          =image_submit_tag ("go.jpg", :id => "go")
-          =link_to "Advanced search", { :controller =>"search", :action => "index" }, { :id =>"adv_search" }
-          -end
+          = render :partial => "searches/box", :locals => { :search => @searches }
 
         %span#languages
           -form_for (:language, :url => { :action => :index }) do |form|
