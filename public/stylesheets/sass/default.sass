@@ -88,21 +88,20 @@ body
       :margin
         :left 89px
 
-
-/**********Page content**********
-#main
+#submenus
   :background
-    :color #EFEFEF
-  :border 1px solid #DDDDDD
-  :width 976px
+    :color white
+  :border
+    :left 1px solid #DDDDDD
+    :right 1px solid #DDDDDD
+  :width 967px
+  :height 20px
   :margin
     :left 2px
+    :right auto
   :padding
-    :left 5px
-    :right 5px
-    :top 20px
-    :bottom 10px
-  :min-height 500px
+    :left 10px
+    :right 10px
 
 /**********Toolbox**********
 #toolbox
@@ -140,13 +139,44 @@ body
     :text-align right
     :width 187px
     :height 162px
-    :padding
-      :top 10px
+    :margin
+      :bottom 10px
 
-    h4
+    #member_title
       :margin
         :top 0
+        :right 10px
         :bottom 10px
+      :font
+        :size 10pt
+
+    .form_row
+      :margin
+        :right 10px
+        :bottom 2px
+      :font
+        :size 8pt
+
+    #forgot
+      :font
+        :size 8pt
+      :margin
+        :top 5px
+        :bottom 10px
+        :right 10px
+
+    #go_button
+      :float right
+      :margin
+        :left 15px
+
+    .remember
+      :margin
+        :left 10px
+
+    a
+      :color white
+      :text-decoration none
   img
     :margin
       :bottom 10px
@@ -196,7 +226,7 @@ body
   :background
     :color #EFEFEF
   :border 1px solid #DDDDDD
-  :width 968px
+  :width 974px
   :margin
     :top 10px
     :left 10px
@@ -242,6 +272,11 @@ body
         :margin
           :left 5px
 
+      .sign
+        :width 160px
+        :margin
+          :bottom 10px
+
 #lastproject
 
   #lastprojectstab
@@ -249,6 +284,6 @@ body
       :image url(../images/lastproj_tab.gif)
       :repeat no-repeat
       :color #EFEFEF
-    :width 392px
+    :width 780px
     :height 24px
 
