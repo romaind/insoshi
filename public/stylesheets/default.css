@@ -99,6 +99,17 @@ body {
       padding-right: 10px;
       margin: 0;
       margin-bottom: 5px; }
+  #toolbox #signin {
+    background-image: url(../images/signin.gif);
+    background-repeat: no-repeat;
+    color: white;
+    text-align: right;
+    width: 187px;
+    height: 162px;
+    padding-top: 10px; }
+    #toolbox #signin h4 {
+      margin-top: 0;
+      margin-bottom: 10px; }
   #toolbox img {
     margin-bottom: 10px; }
   #toolbox #feedback {
