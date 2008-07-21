@@ -1,0 +1,64 @@
+-if logged_in?
+  %span#toolbox
+    #login
+      #login_content
+        %h3
+          Welcome,
+          =h current_person.name
+        =link_to "Sign out", logout_path
+        -if current_person.admin?
+          -if admin_view?
+            =link_to "Standard view", home_path
+          -else
+            =link_to "Admin view", admin_preferences_path
+    =link_to image_tag("newproject.jpg")
+    #feedback
+      #title
+        LEAVE A FEEDBACK
+      #subtitle
+        REPORT A BUG
+      #formbody
+        -form_for (:feedback, :url => { :action => :index }) do |form|
+          %textarea#feedback_message
+          #thanks	
+          =image_submit_tag ("send.jpg", :id =>"send")
+-else
+  %span#toolbox
+    #signin
+      -column_div :type => :primary do
+        #member_title Already member ?
+        -form_tag session_path do
+          .form_row
+            %label{ :for => "username" } Email address
+            =text_field_tag ('email', params[:email], :maxlength => Person::MAX_EMAIL)
+
+          =set_focus_to_id "email"
+          .form_row
+            %label{ :for => "password" }Password
+            =password_field_tag 'password', params[:password], :maxlength => Person::MAX_PASSWORD
+
+          %p{ :id => "forgot" }
+            = link_to "I forgot my password!", new_password_reminder_path
+
+          .form_row
+            = image_submit_tag 'signin_butt.gif', :id => "go_button"
+
+          .form_row
+            %label{ :for => "remember_me", :class =>"checkbox" }Remember me:
+            =check_box_tag 'remember_me', '1', true, :class => "checkbox"
+
+    -if global_prefs.can_send_mail?
+      =link_to "I forgot my password", new_password_reminder_path
+    -else
+      =link_to image_tag("signup.gif"), signup_path
+
+    #feedback
+      #title
+        LEAVE A FEEDBACK
+      #subtitle
+        REPORT A BUG
+      #formbody
+        -form_for (:feedback, :url => { :action => :index }) do |form|
+          %textarea#feedback_message
+          #thanks	
+          =image_submit_tag ("send.jpg", :id =>"send")
