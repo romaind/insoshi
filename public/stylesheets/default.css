@@ -40,7 +40,7 @@ body {
       font-size: 8pt;
       position: absolute;
       margin-top: 5px;
-      margin-left: 156px; }
+      margin-left: 123px; }
     #header #searchbox #go {
       position: absolute;
       margin-left: 10px;
@@ -90,13 +90,17 @@ body {
     width: 187px;
     height: 101px;
     padding-top: 10px; }
+    #toolbox #login #login_content {
+      padding-right: 10px; }
     #toolbox #login h3 {
-      font-size: 8pt;
+      font-size: 10pt;
       font-weight: normal;
       padding: 0;
-      padding-right: 10px;
       margin: 0;
       margin-bottom: 5px; }
+    #toolbox #login a {
+      color: white;
+      font-size: 8pt; }
   #toolbox #signin {
     background-image: url(../images/signin.gif);
     background-repeat: no-repeat;
