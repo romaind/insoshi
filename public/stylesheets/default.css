@@ -73,11 +73,9 @@ body {
   border: 1px solid #DDDDDD;
   width: 976px;
   margin-left: 2px;
-  padding-left: 5px;
-  padding-right: 5px;
-  padding-top: 20px;
-  padding-bottom: 10px;
-  min-height: 500px; }
+  margin-right: auto;
+  padding-left: 10px;
+  padding-right: 10px; }
 
 /* *********Toolbox********** */
 #toolbox {
@@ -106,8 +104,8 @@ body {
     text-align: right;
     width: 187px;
     height: 162px;
-    padding-top: 10px; }
-    #toolbox #signin h4 {
+    margin-bottom: 10px; }
+    #toolbox #signin #member_title {
       margin-top: 0;
       margin-bottom: 10px; }
   #toolbox img {
@@ -160,12 +158,15 @@ body {
         margin-bottom: 0; }
       #content #description #desc_message p:first-letter {
         margin-left: 5px; }
+      #content #description #desc_message .sign {
+        width: 160px;
+        margin-bottom: 10px; }
 
 #lastproject #lastprojectstab {
   background-image: url(../images/lastproj_tab.gif);
   background-repeat: no-repeat;
   background-color: #EFEFEF;
-  width: 392px;
+  width: 780px;
   height: 24px; }
   #lastproject #lastprojectstab h4 {
     color: white;
@@ -176,21 +177,34 @@ body {
   background-color: white;
   border-left: 1px solid #DDDDDD;
   border-right: 1px solid #DDDDDD;
-  width: 370px;
-  padding-left: 10px;
-  padding-right: 10px;
+  width: 773px;
+  height: 470px;
+  padding-left: 5px;
   padding-top: 10px; }
-  #lastproject #lastprojects_content p {
-    text-align: justify;
-    margin: 0;
-    padding-bottom: 5px;
-    padding-top: 5px; }
-  #lastproject #lastprojects_content p:first-letter {
-    margin-left: 20px; }
+  #lastproject #lastprojects_content .lastprojects {
+    float: left;
+    margin-right: 5px;
+    margin-top: 10px;
+    width: 188px;
+    background-color: #EFEFEF;
+    text-align: right; }
+    #lastproject #lastprojects_content .lastprojects h4 {
+      color: #20A420;
+      margin-top: 0;
+      margin-bottom: 5px; }
+    #lastproject #lastprojects_content .lastprojects .details {
+      font-size: 8pt;
+      line-height: 2em;
+      padding-right: 10px; }
+    #lastproject #lastprojects_content .lastprojects .category {
+      font-size: 8pt;
+      background-color: #20A420;
+      color: white;
+      padding-right: 10px; }
 #lastproject #lastprojectbottom {
   background-image: url(../images/lastproj_bottom.gif);
   background-repeat: no-repeat;
-  width: 392px;
+  width: 780px;
   height: 24px;
   text-align: right; }
   #lastproject #lastprojectbottom a {
