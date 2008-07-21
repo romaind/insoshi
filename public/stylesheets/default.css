@@ -4,13 +4,9 @@ body {
   font: 11pt Tahoma,Georgia,Verdana,sans-serif;
   height: 100%; }
   body img {
-<<<<<<< HEAD:public/stylesheets/default.css
     border: 0;
     margin: 0;
     padding: 0; }
-=======
-    border: 0; }
->>>>>>> 7aa1a100210e99dd7b7cd0c3d9cde91eed719d5a:public/stylesheets/default.css
 
 /* *********Centered Page********** */
 #global {
@@ -71,30 +67,21 @@ body {
     #header #menus #coaliz {
       margin-left: 89px; }
 
-<<<<<<< HEAD:public/stylesheets/default.css
-/* *********Page content********** */
-#main {
-  background-color: #EFEFEF;
-  border: 1px solid #DDDDDD;
-  width: 976px;
+#submenus {
+  background-color: white;
+  border-left: 1px solid #DDDDDD;
+  border-right: 1px solid #DDDDDD;
+  width: 967px;
+  height: 20px;
   margin-left: 2px;
-  padding-left: 5px;
-  padding-right: 5px;
-  padding-top: 20px;
-  padding-bottom: 10px;
-  min-height: 500px; }
+  margin-right: auto;
+  padding-left: 10px;
+  padding-right: 10px; }
 
 /* *********Toolbox********** */
 #toolbox {
   float: right;
-  margin-left: 7px;
-  margin-right: 3px; }
-=======
-/* *********Toolbox********** */
-#toolbox {
-  float: right;
-  margin-left: 10px; }
->>>>>>> 7aa1a100210e99dd7b7cd0c3d9cde91eed719d5a:public/stylesheets/default.css
+  margin-left: 7px; }
   #toolbox #login {
     background-image: url(../images/login.jpg);
     background-repeat: no-repeat;
@@ -110,7 +97,6 @@ body {
       padding-right: 10px;
       margin: 0;
       margin-bottom: 5px; }
-<<<<<<< HEAD:public/stylesheets/default.css
   #toolbox #signin {
     background-image: url(../images/signin.gif);
     background-repeat: no-repeat;
@@ -118,12 +104,29 @@ body {
     text-align: right;
     width: 187px;
     height: 162px;
-    padding-top: 10px; }
-    #toolbox #signin h4 {
+    margin-bottom: 10px; }
+    #toolbox #signin #member_title {
       margin-top: 0;
-      margin-bottom: 10px; }
-=======
->>>>>>> 7aa1a100210e99dd7b7cd0c3d9cde91eed719d5a:public/stylesheets/default.css
+      margin-right: 10px;
+      margin-bottom: 10px;
+      font-size: 10pt; }
+    #toolbox #signin .form_row {
+      margin-right: 10px;
+      margin-bottom: 2px;
+      font-size: 8pt; }
+    #toolbox #signin #forgot {
+      font-size: 8pt;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      margin-right: 10px; }
+    #toolbox #signin #go_button {
+      float: right;
+      margin-left: 15px; }
+    #toolbox #signin .remember {
+      margin-left: 10px; }
+    #toolbox #signin a {
+      color: white;
+      text-decoration: none; }
   #toolbox img {
     margin-bottom: 10px; }
   #toolbox #feedback {
@@ -152,27 +155,25 @@ body {
         float: right;
         margin-right: 20px; }
 
-<<<<<<< HEAD:public/stylesheets/default.css
-=======
 /* *********Page content********** */
 #main {
   background-color: #EFEFEF;
   border: 1px solid #DDDDDD;
-  width: 968px;
+  width: 974px;
   margin-left: 2px;
-  padding-left: 10px;
+  margin-right: auto;
+  padding-left: 3px;
   padding-right: 10px;
-  padding-top: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   min-height: 500px; }
 
->>>>>>> 7aa1a100210e99dd7b7cd0c3d9cde91eed719d5a:public/stylesheets/default.css
 /* *********Index content********** */
 #content {
   color: #333333; }
   #content #description {
     float: right;
     font-size: 10pt;
-<<<<<<< HEAD:public/stylesheets/default.css
     width: 190px; }
     #content #description #desc_message {
       background-color: white;
@@ -180,14 +181,11 @@ body {
       border-right: 1px solid #DDDDDD;
       padding-left: 5px;
       padding-right: 5px;
-      height: 395px; }
-=======
-    width: 196px; }
-    #content #description #desc_message {
-      background-color: white;
-      padding-left: 5px;
-      padding-right: 5px; }
->>>>>>> 7aa1a100210e99dd7b7cd0c3d9cde91eed719d5a:public/stylesheets/default.css
+      height: 395px;
+      text-align: right; }
+      #content #description #desc_message h2 {
+        margin-top: 0;
+        text-align: center; }
       #content #description #desc_message h4 {
         margin-top: 0; }
       #content #description #desc_message p {
@@ -196,57 +194,55 @@ body {
         margin-bottom: 0; }
       #content #description #desc_message p:first-letter {
         margin-left: 5px; }
+      #content #description #desc_message .sign {
+        width: 160px;
+        margin-bottom: 10px; }
 
-<<<<<<< HEAD:public/stylesheets/default.css
 #lastproject #lastprojectstab {
   background-image: url(../images/lastproj_tab.gif);
-=======
-#lastprojectstab {
-  background-image: url(../images/block2GreenTab.gif);
->>>>>>> 7aa1a100210e99dd7b7cd0c3d9cde91eed719d5a:public/stylesheets/default.css
   background-repeat: no-repeat;
   background-color: #EFEFEF;
-  width: 392px;
+  width: 780px;
   height: 24px; }
-<<<<<<< HEAD:public/stylesheets/default.css
   #lastproject #lastprojectstab h4 {
-=======
-  #lastprojectstab h4 {
->>>>>>> 7aa1a100210e99dd7b7cd0c3d9cde91eed719d5a:public/stylesheets/default.css
     color: white;
     font-size: 10pt;
     padding-left: 96px;
     padding-top: 5px; }
-<<<<<<< HEAD:public/stylesheets/default.css
 #lastproject #lastprojects_content {
   background-color: white;
   border-left: 1px solid #DDDDDD;
   border-right: 1px solid #DDDDDD;
-  width: 370px;
-  padding-left: 10px;
-  padding-right: 10px;
+  width: 773px;
+  height: 470px;
+  padding-left: 5px;
   padding-top: 10px; }
-  #lastproject #lastprojects_content p {
-    text-align: justify;
-    margin: 0;
-    padding-bottom: 5px;
-    padding-top: 5px; }
-  #lastproject #lastprojects_content p:first-letter {
-    margin-left: 20px; }
+  #lastproject #lastprojects_content .lastprojects {
+    float: left;
+    margin-right: 5px;
+    margin-top: 10px;
+    width: 188px;
+    background-color: #EFEFEF;
+    text-align: right; }
+    #lastproject #lastprojects_content .lastprojects h4 {
+      color: #20A420;
+      margin-top: 0;
+      margin-bottom: 5px; }
+    #lastproject #lastprojects_content .lastprojects .details {
+      font-size: 8pt;
+      line-height: 2em;
+      padding-right: 10px; }
+    #lastproject #lastprojects_content .lastprojects .category {
+      font-size: 8pt;
+      background-color: #20A420;
+      color: white;
+      padding-right: 10px; }
 #lastproject #lastprojectbottom {
   background-image: url(../images/lastproj_bottom.gif);
   background-repeat: no-repeat;
-  width: 392px;
+  width: 780px;
   height: 24px;
   text-align: right; }
   #lastproject #lastprojectbottom a {
-    color: #333333; }
-=======
-
-#lastprojects {
-  background-image: url(../images/menuShadowX1.gif);
-  background-repeat: repeat-y;
-  width: 392px;
-  padding-left: 10px;
-  padding-right: 10px; }
->>>>>>> 7aa1a100210e99dd7b7cd0c3d9cde91eed719d5a:public/stylesheets/default.css
+    color: #333333;
+    padding-right: 10px; }
