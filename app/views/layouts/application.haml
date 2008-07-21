@@ -77,6 +77,14 @@
               =link_to "I forgot my password", new_password_reminder_path
             -else
           =link_to image_tag("signup.gif"), signup_path
+        %span#toolbox
+          #login
+            -if !(@person.nil?)
+            = render (:partial => "person", :object => @person)
+            -else
+            %h3 Welcome Anonymous
+            -end
+          =link_to image_tag ("newproject.jpg"), { :controller =>"newproject", :action => "index" },{ :id => "newproject" }
           #feedback
             #title
               LEAVE A FEEDBACK
@@ -87,6 +95,14 @@
                 %textarea#feedback_message
                 #thanks	
                 =image_submit_tag ("send.jpg", :id =>"send")
+              -end
+
+        %span#content
+          =yield
+              %textarea#feedback_message
+              #thanks	
+                =image_submit_tag ("send.jpg", :id =>"send")
+                Thank you !
               -end
 
         %span#content
