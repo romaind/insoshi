@@ -24,7 +24,7 @@
         #menus
           =link_to "Gallery",{ :controller => "gallery", :action => "index" }, { :id =>"gallery" }
           =link_to "News",{ :controller => "news", :action => "index" }, { :id =>"news" }
-          =link_to "My Page",{ :controller => "my_page", :action => "index" }, { :id =>"mypage" }
+          =link_to "My Page",my_page_path, { :id =>"mypage" }
           =link_to "Creative Contests",{ :controller => "creative_contest", :action => "index" }, { :id =>"creativecontests" }
           =link_to "What is Coaliz ?",{ :controller => "coaliz", :action => "index" }, { :id =>"coaliz" }
 
