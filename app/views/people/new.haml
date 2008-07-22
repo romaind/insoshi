@@ -29,7 +29,10 @@
             Confirm Password :
           %br
           =f.password_field :password_confirmation, :maxlength => Person::MAX_PASSWORD, :value => "", :class => "sign"
-   
+ 
+        .form_row
+          =show_simple_captcha
+
         .form_row
           =image_submit_tag 'go_button_white.jpg', :class => "button"
   
