@@ -81,7 +81,8 @@ body {
 /* *********Toolbox********** */
 #toolbox {
   float: right;
-  margin-left: 7px; }
+  margin-left: 7px;
+  margin-right: 3px; }
   #toolbox #login {
     background-image: url(../images/login.jpg);
     background-repeat: no-repeat;
