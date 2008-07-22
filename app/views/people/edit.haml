@@ -1,0 +1,145 @@
+-column_div :type => :primary do
+  #data_title
+    %h2 My Personal Data
+
+  #profile_edit
+    %h3 Personal details
+
+    = error_messages_for :person
+    
+    -form_for @person do |f|
+
+      .form_row
+        %label{ :for => "person_sponsor" } Sponsor
+        = f.text_field :sponsor
+
+      .form_row
+        %label{ :for => "person_birthdate" } Birth Date
+        = f.date_select :birthdate, :order => [:day, :month, :year], :start_year => 1900, :end_year => Date.today.year
+
+      .form_row
+        %label{ :for => "person_sex" } Gender :
+        = f.radio_button :sex, 'Man'
+        = f.radio_button :sex, 'Woman'
+
+      .form_row
+        %label{ :for => "person_first_name" } First Name
+        = f.text_field :first_name
+
+      .form_row
+        %label{ :for => "person_name" } Last Name
+        = f.text_field :name, :maxlength => Person::MAX_NAME
+
+
+      .form_row
+        %label{ :for => "person_email" } Email
+        = f.text_field :email, :maxlength => Person::MAX_EMAIL
+
+      .form_row
+        %label{ :for => "person_description" } Description
+    
+        -unless @preview.nil?
+          = display @preview
+        
+        %p
+          = formatting_note
+        = f.text_area :description
+      
+      .form_row
+        %label{ :for => "person_adress" } Address
+        = f.text_field :address
+      
+      .form_row
+        %label{ :for => "person_zipcode" } Zipcode
+        = f.text_field :zipcode
+      
+      .form_row
+        %label{ :for => "person_city" } City
+        = f.text_field :city
+
+      -if global_prefs.email_notifications?
+      
+        %h3 Email notification preferences
+
+        %p
+          You will receive email notifications
+          for each event type whose box is checked.
+
+
+        .form_row
+          %p
+            %label{ :for => "connection_notifications", :class => "checkbox" } Connections:
+            = f.check_box :connection_notifications
+          %p
+            %label{ :for => "message_notifications", :class => "checkbox" } Messages:
+            = f.check_box :message_notifications
+          %p
+            %label{ :for => "wall_comment_notifications", :class => "checkbox" } Wall comments:
+            = f.check_box :wall_comment_notifications
+          %p
+            %label{ :for => "blog_comment_notifications", :class => "checkbox" } Blog comments:
+            = f.check_box :blog_comment_notifications
+      
+      %br
+  
+      .form_row
+        = f.submit "Update", :class => "button"
+        = f.submit "Preview", :id => "preview", :class => "button"
+
+      %input{ :type => "hidden", :name => "type", :value => "info_edit"}
+  -end
+
+  %br
+
+  %h3 Photos
+  
+  -if @person.photos.empty?
+  = image_tag @person.thumbnail
+  -else
+  %table
+    -@person.sorted_photos.collect_every(N_COLUMNS) do |row|
+    %tr
+      -row.each do |photo|
+      %td{ :style => "padding-left: 1em;" }
+        = image_tag photo.public_filename(:thumbnail)
+      -end
+    %tr
+      -row.each do |photo|
+      %td{ :style => "padding-left: 1em;" }
+        -if photo.primary?
+        primary
+        -else
+        = link_to "select", photo_path(photo), :method => :put
+        |
+        = link_to image_tag("icons/close.gif"), photo_path(photo), :method => :delete
+      -end
+  %br
+  = button_to "Add a photo", new_photo_path, :class => "button"
+
+  %br
+
+  -form_for @person, :html => { :id => "change_password" } do |f|
+
+    %h3 Change Password
+
+    .form_row
+      %label{ :for => "password" } Current Password
+      = f.password_field :verify_password, :maxlength => Person::MAX_PASSWORD
+
+    .form_row
+      %label{ :for => "password" } New Password
+      = f.password_field :new_password, :maxlength => Person::MAX_PASSWORD
+
+    .form_row
+      %label{ :for => "password_confirmation" } Confirm Password
+      = f.password_field :password_confirmation, :maxlength => Person::MAX_PASSWORD, :value => ""
+
+    .form_row
+      = submit_tag 'Change password', :class => "button"
+
+    %input{ :type => "hidden", :name => "type", :value => "password_edit" }
+-end
+
+-column_div :type => :secondary do
+  = render :partial => 'searches/box'
+-end
