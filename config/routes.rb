@@ -43,6 +43,7 @@ ActionController::Routing::Routes.draw do |map|
     end
   end
   
+  map.simple_captcha '/simple_captcha/:action', :controller => 'simple_captcha'
   map.signup '/signup', :controller => 'people', :action => 'new'
   map.login '/login', :controller => 'sessions', :action => 'new'
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
