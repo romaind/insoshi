@@ -2,6 +2,7 @@ class CreatePeople < ActiveRecord::Migration
   def self.up
     create_table "people", :force => true do |t|
       t.string   :email, :name, :first_name, :remember_token, :crypted_password
+      t.string   :state, :null => :no, :default => 'pending'
       t.text     :description
       t.datetime :remember_token_expires_at,
                  :last_contacted_at,
