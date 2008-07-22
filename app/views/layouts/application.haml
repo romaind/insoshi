@@ -33,4 +33,6 @@
         =render :partial => "home/toolbox"
 
         %span#content
+          -flash.each do |key, msg|
+            = content_tag :p, msg, :class => "flash #{key}"
           =yield

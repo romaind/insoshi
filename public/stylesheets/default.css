@@ -167,7 +167,7 @@ body {
   width: 974px;
   margin-left: 2px;
   margin-right: auto;
-  padding-left: 3px;
+  padding-left: 5px;
   padding-right: 10px;
   padding-top: 20px;
   padding-bottom: 20px;
@@ -251,3 +251,82 @@ body {
   #lastproject #lastprojectbottom a {
     color: #333333;
     padding-right: 10px; }
+
+/* *********Password reminder content********** */
+#reminder_tab {
+  background-image: url(../images/personaldata_tab.gif);
+  width: 387px;
+  height: 24px; }
+  #reminder_tab h4 {
+    color: white;
+    margin: 0;
+    padding-top: 5px;
+    padding-left: 50px;
+    padding-bottom: 0;
+    font-size: 10pt; }
+
+#reminder_content {
+  background-color: white;
+  border-left: 1px solid #DDDDDD;
+  border-right: 1px solid #DDDDDD;
+  width: 365px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 20px;
+  padding-bottom: 10px; }
+  #reminder_content #reminder {
+    float: left;
+    margin-top: 2px;
+    margin-bottom: 5px;
+    margin-right: 20px; }
+
+/* *********Alerts end notifications********** */
+.success {
+  border: 1px solid #FFCC66;
+  background-color: #FFFFCC;
+  font-size: 12px;
+  padding: 6px;
+  width: 500px;
+  float: left; }
+
+.notice {
+  border: 1px solid #FFCC66;
+  background-color: #FFFFCC;
+  font-size: 12px;
+  padding: 6px;
+  width: 500px;
+  float: left; }
+
+.error {
+  border: 1px solid #FFCC66;
+  background-color: #FFFFCC;
+  font-size: 12px;
+  padding: 6px;
+  width: 500px;
+  float: left; }
+
+.errorExplanation {
+  border: 1px solid #FFCC66;
+  background-color: #FFFFCC;
+  margin-bottom: 1em;
+  padding: 1em;
+  width: 500px;
+  float: left; }
+
+.errorExplanation h2 {
+  background: 0;
+  border: 0;
+  font-size: 1.2em;
+  margin-top: 0;
+  padding: 0;
+  width: 500px;
+  float: left; }
+
+.pagination {
+  border-bottom: 1px solid #eee;
+  font-size: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  margin-bottom: 12px;
+  width: 500px;
+  float: left; }

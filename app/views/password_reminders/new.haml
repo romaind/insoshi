@@ -1,0 +1,12 @@
+#reminder_tab
+  %h4 Password reminder
+
+#reminder_content
+  -form_for :person, :url => password_reminders_path do |form|
+    .field_row
+      %label{ :for => "username" } Enter your email address:
+      %br
+      = form.text_field :email, :maxlength => Person::MAX_EMAIL, :id =>"reminder"
+      = set_focus_to_id "person_email"
+      = image_submit_tag "send_black.gif", :id => "send_reminder"
+=image_tag "reminder_bottom.gif"
