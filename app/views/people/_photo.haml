@@ -1,0 +1,18 @@
+-if @person.photos.empty?
+  = image_tag @person.thumbnail, :id => "image"
+-else
+%table
+  -@person.sorted_photos.collect_every(N_COLUMNS) do |row|
+    %tr
+      -row.each do |photo|
+        %td{ :style => "padding-left: 1em;" }
+          = image_tag photo.public_filename(:thumbnail)
+    %tr
+      -row.each do |photo|
+        %td{ :style => "padding-left: 1em;" }
+          -if photo.primary?
+            primary
+          -else
+            = link_to "select", photo_path(photo), :method => :put
+            |
+            = link_to image_tag("icons/close.gif"), photo_path(photo), :method => :delete

@@ -9,55 +9,45 @@
     -form_for @person do |f|
 
       .form_row
-        %label{ :for => "person_birthdate" } Birth Date
+        %label{ :for => "person_birthdate" } Birth Date:
         = f.date_select :birthdate, :order => [:day, :month, :year], :start_year => 1900, :end_year => Date.today.year
 
       #gender
-        %label{ :for => "person_gender_man" } Man :
+        %label{ :for => "person_gender_man" } Man:
         = f.radio_button :gender, "man"
-        %label{ :for => "person_gender_woman" } Woman :
+        %label{ :for => "person_gender_woman" } Woman:
         = f.radio_button :gender, "woman"
 
       .form_row
-        %label{ :for => "person_first_name" } First Name
+        %label{ :for => "person_first_name" } First Name:
         = f.text_field :first_name
 
       .form_row
-        %label{ :for => "person_name" } Last Name
+        %label{ :for => "person_name" } Last Name:
         = f.text_field :name, :maxlength => Person::MAX_NAME
 
 
       .form_row
-        %label{ :for => "person_email" } Email
+        %label{ :for => "person_email" } Email:
         = f.text_field :email, :maxlength => Person::MAX_EMAIL
 
       .form_row
-        %label{ :for => "person_description" } Description
-    
-        -unless @preview.nil?
-          = display @preview
-        
-        %p
-          = formatting_note
-        = f.text_area :description
-      
-      .form_row
-        %label{ :for => "person_adress" } Address
+        %label{ :for => "person_adress" } Address:
         = f.text_field :address
       
       .form_row
-        %label{ :for => "person_zipcode" } Zipcode
+        %label{ :for => "person_zipcode" } Zipcode:
         = f.text_field :zipcode
       
       .form_row
-        %label{ :for => "person_city" } City
+        %label{ :for => "person_city" } City:
         = f.text_field :city
 
       -if global_prefs.email_notifications?
       
         %h3 Email notification preferences
 
-        %p
+        .form_row
           You will receive email notifications
           for each event type whose box is checked.
 
@@ -83,59 +73,28 @@
         = f.submit "Preview", :id => "preview", :class => "button"
 
       %input{ :type => "hidden", :name => "type", :value => "info_edit"}
-  -end
 
-  %br
+    #subtabs
+      %h4#about About you
+      %h4#cv CV and skills
+      %h4#contact Contacts data
 
-  %h3 Photos
-  
-  -if @person.photos.empty?
-  = image_tag @person.thumbnail
-  -else
-  %table
-    -@person.sorted_photos.collect_every(N_COLUMNS) do |row|
-    %tr
-      -row.each do |photo|
-      %td{ :style => "padding-left: 1em;" }
-        = image_tag photo.public_filename(:thumbnail)
-      -end
-    %tr
-      -row.each do |photo|
-      %td{ :style => "padding-left: 1em;" }
-        -if photo.primary?
-        primary
-        -else
-        = link_to "select", photo_path(photo), :method => :put
-        |
-        = link_to image_tag("icons/close.gif"), photo_path(photo), :method => :delete
-      -end
-  %br
-  = button_to "Add a photo", new_photo_path, :class => "button"
+    #personal_content
+      -form_for @person do |f|
+        .form_row
+          %label{ :for => "person_website" } Website:
+          = f.text_field :website
 
-  %br
-
-  -form_for @person, :html => { :id => "change_password" } do |f|
-
-    %h3 Change Password
-
-    .form_row
-      %label{ :for => "password" } Current Password
-      = f.password_field :verify_password, :maxlength => Person::MAX_PASSWORD
-
-    .form_row
-      %label{ :for => "password" } New Password
-      = f.password_field :new_password, :maxlength => Person::MAX_PASSWORD
-
-    .form_row
-      %label{ :for => "password_confirmation" } Confirm Password
-      = f.password_field :password_confirmation, :maxlength => Person::MAX_PASSWORD, :value => ""
-
-    .form_row
-      = submit_tag 'Change password', :class => "button"
-
-    %input{ :type => "hidden", :name => "type", :value => "password_edit" }
--end
-
--column_div :type => :secondary do
-  = render :partial => 'searches/box'
--end
+        .form_row    
+          -unless @preview.nil?
+            = display @preview
+        
+          %p
+            %label{ :for => "person_description" } Description:
+            = f.text_area :description
+            %br
+            = formatting_note
+      
+      #photo
+        =render :partial => "photo"
+        = button_to "Add a photo", new_photo_path, :id => "newphoto"
