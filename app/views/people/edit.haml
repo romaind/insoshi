@@ -1,26 +1,22 @@
 -column_div :type => :primary do
   #data_title
-    %h2 My Personal Data
+    %h4 My Personal Data
 
   #profile_edit
-    %h3 Personal details
 
     = error_messages_for :person
     
     -form_for @person do |f|
 
       .form_row
-        %label{ :for => "person_sponsor" } Sponsor
-        = f.text_field :sponsor
-
-      .form_row
         %label{ :for => "person_birthdate" } Birth Date
         = f.date_select :birthdate, :order => [:day, :month, :year], :start_year => 1900, :end_year => Date.today.year
 
-      .form_row
-        %label{ :for => "person_sex" } Gender :
-        = f.radio_button :sex, 'Man'
-        = f.radio_button :sex, 'Woman'
+      #gender
+        %label{ :for => "person_gender_man" } Man :
+        = f.radio_button :gender, "man"
+        %label{ :for => "person_gender_woman" } Woman :
+        = f.radio_button :gender, "woman"
 
       .form_row
         %label{ :for => "person_first_name" } First Name

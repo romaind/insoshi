@@ -44,8 +44,7 @@ body {
     #header #searchbox #go {
       position: absolute;
       margin-left: 10px;
-      margin-top: 5px;
-      width: 38px; }
+      margin-top: 5px; }
   #header #languages {
     float: right;
     margin-right: 30px;
@@ -169,7 +168,7 @@ body {
   margin-right: auto;
   padding-left: 5px;
   padding-right: 10px;
-  padding-top: 20px;
+  padding-top: 5px;
   padding-bottom: 20px;
   min-height: 500px; }
 
@@ -280,38 +279,72 @@ body {
     margin-bottom: 5px;
     margin-right: 20px; }
 
+/* *********Personal Data content********** */
+#data_title {
+  background-image: url(../images/personaldata_tab.gif);
+  background-repeat: no-repeat;
+  width: 625px;
+  height: 24px; }
+  #data_title h4 {
+    color: white;
+    margin: 0;
+    padding-top: 5px;
+    padding-left: 65px;
+    padding-bottom: 0;
+    font-size: 10pt; }
+
+#profile_edit {
+  background-color: white;
+  border-left: 1px solid #DDDDDD;
+  border-right: 1px solid #DDDDDD;
+  width: 623px;
+  text-align: right;
+  padding-top: 20px; }
+  #profile_edit .form_row {
+    margin-bottom: 15px;
+    margin-right: 100px; }
+    #profile_edit .form_row label {
+      margin-right: 20px; }
+    #profile_edit .form_row #person_first_name {
+      width: 25.7em; }
+  #profile_edit #gender {
+    margin-bottom: 15px;
+    margin-right: 100px; }
+    #profile_edit #gender label {
+      margin-left: 40px; }
+  #profile_edit #description {
+    margin-top: 40px;
+    margin-bottom: 15px;
+    margin-right: 100px; }
+
 /* *********Alerts end notifications********** */
 .success {
-  border: 1px solid #FFCC66;
-  background-color: #FFFFCC;
+  border: 1px solid #DDDDDD;
+  background-color: white;
   font-size: 12px;
   padding: 6px;
-  width: 500px;
-  float: left; }
+  width: 955px; }
 
 .notice {
-  border: 1px solid #FFCC66;
-  background-color: #FFFFCC;
+  border: 1px solid #DDDDDD;
+  background-color: white;
   font-size: 12px;
   padding: 6px;
-  width: 500px;
-  float: left; }
+  width: 955px; }
 
 .error {
-  border: 1px solid #FFCC66;
-  background-color: #FFFFCC;
+  border: 1px solid #DDDDDD;
+  background-color: white;
   font-size: 12px;
   padding: 6px;
-  width: 500px;
-  float: left; }
+  width: 955px; }
 
 .errorExplanation {
-  border: 1px solid #FFCC66;
-  background-color: #FFFFCC;
-  margin-bottom: 1em;
+  border: 1px solid #DDDDDD;
+  background-color: white;
+  margin-bottom: 2px;
   padding: 1em;
-  width: 500px;
-  float: left; }
+  width: 955px; }
 
 .errorExplanation h2 {
   background: 0;
@@ -319,14 +352,12 @@ body {
   font-size: 1.2em;
   margin-top: 0;
   padding: 0;
-  width: 500px;
-  float: left; }
+  width: 955px; }
 
 .pagination {
   border-bottom: 1px solid #eee;
   font-size: 12px;
-  padding-bottom: 12px;
+  padding-bottom: 2px;
   text-align: center;
-  margin-bottom: 12px;
-  width: 500px;
-  float: left; }
+  margin-bottom: 2px;
+  width: 955px; }
