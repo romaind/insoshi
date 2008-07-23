@@ -299,7 +299,8 @@ body {
   border-right: 1px solid #DDDDDD;
   width: 623px;
   text-align: right;
-  padding-top: 20px; }
+  padding-top: 20px;
+  padding-bottom: 10px; }
   #profile_edit .form_row {
     margin-bottom: 15px;
     margin-right: 100px; }
@@ -307,6 +308,10 @@ body {
       margin-right: 20px; }
     #profile_edit .form_row #person_first_name {
       width: 25.7em; }
+  #profile_edit h3 {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 0; }
   #profile_edit #gender {
     margin-bottom: 15px;
     margin-right: 100px; }
@@ -316,6 +321,45 @@ body {
     margin-top: 40px;
     margin-bottom: 15px;
     margin-right: 100px; }
+
+#subtabs {
+  background-image: url(../images/personaldata_subtab.gif);
+  background-repeat: no-repeat;
+  width: 610px;
+  height: 24px;
+  text-align: left;
+  margin-left: 5px; }
+  #subtabs h4 {
+    margin: 0;
+    display: inline; }
+  #subtabs #about {
+    padding-left: 105px; }
+  #subtabs #cv {
+    padding-left: 97px;
+    color: white; }
+  #subtabs #contact {
+    padding-left: 112px;
+    color: white; }
+
+#personal_content .form_row {
+  margin-right: 100px;
+  margin-top: 10px; }
+#personal_content p {
+  margin: 0; }
+  #personal_content p label {
+    float: left;
+    margin-left: 198px; }
+  #personal_content p #person_description {
+    width: 17em;
+    height: 10em; }
+#personal_content #photo {
+  text-align: left;
+  margin-top: 10px;
+  margin-left: 105px; }
+  #personal_content #photo table {
+    border: 1px solid #999999;
+    text-align: center;
+    margin-bottom: 10px; }
 
 /* *********Alerts end notifications********** */
 .success {
