@@ -50,7 +50,6 @@ ActionController::Routing::Routes.draw do |map|
   map.home '/', :controller => 'home'
   map.about '/about', :controller => 'home', :action => 'about'
   map.admin_home '/admin/home', :controller => 'home'
-  map.my_page '/my_page', :controller => 'people'
 
   # The priority is based upon order of creation: first created -> highest priority.
 

@@ -44,8 +44,7 @@ body {
     #header #searchbox #go {
       position: absolute;
       margin-left: 10px;
-      margin-top: 5px;
-      width: 38px; }
+      margin-top: 5px; }
   #header #languages {
     float: right;
     margin-right: 30px;
