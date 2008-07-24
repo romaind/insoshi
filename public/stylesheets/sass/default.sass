@@ -274,6 +274,8 @@ body
         :text-align center
 
       h4
+        :font
+          :weight normal
         :margin
           :top 0
 
@@ -303,6 +305,8 @@ body
     :height 24px
 
     h4
+      :font
+        :weight normal
       :color white
       :font
         :size 10pt
@@ -333,6 +337,8 @@ body
       :text-align right
 
       h4
+        :font
+          :weight normal
         :color #20A420
         :margin
           :top 0
@@ -375,6 +381,8 @@ body
   :height 24px
 
   h4
+    :font
+      :weight normal
     :color white
     :margin 0
     :padding
@@ -407,17 +415,20 @@ body
 /**********Personal Data content**********
 #data_title
   :background
-    :image url(../images/personaldata_tab.gif)
+    :image url(../images/personaldata_top.gif)
     :repeat no-repeat
-  :width 625px
+  :width 780px
   :height 24px
+  :color #FF9900
+  :text-align right
 
   h4
-    :color white
+    :font
+      :weight normal
     :margin 0
     :padding
       :top 5px
-      :left 65px
+      :right 10px
       :bottom 0
     :font
       :size 10pt
@@ -426,13 +437,21 @@ body
   :background
     :color white
   :border
+    :top 2px solid #FF9900
     :left 1px solid #DDDDDD
     :right 1px solid #DDDDDD
-  :width 623px
+  :width 775px
   :text-align right
   :padding
     :top 20px
     :bottom 10px
+
+  #legend
+    :float left
+    :border 1px solid #FF9900
+    :margin
+      :left 10px
+    :padding 5px
 
   .form_row
     :margin
@@ -443,8 +462,27 @@ body
       :margin
         :right 20px
 
+    .mandatory
+      :margin
+        :left 10px
+
     #person_first_name
-      :width 25.7em
+      :width 300px
+
+    #person_name
+      :width 300px
+
+    #person_email
+      :width 300px
+
+    #person_address
+      :width 300px
+
+    #person_zipcode
+      :width 300px
+
+    #person_city
+      :width 300px
 
   h3
     :text-align center
@@ -471,28 +509,36 @@ body
   :background
     :image url(../images/personaldata_subtab.gif)
     :repeat no-repeat
-  :width 610px
+  :width 775px
   :height 24px
   :text-align left
-  :margin
-    :left 5px
+  :padding
+    :top 2px
 
   h4
+    :font
+      :weight normal
     :margin 0
     :display inline
 
   #about
+    :color #FF9900
     :padding
-      :left 105px
+      :left 112px
 
   #cv
     :padding
-      :left 97px
+      :left 110px
     :color white
 
   #contact
     :padding
-      :left 112px
+      :left 103px
+    :color white
+
+  #notification
+    :padding
+      :left 65px
     :color white
 
 #personal_content
@@ -501,17 +547,20 @@ body
       :right 100px
       :top 10px
 
+  #person_website
+    :width 300px
+
   p
     :margin 0
 
     label
       :float left
       :margin
-        :left 198px
+        :left 267px
 
     #person_description
-      :width 17em
-      :height 10em
+      :width 305px
+      :height 200px
 
 
   #photo

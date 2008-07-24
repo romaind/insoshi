@@ -191,6 +191,7 @@ body {
         margin-top: 0;
         text-align: center; }
       #content #description #desc_message h4 {
+        font-weight: normal;
         margin-top: 0; }
       #content #description #desc_message p {
         text-align: justify;
@@ -209,6 +210,7 @@ body {
   width: 780px;
   height: 24px; }
   #lastproject #lastprojectstab h4 {
+    font-weight: normal;
     color: white;
     font-size: 10pt;
     padding-left: 96px;
@@ -229,6 +231,7 @@ body {
     background-color: #EFEFEF;
     text-align: right; }
     #lastproject #lastprojects_content .lastprojects h4 {
+      font-weight: normal;
       color: #20A420;
       margin-top: 0;
       margin-bottom: 5px; }
@@ -257,6 +260,7 @@ body {
   width: 387px;
   height: 24px; }
   #reminder_tab h4 {
+    font-weight: normal;
     color: white;
     margin: 0;
     padding-top: 5px;
@@ -281,33 +285,53 @@ body {
 
 /* *********Personal Data content********** */
 #data_title {
-  background-image: url(../images/personaldata_tab.gif);
+  background-image: url(../images/personaldata_top.gif);
   background-repeat: no-repeat;
-  width: 625px;
-  height: 24px; }
+  width: 780px;
+  height: 24px;
+  color: #FF9900;
+  text-align: right; }
   #data_title h4 {
-    color: white;
+    font-weight: normal;
     margin: 0;
     padding-top: 5px;
-    padding-left: 65px;
+    padding-right: 10px;
     padding-bottom: 0;
     font-size: 10pt; }
 
 #profile_edit {
   background-color: white;
+  border-top: 2px solid #FF9900;
   border-left: 1px solid #DDDDDD;
   border-right: 1px solid #DDDDDD;
-  width: 623px;
+  width: 775px;
   text-align: right;
   padding-top: 20px;
   padding-bottom: 10px; }
+  #profile_edit #legend {
+    float: left;
+    border: 1px solid #FF9900;
+    margin-left: 10px;
+    padding: 5px; }
   #profile_edit .form_row {
     margin-bottom: 15px;
     margin-right: 100px; }
     #profile_edit .form_row label {
       margin-right: 20px; }
+    #profile_edit .form_row .mandatory {
+      margin-left: 10px; }
     #profile_edit .form_row #person_first_name {
-      width: 25.7em; }
+      width: 300px; }
+    #profile_edit .form_row #person_name {
+      width: 300px; }
+    #profile_edit .form_row #person_email {
+      width: 300px; }
+    #profile_edit .form_row #person_address {
+      width: 300px; }
+    #profile_edit .form_row #person_zipcode {
+      width: 300px; }
+    #profile_edit .form_row #person_city {
+      width: 300px; }
   #profile_edit h3 {
     text-align: center;
     margin-top: 20px;
@@ -325,33 +349,40 @@ body {
 #subtabs {
   background-image: url(../images/personaldata_subtab.gif);
   background-repeat: no-repeat;
-  width: 610px;
+  width: 775px;
   height: 24px;
   text-align: left;
-  margin-left: 5px; }
+  padding-top: 2px; }
   #subtabs h4 {
+    font-weight: normal;
     margin: 0;
     display: inline; }
   #subtabs #about {
-    padding-left: 105px; }
+    color: #FF9900;
+    padding-left: 112px; }
   #subtabs #cv {
-    padding-left: 97px;
+    padding-left: 110px;
     color: white; }
   #subtabs #contact {
-    padding-left: 112px;
+    padding-left: 103px;
+    color: white; }
+  #subtabs #notification {
+    padding-left: 65px;
     color: white; }
 
 #personal_content .form_row {
   margin-right: 100px;
   margin-top: 10px; }
+#personal_content #person_website {
+  width: 300px; }
 #personal_content p {
   margin: 0; }
   #personal_content p label {
     float: left;
-    margin-left: 198px; }
+    margin-left: 267px; }
   #personal_content p #person_description {
-    width: 17em;
-    height: 10em; }
+    width: 305px;
+    height: 200px; }
 #personal_content #photo {
   text-align: left;
   margin-top: 10px;
