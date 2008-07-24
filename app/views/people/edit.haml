@@ -1,35 +1,42 @@
 -column_div :type => :primary do
   #data_title
-    %h4 My Personal Data
+    %h4 MY PERSONAL INFORMATIONS
 
   #profile_edit
 
     = error_messages_for :person
-    
+    #legend
+      =image_tag "mandatory.gif"
+      Mandatory fields
     -form_for @person do |f|
 
       .form_row
         %label{ :for => "person_birthdate" } Birth Date:
         = f.date_select :birthdate, :order => [:day, :month, :year], :start_year => 1900, :end_year => Date.today.year
+        =image_tag "mandatory.gif", :class => "mandatory"
 
       #gender
         %label{ :for => "person_gender_man" } Man:
         = f.radio_button :gender, "man"
         %label{ :for => "person_gender_woman" } Woman:
         = f.radio_button :gender, "woman"
+        =image_tag "mandatory.gif", :class => "mandatory"
 
       .form_row
         %label{ :for => "person_first_name" } First Name:
         = f.text_field :first_name
+        =image_tag "mandatory.gif", :class => "mandatory"
 
       .form_row
         %label{ :for => "person_name" } Last Name:
         = f.text_field :name, :maxlength => Person::MAX_NAME
+        =image_tag "mandatory.gif", :class => "mandatory"
 
 
       .form_row
         %label{ :for => "person_email" } Email:
         = f.text_field :email, :maxlength => Person::MAX_EMAIL
+        =image_tag "mandatory.gif", :class => "mandatory"
 
       .form_row
         %label{ :for => "person_adress" } Address:
@@ -75,9 +82,10 @@
       %input{ :type => "hidden", :name => "type", :value => "info_edit"}
 
     #subtabs
-      %h4#about About you
+      =link_to "About you", { :action => :about }, { :id => "about" }
       %h4#cv CV and skills
       %h4#contact Contacts data
+      %h4#notification Notification options
 
     #personal_content
       -form_for @person do |f|
@@ -91,6 +99,7 @@
         
           %p
             %label{ :for => "person_description" } Description:
+            %br
             = f.text_area :description
             %br
             = formatting_note
@@ -98,3 +107,5 @@
       #photo
         =render :partial => "photo"
         = button_to "Add a photo", new_photo_path, :id => "newphoto"
+
+  =image_tag "personaldata_bottom.gif"

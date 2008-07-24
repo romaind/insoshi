@@ -154,6 +154,7 @@ body {
       padding-right: 5px;
       height: 395px; }
       #content #description #desc_message h4 {
+        font-weight: normal;
         margin-top: 0; }
       #content #description #desc_message p {
         text-align: justify;
@@ -172,6 +173,7 @@ body {
   width: 780px;
   height: 24px; }
   #lastproject #lastprojectstab h4 {
+    font-weight: normal;
     color: white;
     font-size: 10pt;
     padding-left: 96px;
@@ -192,6 +194,7 @@ body {
     background-color: #EFEFEF;
     text-align: right; }
     #lastproject #lastprojects_content .lastprojects h4 {
+      font-weight: normal;
       color: #20A420;
       margin-top: 0;
       margin-bottom: 5px; }
@@ -245,9 +248,11 @@ body {
     padding-top: 5px; }
 #lastproject #lastprojects_content {
   background-color: white;
+  border-top: 2px solid #FF9900;
   border-left: 1px solid #DDDDDD;
   border-right: 1px solid #DDDDDD;
   width: 370px;
   padding-left: 10px;
   padding-right: 10px; }
+
 

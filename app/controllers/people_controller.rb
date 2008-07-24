@@ -132,7 +132,7 @@ class PeopleController < ApplicationController
       format.html
     end
   end
-
+  
   private
 
   def setup
