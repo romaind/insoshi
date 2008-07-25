@@ -133,6 +133,15 @@ class PeopleController < ApplicationController
     end
   end
   
+  
+  def password_changer
+    @person = Person.find(params[:id])
+
+    respond_to do |format|
+      format.html
+    end
+  end
+  
   private
 
   def setup
