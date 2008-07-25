@@ -34,7 +34,7 @@
 
       .form_row
         %label{ :for => "person_email" } Email:
-        = f.text_field :email, :maxlength => Person::MAX_EMAIL
+        = f.text_field :email, :maxlength => Person::MAX_EMAIL, :disabled => "disabled"
         =image_tag "mandatory.gif", :class => "mandatory"
 
       .form_row
