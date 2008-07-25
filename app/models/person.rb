@@ -93,6 +93,7 @@ class Person < ActiveRecord::Base
   has_many :activities, :through => :feeds, :order => 'created_at DESC',
                                             :limit => FEED_SIZE
   has_many :page_views, :order => 'created_at DESC'
+  has_many :projects
   
   validates_presence_of     :email, :on => :create,
                                 :if => :pending?

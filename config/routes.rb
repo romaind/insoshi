@@ -1,4 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
+
   map.resources :preferences
   map.resources :searches
   map.resources :activities
@@ -16,6 +17,7 @@ ActionController::Routing::Routes.draw do |map|
      person.resources :photos
      person.resources :connections
      person.resources :comments
+     person.resources :projects
   end
   map.namespace :admin do |admin|
     admin.resources :people, :preferences
