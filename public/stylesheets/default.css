@@ -313,6 +313,11 @@ body {
     border: 1px solid #FF9900;
     margin-left: 10px;
     padding: 5px; }
+  #profile_edit #gender {
+    margin-bottom: 15px;
+    margin-right: 100px; }
+    #profile_edit #gender label {
+      margin-left: 40px; }
   #profile_edit .form_row {
     margin-bottom: 15px;
     margin-right: 100px; }
@@ -326,26 +331,62 @@ body {
       width: 300px; }
     #profile_edit .form_row #person_email {
       width: 300px; }
-    #profile_edit .form_row #person_address {
+    #profile_edit .form_row #p_country {
+      width: 306px; }
+    #profile_edit .form_row #terms label {
+      margin: 0; }
+    #profile_edit .form_row #person_website {
       width: 300px; }
-    #profile_edit .form_row #person_zipcode {
-      width: 300px; }
-    #profile_edit .form_row #person_city {
-      width: 300px; }
-  #profile_edit h3 {
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 0; }
-  #profile_edit #gender {
-    margin-bottom: 15px;
-    margin-right: 100px; }
-    #profile_edit #gender label {
-      margin-left: 40px; }
-  #profile_edit #description {
+    #profile_edit .form_row #p_status {
+      width: 306px; }
+  #profile_edit #about_content .form_row p {
+    margin: 0; }
+    #profile_edit #about_content .form_row p label {
+      float: left;
+      margin-left: 267px;
+      padding-top: 15px; }
+    #profile_edit #about_content .form_row p #person_description {
+      width: 306px;
+      height: 200px; }
+  #profile_edit #about_content #description {
     margin-top: 40px;
     margin-bottom: 15px;
     margin-right: 100px; }
+  #profile_edit #about_content #photo {
+    text-align: left;
+    margin-top: 10px;
+    margin-left: 110px; }
+    #profile_edit #about_content #photo table {
+      border: 1px solid #999999;
+      text-align: center;
+      margin-bottom: 10px; }
+  #profile_edit #person_address {
+    width: 300px; }
+  #profile_edit #person_zipcode {
+    width: 300px; }
+  #profile_edit #person_city {
+    width: 300px; }
+  #profile_edit #p_schools {
+    width: 300px;
+    margin-bottom: 5px; }
+  #profile_edit #p_skills {
+    width: 306px; }
+  #profile_edit #p_languages {
+    width: 306px; }
+  #profile_edit #p_software {
+    width: 306px; }
+  #profile_edit #p_cv {
+    width: 300px; }
+  #profile_edit #cv {
+    margin-top: 5px; }
+  #profile_edit #person_phone {
+    width: 300px; }
+  #profile_edit h3 {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px; }
 
+/* ********** PENDING TABS ************* */
 #subtabs {
   background-image: url(../images/personaldata_subtab.gif);
   background-repeat: no-repeat;
@@ -357,40 +398,18 @@ body {
     font-weight: normal;
     margin: 0;
     display: inline; }
+    #subtabs h4 a {
+      color: white;
+      text-decoration: none; }
   #subtabs #about {
     color: #FF9900;
     padding-left: 112px; }
-  #subtabs #cv {
-    padding-left: 110px;
-    color: white; }
+  #subtabs #skills {
+    padding-left: 62px; }
   #subtabs #contact {
-    padding-left: 103px;
-    color: white; }
+    padding-left: 100px; }
   #subtabs #notification {
-    padding-left: 65px;
-    color: white; }
-
-#personal_content .form_row {
-  margin-right: 100px;
-  margin-top: 10px; }
-#personal_content #person_website {
-  width: 300px; }
-#personal_content p {
-  margin: 0; }
-  #personal_content p label {
-    float: left;
-    margin-left: 267px; }
-  #personal_content p #person_description {
-    width: 305px;
-    height: 200px; }
-#personal_content #photo {
-  text-align: left;
-  margin-top: 10px;
-  margin-left: 105px; }
-  #personal_content #photo table {
-    border: 1px solid #999999;
-    text-align: center;
-    margin-bottom: 10px; }
+    padding-left: 64px; }
 
 /* *********Alerts end notifications********** */
 .success {
