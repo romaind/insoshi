@@ -2,10 +2,10 @@
 
 <%= error_messages_for :creation %>
 
-<% form_for(@creation) do |f| %>
+<% form_for(@creation, :url => person_project_creation_path(current_person, @project, @creation)) do |f| %>
   <p>
-    <b>Project</b><br />
-    <%= f.text_field :project_id %>
+    <b>Set up Assets handling</b><br />
+    <%#= f.text_field :project_id %>
   </p>
 
   <p>
@@ -13,4 +13,4 @@
   </p>
 <% end %>
 
-<%= link_to 'Back', creations_path %>
+<%= link_to 'Back', person_project_creations_path %>

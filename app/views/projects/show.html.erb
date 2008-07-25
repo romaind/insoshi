@@ -15,7 +15,7 @@
 
 <p>
   <b>User:</b>
-  <%=h @project.user_id %>
+  <%=h @project.person_id %>
 </p>
 
 <p>
@@ -24,5 +24,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+<%= link_to 'Edit', edit_person_project_path(current_person, @project) %> |
+<%= link_to 'Back', person_projects_path %>

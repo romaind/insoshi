@@ -2,7 +2,7 @@
 
 <%= error_messages_for :project %>
 
-<% form_for(@project) do |f| %>
+<% form_for(@project, :url => person_project_path(current_person, @project)) do |f| %>
   <p>
     <b>Title</b><br />
     <%= f.text_field :title %>
@@ -17,12 +17,7 @@
     <b>Views</b><br />
     <%= f.text_field :views %>
   </p>
-
-  <p>
-    <b>User</b><br />
-    <%= f.text_field :user_id %>
-  </p>
-
+  
   <p>
     <b>Licence</b><br />
     <%= f.text_area :licence %>
@@ -33,5 +28,5 @@
   </p>
 <% end %>
 
-<%= link_to 'Show', @project %> |
-<%= link_to 'Back', projects_path %>
+<%= link_to 'Show', person_project_path(current_person, @project) %> |
+<%= link_to 'Back', person_projects_path %>

@@ -14,15 +14,15 @@
     <td><%=h project.title %></td>
     <td><%=h project.description %></td>
     <td><%=h project.views %></td>
-    <td><%=h project.user_id %></td>
+    <td><%=h project.person_id %></td>
     <td><%=h project.licence %></td>
-    <td><%= link_to 'Show', project %></td>
-    <td><%= link_to 'Edit', edit_project_path(project) %></td>
-    <td><%= link_to 'Destroy', project, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Show', person_project_path(current_person, project) %></td>
+    <td><%= link_to 'Edit', edit_person_project_path(current_person, project) %></td>
+    <td><%= link_to 'Destroy', person_project_path(current_person, project), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New project', new_project_path %>
+<%= link_to 'New project', new_person_project_path %>

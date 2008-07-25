@@ -1,4 +1,7 @@
 class CreationsController < ApplicationController
+  
+  before_filter :find_project, :only => [:index, :new, :edit, :create, :update, :show]
+  
   # GET /creations
   # GET /creations.xml
   def index
@@ -40,12 +43,12 @@ class CreationsController < ApplicationController
   # POST /creations
   # POST /creations.xml
   def create
-    @creation = Creation.new(params[:creation])
+    @creation = @project.creations.create(params[:creation])
 
     respond_to do |format|
       if @creation.save
         flash[:notice] = 'Creation was successfully created.'
-        format.html { redirect_to(@creation) }
+        format.html { redirect_to person_project_creation_path(current_person, @project, @creation) }
         format.xml  { render :xml => @creation, :status => :created, :location => @creation }
       else
         format.html { render :action => "new" }
@@ -78,8 +81,14 @@ class CreationsController < ApplicationController
     @creation.destroy
 
     respond_to do |format|
-      format.html { redirect_to(creations_url) }
+      format.html { redirect_to(person_project_creations_url) }
       format.xml  { head :ok }
     end
   end
+  
+  protected
+  def find_project
+    @project = Project.find(params[:project_id])
+  end
+  
 end

@@ -2,19 +2,19 @@
 
 <table>
   <tr>
-    <th>Project</th>
+    <th>Project : <%= @project.title %></th>
   </tr>
 
 <% for creation in @creations %>
   <tr>
     <td><%=h creation.project_id %></td>
-    <td><%= link_to 'Show', creation %></td>
-    <td><%= link_to 'Edit', edit_creation_path(creation) %></td>
-    <td><%= link_to 'Destroy', creation, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Show', person_project_creation_path(current_person, @project, creation) %></td>
+    <td><%= link_to 'Edit', edit_person_project_creation_path(current_person, @project, creation) %></td>
+    <td><%= link_to 'Destroy', person_project_creation_path(current_person, @project, creation), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New creation', new_creation_path %>
+<%= link_to 'New creation', new_person_project_creation_path %>
