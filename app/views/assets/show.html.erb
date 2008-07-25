@@ -1,0 +1,33 @@
+<p>
+  <b>Creation:</b>
+  <%=h @asset.creation_id %>
+</p>
+
+<p>
+  <b>Item content type:</b>
+  <%=h @asset.item_content_type %>
+</p>
+
+<p>
+  <b>Item file name:</b>
+  <%=h @asset.item_file_name %>
+</p>
+
+<p>
+  <b>Item file size:</b>
+  <%=h @asset.item_file_size %>
+</p>
+
+<p>
+  <b>Item:</b>
+  <%=h @asset.item_id %>
+</p>
+
+<p>
+  <b>Item type:</b>
+  <%=h @asset.item_type %>
+</p>
+
+
+<%= link_to 'Edit', edit_asset_path(@asset) %> |
+<%= link_to 'Back', assets_path %>
