@@ -1,0 +1,17 @@
+<h1>Editing creation</h1>
+
+<%= error_messages_for :creation %>
+
+<% form_for(@creation) do |f| %>
+  <p>
+    <b>Project</b><br />
+    <%= f.text_field :project_id %>
+  </p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @creation %> |
+<%= link_to 'Back', creations_path %>

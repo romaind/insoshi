@@ -1,0 +1,20 @@
+<h1>Listing creations</h1>
+
+<table>
+  <tr>
+    <th>Project</th>
+  </tr>
+
+<% for creation in @creations %>
+  <tr>
+    <td><%=h creation.project_id %></td>
+    <td><%= link_to 'Show', creation %></td>
+    <td><%= link_to 'Edit', edit_creation_path(creation) %></td>
+    <td><%= link_to 'Destroy', creation, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New creation', new_creation_path %>
