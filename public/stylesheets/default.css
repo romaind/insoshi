@@ -412,6 +412,15 @@ body {
     padding-left: 64px; }
 
 /* *********Alerts end notifications********** */
+#profile {
+  width: 773px;
+  background-color: white;
+  border-left: 1px solid #DDDDDD;
+  border-right: 1px solid #DDDDDD; }
+  #profile p {
+    margin: 0; }
+
+/* *********Alerts end notifications********** */
 .success {
   border: 1px solid #DDDDDD;
   background-color: white;
