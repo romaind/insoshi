@@ -101,10 +101,6 @@
             = f.text_area :description
             %br
             = formatting_note
-  
-          #photo
-            =render :partial => "photo"
-            = button_to "Add a photo", new_photo_path, :id => "newphoto"
 
       %h3 Skills and Education
       #skills_content
@@ -153,6 +149,11 @@
       .form_row
         = f.submit "Update", :class => "button"
         = f.submit "Preview", :id => "preview", :class => "button"
+
+
+      #photo
+        =render :partial => "photo"
+        = button_to "Add a photo", new_photo_path, :id => "newphoto"
 
 
 
