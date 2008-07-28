@@ -35,7 +35,9 @@ class Person < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :name, :first_name,
                   :description, :connection_notifications,
                   :message_notifications, :wall_comment_notifications,
-                  :blog_comment_notifications
+                  :blog_comment_notifications,
+                  #ADDED FIELD
+                  :birthdate, :gender, :website, :address, :zipcode, :city, :phone
   acts_as_ferret :fields => [ :name, :first_name, :description ] if search?
 
   acts_as_state_machine :initial => :pending
@@ -173,6 +175,17 @@ class Person < ActiveRecord::Base
     end
   end
 
+  #Return the image source for gender
+  def gender_image
+    gender == 1 ? "man.gif" : "woman.gif"
+  end
+
+  #Return the age of 
+  def age
+    now = Time.now.utc.to_date
+    now.year - birthdate.year - (birthdate.to_date.change(:year => now.year) > now ? 1 : 0)
+  end
+
   # Params for use in urls.
   # Profile urls have the form '/people/1-michael-hartl'.
   # This works automagically because Person.find(params[:id]) implicitly
@@ -268,6 +281,10 @@ class Person < ActiveRecord::Base
 
   def thumbnail
     photo.nil? ? "default_thumbnail.png" : photo.public_filename(:thumbnail)
+  end
+
+  def profile
+    photo.nil? ? "default_profile.gif" : photo.public_filename(:profile)
   end
 
   def icon
