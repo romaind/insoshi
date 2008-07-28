@@ -352,14 +352,6 @@ body {
     margin-top: 40px;
     margin-bottom: 15px;
     margin-right: 100px; }
-  #profile_edit #about_content #photo {
-    text-align: left;
-    margin-top: 10px;
-    margin-left: 110px; }
-    #profile_edit #about_content #photo table {
-      border: 1px solid #999999;
-      text-align: center;
-      margin-bottom: 10px; }
   #profile_edit #person_address {
     width: 300px; }
   #profile_edit #person_zipcode {
@@ -381,6 +373,14 @@ body {
     margin-top: 5px; }
   #profile_edit #person_phone {
     width: 300px; }
+  #profile_edit #photo {
+    text-align: left;
+    margin-top: 10px;
+    margin-left: 110px; }
+    #profile_edit #photo table {
+      border: 1px solid #999999;
+      text-align: center;
+      margin-bottom: 10px; }
   #profile_edit h3 {
     text-align: center;
     margin-top: 20px;
@@ -411,14 +411,20 @@ body {
   #subtabs #notification {
     padding-left: 64px; }
 
-/* *********Alerts end notifications********** */
-#profile {
+/* ********* Profile page********** */
+#profile_details {
   width: 773px;
+  height: 170px;
   background-color: white;
   border-left: 1px solid #DDDDDD;
   border-right: 1px solid #DDDDDD; }
-  #profile p {
-    margin: 0; }
+  #profile_details #profile_image {
+    float: left;
+    margin-right: 7px; }
+  #profile_details #details {
+    width: 400px;
+    height: 150px;
+    border-right: 1px dotted black; }
 
 /* *********Alerts end notifications********** */
 .success {

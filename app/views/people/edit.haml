@@ -16,10 +16,10 @@
         =image_tag "mandatory.gif", :class => "mandatory"
 
       #gender
-        %label{ :for => "person_gender_man" } Man:
-        = f.radio_button :gender, "man"
-        %label{ :for => "person_gender_woman" } Woman:
-        = f.radio_button :gender, "woman"
+        %label{ :for => "person_gender_1" } Man:
+        = f.radio_button :gender, 1
+        %label{ :for => "person_gender_2" } Woman:
+        = f.radio_button :gender, 2
         =image_tag "mandatory.gif", :class => "mandatory"
 
       .form_row
