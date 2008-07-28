@@ -1,0 +1,17 @@
+<h1>Editing creation</h1>
+
+<%= error_messages_for :creation %>
+
+<% form_for(@creation, :url => person_project_creation_path(current_person, @project, @creation)) do |f| %>
+  <p>
+    <b>Set up Assets handling</b><br />
+    <%#= f.text_field :project_id %>
+  </p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', person_project_creation_path(current_person, @project, @creation) %> |
+<%= link_to 'Back', person_project_creations_path %>
