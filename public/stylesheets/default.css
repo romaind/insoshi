@@ -66,11 +66,12 @@ body {
     #header #menus #coaliz {
       margin-left: 89px; }
 
-/* *********Page content********** */
-#main {
-  background-color: #EFEFEF;
-  border: 1px solid #DDDDDD;
-  width: 976px;
+#submenus {
+  background-color: white;
+  border-left: 1px solid #DDDDDD;
+  border-right: 1px solid #DDDDDD;
+  width: 967px;
+  height: 20px;
   margin-left: 2px;
   margin-right: auto;
   padding-left: 10px;
@@ -108,9 +109,39 @@ body {
     width: 187px;
     height: 162px;
     margin-bottom: 10px; }
+    #toolbox #signin a {
+      color: white;
+      font-size: 8pt; }
+  #toolbox #signin {
+    background-image: url(../images/signin.gif);
+    background-repeat: no-repeat;
+    color: white;
+    text-align: right;
+    width: 187px;
+    height: 162px;
+    margin-bottom: 10px; }
     #toolbox #signin #member_title {
       margin-top: 0;
-      margin-bottom: 10px; }
+      margin-right: 10px;
+      margin-bottom: 10px;
+      font-size: 10pt; }
+    #toolbox #signin .form_row {
+      margin-right: 10px;
+      margin-bottom: 2px;
+      font-size: 8pt; }
+    #toolbox #signin #forgot {
+      font-size: 8pt;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      margin-right: 10px; }
+    #toolbox #signin #go_button {
+      float: right;
+      margin-left: 15px; }
+    #toolbox #signin .remember {
+      margin-left: 10px; }
+    #toolbox #signin a {
+      color: white;
+      text-decoration: none; }
   #toolbox img {
     margin-bottom: 10px; }
   #toolbox #feedback {
@@ -138,6 +169,18 @@ body {
       #toolbox #feedback #formbody #send {
         float: right;
         margin-right: 20px; }
+
+/* *********Page content********** */
+#main {
+  background-color: #EFEFEF;
+  border: 1px solid #DDDDDD;
+  width: 974px;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  min-height: 500px; }
 
 /* *********Index content********** */
 #content {
@@ -172,85 +215,3 @@ body {
   background-color: #EFEFEF;
   width: 780px;
   height: 24px; }
-  #lastproject #lastprojectstab h4 {
-    font-weight: normal;
-    color: white;
-    font-size: 10pt;
-    padding-left: 96px;
-    padding-top: 5px; }
-#lastproject #lastprojects_content {
-  background-color: white;
-  border-left: 1px solid #DDDDDD;
-  border-right: 1px solid #DDDDDD;
-  width: 773px;
-  height: 470px;
-  padding-left: 5px;
-  padding-top: 10px; }
-  #lastproject #lastprojects_content .lastprojects {
-    float: left;
-    margin-right: 5px;
-    margin-top: 10px;
-    width: 188px;
-    background-color: #EFEFEF;
-    text-align: right; }
-    #lastproject #lastprojects_content .lastprojects h4 {
-      font-weight: normal;
-      color: #20A420;
-      margin-top: 0;
-      margin-bottom: 5px; }
-    #lastproject #lastprojects_content .lastprojects .details {
-      font-size: 8pt;
-      line-height: 2em;
-      padding-right: 10px; }
-    #lastproject #lastprojects_content .lastprojects .category {
-      font-size: 8pt;
-      background-color: #20A420;
-      color: white;
-      padding-right: 10px; }
-#lastproject #lastprojectbottom {
-  background-image: url(../images/lastproj_bottom.gif);
-  background-repeat: no-repeat;
-  width: 780px;
-  height: 24px;
-  text-align: right; }
-  #lastproject #lastprojectbottom a {
-    color: #333333; }
-  #main #description {
-    float: right;
-    font-size: 10pt;
-    width: 196px; }
-    #content #description #desc_message {
-      background-color: white;
-      border-left: 1px solid #DDDDDD;
-      border-right: 1px solid #DDDDDD;
-      padding-left: 5px;
-      padding-right: 5px;
-      height: 395px; }
-      #content #description #desc_message h4 {
-        margin-top: 0; }
-      #content #description #desc_message p {
-        text-align: justify;
-        margin-top: 20px;
-        margin-bottom: 0; }
-      #content #description #desc_message p:first-letter {
-        margin-left: 5px; }
-
-#lastproject #lastprojectstab {
-  background-image: url(../images/lastproj_tab.gif);
-  background-repeat: no-repeat;
-  background-color: #EFEFEF;
-  width: 780px;
-  height: 24px; }
-  #lastproject #lastprojectstab h4 {
-    color: white;
-    font-size: 10pt;
-    padding-left: 96px;
-    padding-top: 5px; }
-#lastproject #lastprojects_content {
-  background-color: white;
-  border-top: 2px solid #FF9900;
-  border-left: 1px solid #DDDDDD;
-  border-right: 1px solid #DDDDDD;
-  width: 370px;
-  padding-left: 10px;
-  padding-right: 10px; }

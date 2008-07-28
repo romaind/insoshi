@@ -7,81 +7,34 @@
     = javascript_include_tag :defaults
   %body
     #global
-
+ 
       #header
         %span
           =link_to image_tag ("logo.jpg", :id => "logo"), { :controller => "home", :action =>"index" }
         %span#searchbox
           = render :partial => "searches/box", :locals => { :search => @searches }
-
+ 
         %span#languages
           -form_for (:language, :url => { :action => :index }) do |form|
           =image_submit_tag ("uk_on.jpg", :id => "uk", :onMouseOver => "this.src = 'images/uk_on.jpg'")
           =image_submit_tag ("fr_off.jpg", :id => "fr", :title => "Coming soon", :onMouseOver => "this.src = 'images/fr_on.jpg'", :onMouseOut => "this.src = 'images/fr_off.jpg'")
           =image_submit_tag ("es_off.jpg", :id => "es", :title => "Coming soon", :onMouseOver => "this.src = 'images/es_on.jpg'", :onMouseOut => "this.src = 'images/es_off.jpg'")
           -end
-
+ 
         #menus
           =link_to "Gallery",{ :controller => "gallery", :action => "index" }, { :id =>"gallery" }
           =link_to "News",{ :controller => "news", :action => "index" }, { :id =>"news" }
           =link_to "My Page",{ :controller => "people", :action => "index" }, { :id =>"mypage" }
           =link_to "Creative Contests",{ :controller => "creative_contest", :action => "index" }, { :id =>"creativecontests" }
           =link_to "What is Coaliz ?",{ :controller => "coaliz", :action => "index" }, { :id =>"coaliz" }
-
+ 
       #submenus
       #main
-        -if logged_in?
-        %span#toolbox
-          #login
-            Welcome,
-            =h current_person.name
-            =link_to "Sign out", logout_path
-            -if current_person.admin?
-              -if admin_view?
-                =link_to "Standard view", home_path
-              -else
-                =link_to "Admin view", admin_preferences_path
-        -else
-        %span#toolbox
-          #signin
-            -column_div :type => :primary do
-              #member_title Already member ?
-              -form_tag session_path do
-                .form_row
-                  %label{ :for => "username" } Email address
-                  =text_field_tag ('email', params[:email], :maxlength => Person::MAX_EMAIL)
-
-                =set_focus_to_id "email"
-                .form_row
-                  %label{ :for => "password" }Password
-                  =password_field_tag 'password', params[:password], :maxlength => Person::MAX_PASSWORD
-
-                %p{ :id => "forgot" }
-                  = link_to "I forgot my password!", new_password_reminder_path
-
-                .form_row
-                  = image_submit_tag 'signin_butt.gif', :id => "go_button"
-
-                .form_row
-                  %label{ :for => "remember_me", :class =>"checkbox" }Remember me:
-                  =check_box_tag 'remember_me', '1', true, :class => "checkbox"
-
-            -if global_prefs.can_send_mail?
-              =link_to "I forgot my password", new_password_reminder_path
-            -else
-            %h3 Welcome Anonymous
-            -end
-          #feedback
-            #title
-              LEAVE A FEEDBACK
-            #subtitle
-              REPORT A BUG
-            #formbody
-              -form_for (:feedback, :url => { :action => :index }) do |form|
-                %textarea#feedback_message
-                #thanks	
-                =image_submit_tag ("send.jpg", :id =>"send")
-              -end
-
+        #alert
+          -flash.each do |key, msg|
+            = content_tag :p, msg, :class => "flash #{key}"
+        
+        =render :partial => "home/toolbox"
+ 
         %span#content
-          =yield     
+          =yield
