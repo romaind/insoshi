@@ -14,15 +14,21 @@
 </p>
 
 <p>
-  <b>User:</b>
-  <%=h @project.person_id %>
-</p>
-
-<p>
   <b>Licence:</b>
   <%=h @project.licence %>
 </p>
 
 
-<%= link_to 'Edit', edit_person_project_path(current_person, @project) %> |
-<%= link_to 'Back', person_projects_path %>
+<%= link_to 'Edit Project Informations', edit_person_project_path(current_person, @project) %>
+
+
+<hr/>
+<div>
+<p><b>My Creations:</b>
+<% @project.creations.each do |crea| %>
+  <%= link_to(image_tag(crea.asset.item.url(:tiny)), person_project_creation_path(current_person, @project, crea)) %>
+<% end %></p>
+<%= link_to 'Manage Creations', person_project_creations_path(current_person, @project) %>
+</div>
+<hr/>
+<%= link_to 'Back to the projects\' list', person_projects_path %>

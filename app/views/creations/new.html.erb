@@ -2,10 +2,14 @@
 
 <%= error_messages_for :creation %>
 
-<% form_for(@creation, :url => person_project_creation_path(current_person, @project, @creation)) do |f| %>
+<% form_for(@creation, :url => person_project_creation_path(current_person, @project, @creation), :html => { :multipart => true }) do |f| %>
   <p>
     <b>Set up Assets handling</b><br />
-    <%#= f.text_field :project_id %>
+    <b>Image</b>
+    <%= error_messages_for :assets %>
+    <% fields_for :asset do |a| %>
+      <%= a.file_field :item %>
+    <% end %>
   </p>
 
   <p>

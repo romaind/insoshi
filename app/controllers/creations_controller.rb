@@ -44,12 +44,18 @@ class CreationsController < ApplicationController
   # POST /creations.xml
   def create
     @creation = @project.creations.create(params[:creation])
+    @asset = Asset.new(params[:asset])
 
     respond_to do |format|
       if @creation.save
-        flash[:notice] = 'Creation was successfully created.'
-        format.html { redirect_to person_project_creation_path(current_person, @project, @creation) }
-        format.xml  { render :xml => @creation, :status => :created, :location => @creation }
+        # if @creation.assets.create(params[:asset])
+        # if @creation.assets.save
+        @creation.asset = @asset
+        # if @asset.save
+          flash[:notice] = 'Creation was successfully created.'
+          format.html { redirect_to person_project_creation_path(current_person, @project, @creation) }
+          format.xml  { render :xml => @creation, :status => :created, :location => @creation }
+        # end
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @creation.errors, :status => :unprocessable_entity }

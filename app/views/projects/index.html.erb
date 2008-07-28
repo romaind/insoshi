@@ -1,4 +1,4 @@
-<h1>Listing projects</h1>
+<h1>Listing of user's projects</h1>
 
 <table>
   <tr>
@@ -14,7 +14,6 @@
     <td><%=h project.title %></td>
     <td><%=h project.description %></td>
     <td><%=h project.views %></td>
-    <td><%=h project.person_id %></td>
     <td><%=h project.licence %></td>
     <td><%= link_to 'Show', person_project_path(current_person, project) %></td>
     <td><%= link_to 'Edit', edit_person_project_path(current_person, project) %></td>

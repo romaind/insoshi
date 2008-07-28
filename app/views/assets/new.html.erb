@@ -2,7 +2,7 @@
 
 <%= error_messages_for :asset %>
 
-<% form_for(@asset) do |f| %>
+<% form_for(@asset, :html => { :multipart => true }) do |f| %>
   <p>
     <b>Creation</b><br />
     <%= f.text_field :creation_id %>

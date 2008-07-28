@@ -1,8 +1,7 @@
 <p>
-  <b>Project:</b>
-  <%=h @creation.project_id %>
+  <b>Creation :</b><br/>
+  <%= image_tag @creation.asset.item.url %>
 </p>
 
 
-<%= link_to 'Edit', edit_person_project_creation_path(current_person, @project, @creation) %> |
-<%= link_to 'Back', person_project_creations_path %>
+<%= link_to 'Back to this project creations\' list', person_project_creations_path %>
