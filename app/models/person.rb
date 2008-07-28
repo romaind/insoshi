@@ -183,7 +183,11 @@ class Person < ActiveRecord::Base
   #Return the age of 
   def age
     now = Time.now.utc.to_date
-    now.year - birthdate.year - (birthdate.to_date.change(:year => now.year) > now ? 1 : 0)
+    if birthdate
+      now.year - birthdate.year - (birthdate.to_date.change(:year => now.year) > now ? 1 : 0)
+    else
+      "unknown"
+    end
   end
 
   # Params for use in urls.
