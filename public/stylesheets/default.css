@@ -109,6 +109,17 @@ body {
     width: 187px;
     height: 162px;
     margin-bottom: 10px; }
+    #toolbox #signin a {
+      color: white;
+      font-size: 8pt; }
+  #toolbox #signin {
+    background-image: url(../images/signin.gif);
+    background-repeat: no-repeat;
+    color: white;
+    text-align: right;
+    width: 187px;
+    height: 162px;
+    margin-bottom: 10px; }
     #toolbox #signin #member_title {
       margin-top: 0;
       margin-right: 10px;

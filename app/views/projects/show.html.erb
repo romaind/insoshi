@@ -1,0 +1,34 @@
+<p>
+  <b>Title:</b>
+  <%=h @project.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @project.description %>
+</p>
+
+<p>
+  <b>Views:</b>
+  <%=h @project.views %>
+</p>
+
+<p>
+  <b>Licence:</b>
+  <%=h @project.licence %>
+</p>
+
+
+<%= link_to 'Edit Project Informations', edit_person_project_path(current_person, @project) %>
+
+
+<hr/>
+<div>
+<p><b>My Creations:</b>
+<% @project.creations.each do |crea| %>
+  <%= link_to(image_tag(crea.asset.item.url(:tiny)), person_project_creation_path(current_person, @project, crea)) %>
+<% end %></p>
+<%= link_to 'Manage Creations', person_project_creations_path(current_person, @project) %>
+</div>
+<hr/>
+<%= link_to 'Back to the projects\' list', person_projects_path %>

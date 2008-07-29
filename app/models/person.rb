@@ -95,6 +95,7 @@ class Person < ActiveRecord::Base
   has_many :activities, :through => :feeds, :order => 'created_at DESC',
                                             :limit => FEED_SIZE
   has_many :page_views, :order => 'created_at DESC'
+  has_many :projects
   
   validates_presence_of     :email, :on => :create,
                                 :if => :pending?
@@ -182,7 +183,11 @@ class Person < ActiveRecord::Base
   #Return the age of 
   def age
     now = Time.now.utc.to_date
-    now.year - birthdate.year - (birthdate.to_date.change(:year => now.year) > now ? 1 : 0)
+    if birthdate
+      now.year - birthdate.year - (birthdate.to_date.change(:year => now.year) > now ? 1 : 0)
+    else
+      "unknown"
+    end
   end
 
   # Params for use in urls.
