@@ -180,7 +180,7 @@ class Person < ActiveRecord::Base
     gender == 1 ? "man.gif" : "woman.gif"
   end
 
-  #Return the age of 
+  #Return the person's age
   def age
     now = Time.now.utc.to_date
     if birthdate

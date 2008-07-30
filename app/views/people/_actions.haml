@@ -10,11 +10,17 @@
           =link_to image_tag("edit_profile.gif"), edit_person_path(@person)
         %td
           =link_to "Edit my profile", edit_person_path(@person)
+      %tr
+        %td
+          =link_to image_tag("new_message.gif"), new_person_message_path(@person)
+        %td
+          =link_to "Send a message", new_person_message_path(@person)
     -if current_person.admin?
       %tr
         %td
-          = email_link @person
-          to everyone
+          = link_to image_tag("new_message.gif"), new_person_message_path(@person)
+        %td
+          = link_to "Send a message", new_person_message_path(@person)
   -else
     -if logged_in?
       -unless Connection.exists?(@person, current_person)
@@ -32,12 +38,14 @@
             = link_to "Delete from contacts", connection_path(Connection.conn(current_person, @person)), :method => :delete, :confirm => "Are you sure you want to end connection with #{h @person.name}?"
         %tr
           %td
-            = email_link @person
-        %tr
+            = link_to image_tag("new_message.gif"), new_person_message_path(@person)
           %td
+            = link_to "Send me message", new_person_message_path(@person)
+        %tr
+          %td{ :colspan => 2}
             = link_to "#{h @person.name}'s blog", blog_path(@person.blog)
       - if current_person.admin?
         %tr
-          %td
+          %td{ :colspan => 2}
           - activity = @person.deactivated? ? "activate" : "deactivate"
           = link_to activity, admin_person_path(@person, :task => "deactivated"), :method => :put

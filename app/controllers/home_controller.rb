@@ -16,4 +16,10 @@ class HomeController < ApplicationController
       format.html
     end  
   end
+  
+  def requested_contacts
+    if logged_in?
+      @requested_contacts = current_person.requested_contacts
+    end
+  end
 end
