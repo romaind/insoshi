@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../../spec_helper'
 
-describe "/people/show.html.erb" do
+describe "/people/show.haml" do
     
   before(:each) do
     @person = login_as(:quentin)
@@ -8,7 +8,7 @@ describe "/people/show.html.erb" do
     assigns[:person] = @person
     assigns[:some_contacts] = @person.some_contacts
     assigns[:common_connections] = []
-    render "/people/show.html.erb"
+    render "/people/show.haml"
   end
 
   it "should have the right title" do

@@ -136,7 +136,7 @@ describe PeopleController do
           get :verify, :id => verification.code
           person.reload.should_not be_deactivated
           person.should be_email_verified
-          response.should redirect_to(person_path(person))
+          response.should redirect_to(edit_person_path(person))
         end
         
         it "should not log the person in" do
@@ -155,7 +155,7 @@ describe PeopleController do
           verification = person.email_verifications.last
           get :verify, :id => verification.code
           person.reload.should_not be_deactivated
-          response.should redirect_to(person_path(person))
+          response.should redirect_to(edit_person_path(person))
         end
         
         it "should redirect home on failed verification" do
