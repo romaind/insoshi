@@ -29,7 +29,7 @@ class Photo < ActiveRecord::Base
                  :min_size => 1,
                  :resize_to => '240>',
                  :thumbnails => { :thumbnail    => '72>',
-                                  :profile      => '190x150!',
+                                  :profile      => '187x150!',
                                   :icon         => '36>',
                                   :bounded_icon => '36x36>' }
   

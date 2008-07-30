@@ -1,65 +1,41 @@
 - column_div :type => :primary do
   #profile
-    -if admin? and not @person.active?
-      %p
-        This person is not active
-    -if current_person?(@person)
-      -if current_person.description.blank?
-        %p
-          Your description is blank.
-          = link_to "Click here to add a description", edit_person_path(@person)
-      -else
-        .notice
-          You are viewing your own profile.
-          = link_to "Click here to edit it", edit_person_path(@person)
-      =image_tag "profile_top.gif"
-      #profile_details
-        = image_tag @person.profile, :id => "profile_image", :alt => h(@person.name)
-        #details
+    =image_tag "profile_top.gif"
+    #profile_details
+      = image_tag @person.profile, :id => "profile_image", :alt => h(@person.name)
+      #details
+        %b
           =h @person.first_name
-          =h @person.name
-          %br
-          =image_tag @person.gender_image
-          \,
-          =pluralize(@person.age, "year")
-          %br
-          =h @person.city
-          %br
-          =link_to "My Website", "http://#{@person.website}"
+          %p
+            =h @person.name
+        =image_tag @person.gender_image
+        \,
+        =pluralize(@person.age, "year")
+        %br
+        =h @person.city
 
-      -unless current_person?(@person)
-        %ul.tools
-        -if logged_in?
-          -unless Connection.exists?(@person, current_person)
-            %li
-              = link_to "Connect with #{h @person.name}!", person_connections_path(@person), :method => :post
-          -if Connection.connected?(@person, current_person)
-          %li
-            = h @person.name
-            is one of your contacts
-            %br
-            (
-            = link_to "end connection", connection_path(Connection.conn(current_person, @person)), :method => :delete, :confirm => "Are you sure you want to end connection with #{h @person.name}?"
-            )
-          %li
-            = email_link @person
-          %li
-            = link_to "#{h @person.name}'s blog", blog_path(@person.blog)
-          - if current_person.admin?
-          %li
-          - activity = @person.deactivated? ? "activate" : "deactivate"
-          = link_to activity, admin_person_path(@person, :task => "deactivated"), :method => :put
-        
-      -if current_person?(@person) and current_person.admin?
-        %ul.tools
-          %li
-            = email_link @person
-            to everyone
+      #stats
+        =pluralize(10, "project")
+        %br
+        =pluralize(@person.contacts.count, "contact")
+        %br
+        =pluralize(420, "total view")
+        %br
+        =pluralize(102, "total vote")
+        %br
+        =pluralize(6, "contest's participation")
+        %br
+        =pluralize(2, "contest's win")
+        %br
+        3 contest's "top 5"
+
+      =render :partial => 'actions'
+
+    = image_tag "profile_bottom.gif"
+
     = display @person.description
-
-= render :partial => 'recent_activity'
-= render :partial => 'wall'
--end
+    = render :partial => 'recent_activity'
+    = render :partial => 'wall'
 
 -column_div :type => :secondary do
   #minifeed
@@ -67,4 +43,3 @@
   -if logged_in?
     = render :partial => 'shared/contacts_preview', :locals => { :person => @person }
     = render :partial => 'common_contacts'
--end

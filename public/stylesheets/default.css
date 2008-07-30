@@ -431,11 +431,36 @@ body {
   border-right: 1px solid #DDDDDD; }
   #profile_details #profile_image {
     float: left;
-    margin-right: 7px; }
+    margin-right: 7px;
+    margin-left: 1px; }
   #profile_details #details {
-    width: 400px;
+    float: left;
+    width: 197px;
     height: 150px;
     border-right: 1px dotted black; }
+    #profile_details #details p {
+      margin: 0;
+      padding: 0; }
+  #profile_details #stats {
+    color: #777777;
+    padding-left: 10px;
+    float: left;
+    width: 187px;
+    height: 150px;
+    border-right: 1px dotted black; }
+  #profile_details #actions {
+    padding-left: 10px;
+    float: left;
+    width: 170px;
+    height: 150px; }
+    #profile_details #actions #actions_list {
+      margin-left: 15px; }
+      #profile_details #actions #actions_list td {
+        padding-bottom: 10px; }
+        #profile_details #actions #actions_list td a {
+          color: #333333;
+          text-decoration: none;
+          font-size: 10pt; }
 
 /* *********Alerts end notifications********** */
 .success {
