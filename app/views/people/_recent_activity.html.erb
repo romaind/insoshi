@@ -8,10 +8,10 @@
     <%= time_ago_in_words(@person.last_logged_in_at) %> ago
     </p>    
   <%- end -%>
+  <div id="minifeed">
   
-  <ul class="list activity full">
      <%= render :partial => 'shared/activity',
                 :collection => @person.recent_activity,
                 :locals => { :destroy => (current_person? @person) } %>
-  </ul>
+  </div>
 <%- end -%>

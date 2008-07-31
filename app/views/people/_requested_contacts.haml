@@ -1,0 +1,25 @@
+%h4 CONTACT REQUESTS
+#person_request
+  - unless @person.requested_contacts.empty?
+    %table
+      - i = 0
+      - @person.requested_contacts.each do |contact|
+        - if i%4 == 0
+          %tr
+        - conn = Connection.conn(current_person, contact)
+        %td.contact_request
+          = image_link contact
+          %br
+            = person_link contact
+          %br
+            = time_ago_in_words(conn.created_at) 
+            ago
+          %p
+            -form_for(conn) do |f|
+              %p
+                = f.submit "Accept", :class => "button"
+                = f.submit "Decline", :id => nil, :class => "button"
+        - i += 1
+  -else
+    %p
+      No contact request.

@@ -1,5 +1,12 @@
-<td class="vcard person">
-  <%= image_link person, :class => "photo", :image => :thumbnail %>
-  <p><%= person_link person, :class => "url fn" %></p>
-  <p><%= display(truncate(person.description, 150), :class => "note") %></p>
-</td>
+<% if (person.id+3)%4 == 0 %>
+  <tr>
+<% end %>
+<td>
+    <%= image_link person, :class => "photo", :image => :thumbnail %>
+    <p>
+      <b><%= person_link person, :class => "url fn" %></b>
+    <p>
+      <%= display(truncate(person.description, 150), :class => "note") %>
+<% if person.id%4 == 0 or person.id == person.max %>
+  </tr>
+<% end %>

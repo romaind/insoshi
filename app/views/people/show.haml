@@ -34,12 +34,14 @@
     = image_tag "profile_bottom.gif"
 
     = display @person.description
-    = render :partial => 'recent_activity'
-    = render :partial => 'wall'
+    
 
--column_div :type => :secondary do
-  #minifeed
-    = render :partial => 'shared/minifeed'
-  -if logged_in?
-    = render :partial => 'shared/contacts_preview', :locals => { :person => @person }
-    = render :partial => 'common_contacts'
+#personal_requests
+  = render :partial => "requested_contacts"
+#minifeeds
+  = render :partial => 'shared/minifeed'
+-if logged_in?
+  = render :partial => 'shared/contacts_preview', :locals => { :person => @person }
+  = render :partial => 'common_contacts'
+
+= render :partial => 'wall'

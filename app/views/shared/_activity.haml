@@ -1,0 +1,18 @@
+/ The activity shouldn't be nil, but we're wearing a belt and suspenders.
+- unless activity.item.nil?
+  .recent_activity
+    %table
+      %tr
+        %td
+          = image_link activity.person, :image => :thumbnail, :class => "thumb"
+        %td.activity_content
+          = feed_icon activity
+          = activity.created_at.strftime("On %m/%d/%Y")
+          %br
+          = activity.created_at.strftime("at %I:%M%p")
+
+          %p
+            = feed_message activity
+            %br
+            - if current_person?(activity.person)
+              = link_to image_tag("icons/close.gif"), activity_path(activity), :method => :delete, :confirm => %(Are you sure you want to delete this activity from your profile?)

@@ -190,6 +190,10 @@ class Person < ActiveRecord::Base
     end
   end
 
+  #Return the last id of person table (needed in _person.html.erb)
+  def max
+    Person.count
+  end
   # Params for use in urls.
   # Profile urls have the form '/people/1-michael-hartl'.
   # This works automagically because Person.find(params[:id]) implicitly

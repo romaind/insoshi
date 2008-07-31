@@ -32,13 +32,11 @@ module PeopleHelper
   def person_link(text, person = nil, html_options = nil)
     if person.nil?
       person = text
-      text = person.first_name
-      text << " "+person.name
+      text = person.first_name + " " + person.name
     elsif person.is_a?(Hash)
       html_options = person
       person = text
-      text = person.first_name
-      text << " "+person.name
+      text = person.first_name + " " + person.name
     end
     # We normally write link_to(..., person) for brevity, but that breaks
     # activities_helper_spec due to an RSpec bug.

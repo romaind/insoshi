@@ -9,11 +9,12 @@
   %h4
     =link_to "How to create my network ?"
 
+
 - column_div :type => :primary do
   -unless @people.empty?
     = will_paginate
     #people
       %table#list_people
         = render :partial => @people
-    = image_tag "personaldata_bottom.gif"
     = will_paginate
+    =image_tag "personaldata_bottom.gif"

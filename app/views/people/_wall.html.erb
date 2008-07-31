@@ -1,15 +1,19 @@
 <%- if logged_in? -%>
+    <h4>COMMENTS WALL</h4>
   <div class="wall">
-    <h2>Comment Wall</h2>
     <a name="wall"></a>
-    
+    <div id="wall_form" >
     <%- if connected_to?(@person) -%>
+      <div id="wall_title">
+		Leave a comment for my portfolio<br>
+		<%= image_tag "comment.gif" %>
+	  </div>
       <% form_for :comment, :url => person_comments_path(@person) do |f| %>
-        <div class="form_row">
-          <%= f.text_area :body, :rows => 2 %>
+        <div id="wall_textarea">
+          <%= f.text_area :body, :rows => 5 %>
         </div>
   
-        <div class="form_row">
+        <div id="wall_button">
           <%= submit_tag "Submit", :class => "button" %>
         </div>
       <% end %>
@@ -22,7 +26,7 @@
                   person_connections_path(@person), :method => :post %>
       </p>
     <%- end -%>
-
+    </div>
     <%- unless @person.comments.empty? -%>
       <ul class="list comments full">
         <%= render :partial => 'comment', :collection => @person.comments %>

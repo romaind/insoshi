@@ -760,7 +760,6 @@ body
 /**********People page**********
 #people
   :width 773px
-  :height 170px
   :background
     :color white
   :border
@@ -768,13 +767,14 @@ body
     :right 1px solid #DDDDDD
 
   table#list_people
+    :border-spacing 7px 5px
     td
       :vertical-align top
       :font
-        :size 9pt
+        :size 8pt
       :padding
         :bottom 10px
-      :width 190px
+      :width 194px
       :height 80px
       :border-collapse separate
   
@@ -787,6 +787,115 @@ body
         :margin 0
         :margin
           :top 2px
+
+      a
+        :color #333333
+        :text-decoration none 
+/**********Recent Activity***********
+#minifeeds
+  :text-align right
+  :width 580px
+ 
+  h4
+    :color #FF9900
+    :font
+      :weight normal
+    :margin 0
+
+  .list_feed
+    :background
+      :color white
+    :border
+      :top 2px solid #FF9900
+    :width 580px
+    :margin
+      :bottom 20px
+
+    table
+      :width 580px
+      td.thumb
+        :width 36px
+      img
+        :margin
+          :left 10px
+          :bottom 20px
+      p
+        :margin 0
+        :font
+          :size 9pt
+
+        a
+          :color #FF9900
+          :text-decoration none
+
+/**********Wall if comments**********
+h4
+  :width 777px
+  :text-align right
+  :color #FF9900
+  :margin 0
+.wall
+  :width 777px
+  :border
+    :top 2px solid #FF9900
+  :padding
+    :top 10px
+  :background
+    :color white
+  #wall_form
+    :text-align center
+    :width 581px
+    :height 136px
+    :background
+      :image url(../images/wall.gif)
+      :repeat no-repeat
+
+    #wall_title
+      :color white
+      :float left
+      :width 100px
+      :margin
+        :top 10px
+        :right 20px
+        :left 20px
+
+    #wall_textarea
+      :padding
+        :top 10px
+
+/**********Requested contacts partial**********
+#personal_requests
+  :margin
+    :left 7px
+  :float right
+  :width 190px
+  :text-align right
+
+  h4
+    :width 190px
+    :color #FF9900
+    :font
+      :weight normal
+    :margin 0
+
+  #person_request
+    :background
+      :color white
+    :border
+      :top 2px solid #FF9900
+    :width 190px
+
+    table
+      :width 190px
+      :text-align right
+
+/**********Contacts Preview***********
+#contacts_small
+  :width 777px
+  :background
+    :color white
+  :border
+    :top 2px solid #FF9900
 
 /**********Alerts end notifications**********
 .success
