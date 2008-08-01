@@ -508,8 +508,12 @@ body
       label
         :margin 0
 
+    code
+      :font
+        :size 9pt
+
     #person_website
-      :width 300px
+      :width 245px
 
     #p_status
       :width 306px
@@ -629,7 +633,7 @@ body
 /********** Profile page**********
 #profile_details
   :width 773px
-  :height 170px
+  :height 153px
   :background
     :color white
   :border
@@ -660,6 +664,8 @@ body
     :float left
     :width 187px
     :height 150px
+    :font
+      :size 10pt
     :border
       :right 1px dotted black
 
@@ -789,47 +795,232 @@ body
           :top 2px
 
       a
-        :color #333333
-        :text-decoration none 
-/**********Recent Activity***********
-#minifeeds
+        :color #20A420
+        :text-decoration none
+
+/**********Profile right column**********
+.profile_right_column
+  :width 190px
+  :margin
+    :left 7px
+  :width 190px
   :text-align right
-  :width 580px
- 
+
   h4
+    :text-align right
     :color #FF9900
     :font
+      :size 10pt
       :weight normal
     :margin 0
 
-  .list_feed
+  a
+    :color #333333
+    :text-decoration none
+
+  #description_content
     :background
       :color white
     :border
       :top 2px solid #FF9900
-    :width 580px
-    :margin
-      :bottom 20px
+    :width 190px
+    :padding
+      :bottom 5px
 
-    table
-      :width 580px
-      td.thumb
-        :width 36px
+    p
+      :text-align justify
+      :margin 5px
+      :font
+        :size 9pt
+
+    p:first-letter
+      :margin
+        :left 20px
+
+  .column_content
+    :background
+      :color white
+    :border
+      :top 2px solid #FF9900
+    :width 190px
+    :padding
+      :bottom 5px
+
+    #p_status
+      :margin
+        :top 5px
+
+    p
+      :text-align right
+      :margin 5px
+      :font
+        :size 9pt
+
+    #cv
+      :text-align center
+      :font
+        :size 9pt
+      :margin
+        :bottom 15px
+
       img
         :margin
-          :left 10px
-          :bottom 20px
+          :right 10px
+
+  .profile_edit
+    :width 180px
+    :text-align left
+    :border
+      :top 1px dotted #333333
+    :font
+      :size 8pt
+    :margin
+      :top 10px
+      :left 5px
+
+    img
+      :margin
+        :top 5px
+        :right 5px
+
+  .add
+    :text-align center
+    :margin
+      :top 15px
+      :bottom 10px
+    a
+      :margin
+        :top 5px
+      :font
+        :size 9pt
+      :color #333333
+
+/**********Recent Activity***********
+#feed_requests
+  :width 777px
+
+  #minifeeds
+    :text-align right
+    :width 580px
+ 
+    h4
+      :color #FF9900
+      :font
+        :size 10pt
+        :weight normal
+      :margin 0
+
+    .list_feed
+      :background
+        :color white
+      :border
+        :top 2px solid #FF9900
+      :width 580px
+      :margin
+        :bottom 20px
+
+      table
+        :width 580px
+        td.thumb
+          :width 36px
+        td
+          :vertical-align top
+          :height 36px
+        img
+          :margin
+            :left 10px
+            :bottom 20px
+        p
+          :margin 0
+          :font
+            :size 9pt
+  
+          a
+            :color #FF9900
+            :text-decoration none
+  
+/**********Requested contacts partial**********
+#personal_requests
+  :margin
+    :left 7px
+  :float right
+  :width 190px
+  :text-align right
+
+  h4
+    :width 190px
+    :color #FF9900
+    :font
+      :size 10pt
+      :weight normal
+    :margin 0
+
+  #person_request
+    :background
+      :color white
+    :border
+      :top 2px solid #FF9900
+    :width 190px
+
+    table
+      :width 190px
+      :text-align right
+      :font
+        :size 9pt
+
+      a
+        :color #FF9900
+        :text-decoration none
+
+/**********Contacts Preview***********
+#contact_preview
+  h4
+    :text-align right
+    :width 777px
+    :color #FF9900
+    :font
+      :size 10pt
+      :weight normal
+    :margin 0
+
+#contacts_small
+  :width 777px
+  :background
+    :color white
+  :border
+    :top 2px solid #FF9900
+
+  table
+    :font
+      :size 9pt
+    :border-spacing 7px 5px
+    td.thumb
+      :width 194px
+      :height 80px
+      :vertical-align top
+      :padding
+        :bottom 10px
+      :border-collapse separate
+
+      img
+        :float left
+        :margin
+          :right 5px
+
       p
         :margin 0
-        :font
-          :size 9pt
+        :margin
+          :top 2px
 
         a
           :color #FF9900
           :text-decoration none
 
 /**********Wall if comments**********
-h4
+#wall_title
+  :font
+    :size 10pt
+    :weight normal
   :width 777px
   :text-align right
   :color #FF9900
@@ -850,7 +1041,7 @@ h4
       :image url(../images/wall.gif)
       :repeat no-repeat
 
-    #wall_title
+    #wall_comment
       :color white
       :float left
       :width 100px
@@ -862,40 +1053,6 @@ h4
     #wall_textarea
       :padding
         :top 10px
-
-/**********Requested contacts partial**********
-#personal_requests
-  :margin
-    :left 7px
-  :float right
-  :width 190px
-  :text-align right
-
-  h4
-    :width 190px
-    :color #FF9900
-    :font
-      :weight normal
-    :margin 0
-
-  #person_request
-    :background
-      :color white
-    :border
-      :top 2px solid #FF9900
-    :width 190px
-
-    table
-      :width 190px
-      :text-align right
-
-/**********Contacts Preview***********
-#contacts_small
-  :width 777px
-  :background
-    :color white
-  :border
-    :top 2px solid #FF9900
 
 /**********Alerts end notifications**********
 .success

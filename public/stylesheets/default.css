@@ -346,8 +346,10 @@ body {
       width: 306px; }
     #profile_edit .form_row #terms label {
       margin: 0; }
+    #profile_edit .form_row code {
+      font-size: 9pt; }
     #profile_edit .form_row #person_website {
-      width: 300px; }
+      width: 245px; }
     #profile_edit .form_row #p_status {
       width: 306px; }
   #profile_edit #about_content .form_row p {
@@ -425,7 +427,7 @@ body {
 /* ********* Profile page********** */
 #profile_details {
   width: 773px;
-  height: 170px;
+  height: 153px;
   background-color: white;
   border-left: 1px solid #DDDDDD;
   border-right: 1px solid #DDDDDD; }
@@ -447,6 +449,7 @@ body {
     float: left;
     width: 187px;
     height: 150px;
+    font-size: 10pt;
     border-right: 1px dotted black; }
   #profile_details #actions {
     float: left;
@@ -537,38 +540,164 @@ body {
         margin: 0;
         margin-top: 2px; }
       #people table#list_people td a {
-        color: #333333;
+        color: #20A420;
         text-decoration: none; }
 
-/* *********Recent Activity*********** */
-#minifeeds {
-  text-align: right;
-  width: 580px; }
-  #minifeeds h4 {
+/* *********Profile right column********** */
+.profile_right_column {
+  width: 190px;
+  margin-left: 7px;
+  width: 190px;
+  text-align: right; }
+  .profile_right_column h4 {
+    text-align: right;
     color: #FF9900;
+    font-size: 10pt;
     font-weight: normal;
     margin: 0; }
-  #minifeeds .list_feed {
+  .profile_right_column a {
+    color: #333333;
+    text-decoration: none; }
+  .profile_right_column #description_content {
     background-color: white;
     border-top: 2px solid #FF9900;
-    width: 580px;
-    margin-bottom: 20px; }
-    #minifeeds .list_feed table {
-      width: 580px; }
-      #minifeeds .list_feed table td.thumb {
-        width: 36px; }
-      #minifeeds .list_feed table img {
-        margin-left: 10px;
-        margin-bottom: 20px; }
-      #minifeeds .list_feed table p {
+    width: 190px;
+    padding-bottom: 5px; }
+    .profile_right_column #description_content p {
+      text-align: justify;
+      margin: 5px;
+      font-size: 9pt; }
+    .profile_right_column #description_content p:first-letter {
+      margin-left: 20px; }
+  .profile_right_column .column_content {
+    background-color: white;
+    border-top: 2px solid #FF9900;
+    width: 190px;
+    padding-bottom: 5px; }
+    .profile_right_column .column_content #p_status {
+      margin-top: 5px; }
+    .profile_right_column .column_content p {
+      text-align: right;
+      margin: 5px;
+      font-size: 9pt; }
+    .profile_right_column .column_content #cv {
+      text-align: center;
+      font-size: 9pt;
+      margin-bottom: 15px; }
+      .profile_right_column .column_content #cv img {
+        margin-right: 10px; }
+  .profile_right_column .profile_edit {
+    width: 180px;
+    text-align: left;
+    border-top: 1px dotted #333333;
+    font-size: 8pt;
+    margin-top: 10px;
+    margin-left: 5px; }
+    .profile_right_column .profile_edit img {
+      margin-top: 5px;
+      margin-right: 5px; }
+  .profile_right_column .add {
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 10px; }
+    .profile_right_column .add a {
+      margin-top: 5px;
+      font-size: 9pt;
+      color: #333333; }
+
+/* *********Recent Activity*********** */
+#feed_requests {
+  width: 777px; }
+  #feed_requests #minifeeds {
+    text-align: right;
+    width: 580px; }
+    #feed_requests #minifeeds h4 {
+      color: #FF9900;
+      font-size: 10pt;
+      font-weight: normal;
+      margin: 0; }
+    #feed_requests #minifeeds .list_feed {
+      background-color: white;
+      border-top: 2px solid #FF9900;
+      width: 580px;
+      margin-bottom: 20px; }
+      #feed_requests #minifeeds .list_feed table {
+        width: 580px; }
+        #feed_requests #minifeeds .list_feed table td.thumb {
+          width: 36px; }
+        #feed_requests #minifeeds .list_feed table td {
+          vertical-align: top;
+          height: 36px; }
+        #feed_requests #minifeeds .list_feed table img {
+          margin-left: 10px;
+          margin-bottom: 20px; }
+        #feed_requests #minifeeds .list_feed table p {
+          margin: 0;
+          font-size: 9pt; }
+          #feed_requests #minifeeds .list_feed table p a {
+            color: #FF9900;
+            text-decoration: none; }
+
+/* *********Requested contacts partial********** */
+#personal_requests {
+  margin-left: 7px;
+  float: right;
+  width: 190px;
+  text-align: right; }
+  #personal_requests h4 {
+    width: 190px;
+    color: #FF9900;
+    font-size: 10pt;
+    font-weight: normal;
+    margin: 0; }
+  #personal_requests #person_request {
+    background-color: white;
+    border-top: 2px solid #FF9900;
+    width: 190px; }
+    #personal_requests #person_request table {
+      width: 190px;
+      text-align: right;
+      font-size: 9pt; }
+      #personal_requests #person_request table a {
+        color: #FF9900;
+        text-decoration: none; }
+
+/* *********Contacts Preview*********** */
+#contact_preview h4 {
+  text-align: right;
+  width: 777px;
+  color: #FF9900;
+  font-size: 10pt;
+  font-weight: normal;
+  margin: 0; }
+
+#contacts_small {
+  width: 777px;
+  background-color: white;
+  border-top: 2px solid #FF9900; }
+  #contacts_small table {
+    font-size: 9pt;
+    border-spacing: 7px 5px; }
+    #contacts_small table td.thumb {
+      width: 194px;
+      height: 80px;
+      vertical-align: top;
+      padding-bottom: 10px;
+      border-collapse: separate; }
+      #contacts_small table td.thumb img {
+        float: left;
+        margin-right: 5px; }
+      #contacts_small table td.thumb p {
         margin: 0;
-        font-size: 9pt; }
-        #minifeeds .list_feed table p a {
+        margin-top: 2px; }
+        #contacts_small table td.thumb p a {
           color: #FF9900;
           text-decoration: none; }
 
 /* *********Wall if comments********** */
-h4 {
+#wall_title {
+  font-size: 10pt;
+  font-weight: normal;
   width: 777px;
   text-align: right;
   color: #FF9900;
@@ -585,7 +714,7 @@ h4 {
     height: 136px;
     background-image: url(../images/wall.gif);
     background-repeat: no-repeat; }
-    .wall #wall_form #wall_title {
+    .wall #wall_form #wall_comment {
       color: white;
       float: left;
       width: 100px;
@@ -594,31 +723,6 @@ h4 {
       margin-left: 20px; }
     .wall #wall_form #wall_textarea {
       padding-top: 10px; }
-
-/* *********Requested contacts partial********** */
-#personal_requests {
-  margin-left: 7px;
-  float: right;
-  width: 190px;
-  text-align: right; }
-  #personal_requests h4 {
-    width: 190px;
-    color: #FF9900;
-    font-weight: normal;
-    margin: 0; }
-  #personal_requests #person_request {
-    background-color: white;
-    border-top: 2px solid #FF9900;
-    width: 190px; }
-    #personal_requests #person_request table {
-      width: 190px;
-      text-align: right; }
-
-/* *********Contacts Preview*********** */
-#contacts_small {
-  width: 777px;
-  background-color: white;
-  border-top: 2px solid #FF9900; }
 
 /* *********Alerts end notifications********** */
 .success {

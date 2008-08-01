@@ -42,6 +42,21 @@ module PeopleHelper
     # activities_helper_spec due to an RSpec bug.
     link_to(h(text), person, html_options)
   end
+  
+  #If the field is empty, display depending current person
+  def display_empty_field(field)
+    if current_person?(@person)
+      haml_tag :div, { :class => "add"} do
+        haml_tag :a, {:href => edit_person_path(@person) + "#person_" + field} do
+          haml_tag :img,{ :src => "../images/add.gif"}
+        end
+        haml_tag :br
+        haml_tag :a , "Add a " + field.singularize, {:href => edit_person_path(@person) + "#person_" + field}
+      end
+    else
+        "No " + field + "."
+    end
+  end
     
   private
     

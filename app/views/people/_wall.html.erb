@@ -1,11 +1,11 @@
 <%- if logged_in? -%>
-    <h4>COMMENTS WALL</h4>
+    <h4 id="wall_title">COMMENTS WALL</h4>
   <div class="wall">
     <a name="wall"></a>
     <div id="wall_form" >
     <%- if connected_to?(@person) -%>
-      <div id="wall_title">
-		Leave a comment for my portfolio<br>
+      <div id="wall_comment">
+		Leave a comment on my wall<br>
 		<%= image_tag "comment.gif" %>
 	  </div>
       <% form_for :comment, :url => person_comments_path(@person) do |f| %>
