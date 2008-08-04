@@ -1,4 +1,6 @@
 - column_div :type => :primary do
+  -if current_person?(@person)
+    = stylesheet_link_tag "current_profile"
   #profile
     =image_tag "profile_top.gif"
     #profile_details
@@ -176,8 +178,10 @@
     #minifeeds
       = render :partial => 'shared/minifeed'
 -if logged_in?
-  #contact_preview
-    = render :partial => 'shared/contacts_preview', :locals => { :person => @person }
-  = render :partial => 'common_contacts'
+  #contacts
+    #common_contacts
+      = render :partial => 'common_contacts'
+    #contact_preview
+      = render :partial => 'shared/contacts_preview', :locals => { :person => @person }
 
 = render :partial => 'wall'

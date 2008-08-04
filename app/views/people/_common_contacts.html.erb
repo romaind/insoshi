@@ -1,18 +1,21 @@
 <%- if logged_in? -%>
   <%- unless @common_connections.empty? -%>
-    <h2>Common Contacts</h2>
-    <ul class="grid contacts small">
+    <h4>COMMON CONTACTS</h4>
+    <div id="common_list">
+		<table>
+		<%- i=0 %>
       <%- @common_connections.each do |connection| -%>
-        <li class="vcard">
-          <%= image_link(connection.contact,
-                         :image_options => { :class => "photo fn" },
-                         :link_options =>  { :class => "url" }) %>
-        </li>
+       <%- if i%2==0 %>
+		<tr>
+	   <%- end %>
+        	<td class="thumb">
+          		<%= image_link(connection.contact,	:image => :minithumb,
+                         							:image_options => { :class => "photo fn" },
+                         							:link_options =>  { :class => "url" }) %>
+        	</td>
+		<%- i+=1 %>
       <%- end -%>
-      <li class="more">
-        <%= link_to "See all &raquo;", 
-                    common_contacts_person_path(@person) %>
-      </li>
-    </ul>
+    </table>
+  </div>
   <%- end -%>
-<%- end -%>
+<%- end %>

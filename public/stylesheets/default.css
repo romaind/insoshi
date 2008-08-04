@@ -243,7 +243,7 @@ body {
     text-align: right; }
     #lastproject #lastprojects_content .lastprojects h4 {
       font-weight: normal;
-      color: #20A420;
+      color: #009900;
       margin-top: 0;
       margin-bottom: 5px; }
     #lastproject #lastprojects_content .lastprojects .details {
@@ -252,7 +252,7 @@ body {
       padding-right: 10px; }
     #lastproject #lastprojects_content .lastprojects .category {
       font-size: 8pt;
-      background-color: #20A420;
+      background-color: #009900;
       color: white;
       padding-right: 10px; }
 #lastproject #lastprojectbottom {
@@ -540,7 +540,7 @@ body {
         margin: 0;
         margin-top: 2px; }
       #people table#list_people td a {
-        color: #20A420;
+        color: #009900;
         text-decoration: none; }
 
 /* *********Profile right column********** */
@@ -551,7 +551,7 @@ body {
   text-align: right; }
   .profile_right_column h4 {
     text-align: right;
-    color: #FF9900;
+    color: #009900;
     font-size: 10pt;
     font-weight: normal;
     margin: 0; }
@@ -560,7 +560,7 @@ body {
     text-decoration: none; }
   .profile_right_column #description_content {
     background-color: white;
-    border-top: 2px solid #FF9900;
+    border-top: 2px solid #009900;
     width: 190px;
     padding-bottom: 5px; }
     .profile_right_column #description_content p {
@@ -571,7 +571,7 @@ body {
       margin-left: 20px; }
   .profile_right_column .column_content {
     background-color: white;
-    border-top: 2px solid #FF9900;
+    border-top: 2px solid #009900;
     width: 190px;
     padding-bottom: 5px; }
     .profile_right_column .column_content #p_status {
@@ -612,13 +612,13 @@ body {
     text-align: right;
     width: 580px; }
     #feed_requests #minifeeds h4 {
-      color: #FF9900;
+      color: #009900;
       font-size: 10pt;
       font-weight: normal;
       margin: 0; }
     #feed_requests #minifeeds .list_feed {
       background-color: white;
-      border-top: 2px solid #FF9900;
+      border-top: 2px solid #009900;
       width: 580px;
       margin-bottom: 20px; }
       #feed_requests #minifeeds .list_feed table {
@@ -635,7 +635,7 @@ body {
           margin: 0;
           font-size: 9pt; }
           #feed_requests #minifeeds .list_feed table p a {
-            color: #FF9900;
+            color: #009900;
             text-decoration: none; }
 
 /* *********Requested contacts partial********** */
@@ -646,35 +646,38 @@ body {
   text-align: right; }
   #personal_requests h4 {
     width: 190px;
-    color: #FF9900;
+    color: #009900;
     font-size: 10pt;
     font-weight: normal;
     margin: 0; }
   #personal_requests #person_request {
     background-color: white;
-    border-top: 2px solid #FF9900;
+    border-top: 2px solid #009900;
     width: 190px; }
     #personal_requests #person_request table {
       width: 190px;
       text-align: right;
       font-size: 9pt; }
       #personal_requests #person_request table a {
-        color: #FF9900;
+        color: #009900;
         text-decoration: none; }
 
 /* *********Contacts Preview*********** */
+#contacts {
+  width: 777px; }
+
 #contact_preview h4 {
   text-align: right;
-  width: 777px;
-  color: #FF9900;
+  width: 580px;
+  color: #009900;
   font-size: 10pt;
   font-weight: normal;
   margin: 0; }
 
 #contacts_small {
-  width: 777px;
+  width: 580px;
   background-color: white;
-  border-top: 2px solid #FF9900; }
+  border-top: 2px solid #009900; }
   #contacts_small table {
     font-size: 9pt;
     border-spacing: 7px 5px; }
@@ -691,7 +694,42 @@ body {
         margin: 0;
         margin-top: 2px; }
         #contacts_small table td.thumb p a {
-          color: #FF9900;
+          color: #009900;
+          text-decoration: none; }
+
+/* ***********Common contacts*********** */
+#common_contacts {
+  float: right; }
+  #common_contacts h4 {
+    text-align: right;
+    width: 190px;
+    color: #009900;
+    font-size: 10pt;
+    font-weight: normal;
+    margin: 0; }
+
+#common_list {
+  width: 190px;
+  background-color: white;
+  border-top: 2px solid #009900;
+  padding-top: 5px; }
+  #common_list table {
+    font-size: 9pt;
+    border-spacing: 20px 1px; }
+    #common_list table td.thumb {
+      width: 60px;
+      height: 80px;
+      vertical-align: top;
+      padding-bottom: 5px;
+      border-collapse: separate; }
+      #common_list table td.thumb img {
+        float: left;
+        margin-right: 5px; }
+      #common_list table td.thumb p {
+        margin: 0;
+        margin-top: 2px; }
+        #common_list table td.thumb p a {
+          color: #009900;
           text-decoration: none; }
 
 /* *********Wall if comments********** */
@@ -700,19 +738,19 @@ body {
   font-weight: normal;
   width: 777px;
   text-align: right;
-  color: #FF9900;
+  color: #009900;
   margin: 0; }
 
 .wall {
   width: 777px;
-  border-top: 2px solid #FF9900;
+  border-top: 2px solid #009900;
   padding-top: 10px;
   background-color: white; }
   .wall #wall_form {
     text-align: center;
     width: 581px;
     height: 136px;
-    background-image: url(../images/wall.gif);
+    background-image: url(../images/wall_public.gif);
     background-repeat: no-repeat; }
     .wall #wall_form #wall_comment {
       color: white;

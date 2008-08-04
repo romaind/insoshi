@@ -4,9 +4,15 @@
 	<table>
 		<%- i=0 %>
     	<%- @person.contacts.each do |contact| -%>
-    		<%- if i%4 == 0 %>
-      			<tr>
-    		<% end %>
+            <%- if current_person?(@person) %>
+    			<%- if i%4 == 0 %>
+      				<tr>
+    			<% end %>
+			<%- else %>
+				<%- if i%3 == 0 %>
+      				<tr>
+    			<% end %>
+			<%- end %>
       		<td class="thumb">
         		<%= image_link(contact, :image => :thumbnail,
                                 		:image_options => { :class => "photo fn" },

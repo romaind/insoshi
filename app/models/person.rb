@@ -295,6 +295,11 @@ class Person < ActiveRecord::Base
     photo.nil? ? "default_profile.gif" : photo.public_filename(:profile)
   end
 
+  def minithumb
+    photo.nil? ? "default_minithumb.gif" : photo.public_filename(:minithumb)
+  end
+
+
   def icon
     photo.nil? ? "default_icon.png" : photo.public_filename(:icon)
   end
@@ -415,6 +420,16 @@ class Person < ActiveRecord::Base
     conditions = [sql, id, person.id, Connection::ACCEPTED, false, true]
     opts = { :page => page, :per_page => RASTER_PER_PAGE }
     @common_connections ||= Connection.paginate_by_sql(conditions, opts)
+  end
+  
+  # Return the given person projects 
+  def projects(person, page = 1)
+    sql = %(SELECT projects.* FROM `connections`
+            WHERE (person_id = ?)
+            GROUP BY project_id)
+    conditions = [sql, person.id]
+    opts = { :page => page, :per_page => RASTER_PER_PAGE }
+    @person_projects ||= Project.paginate_by_sql(conditions, opts)
   end
   
   protected

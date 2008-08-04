@@ -6,7 +6,11 @@
     <%- if connected_to?(@person) -%>
       <div id="wall_comment">
 		Leave a comment on my wall<br>
-		<%= image_tag "comment.gif" %>
+		<%- if current_person?(@person) %>
+		 <%= image_tag "comment.gif" %>
+		<%- else %>
+		 <%= image_tag "comment_public.gif" %>
+		<%- end %>
 	  </div>
       <% form_for :comment, :url => person_comments_path(@person) do |f| %>
         <div id="wall_textarea">

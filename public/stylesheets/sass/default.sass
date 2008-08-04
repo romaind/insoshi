@@ -355,7 +355,7 @@ body
       h4
         :font
           :weight normal
-        :color #20A420
+        :color #009900
         :margin
           :top 0
           :bottom 5px
@@ -371,7 +371,7 @@ body
         :font
           :size 8pt
         :background
-          :color #20A420
+          :color #009900
         :color white 
         :padding
           :right 10px
@@ -795,7 +795,7 @@ body
           :top 2px
 
       a
-        :color #20A420
+        :color #009900
         :text-decoration none
 
 /**********Profile right column**********
@@ -808,7 +808,7 @@ body
 
   h4
     :text-align right
-    :color #FF9900
+    :color #009900
     :font
       :size 10pt
       :weight normal
@@ -822,7 +822,7 @@ body
     :background
       :color white
     :border
-      :top 2px solid #FF9900
+      :top 2px solid #009900
     :width 190px
     :padding
       :bottom 5px
@@ -841,7 +841,7 @@ body
     :background
       :color white
     :border
-      :top 2px solid #FF9900
+      :top 2px solid #009900
     :width 190px
     :padding
       :bottom 5px
@@ -904,7 +904,7 @@ body
     :width 580px
  
     h4
-      :color #FF9900
+      :color #009900
       :font
         :size 10pt
         :weight normal
@@ -914,7 +914,7 @@ body
       :background
         :color white
       :border
-        :top 2px solid #FF9900
+        :top 2px solid #009900
       :width 580px
       :margin
         :bottom 20px
@@ -936,7 +936,7 @@ body
             :size 9pt
   
           a
-            :color #FF9900
+            :color #009900
             :text-decoration none
   
 /**********Requested contacts partial**********
@@ -949,7 +949,7 @@ body
 
   h4
     :width 190px
-    :color #FF9900
+    :color #009900
     :font
       :size 10pt
       :weight normal
@@ -959,7 +959,7 @@ body
     :background
       :color white
     :border
-      :top 2px solid #FF9900
+      :top 2px solid #009900
     :width 190px
 
     table
@@ -969,26 +969,29 @@ body
         :size 9pt
 
       a
-        :color #FF9900
+        :color #009900
         :text-decoration none
 
 /**********Contacts Preview***********
+#contacts
+  :width 777px
+
 #contact_preview
   h4
     :text-align right
-    :width 777px
-    :color #FF9900
+    :width 580px
+    :color #009900
     :font
       :size 10pt
       :weight normal
     :margin 0
 
 #contacts_small
-  :width 777px
+  :width 580px
   :background
     :color white
   :border
-    :top 2px solid #FF9900
+    :top 2px solid #009900
 
   table
     :font
@@ -1013,7 +1016,54 @@ body
           :top 2px
 
         a
-          :color #FF9900
+          :color #009900
+          :text-decoration none
+
+/************Common contacts***********
+#common_contacts
+  :float right
+  h4
+    :text-align right
+    :width 190px
+    :color #009900
+    :font
+      :size 10pt
+      :weight normal
+    :margin 0
+
+#common_list
+  :width 190px
+  :background
+    :color white
+  :border
+    :top 2px solid #009900
+  :padding
+    :top 5px
+
+  table
+    :font
+      :size 9pt
+    :border-spacing 20px 1px
+    td.thumb
+      :width 60px
+      :height 80px
+      :vertical-align top
+      :padding
+        :bottom 5px
+      :border-collapse separate
+
+      img
+        :float left
+        :margin
+          :right 5px
+
+      p
+        :margin 0
+        :margin
+          :top 2px
+
+        a
+          :color #009900
           :text-decoration none
 
 /**********Wall if comments**********
@@ -1023,12 +1073,12 @@ body
     :weight normal
   :width 777px
   :text-align right
-  :color #FF9900
+  :color #009900
   :margin 0
 .wall
   :width 777px
   :border
-    :top 2px solid #FF9900
+    :top 2px solid #009900
   :padding
     :top 10px
   :background
@@ -1038,7 +1088,7 @@ body
     :width 581px
     :height 136px
     :background
-      :image url(../images/wall.gif)
+      :image url(../images/wall_public.gif)
       :repeat no-repeat
 
     #wall_comment
