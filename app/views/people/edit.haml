@@ -111,10 +111,10 @@
           =text_field :p, :schools
           = button_to "Add a school", { :controller => ""}, :id => "newschool"
 
-        .form_row
-          %label{ :for => "p_skills" } Skills:
-          = select :p, :skills, ["3D animation", "advertising", "animation", "architecture"]
-        
+        #skills_checkboxes
+          %h3 Skills
+          =render :partial => "skills", :locals =>{ :f => f }
+
         .form_row
           %label{ :for => "p_languages" } Languages:
           = select :p, :languages, ["english", "french", "spanish", "german"]

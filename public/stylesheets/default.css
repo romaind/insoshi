@@ -374,8 +374,11 @@ body {
   #profile_edit #p_schools {
     width: 300px;
     margin-bottom: 5px; }
-  #profile_edit #p_skills {
-    width: 306px; }
+  #profile_edit #skills_checkboxes {
+    font-size: 9pt; }
+    #profile_edit #skills_checkboxes table {
+      margin-left: 120px;
+      margin-bottom: 20px; }
   #profile_edit #p_languages {
     width: 306px; }
   #profile_edit #p_software {

@@ -1,0 +1,13 @@
+<table>
+  <%- i=0 %>
+  <%- @languages.each do |language| %>
+      <%- if i%4==0 %>
+         <tr>
+	  <%- end %>
+         <td>
+            <label for = "person_<%= language.name %>" ><%= language.name %>
+            <%= f.check_box language.name, {:checked => person_speaks?(language)} %></label>
+         </td>
+      <%- i+=1 %>
+  <%- end %>
+</table>

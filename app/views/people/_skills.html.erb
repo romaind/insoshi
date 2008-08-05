@@ -1,0 +1,13 @@
+<table>
+  <%- i=0 %>
+  <%- @skills.each do |skill| %>
+      <%- if i%4==0 %>
+         <tr>
+	  <%- end %>
+         <td>
+            <label for = "person_<%= skill.id %>" ><%= skill.title %></label>
+            <input type="checkbox" name="people[skill_ids][]" <%- if @person.skills.include?(skill) %> checked=“checked” <%- end %> >
+         </td>
+      <%- i+=1 %>
+  <%- end %>
+</table>

@@ -1,4 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :softwares
+
+  map.resources :languages
+
+  map.resources :skills
+
 
   map.resources :preferences
   map.resources :searches

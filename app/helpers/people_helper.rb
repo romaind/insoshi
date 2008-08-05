@@ -57,7 +57,7 @@ module PeopleHelper
         "No " + field + "."
     end
   end
-    
+  
   private
     
     # Make captioned images.

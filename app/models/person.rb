@@ -96,6 +96,9 @@ class Person < ActiveRecord::Base
                                             :limit => FEED_SIZE
   has_many :page_views, :order => 'created_at DESC'
   has_many :projects
+  has_many :languages
+  has_and_belongs_to_many :skills
+  has_many :softwares
   
   validates_presence_of     :email, :on => :create,
                                 :if => :pending?
@@ -270,7 +273,7 @@ class Person < ActiveRecord::Base
                  :order => "created_at DESC",
                  :limit => NUM_RECENT_MESSAGES)
   end
-
+  
   ## Photo helpers
 
   def photo
@@ -423,11 +426,11 @@ class Person < ActiveRecord::Base
   end
   
   # Return the given person projects 
-  def projects(person, page = 1)
-    sql = %(SELECT projects.* FROM `connections`
+  def projects(page = 1)
+    sql = %(SELECT projects.* FROM `projects`
             WHERE (person_id = ?)
-            GROUP BY project_id)
-    conditions = [sql, person.id]
+            ORDER BY created_at)
+    conditions = [sql, id]
     opts = { :page => page, :per_page => RASTER_PER_PAGE }
     @person_projects ||= Project.paginate_by_sql(conditions, opts)
   end

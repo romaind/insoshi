@@ -23,6 +23,7 @@ class PeopleController < ApplicationController
     if logged_in?
       @some_contacts = @person.some_contacts
       @common_connections = current_person.common_connections_with(@person)
+      @person_projects = @person.projects
     end
     respond_to do |format|
       format.html
@@ -89,7 +90,7 @@ class PeopleController < ApplicationController
 
   def edit
     @person = Person.find(params[:id])
-
+    @skills = Skill.find(:all)
     respond_to do |format|
       format.html
     end
