@@ -1,0 +1,15 @@
+<table>
+  <%- i=0 %>
+ 	<% for software in Software.find(:all) %>
+     <%- if i%4==0 %>
+        <tr>
+     <%- end %>
+        <td>
+           <p><%= software.name %></p>
+		</td>
+		<td>
+           <%= check_box_tag "person[software_ids][]", software.id, @person.softwares.include?(software) %>
+        </td>
+     <%- i+=1 %>
+ <%- end %>
+</table>

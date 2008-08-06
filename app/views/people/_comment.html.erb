@@ -1,5 +1,5 @@
-<li>
-  <div class="profile-image">
+<div>
+  <div class="comment_image">
     <%= image_link(comment.commenter, :image => :thumbnail) %>
     <%= image_tag "icons/comment.gif", :class => "icon" %>
   </div>
@@ -14,4 +14,4 @@
   <%= link_to "delete", person_comment_path(@person, comment),
                         :method => :delete %>
   <%- end -%>  
-</li>
+</div>

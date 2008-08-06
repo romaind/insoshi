@@ -7,8 +7,8 @@ class AddSoftwareData < ActiveRecord::Migration
     Software.create(:name => "AAA Logo")
     Software.create(:name => "Adesign")
     Software.create(:name => "Adobe Creative Suite 3 Design")
-    Software.create(:name => "Adobe Creative Suite 3 Master Collection")
-    Software.create(:name => "Adobe Creative Suite 3 Web")
+    Software.create(:name => "Adobe Creative Suite 3 Master Collection ")
+    Software.create(:name => "Adobe Creative Suite 3 Web ")
     Software.create(:name => "Adobe Illustrator")
     Software.create(:name => "Adobe Indesign")
     Software.create(:name => "Adobe Photoshop")
@@ -23,7 +23,7 @@ class AddSoftwareData < ActiveRecord::Migration
     Software.create(:name => "Bryce")
     Software.create(:name => "Carrara Studio")
     Software.create(:name => "Cinema 4D")
-    Software.create(:name => "ColorVision Spyder2 Express")
+    Software.create(:name => "ColorVision Spyder2 Express ")
     Software.create(:name => "ColorVision Spyder2 Suite")
     Software.create(:name => "Cool 3D")
     Software.create(:name => "Corel Draw Essential")
@@ -107,7 +107,7 @@ class AddSoftwareData < ActiveRecord::Migration
     Software.create(:name => "Wings 3D")
     Software.create(:name => "Xara lx")
     Software.create(:name => "XSI")
-    Software.create(:name => "Zbrush")    
+    Software.create(:name => "Zbrush")
   end
 
   def self.down

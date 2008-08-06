@@ -6,7 +6,15 @@
     <p>
       <b><%= person_link person, :class => "url fn" %></b>
     </p>
-      <%= display(truncate(person.description, 150), :class => "note") %>
+	<p>
+		<%- if person.common_connections_with(current_person).count-1 > 0 %>
+			<%- if person.admin?%>
+				<%= pluralize(person.common_connections_with(current_person).count, "common contact") %>
+			<%- else %>
+    			<%= pluralize(person.common_connections_with(current_person).count-1, "common contact") %>
+			<%- end %>
+		<%- end %>
+	</p>
 <% if person.id%4 == 0 or person.id == person.max %>
   </tr>
 <% end %>

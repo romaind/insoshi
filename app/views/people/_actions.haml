@@ -17,6 +17,12 @@
           =link_to "Send a message", new_person_message_path(@person)
   -else
     -if logged_in?
+      -if current_person.waiting_acceptation?(@person)
+        %tr
+          %td
+            =image_tag "waiting.gif"
+          %td
+            Waiting acceptation
       -unless Connection.exists?(@person, current_person)
         -if not(current_person?(@person))
           %tr

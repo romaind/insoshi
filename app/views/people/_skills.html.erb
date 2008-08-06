@@ -1,12 +1,12 @@
 <table>
   <%- i=0 %>
- <%- @skills.each do |skill| %>
+ 	<% for skill in Skill.find(:all) %>
      <%- if i%4==0 %>
         <tr>
      <%- end %>
         <td>
-           <label> <%= skill.title %>
-           <%= check_box_tag "person[skills][]", skill.id, @person.skills.include?(skill) %></label>
+           <label> <%= skill.name %>
+           <%= check_box_tag "person[skill_ids][]", skill.id, @person.skills.include?(skill) %></label>
         </td>
      <%- i+=1 %>
  <%- end %>

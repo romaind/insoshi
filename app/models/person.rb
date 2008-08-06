@@ -35,7 +35,7 @@ class Person < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :name, :first_name,
                   :description, :connection_notifications,
                   :message_notifications, :wall_comment_notifications,
-                  :blog_comment_notifications,
+                  :blog_comment_notifications, :skill_ids, :language_ids, :software_ids,
                   #ADDED FIELD
                   :birthdate, :gender, :website, :address, :zipcode, :city, :phone
   acts_as_ferret :fields => [ :name, :first_name, :description ] if search?
@@ -61,6 +61,10 @@ class Person < ActiveRecord::Base
   NUM_RECENT = 8
   FEED_SIZE = 10
   TIME_AGO_FOR_MOSTLY_ACTIVE = 1.month.ago
+  
+  ##4 choices maximum in skills, languages and software
+  MAX_SKILLS = 4
+  
   # These constants should be methods, but I couldn't figure out  how to use
   # methods in the has_many associations.  I hope you can do better.
   ACCEPTED_AND_ACTIVE =  [%(status = ? AND
@@ -96,11 +100,9 @@ class Person < ActiveRecord::Base
                                             :limit => FEED_SIZE
   has_many :page_views, :order => 'created_at DESC'
   has_many :projects
-  has_many :languages
-  has_many :people_skills
-  has_many :skills, :through => :people_skills 
-  after_update :save_skills
-  has_many :softwares
+  has_and_belongs_to_many :languages
+  has_and_belongs_to_many :skills
+  has_and_belongs_to_many :softwares
   
   validates_presence_of     :email, :on => :create,
                                 :if => :pending?
@@ -115,6 +117,7 @@ class Person < ActiveRecord::Base
   validates_length_of       :name,  :maximum => MAX_NAME, :on => :update,
                                 :if => :actived?
   validates_length_of       :description, :maximum => MAX_DESCRIPTION
+  validates_length_of       :skills, :maximum => MAX_SKILLS
   validates_format_of       :email,
                             :with => EMAIL_REGEX,
                             :message => "must be a valid email address"
@@ -185,12 +188,6 @@ class Person < ActiveRecord::Base
     gender == 1 ? "man.gif" : "woman.gif"
   end
 
-  def save_skills
-    skills.each do |skill|
-      skills.save(false)
-    end
-  end
-
 
   #Return the person's age
   def age
@@ -252,6 +249,14 @@ class Person < ActiveRecord::Base
       conn = Connection.conn(self, p)
       edit_connection_path(conn)
     end
+  end
+
+  def waiting_acceptation?(person)
+    waiting =false
+    for requested_contact in person.requested_contacts do
+      waiting = true if requested_contact.id == self.id
+    end
+    waiting
   end
 
   ## Message methods

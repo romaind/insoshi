@@ -90,13 +90,15 @@ class PeopleController < ApplicationController
 
   def edit
     @person = Person.find(params[:id])
-    @skills = Skill.find(:all)
     respond_to do |format|
       format.html
     end
   end
 
   def update
+    params[:person][:skill_ids] ||= []
+    params[:person][:language_ids] ||= []
+    params[:person][:software_ids] ||= []
     @person = Person.find(params[:id])
     respond_to do |format|
       case params[:type]
