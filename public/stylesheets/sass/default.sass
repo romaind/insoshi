@@ -774,7 +774,7 @@ body
       :top 10px
       :right 20px
 
-    #q_category
+    #_skills
       :margin
         :top 5px
       :width 200px
@@ -793,7 +793,7 @@ body
     :right 1px solid #DDDDDD
 
   table#list_people
-    :border-spacing 2px 5px
+    :border-spacing 5px 5px
     td
       :vertical-align top
       :font
@@ -817,6 +817,20 @@ body
       a
         :color #009900
         :text-decoration none
+
+      table
+        :border-collapse collapse
+        :height 80px
+        td
+          :padding 0
+          :height 5px
+        .count_common
+          :vertical-align bottom
+        .add_cell
+          :vertical-align bottom
+          a
+            :color #009900
+            :text-decoration none
 
 /**********Profile right column**********
 .profile_right_column
@@ -1123,6 +1137,36 @@ body
     #wall_textarea
       :padding
         :top 10px
+/**********Comments in the wall**********
+#comments
+  :margin
+    :left 10px
+    :top 10px
+
+  .comment_image
+    :font
+      :size 9pt
+    :border-spacing 2px 0
+    :border-collapse separate
+    :width 200px
+    :height 80px
+    :border
+      :top 1px dotted black
+      :bottom 1px dotted black
+
+    .commenter_image
+      :width 50px
+
+    a
+      :color #333333
+      :text-decoration none
+
+    .commenter
+      :vertical-align top
+      :padding
+        :top 5px
+      p
+        :margin 0
 
 /**********Alerts end notifications**********
 .success

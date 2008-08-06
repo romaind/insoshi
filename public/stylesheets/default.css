@@ -524,7 +524,7 @@ body {
     text-align: right;
     margin-top: 10px;
     margin-right: 20px; }
-    #sort #sort_content #q_category {
+    #sort #sort_content #_skills {
       margin-top: 5px;
       width: 200px; }
     #sort #sort_content label {
@@ -538,7 +538,7 @@ body {
   border-left: 1px solid #DDDDDD;
   border-right: 1px solid #DDDDDD; }
   #people table#list_people {
-    border-spacing: 2px 5px; }
+    border-spacing: 5px 5px; }
     #people table#list_people td {
       vertical-align: top;
       font-size: 8pt;
@@ -555,6 +555,19 @@ body {
       #people table#list_people td a {
         color: #009900;
         text-decoration: none; }
+      #people table#list_people td table {
+        border-collapse: collapse;
+        height: 80px; }
+        #people table#list_people td table td {
+          padding: 0;
+          height: 5px; }
+        #people table#list_people td table .count_common {
+          vertical-align: bottom; }
+        #people table#list_people td table .add_cell {
+          vertical-align: bottom; }
+          #people table#list_people td table .add_cell a {
+            color: #009900;
+            text-decoration: none; }
 
 /* *********Profile right column********** */
 .profile_right_column {
@@ -745,7 +758,7 @@ body {
           color: #009900;
           text-decoration: none; }
 
-/* *********Wall if comments********** */
+/* *********Wall of comments********** */
 #wall_title {
   font-size: 10pt;
   font-weight: normal;
@@ -774,6 +787,29 @@ body {
       margin-left: 20px; }
     .wall #wall_form #wall_textarea {
       padding-top: 10px; }
+
+/* *********Comments in the wall********** */
+#comments {
+  margin-left: 10px;
+  margin-top: 10px; }
+  #comments .comment_image {
+    font-size: 9pt;
+    border-spacing: 2px 0;
+    border-collapse: separate;
+    width: 200px;
+    height: 80px;
+    border-top: 1px dotted black;
+    border-bottom: 1px dotted black; }
+    #comments .comment_image .commenter_image {
+      width: 50px; }
+    #comments .comment_image a {
+      color: #333333;
+      text-decoration: none; }
+    #comments .comment_image .commenter {
+      vertical-align: top;
+      padding-top: 5px; }
+      #comments .comment_image .commenter p {
+        margin: 0; }
 
 /* *********Alerts end notifications********** */
 .success {

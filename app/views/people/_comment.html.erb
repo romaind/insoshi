@@ -1,12 +1,14 @@
 <div>
-  <div class="comment_image">
-    <%= image_link(comment.commenter, :image => :thumbnail) %>
-    <%= image_tag "icons/comment.gif", :class => "icon" %>
-  </div>
-  <p class="meta published">
-    <%= person_link comment.commenter %> said
-    <%= time_ago_in_words(comment.created_at) %> ago
-  </p>
+  <table class="comment_image">
+	<tr>
+		<td class="commenter_image">
+          	<%= image_link(comment.commenter, :image => :minithumb) %>
+        </td>
+		<td class="commenter">
+    		<%= person_link comment.commenter %>
+		</td>
+  </table>
+	
   <%= display comment.body %>
 
   <%- if current_person?(comment.commentable) -%>

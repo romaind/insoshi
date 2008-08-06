@@ -62,7 +62,7 @@ class Person < ActiveRecord::Base
   FEED_SIZE = 10
   TIME_AGO_FOR_MOSTLY_ACTIVE = 1.month.ago
   
-  ##4 choices maximum in skills, languages and software
+  ##4 choices maximum in skills
   MAX_SKILLS = 4
   
   # These constants should be methods, but I couldn't figure out  how to use

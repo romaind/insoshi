@@ -3,18 +3,29 @@
 <% end %>
 <td>
     <%= image_link person, :class => "photo", :image => :thumbnail %>
-    <p>
-      <b><%= person_link person, :class => "url fn" %></b>
-    </p>
-	<p>
-		<%- if person.common_connections_with(current_person).count-1 > 0 %>
-			<%- if person.admin?%>
-				<%= pluralize(person.common_connections_with(current_person).count, "common contact") %>
-			<%- else %>
-    			<%= pluralize(person.common_connections_with(current_person).count-1, "common contact") %>
+    <table>
+	  <tr>
+		<td>
+      		<p><b><%= person_link person, :class => "url fn" %></b></p>
+    	</td>
+	  <tr>
+		<td class="count_common">
+			<%- if person.common_connections_with(current_person).count-1 > 0 %>
+				<%- if person.admin?%>
+					<p><%= pluralize(person.common_connections_with(current_person).count, "common contact") %></p>
+				<%- else %>
+    				<p><%= pluralize(person.common_connections_with(current_person).count-1, "common contact") %></p>
+				<%- end %>
+			<%- else%>
+			  &nbsp;
 			<%- end %>
-		<%- end %>
-	</p>
+		</td>
+	  <tr>
+		<td class="add_cell">
+			<%= link_to image_tag ("mini_add.gif"), person_connections_path(person), :method => :post %>
+			<%= link_to "Add", person_connections_path(person), :method => :post %>
+		</td>
+	</table>
 <% if person.id%4 == 0 or person.id == person.max %>
   </tr>
 <% end %>

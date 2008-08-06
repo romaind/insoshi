@@ -8,7 +8,6 @@ class PeopleController < ApplicationController
 
   def index
     @people = Person.mostly_active(params[:page])
-
     respond_to do |format|
       format.html
     end

@@ -32,7 +32,7 @@
     <%- end -%>
     </div>
     <%- unless @person.comments.empty? -%>
-      <div class="list comments full">
+      <div id="comments">
         <%= render :partial => 'comment', :collection => @person.comments %>
       </div>
     <%- end -%>

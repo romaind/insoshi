@@ -3,7 +3,7 @@
     -form_tag searches_path, :method => :get, :id => "frmSearch" do
       %label{ :for => "q"}Choose a category:
       %br
-      =select :q, :category,["3D animation","advertising","animation","architecture"]
+      = collection_select(nil, :skills, Skill.find(:all), :id, :name,{:prompt   => "All categories"})
   %h4#sort_title SORT PEOPLE BY CATEGORY
 #what_is
   %h4
