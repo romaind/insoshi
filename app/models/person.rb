@@ -97,7 +97,9 @@ class Person < ActiveRecord::Base
   has_many :page_views, :order => 'created_at DESC'
   has_many :projects
   has_many :languages
-  has_and_belongs_to_many :skills
+  has_many :people_skills
+  has_many :skills, :through => :people_skills 
+  after_update :save_skills
   has_many :softwares
   
   validates_presence_of     :email, :on => :create,
@@ -182,6 +184,13 @@ class Person < ActiveRecord::Base
   def gender_image
     gender == 1 ? "man.gif" : "woman.gif"
   end
+
+  def save_skills
+    skills.each do |skill|
+      skills.save(false)
+    end
+  end
+
 
   #Return the person's age
   def age

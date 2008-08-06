@@ -114,6 +114,7 @@
         #skills_checkboxes
           %h3 Skills
           =render :partial => "skills", :locals =>{ :f => f }
+          =@person.skills.collect { |t| t.title }.join(', ')
 
         .form_row
           %label{ :for => "p_languages" } Languages:
