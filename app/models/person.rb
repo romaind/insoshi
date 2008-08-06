@@ -440,13 +440,13 @@ class Person < ActiveRecord::Base
   end
   
   # Return the given person projects 
-  def projects(page = 1)
+  def last_projects(page = 1)
     sql = %(SELECT projects.* FROM `projects`
             WHERE (person_id = ?)
             ORDER BY created_at)
     conditions = [sql, id]
     opts = { :page => page, :per_page => RASTER_PER_PAGE }
-    @person_projects ||= Project.paginate_by_sql(conditions, opts)
+    Project.paginate_by_sql(conditions, opts)
   end
   
   protected
