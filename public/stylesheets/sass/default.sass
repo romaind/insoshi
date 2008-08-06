@@ -1144,6 +1144,7 @@ body
     :top 10px
 
   .comment_image
+    :float left
     :font
       :size 9pt
     :border-spacing 2px 0
@@ -1167,6 +1168,45 @@ body
         :top 5px
       p
         :margin 0
+
+  .comment
+    :width 411px
+    :border-collapse collapse
+    .head
+      :width 411px
+      :height 21px
+      :background
+        :image url(../images/comments/comment_head.gif)
+        :repeat no-repeat
+    .left_arrow
+      :width 16px
+      :height 42px
+      :background
+        :image url(../images/comments/comment_arrow.gif)
+        :repeat no-repeat
+    .comment_body
+      p
+        :margin 0
+    .right_border
+      :width 15px
+      :background
+        :image url(../images/comments/comment_right.gif)
+        :repeat repeat-y
+    .bottom_left
+      :width 20px
+      :background
+        :image url(../images/comments/comment_left.gif)
+        :repeat repeat-y
+    .bottom
+      :text-align right
+      :width 409px
+      :height 21px
+      :background
+        :image url(../images/comments/comment_bottom.gif)
+        :repeat no-repeat
+      a
+        :margin
+          :right 10px
 
 /**********Alerts end notifications**********
 .success
