@@ -10,6 +10,7 @@ class Asset < ActiveRecord::Base
     :styles => {
       :tiny   => "48x48#",
       :thumb  => "72x72#",
-      :small  => "150x150>" }
+      :small  => "150x150>",
+      :preview => "188x135!" }
   
 end

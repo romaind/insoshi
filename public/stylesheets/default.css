@@ -180,7 +180,7 @@ body {
   padding-right: 10px;
   padding-top: 5px;
   padding-bottom: 20px;
-  min-height: 500px; }
+  min-height: 600px; }
 
 /* *********Index content********** */
 #content {
@@ -569,11 +569,54 @@ body {
             color: #009900;
             text-decoration: none; }
 
+/* *********Project display*********** */
+#projects {
+  width: 583px; }
+  #projects h4 {
+    text-align: right;
+    color: #009900;
+    font-size: 10pt;
+    font-weight: normal;
+    margin: 0; }
+
+#my_projects {
+  background-color: white;
+  border-top: 2px solid #009900;
+  padding-bottom: 10px; }
+
+.project_item {
+  margin-right: 2px;
+  margin-top: 10px;
+  width: 188px;
+  text-align: right; }
+  .project_item h4 {
+    font-weight: normal;
+    color: #009900;
+    margin-top: 0;
+    margin-bottom: 5px; }
+  .project_item .project_details {
+    font-size: 8pt;
+    line-height: 2em;
+    background-color: #EFEFEF;
+    padding-right: 10px; }
+    .project_item .project_details a {
+      color: #009900;
+      text-decoration: none; }
+    .project_item .project_details .votes_views {
+      font-size: 8pt; }
+  .project_item .category {
+    font-size: 8pt;
+    background-color: #009900;
+    color: white;
+    padding-right: 10px; }
+
 /* *********Profile right column********** */
+#right {
+  float: right; }
+
 .profile_right_column {
-  width: 190px;
-  margin-left: 7px;
-  width: 190px;
+  width: 188px;
+  margin-left: 5px;
   text-align: right; }
   .profile_right_column h4 {
     text-align: right;
@@ -587,7 +630,7 @@ body {
   .profile_right_column #description_content {
     background-color: white;
     border-top: 2px solid #009900;
-    width: 190px;
+    width: 188px;
     padding-bottom: 5px; }
     .profile_right_column #description_content p {
       text-align: justify;
@@ -598,7 +641,7 @@ body {
   .profile_right_column .column_content {
     background-color: white;
     border-top: 2px solid #009900;
-    width: 190px;
+    width: 188px;
     padding-bottom: 5px; }
     .profile_right_column .column_content #p_status {
       margin-top: 5px; }
@@ -612,14 +655,7 @@ body {
       margin-bottom: 15px; }
       .profile_right_column .column_content #cv img {
         margin-right: 10px; }
-  .profile_right_column .profile_edit {
-    width: 180px;
-    text-align: left;
-    border-top: 1px dotted #333333;
-    font-size: 8pt;
-    margin-top: 10px;
-    margin-left: 5px; }
-    .profile_right_column .profile_edit img {
+    .profile_right_column .column_content img {
       margin-top: 5px;
       margin-right: 5px; }
   .profile_right_column .add {
@@ -667,7 +703,6 @@ body {
 /* *********Requested contacts partial********** */
 #personal_requests {
   margin-left: 7px;
-  float: right;
   width: 190px;
   text-align: right; }
   #personal_requests h4 {
@@ -690,18 +725,18 @@ body {
 
 /* *********Contacts Preview*********** */
 #contacts {
-  width: 777px; }
+  width: 7px; }
 
 #contact_preview h4 {
   text-align: right;
-  width: 580px;
+  width: 583px;
   color: #009900;
   font-size: 10pt;
   font-weight: normal;
   margin: 0; }
 
 #contacts_small {
-  width: 580px;
+  width: 583px;
   background-color: white;
   border-top: 2px solid #009900; }
   #contacts_small table {
@@ -724,15 +759,13 @@ body {
           text-decoration: none; }
 
 /* ***********Common contacts*********** */
-#common_contacts {
-  float: right; }
-  #common_contacts h4 {
-    text-align: right;
-    width: 190px;
-    color: #009900;
-    font-size: 10pt;
-    font-weight: normal;
-    margin: 0; }
+#common_contacts h4 {
+  text-align: right;
+  width: 190px;
+  color: #009900;
+  font-size: 10pt;
+  font-weight: normal;
+  margin: 0; }
 
 #common_list {
   width: 190px;

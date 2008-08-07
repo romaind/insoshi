@@ -1,0 +1,14 @@
+.project_item
+  =link_to image_tag(project.creations.first.asset.item.url(:preview)), person_project_path(project.person,project)
+  .project_details
+    %h4
+      =link_to project.title.upcase, person_project_path(project.person,project)
+    By
+    =link_to "#{project.person.first_name} #{project.person.name}"
+    .votes_views
+      45
+      =image_tag ("heart.gif")
+      \- 532
+      =image_tag ("eye.gif")
+  .category
+    Product design, Packaging, Artwork

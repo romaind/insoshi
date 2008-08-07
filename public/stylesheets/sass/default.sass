@@ -257,7 +257,7 @@ body
     :right 10px
     :top 5px
     :bottom 20px
-  :min-height 500px
+  :min-height 600px
 
 /**********Index content**********
 #content
@@ -832,12 +832,73 @@ body
             :color #009900
             :text-decoration none
 
-/**********Profile right column**********
-.profile_right_column
-  :width 190px
+/**********Project display***********
+#projects
+  :width 583px
+  h4
+    :text-align right
+    :color #009900
+    :font
+      :size 10pt
+      :weight normal
+    :margin 0
+   
+#my_projects
+  :background
+    :color white
+  :border
+    :top 2px solid #009900
+  :padding
+    :bottom 10px
+
+.project_item
   :margin
-    :left 7px
-  :width 190px
+    :right 2px
+    :top 10px
+  :width 188px
+  :text-align right
+
+  h4
+    :font
+      :weight normal
+    :color #009900
+    :margin
+      :top 0
+      :bottom 5px
+
+  .project_details
+    :font
+      :size 8pt
+    :line-height 2em
+    :background
+      :color #EFEFEF
+    :padding
+      :right 10px
+
+    a
+      :color #009900
+      :text-decoration none
+
+    .votes_views
+      :font
+        :size 8pt
+
+  .category
+    :font
+      :size 8pt
+    :background
+      :color #009900
+    :color white 
+    :padding
+      :right 10px
+
+/**********Profile right column**********
+#right
+  :float right
+.profile_right_column
+  :width 188px
+  :margin
+    :left 5px
   :text-align right
 
   h4
@@ -857,7 +918,7 @@ body
       :color white
     :border
       :top 2px solid #009900
-    :width 190px
+    :width 188px
     :padding
       :bottom 5px
 
@@ -876,7 +937,7 @@ body
       :color white
     :border
       :top 2px solid #009900
-    :width 190px
+    :width 188px
     :padding
       :bottom 5px
 
@@ -900,17 +961,6 @@ body
       img
         :margin
           :right 10px
-
-  .profile_edit
-    :width 180px
-    :text-align left
-    :border
-      :top 1px dotted #333333
-    :font
-      :size 8pt
-    :margin
-      :top 10px
-      :left 5px
 
     img
       :margin
@@ -977,7 +1027,6 @@ body
 #personal_requests
   :margin
     :left 7px
-  :float right
   :width 190px
   :text-align right
 
@@ -1008,12 +1057,12 @@ body
 
 /**********Contacts Preview***********
 #contacts
-  :width 777px
+  :width 7px
 
 #contact_preview
   h4
     :text-align right
-    :width 580px
+    :width 583px
     :color #009900
     :font
       :size 10pt
@@ -1021,7 +1070,7 @@ body
     :margin 0
 
 #contacts_small
-  :width 580px
+  :width 583px
   :background
     :color white
   :border
@@ -1055,7 +1104,6 @@ body
 
 /************Common contacts***********
 #common_contacts
-  :float right
   h4
     :text-align right
     :width 190px

@@ -1,8 +1,52 @@
+/* *********Project display*********** */
+
+#projects {
+  width: 584px; }
+  #projects h4 {
+    text-align: right;
+    color: #FF9900;
+    font-size: 10pt;
+    font-weight: normal;
+    margin: 0; }
+
+#my_projects {
+  background-color: white;
+  border-top: 2px solid #FF9900; }
+
+.project_item {
+  margin-right: 1px;
+  margin-left: 1px;
+  margin-top: 10px;
+  width: 188px;
+  text-align: right; }
+  .project_item h4 {
+    font-weight: normal;
+    color: #FF9900;
+    margin-top: 0;
+    margin-bottom: 5px; }
+  .project_item .project_details {
+    font-size: 8pt;
+    line-height: 2em;
+    background-color: #EFEFEF;
+    padding-right: 10px; }
+    .project_item .project_details a {
+      color: #FF9900;
+      text-decoration: none; }
+    .project_item .project_details .votes_views {
+      font-size: 8pt; }
+  .project_item .category {
+    font-size: 8pt;
+    background-color: #FF9900;
+    color: white;
+    padding-right: 10px; }
+
 /* *********Profile right column********** */
+#right {
+  float: right; }
+
 .profile_right_column {
-  width: 190px;
-  margin-left: 7px;
-  width: 190px;
+  width: 188px;
+  margin-left: 5px;
   text-align: right; }
   .profile_right_column h4 {
     text-align: right;
@@ -16,7 +60,7 @@
   .profile_right_column #description_content {
     background-color: white;
     border-top: 2px solid #FF9900;
-    width: 190px;
+    width: 188px;
     padding-bottom: 5px; }
     .profile_right_column #description_content p {
       text-align: justify;
@@ -27,7 +71,7 @@
   .profile_right_column .column_content {
     background-color: white;
     border-top: 2px solid #FF9900;
-    width: 190px;
+    width: 188px;
     padding-bottom: 5px; }
     .profile_right_column .column_content #p_status {
       margin-top: 5px; }
@@ -42,7 +86,7 @@
       .profile_right_column .column_content #cv img {
         margin-right: 10px; }
   .profile_right_column .profile_edit {
-    width: 180px;
+    width: 168px;
     text-align: left;
     border-top: 1px dotted #333333;
     font-size: 8pt;
@@ -65,7 +109,7 @@
   width: 777px; }
   #feed_requests #minifeeds {
     text-align: right;
-    width: 580px; }
+    width: 583px; }
     #feed_requests #minifeeds h4 {
       color: #FF9900;
       font-size: 10pt;
@@ -74,7 +118,7 @@
     #feed_requests #minifeeds .list_feed {
       background-color: white;
       border-top: 2px solid #FF9900;
-      width: 580px;
+      width: 583px;
       margin-bottom: 20px; }
       #feed_requests #minifeeds .list_feed table {
         width: 580px; }
@@ -96,7 +140,6 @@
 /* *********Requested contacts partial********** */
 #personal_requests {
   margin-left: 7px;
-  float: right;
   width: 190px;
   text-align: right; }
   #personal_requests h4 {
