@@ -2,29 +2,56 @@
   <tr>
 <% end %>
 <td>
-    <%= image_link person, :class => "photo", :image => :thumbnail %>
-    <table>
-	  <tr>
-		<td>
-      		<p><b><%= person_link person, :class => "url fn" %></b></p>
-    	</td>
-	  <tr>
-		<td class="count_common">
-			<%- if person.common_connections_with(current_person).count-1 > 0 %>
-				<%- if person.admin?%>
-					<p><%= pluralize(person.common_connections_with(current_person).count, "common contact") %></p>
-				<%- else %>
-    				<p><%= pluralize(person.common_connections_with(current_person).count-1, "common contact") %></p>
-				<%- end %>
-			<%- else%>
+  <table>
+	<tr>
+	  <td rowspan="3" class="person_thumb">
+    	<%= image_link person, :class => "photo", :image => :thumbnail %>
+      </td>
+	  <td>
+      	<b><%= person_link person, :class => "url fn" %></b>
+      </td>
+	<tr>
+		<td class="person_skill">
+			<p>
+			<%- if person.skills.empty? %>
 			  &nbsp;
+			<%- else %>
+			  <%- content = "" %>
+			  <%- for skill in person.skills do %>
+				<%- content << skill.name %>
+				<%- if not(person.skills.last==skill) %>
+				  <%- content << ", " %>
+				<%- end %>
+			  <%- end %>
+			  <%= truncate(content, 40)%>
+			<%- end %>
+			</p>
+		</td>
+	</tr>
+	<tr>
+		<td class="add_cell">
+			<%- if Connection.exists?(person, current_person) and not(person.admin?)%>
+				<%= link_to image_tag ("mini_delete.gif"), connection_path(Connection.conn(current_person, person)), :method => :delete, :confirm => "Are you sure you want to end connection with #{h person.name}?" %>
+				<%= link_to "Delete", connection_path(Connection.conn(current_person, person)), :method => :delete, :confirm => "Are you sure you want to end connection with #{h person.name}?" %>
+			<%- else %>
+				<%= link_to image_tag ("mini_add.gif"), person_connections_path(person), :method => :post %>
+				<%= link_to "Add", person_connections_path(person), :method => :post %>
 			<%- end %>
 		</td>
-	  <tr>
-		<td class="add_cell">
-			<%= link_to image_tag ("mini_add.gif"), person_connections_path(person), :method => :post %>
-			<%= link_to "Add", person_connections_path(person), :method => :post %>
+	</tr>
+	<tr>
+		<td class="count_common" colspan="2">
+			<%- if person.common_connections_with(current_person).count-1 > 0 %>
+				<%- if person.admin?%>
+					<%= pluralize(person.common_connections_with(current_person).count, "common contact") %>
+				<%- else %>
+    				<%= pluralize(person.common_connections_with(current_person).count-1, "common contact") %>
+				<%- end %>
+			<%- else%>
+		  		&nbsp;
+			<%- end %>
 		</td>
+ 	</tr>
 	</table>
 <% if person.id%4 == 0 or person.id == person.max %>
   </tr>

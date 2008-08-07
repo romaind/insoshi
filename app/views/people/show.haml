@@ -33,8 +33,8 @@
           3 contest's "top 5"
 
       =render :partial => 'actions'
-
     = image_tag "profile_bottom.gif"
+
   #my_page
     #right
       .profile_right_column
@@ -168,7 +168,8 @@
 
     #projects
       %h4 PROJECTS
-      =render :partial => 'my_projects'
+      =render :partial => 'my_projects_list'
+
 
 -if current_person?(@person)
   #feed_requests

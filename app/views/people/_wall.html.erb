@@ -1,9 +1,7 @@
 <%- if logged_in? -%>
     <h4 id="wall_title">COMMENTS WALL</h4>
   <div class="wall">
-    <a name="wall"></a>
     <div id="wall_form" >
-    <%- if connected_to?(@person) -%>
       <div id="wall_comment">
 		Leave a comment on my wall<br>
 		<%- if current_person?(@person) %>
@@ -20,15 +18,6 @@
         <div id="wall_button">
           <%= submit_tag "Submit", :class => "button" %>
         </div>
-      <% end %>
-    <%- else -%>
-      <p>
-      You must be connected to <%= h @person.name %> to leave a wall comment.
-      </p>
-      <p>
-      <%= link_to "Connect with #{h @person.name} now",
-                  person_connections_path(@person), :method => :post %>
-      </p>
     <%- end -%>
     </div>
     <%- unless @person.comments.empty? -%>

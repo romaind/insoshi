@@ -533,7 +533,7 @@ body {
 
 /* *********People page********** */
 #people {
-  width: 773px;
+  width: 775px;
   background-color: white;
   border-left: 1px solid #DDDDDD;
   border-right: 1px solid #DDDDDD; }
@@ -550,6 +550,7 @@ body {
         float: left;
         margin-right: 5px; }
       #people table#list_people td p {
+        font-size: 7pt;
         margin: 0;
         margin-top: 2px; }
       #people table#list_people td a {
@@ -561,13 +562,17 @@ body {
         #people table#list_people td table td {
           padding: 0;
           height: 5px; }
-        #people table#list_people td table .count_common {
+        #people table#list_people td table .person_thumb {
+          width: 90px; }
+        #people table#list_people td table .person_skill {
           vertical-align: bottom; }
         #people table#list_people td table .add_cell {
           vertical-align: bottom; }
           #people table#list_people td table .add_cell a {
             color: #009900;
             text-decoration: none; }
+        #people table#list_people td table .count_common {
+          vertical-align: bottom; }
 
 /* *********Project display*********** */
 #projects {
@@ -690,15 +695,15 @@ body {
         #feed_requests #minifeeds .list_feed table td {
           vertical-align: top;
           height: 36px; }
-        #feed_requests #minifeeds .list_feed table img {
-          margin-left: 10px;
-          margin-bottom: 20px; }
-        #feed_requests #minifeeds .list_feed table p {
-          margin: 0;
-          font-size: 9pt; }
-          #feed_requests #minifeeds .list_feed table p a {
-            color: #009900;
-            text-decoration: none; }
+          #feed_requests #minifeeds .list_feed table td img {
+            margin-left: 10px;
+            margin-bottom: 20px; }
+          #feed_requests #minifeeds .list_feed table td p {
+            margin: 0;
+            font-size: 10pt; }
+            #feed_requests #minifeeds .list_feed table td p a {
+              color: #009900;
+              text-decoration: none; }
 
 /* *********Requested contacts partial********** */
 #personal_requests {
@@ -795,13 +800,13 @@ body {
 #wall_title {
   font-size: 10pt;
   font-weight: normal;
-  width: 777px;
+  width: 583px;
   text-align: right;
   color: #009900;
   margin: 0; }
 
 .wall {
-  width: 777px;
+  width: 583px;
   border-top: 2px solid #009900;
   padding-top: 10px;
   background-color: white; }
@@ -820,6 +825,14 @@ body {
       margin-left: 20px; }
     .wall #wall_form #wall_textarea {
       padding-top: 10px; }
+  .wall .time {
+    font-size: 8pt; }
+  .wall p.connect {
+    padding-top: 15px;
+    color: white; }
+    .wall p.connect a {
+      text-decoration: none;
+      color: white; }
 
 /* *********Comments in the wall********** */
 #comments {

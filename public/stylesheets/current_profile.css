@@ -127,15 +127,15 @@
         #feed_requests #minifeeds .list_feed table td {
           vertical-align: top;
           height: 36px; }
-        #feed_requests #minifeeds .list_feed table img {
-          margin-left: 10px;
-          margin-bottom: 20px; }
-        #feed_requests #minifeeds .list_feed table p {
-          margin: 0;
-          font-size: 9pt; }
-          #feed_requests #minifeeds .list_feed table p a {
-            color: #FF9900;
-            text-decoration: none; }
+          #feed_requests #minifeeds .list_feed table td img {
+            margin-left: 10px;
+            margin-bottom: 20px; }
+          #feed_requests #minifeeds .list_feed table td p {
+            margin: 0;
+            font-size: 10pt; }
+            #feed_requests #minifeeds .list_feed table td p a {
+              color: #FF9900;
+              text-decoration: none; }
 
 /* *********Requested contacts partial********** */
 #personal_requests {

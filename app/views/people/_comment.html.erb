@@ -1,12 +1,20 @@
 <div>
   <table class="comment_image">
 	<tr>
-		<td class="commenter_image">
+		<td class="commenter_image" rowspan="2" >
           	<%= image_link(comment.commenter, :image => :minithumb) %>
         </td>
 		<td class="commenter">
     		<%= person_link comment.commenter %>
 		</td>
+	</tr>
+	<tr>
+		<td class="time">
+    		<%= comment.created_at.strftime("On <b>%m/%d/%Y</b>") %>
+			<br>
+    		<%= comment.created_at.strftime("at <b>%I:%M%p</b>") %>
+		</td>
+	</tr>
   </table>
   <table class = "comment">
 	<tr><td colspan = "3" class = "head"></td>

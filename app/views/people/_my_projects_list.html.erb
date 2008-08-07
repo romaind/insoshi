@@ -1,0 +1,18 @@
+<div id="my_projects">
+<table align="center">
+  <%- if @person.projects.empty? %>
+    <tr>
+	  <td>No project</td>
+	</tr>
+  <%- else %>
+    <%- i=0 %>
+    <%- for project in @person.last_projects do %>
+      <%- if i%3==0 %>
+        <tr>
+      <%- end %>
+        <%= render :partial => "projects/project_item", :locals =>{ :project => project} %>
+      <%- i+=1 %>
+    <%- end %>
+  <%- end %>
+</table>
+</div>

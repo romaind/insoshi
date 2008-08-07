@@ -785,7 +785,7 @@ body
         :size 9pt
 /**********People page**********
 #people
-  :width 773px
+  :width 775px
   :background
     :color white
   :border
@@ -810,6 +810,8 @@ body
           :right 5px
 
       p
+        :font
+          :size 7pt
         :margin 0
         :margin
           :top 2px
@@ -824,13 +826,17 @@ body
         td
           :padding 0
           :height 5px
-        .count_common
+        .person_thumb
+          :width 90px
+        .person_skill
           :vertical-align bottom
         .add_cell
           :vertical-align bottom
           a
             :color #009900
             :text-decoration none
+        .count_common
+          :vertical-align bottom
 
 /**********Project display***********
 #projects
@@ -842,7 +848,7 @@ body
       :size 10pt
       :weight normal
     :margin 0
-   
+
 #my_projects
   :background
     :color white
@@ -1010,18 +1016,18 @@ body
         td
           :vertical-align top
           :height 36px
-        img
-          :margin
-            :left 10px
-            :bottom 20px
-        p
-          :margin 0
-          :font
-            :size 9pt
+          img
+            :margin
+              :left 10px
+              :bottom 20px
+          p
+            :margin 0
+            :font
+              :size 10pt
   
-          a
-            :color #009900
-            :text-decoration none
+            a
+              :color #009900
+              :text-decoration none
   
 /**********Requested contacts partial**********
 #personal_requests
@@ -1153,12 +1159,12 @@ body
   :font
     :size 10pt
     :weight normal
-  :width 777px
+  :width 583px
   :text-align right
   :color #009900
   :margin 0
 .wall
-  :width 777px
+  :width 583px
   :border
     :top 2px solid #009900
   :padding
@@ -1185,6 +1191,19 @@ body
     #wall_textarea
       :padding
         :top 10px
+
+  .time
+    :font
+      :size 8pt
+  p.connect
+    :padding
+      :top 15px
+    :color white
+
+    a
+      :text-decoration none
+      :color white
+
 /**********Comments in the wall**********
 #comments
   :margin

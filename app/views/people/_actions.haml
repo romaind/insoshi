@@ -42,9 +42,6 @@
             = link_to image_tag("new_message.gif"), new_person_message_path(@person)
           %td
             = link_to "Send me message", new_person_message_path(@person)
-        %tr
-          %td{ :colspan => 2}
-            = link_to "#{h @person.name}'s blog", blog_path(@person.blog)
       - if current_person.admin?
         %tr
           %td{ :colspan => 2}
