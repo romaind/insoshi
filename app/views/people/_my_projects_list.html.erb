@@ -1,4 +1,5 @@
 <div id="my_projects">
+<%= will_paginate @projects, :prev_label => "<span class='prev'><</span>", :next_label => "<span class='next'>></span>", :class =>"paginate" %>
 <table align="center">
   <%- if @person.projects.empty? %>
     <tr>
@@ -6,13 +7,17 @@
 	</tr>
   <%- else %>
     <%- i=0 %>
-    <%- for project in @person.last_projects do %>
+  	<%- for project in @projects %>
       <%- if i%3==0 %>
         <tr>
       <%- end %>
         <%= render :partial => "projects/project_item", :locals =>{ :project => project} %>
-      <%- i+=1 %>
-    <%- end %>
+      	<%- i+=1 %>
+	  <%- if i%3==0 or project == @projects.last %>
+        </tr>
+      <%- end %>
+	<%- end %>
   <%- end %>
 </table>
+<%= will_paginate @projects, :prev_label => "<span class='prev'><</span>", :next_label => "<span class='next'>></span>", :class =>"paginate" %>
 </div>

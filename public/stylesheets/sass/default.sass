@@ -677,6 +677,12 @@ body
       :margin 0
       :padding 0
 
+    #skills
+      :margin
+        :top 8px
+      :font
+        :size 9pt
+
   #stats
     :color #777777
     :padding
@@ -898,6 +904,23 @@ body
     :padding
       :right 10px
 
+/**********Pagination display**********
+.paginate
+  :text-align right
+  :font
+    :size 9pt
+  :color #009900
+
+  a
+    :color #333333
+    :text-decoration none
+
+  .next
+    :color #009900
+
+  .prev
+    :color #009900
+
 /**********Profile right column**********
 #right
   :float right
@@ -1107,6 +1130,19 @@ body
         a
           :color #009900
           :text-decoration none
+
+      table
+        :height 80px
+        :border-collapse collapse
+
+        .name
+          :vertical-align top
+
+        .delete
+          :vertical-align bottom
+          a
+            :color red
+            :text-decoration none
 
 /************Common contacts***********
 #common_contacts

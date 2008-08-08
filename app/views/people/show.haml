@@ -16,6 +16,15 @@
         %br
         =h @person.city
 
+        %p#skills
+          -if not(@person.skills.empty?)
+            -for skill in @person.skills do
+              =skill.name
+              -if not(@person.skills.last == skill)
+                %br
+          -else
+            =display_empty_field("skills")
+
       #stats
         %p
           =pluralize(10, "project")
@@ -87,21 +96,6 @@
                   =link_to image_tag("mini_edit.gif") + "Edit", edit_person_path(@person) + "#person_website"
             -else
               =display_empty_field("website")
-    
-      .profile_right_column
-        %h4 SKILLS
-        .column_content
-          %p
-            -if not(@person.skills.empty?)
-              -for skill in @person.skills do
-                =skill.name
-                -if not(@person.skills.last == skill)
-                  ,
-              -if current_person?(@person)
-                .profile_edit
-                  =link_to image_tag("mini_edit.gif") + "Edit", edit_person_path(@person) + "#person[skill_ids][]"
-            -else
-              =display_empty_field("schools")
   
       .profile_right_column
         %h4 LANGUAGES
@@ -169,7 +163,6 @@
     #projects
       %h4 PROJECTS
       =render :partial => 'my_projects_list'
-
 
 -if current_person?(@person)
   #feed_requests

@@ -40,6 +40,19 @@
     color: white;
     padding-right: 10px; }
 
+/* *********Pagination display********** */
+.paginate {
+  text-align: right;
+  font-size: 9pt;
+  color: #FF9900; }
+  .paginate a {
+    color: #333333;
+    text-decoration: none; }
+  .paginate .next {
+    color: #FF9900; }
+  .paginate .prev {
+    color: #FF9900; }
+
 /* *********Profile right column********** */
 #right {
   float: right; }

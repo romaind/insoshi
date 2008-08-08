@@ -456,6 +456,9 @@ body {
     #profile_details #details p {
       margin: 0;
       padding: 0; }
+    #profile_details #details #skills {
+      margin-top: 8px;
+      font-size: 9pt; }
   #profile_details #stats {
     color: #777777;
     padding-left: 10px;
@@ -615,6 +618,19 @@ body {
     color: white;
     padding-right: 10px; }
 
+/* *********Pagination display********** */
+.paginate {
+  text-align: right;
+  font-size: 9pt;
+  color: #009900; }
+  .paginate a {
+    color: #333333;
+    text-decoration: none; }
+  .paginate .next {
+    color: #009900; }
+  .paginate .prev {
+    color: #009900; }
+
 /* *********Profile right column********** */
 #right {
   float: right; }
@@ -762,6 +778,16 @@ body {
         #contacts_small table td.thumb p a {
           color: #009900;
           text-decoration: none; }
+      #contacts_small table td.thumb table {
+        height: 80px;
+        border-collapse: collapse; }
+        #contacts_small table td.thumb table .name {
+          vertical-align: top; }
+        #contacts_small table td.thumb table .delete {
+          vertical-align: bottom; }
+          #contacts_small table td.thumb table .delete a {
+            color: red;
+            text-decoration: none; }
 
 /* ***********Common contacts*********** */
 #common_contacts h4 {
