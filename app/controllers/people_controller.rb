@@ -15,7 +15,7 @@ class PeopleController < ApplicationController
 
   def show
     @person = Person.find(params[:id], :include => :activities)
-    @projects = @person.projects.paginate(:page => params[:page], :per_page => 3, :order => 'created_at DESC')
+    @projects = @person.projects.paginate(:page => params[:page], :per_page => 12, :order => 'created_at DESC')
     unless @person.active? or current_person.admin?
       flash[:error] = "That person is not active"
       redirect_to home_url and return

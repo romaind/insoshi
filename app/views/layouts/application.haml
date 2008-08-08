@@ -19,7 +19,7 @@
           =image_submit_tag ("es_off.jpg", :id => "es", :title => "Coming soon", :onMouseOver => "this.src = 'images/es_on.jpg'", :onMouseOut => "this.src = 'images/es_off.jpg'")
           -end
         #menus
-          =link_to "Gallery",{ :controller => "gallery", :action => "index" }, { :id =>"gallery" }
+          =link_to "Gallery",projects_path, { :id =>"gallery" }
           =link_to "News",{ :controller => "news", :action => "index" }, { :id =>"news" }
           =link_to "My Page",{ :controller => "people", :action => "index" }, { :id =>"mypage" }
           =link_to "Creative Contests",{ :controller => "creative_contest", :action => "index" }, { :id =>"creativecontests" }

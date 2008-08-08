@@ -2,11 +2,11 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.xml
   def index
-    @projects = Project.find(:all)
-
+    @all_projects = Project.find(:all)
+    @projects = Project.recent_to_older(params[:page])
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @projects }
+      format.xml  { render :xml => @all_projects }
     end
   end
 

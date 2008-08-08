@@ -577,7 +577,7 @@ body {
         #people table#list_people td table .count_common {
           vertical-align: bottom; }
 
-/* *********Project display*********** */
+/* *********My Project display*********** */
 #projects {
   width: 583px; }
   #projects h4 {
@@ -617,6 +617,16 @@ body {
     background-color: #009900;
     color: white;
     padding-right: 10px; }
+
+/* *********Project display*********** */
+#projects_page {
+  width: 777px; }
+  #projects_page h4 {
+    text-align: right;
+    color: #009900;
+    font-size: 10pt;
+    font-weight: normal;
+    margin: 0; }
 
 /* *********Pagination display********** */
 .paginate {
