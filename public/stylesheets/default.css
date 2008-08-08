@@ -519,9 +519,10 @@ body {
   color: white; }
   #sort h4 {
     font-weight: normal;
-    margin-top: 10px;
+    font-size: 9pt;
+    margin-top: 15px;
     margin-left: 20px;
-    width: 105px; }
+    width: 100px; }
   #sort #sort_content {
     float: right;
     text-align: right;
