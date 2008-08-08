@@ -1,6 +1,14 @@
-<%- unless @some_contacts.empty? -%>
-  <h4>CONTACTS</h4>
-  <div id="contacts_small">
+<h4>CONTACTS</h4>
+<div id="contacts_small">
+<%- hidden_admin = 0 %>
+<%- @person.contacts.each do |contact| %>
+  <%- if not(contact.admin?) %>
+    <%- hidden_admin +=1 %>
+  <%- end %>
+<%- end %>
+<%- if @some_contacts.empty? or hidden_admin == 0 -%>
+	<p id="nocontact">No contact</p>
+<%- else %>
 	<table>
 		<%- i=0 %>
     	<%- @person.contacts.each do |contact| -%>
@@ -13,30 +21,32 @@
       				<tr>
     			<% end %>
 			<%- end %>
-      		<td class="thumb">
-   				<%= image_link(contact, :image => :thumbnail,
-                       					:image_options => { :class => "photo fn" },
-                       					:link_options =>  { :class => "url" }) %>
-				<table>
-					<tr>
-						<td class="name">
-    						<p>
-      							<b><%= person_link contact, :class => "url fn" %></b>
-    						</p>
-						</td>
-					</tr>
-					<%- if current_person?(@person) and not(contact.admin?)%>
-					<tr>
-						<td class="delete">
-							<%= link_to image_tag ("delete.gif"), connection_path(Connection.conn(current_person, contact)), :method => :delete, :confirm => "Are you sure you want to end connection with #{h person.name}?" %>
-				<%= link_to "Delete", connection_path(Connection.conn(current_person, contact)), :method => :delete, :confirm => "Are you sure you want to end connection with #{h person.name}?" %>
-						</td>
-					</tr>
-					<%- end %>
-				</table>
-      		</td>
+			<%- if not(contact.admin?) %>
+      			<td class="thumb">
+   					<%= image_link(contact, :image => :thumbnail,
+                       						:image_options => { :class => "photo fn" },
+                       						:link_options =>  { :class => "url" }) %>
+					<table>
+						<tr>
+							<td class="name">
+    							<p>
+      								<b><%= person_link contact, :class => "url fn" %></b>
+    							</p>
+							</td>
+						</tr>
+						<%- if current_person?(@person) and not(current_person.admin?) %>
+						<tr>
+							<td class="delete">
+								<%= link_to image_tag ("delete.gif"), connection_path(Connection.conn(current_person, contact)), :method => :delete, :confirm => "Are you sure you want to end connection with #{h person.name}?" %>
+								<%= link_to "Delete", connection_path(Connection.conn(current_person, contact)), :method => :delete, :confirm => "Are you sure you want to end connection with #{h person.name}?" %>
+							</td>
+						</tr>
+						<%- end %>
+					</table>
+      			</td>
 			<%- i+=1 %>
+			<%- end %>
     	<%- end -%>
     </table>
-  </div>
 <%- end -%>
+</div>

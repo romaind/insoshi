@@ -1,11 +1,12 @@
 <div id="my_projects">
 <%= will_paginate @projects, :prev_label => "<span class='prev'><</span>", :next_label => "<span class='next'>></span>", :class =>"paginate" %>
-<table align="center">
   <%- if @person.projects.empty? %>
+<table align="center">
     <tr>
 	  <td>No project</td>
 	</tr>
   <%- else %>
+<table>
     <%- i=0 %>
   	<%- for project in @projects %>
       <%- if i%3==0 %>

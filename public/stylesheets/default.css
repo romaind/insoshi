@@ -444,6 +444,10 @@ body {
   background-color: white;
   border-left: 1px solid #DDDDDD;
   border-right: 1px solid #DDDDDD; }
+  #profile_details a {
+    color: #333333;
+    text-decoration: none;
+    font-size: 9pt; }
   #profile_details #profile_image {
     float: left;
     margin-right: 7px;
@@ -475,10 +479,6 @@ body {
       margin-left: 5px; }
       #profile_details #actions #actions_list td {
         padding-bottom: 10px; }
-        #profile_details #actions #actions_list td a {
-          color: #333333;
-          text-decoration: none;
-          font-size: 10pt; }
 
 /* *********Contact Requests********** */
 #requests {
@@ -760,6 +760,8 @@ body {
   width: 583px;
   background-color: white;
   border-top: 2px solid #009900; }
+  #contacts_small #nocontact {
+    text-align: center; }
   #contacts_small table {
     font-size: 9pt;
     border-spacing: 7px 5px; }
