@@ -14,7 +14,8 @@
         ,
         =pluralize(@person.age, "year")
         %br
-        =h @person.city.capitalize
+        -unless @person.city.nil?
+          =h @person.city.capitalize
 
         %p#skills
           -if not(@person.skills.empty?)
