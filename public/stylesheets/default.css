@@ -204,7 +204,7 @@ body {
         font-weight: normal;
         margin-top: 0; }
       #content #description #desc_message p {
-        text-align: justify;
+        text-align: left;
         margin-top: 20px;
         margin-bottom: 0; }
       #content #description #desc_message p:first-letter {

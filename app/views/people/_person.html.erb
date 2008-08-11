@@ -41,15 +41,17 @@
 	</tr>
 	<tr>
 		<td class="count_common" colspan="2">
-			<%- if person.common_connections_with(current_person).count-1 > 0 %>
-				<%- if person.admin?%>
+				<%- if person.admin? or current_person.admin? %>
+				  <%- if person.common_connections_with(current_person).count>0 %>
 					<%= pluralize(person.common_connections_with(current_person).count, "common contact") %>
+				  <%- end%>
 				<%- else %>
-    				<%= pluralize(person.common_connections_with(current_person).count-1, "common contact") %>
+					<%- if person.common_connections_with(current_person).count-1 > 0 %>
+    					<%= pluralize(person.common_connections_with(current_person).count-1, "common contact") %>
+					<%- else%>
+		  				&nbsp;
+					<%- end %>
 				<%- end %>
-			<%- else%>
-		  		&nbsp;
-			<%- end %>
 		</td>
  	</tr>
 	</table>
