@@ -15,8 +15,10 @@
   - form_for(:message, :url => person_messages_path(@recipient)) do |f|
     .form_row_full
       %label{ :for => "message_to" }To
-      = text_field_tag :recipient, h(@recipient.name)
-      = link_to image_tag "icons/add.gif"
+      -if current_person?(@recipient)
+        = f.select :recipient, @recipient.contacts.map{|c| [c.name, c.id]}
+      -else
+        = text_field_tag :recipient, h(@recipient.name)
     .form_row_full
       %label{ :for => "message_subject" }Subject
       = f.text_field :subject, :id => "message_subject"
@@ -34,5 +36,5 @@
       = f.submit "Preview", :class => "button", :id => "preview"
       = f.submit "Cancel", :class => "button", :id => "cancel"
       - if current_person?(@recipient) and current_person.admin?
-        <%= f.submit "Send to all", :class => "button", :id => "all_people"
+        = f.submit "Send to all", :class => "button", :id => "all_people"
 

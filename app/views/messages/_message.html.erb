@@ -30,20 +30,10 @@
 <table class = "comment">
   <tr><td colspan = "3" class = "head"><span class="subject">Subject:<span class="title"><%= sanitize(message.subject) %></span></span></td>
   <tr><td class ="left_arrow"></td>
-	  <td rowspan = "2" class = "comment_body"><p><%= message.content %></p></td>
+	  <td rowspan = "2" class = "comment_body"><p><%= truncate(message.content, 150) %></p></td>
 	  <td rowspan = "2" class = "right_border"></td>
   <tr><td class = "bottom_left"></td>
   <tr><td colspan = "3" class = "bottom">
-  			<br />
-  			<%= link_to("Trash", message, :method => :delete) %>
-	  </td>
-</table>
-</div>
-
-  <p>
-    <span class="label">Subject:</span>
-    <%= link_to sanitize(message.subject), message %>    
-  </p>
   <p class="tools meta">
     <%= link_to "Read", message %> |
     <%= link_to "Reply", reply_message_path(message) %> |
@@ -54,4 +44,6 @@
                              :method => :put %>
     <% end -%>    
   </p>
-</li>
+	  </td>
+</table>
+</div>

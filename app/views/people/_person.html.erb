@@ -39,21 +39,23 @@
 			</p>
 		</td>
 	</tr>
+	<%- if logged_in? %>
 	<tr>
 		<td class="count_common" colspan="2">
 				<%- if person.admin? or current_person.admin? %>
-				  <%- if person.common_connections_with(current_person).count>0 %>
-					<%= pluralize(person.common_connections_with(current_person).count, "common contact") %>
+				  <%- if person.common_connections_with(current_person).length>0 %>
+					<%= pluralize(person.common_connections_with(current_person).length, "common contact") %>
 				  <%- end%>
 				<%- else %>
-					<%- if person.common_connections_with(current_person).count-1 > 0 %>
-    					<%= pluralize(person.common_connections_with(current_person).count-1, "common contact") %>
+					<%- if person.common_connections_with(current_person).length-1 > 0 %>
+    					<%= pluralize(person.common_connections_with(current_person).length-1, "common contact") %>
 					<%- else%>
 		  				&nbsp;
 					<%- end %>
 				<%- end %>
 		</td>
  	</tr>
+	<%- end%>
 	</table>
 <% if person.id%4 == 0 or person.id == person.max %>
   </tr>

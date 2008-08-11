@@ -6,9 +6,9 @@
           Welcome,
           =h current_person.first_name
           =h current_person.name
-        =link_to pluralize(current_person.recent_messages.count, "New message"), person_messages_path(current_person)
+        =link_to pluralize(current_person.recent_messages.length, "New message"), person_messages_path(current_person)
         %br
-        =link_to pluralize(current_person.requested_contacts.count, "New request"), { :controller => "home", :action => "requested_contacts" }
+        =link_to pluralize(current_person.requested_contacts.length, "New request"), { :controller => "home", :action => "requested_contacts" }
         %br
         =link_to "Sign out", logout_path
         -if current_person.admin?
