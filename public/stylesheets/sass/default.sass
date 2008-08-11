@@ -1262,70 +1262,97 @@ body
     :left 10px
     :top 10px
 
-  .comment_image
-    :float left
-    :font
-      :size 9pt
-    :border-spacing 2px 0
-    :border-collapse separate
-    :width 200px
-    :height 80px
-    :border
-      :top 1px dotted black
-      :bottom 1px dotted black
+.comment_image
+  :float left
+  :font
+    :size 9pt
+  :border-spacing 2px 0
+  :border-collapse separate
+  :width 200px
+  :height 80px
+  :border
+    :top 1px dotted black
+    :bottom 1px dotted black
 
-    .commenter_image
-      :width 50px
+  .commenter_image
+    :width 50px
 
-    a
-      :color #333333
-      :text-decoration none
+  a
+    :color #333333
+    :text-decoration none
 
-    .commenter
-      :vertical-align top
-      :padding
-        :top 5px
-      p
-        :margin 0
+  .commenter
+    :vertical-align top
+    :padding
+      :top 5px
+    p
+      :margin 0
 
-  .comment
+.comment
+  :width 411px
+  :border-collapse collapse
+  .head
     :width 411px
-    :border-collapse collapse
-    .head
-      :width 411px
-      :height 21px
-      :background
-        :image url(../images/comments/comment_head.gif)
-        :repeat no-repeat
-    .left_arrow
-      :width 16px
-      :height 42px
-      :background
-        :image url(../images/comments/comment_arrow.gif)
-        :repeat no-repeat
-    .comment_body
-      p
-        :margin 0
-    .right_border
-      :width 15px
-      :background
-        :image url(../images/comments/comment_right.gif)
-        :repeat repeat-y
-    .bottom_left
-      :width 20px
-      :background
-        :image url(../images/comments/comment_left.gif)
-        :repeat repeat-y
-    .bottom
-      :text-align right
-      :width 409px
-      :height 21px
-      :background
-        :image url(../images/comments/comment_bottom.gif)
-        :repeat no-repeat
-      a
-        :margin
-          :right 10px
+    :height 30px
+    :background
+      :image url(../images/comments/comment_head.gif)
+      :repeat no-repeat
+  .left_arrow
+    :width 16px
+    :height 42px
+    :background
+      :image url(../images/comments/comment_arrow.gif)
+      :repeat no-repeat
+  .comment_body
+    :background
+      :color white
+    p
+      :margin 0
+  .right_border
+    :width 15px
+    :background
+      :image url(../images/comments/comment_right.gif)
+      :repeat repeat-y
+  .bottom_left
+    :width 20px
+    :background
+      :image url(../images/comments/comment_left.gif)
+      :repeat repeat-y
+  .bottom
+    :text-align right
+    :width 409px
+    :height 21px
+    :background
+      :image url(../images/comments/comment_bottom.gif)
+      :repeat no-repeat
+    a
+      :margin
+        :right 10px
+/**********Message comment**********
+#inbox
+  h4
+    :margin 0
+    :padding 0
+    :width 777px
+    :text-align right
+    :color #FF9900
+#messages
+  :background
+    :color white
+  :width 757px
+  :padding 10px
+  :border
+    :top 2px solid #FF9900
+
+.subject
+  :padding
+    :left 20px
+  :font
+    :size 10pt
+
+  .title
+    :color #FF9900
+    :text-decoration none
 
 /**********Alerts end notifications**********
 .success

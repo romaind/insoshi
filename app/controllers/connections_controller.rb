@@ -21,12 +21,12 @@ class ConnectionsController < ApplicationController
     respond_to do |format|
       if Connection.request(current_person, @contact)
         flash[:notice] = 'Connection request sent!'
-        format.html { redirect_to(home_url) }
+        format.html { redirect_to :back }
       else
         # This should only happen when people do something funky
         # like friending themselves.
         flash[:notice] = "Invalid connection"
-        format.html { redirect_to(home_url) }
+        format.html { redirect_to :back }
       end
     end
   end
@@ -45,7 +45,7 @@ class ConnectionsController < ApplicationController
         @connection.breakup
         flash[:notice] = "Declined connection with #{name}"
       end
-      format.html { redirect_to(home_url) }
+      format.html { redirect_to :back }
     end
   end
  
@@ -54,7 +54,7 @@ class ConnectionsController < ApplicationController
     
     respond_to do |format|
       flash[:success] = "Ended connection with #{@connection.contact.name}"
-      format.html { redirect_to( person_connections_url(current_person)) }
+      format.html { redirect_to :back }
     end
   end
  
@@ -69,7 +69,7 @@ class ConnectionsController < ApplicationController
       @person = Person.find(params[:person_id])
       unless (current_person?(@person) or
               Connection.connected?(@person, current_person))
-        redirect_to home_url
+        redirect_to :back
       end
     end
   
@@ -79,11 +79,11 @@ class ConnectionsController < ApplicationController
                                     :include => [:person, :contact])
       unless current_person?(@connection.person)
         flash[:error] = "Invalid connection."
-        redirect_to home_url
+        redirect_to :back
       end
     rescue ActiveRecord::RecordNotFound
       flash[:error] = "Invalid or expired connection request"
-      redirect_to home_url
+      redirect_to :back
     end
     
     # Redirect if the target person is inactive.
