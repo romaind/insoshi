@@ -11,6 +11,17 @@
       	<b><%= person_link person, :class => "url fn" %></b>
       </td>
 	<tr>
+		<td class="add_cell">
+			<%- if logged_in?%>
+				<%- if person.city #and person.country %>
+					<%= person.city.capitalize %>
+				<%- else %>
+					&nbsp;
+				<%- end%>
+			<%- end %>
+		</td>
+	</tr>
+	<tr>
 		<td class="person_skill">
 			<p>
 			<%- if person.skills.empty? %>
@@ -26,21 +37,6 @@
 			  <%= truncate(content, 40)%>
 			<%- end %>
 			</p>
-		</td>
-	</tr>
-	<tr>
-		<td class="add_cell">
-			<%- if not(current_person.admin?)%>
-			<%- if Connection.exists?(person, current_person) and not(person.admin?)%>
-				<%= link_to image_tag ("mini_delete.gif"), connection_path(Connection.conn(current_person, person)), :method => :delete, :confirm => "Are you sure you want to end connection with #{h person.name}?" %>
-				<%= link_to "Delete", connection_path(Connection.conn(current_person, person)), :method => :delete, :confirm => "Are you sure you want to end connection with #{h person.name}?" %>
-			<%- else %>
-				<%- if not(person.admin?) %>
-					<%= link_to image_tag ("mini_add.gif"), person_connections_path(person), :method => :post %>
-					<%= link_to "Add", person_connections_path(person), :method => :post %>
-				<%- end %>
-			<%- end %>
-			<%- end %>
 		</td>
 	</tr>
 	<tr>

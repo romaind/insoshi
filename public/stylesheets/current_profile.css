@@ -101,13 +101,15 @@
   .profile_right_column .profile_edit {
     width: 168px;
     text-align: left;
-    border-top: 1px dotted #333333;
     font-size: 8pt;
     margin-top: 10px;
     margin-left: 5px; }
     .profile_right_column .profile_edit img {
       margin-top: 5px;
       margin-right: 5px; }
+    .profile_right_column .profile_edit a {
+      color: #333333;
+      text-decoration: none; }
   .profile_right_column .add {
     text-align: center;
     margin-top: 15px;
@@ -116,6 +118,19 @@
       margin-top: 5px;
       font-size: 9pt;
       color: #333333; }
+
+.project_edit {
+  width: 168px;
+  text-align: left;
+  font-size: 8pt;
+  margin-top: 2px;
+  margin-left: 5px; }
+  .project_edit img {
+    margin-top: 5px;
+    margin-right: 5px; }
+  .project_edit a {
+    color: #333333;
+    text-decoration: none; }
 
 /* *********Recent Activity*********** */
 #feed_requests {

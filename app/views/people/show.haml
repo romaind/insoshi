@@ -6,15 +6,15 @@
     #profile_details
       = image_tag @person.profile, :id => "profile_image", :alt => h(@person.name)
       #details
-        %b
-          =h @person.first_name
-          %p
+        %p
+          %b
+            =h @person.first_name
             =h @person.name
         =image_tag @person.gender_image
-        \,
+        ,
         =pluralize(@person.age, "year")
         %br
-        =h @person.city
+        =h @person.city.capitalize
 
         %p#skills
           -if not(@person.skills.empty?)

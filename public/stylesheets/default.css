@@ -614,6 +614,7 @@ body {
     .project_item .project_details .votes_views {
       font-size: 8pt; }
   .project_item .category {
+    height: 15px;
     font-size: 8pt;
     background-color: #009900;
     color: white;
