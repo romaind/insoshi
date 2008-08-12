@@ -11,23 +11,53 @@
 
   <%= render :partial => 'message_nav' %>
   
-  <h3 class="subject">
-  <%= image_link other_person %>
-  <%= @message.subject %></h3>
-  <%= display @message.content %>
-  <p class="meta tools">
-    Sent <%= time_ago_in_words @message.created_at %> ago |
+<div id="messages">
+<table class="comment_image">
+<tr>
+  <td class="commenter_image" rowspan="2" >
+    <% other_person = current_person?(@message.sender) ?
+                      @message.recipient : @message.sender %>
+    <%= image_link other_person, :image => :thumbnail,
+                   :image_options => { :class => "photo" } %>
+  </td>
+  <td class="commenter">
+  	<p>
+      <%- if current_person?(@message.sender) -%>
+        <span class="label">To:</span>
+        <%= person_link @message.recipient, :class => "url fn" %>
+      <%- else -%>
+        <span class="label">From:</span>
+        <%= person_link @message.sender, :class => "url fn" %>
+      <%- end -%>
+	</p>
+  </td>
+</tr>
+<tr>
+  <td class="time">
+    <%= @message.created_at.strftime("On <b>%m/%d/%Y</b>") %>
+	<br>
+    <%= @message.created_at.strftime("at <b>%I:%M%p</b>") %>
+  </td>
+</tr>
+</table>
+<table class = "comment">
+  <tr><td colspan = "3" class = "head"><span class="subject">Subject:<span class="title"><%= sanitize(@message.subject) %></span></span></td>
+  <tr><td class ="left_arrow"></td>
+	  <td rowspan = "2" class = "comment_body"><p><%= @message.content %></p></td>
+	  <td rowspan = "2" class = "right_border"></td>
+  <tr><td class = "bottom_left"></td>
+  <tr><td colspan = "3" class = "bottom">
+  <p class="tools meta">
     <%= link_to "Reply", reply_message_path(@message) %> |
     <% unless @message.trashed?(current_person) -%>
       <%= link_to("Trash", @message, :method => :delete) %>
     <% else -%>
       <%= link_to "Untrash", undestroy_message_path(@message), 
                              :method => :put %>
-    <% end -%>
+    <% end -%>    
   </p>
+	  </td>
+</table>
+</div>
 
-<%- end -%>
-
-<%- column_div :type => :secondary do -%>
-  <%= render :partial => 'shared/minifeed' %>
 <%- end -%>

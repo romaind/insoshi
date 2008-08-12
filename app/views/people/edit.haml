@@ -6,41 +6,41 @@
 
     = error_messages_for :person
     #legend
-      =image_tag "mandatory.gif"
+      =image_tag "portfolio/mandatory.gif"
       Mandatory fields
     -form_for @person do |f|
 
       .form_row
         %label{ :for => "person_birthdate" } Birth Date:
         = f.date_select :birthdate, :order => [:day, :month, :year], :start_year => 1900, :end_year => Date.today.year
-        =image_tag "mandatory.gif", :class => "mandatory"
+        =image_tag "portfolio/mandatory.gif", :class => "mandatory"
 
       #gender
         %label{ :for => "person_gender_1" } Man:
         = f.radio_button :gender, 1
         %label{ :for => "person_gender_2" } Woman:
         = f.radio_button :gender, 2
-        =image_tag "mandatory.gif", :class => "mandatory"
+        =image_tag "portfolio/mandatory.gif", :class => "mandatory"
 
       .form_row
         %label{ :for => "person_first_name" } First Name:
         = f.text_field :first_name
-        =image_tag "mandatory.gif", :class => "mandatory"
+        =image_tag "portfolio/mandatory.gif", :class => "mandatory"
 
       .form_row
         %label{ :for => "person_name" } Last Name:
         = f.text_field :name, :maxlength => Person::MAX_NAME
-        =image_tag "mandatory.gif", :class => "mandatory"
+        =image_tag "portfolio/mandatory.gif", :class => "mandatory"
 
       .form_row
         %label{ :for => "person_email" } Email:
         = f.text_field :email, :maxlength => Person::MAX_EMAIL, :disabled => "disabled"
-        =image_tag "mandatory.gif", :class => "mandatory"
+        =image_tag "portfolio/mandatory.gif", :class => "mandatory"
 
       .form_row
         %label{ :for => "country" } Country:
         = country_select :p, :country
-        =image_tag "mandatory.gif", :class => "mandatory"
+        =image_tag "portfolio/mandatory.gif", :class => "mandatory"
 
       .form_row
         #terms
@@ -51,7 +51,7 @@
             %label{ :for => "p_terms", :class => "checkbox" } I have read and agree to the
             = link_to "Terms of use", "terms_of_use"
             = check_box :p, :terms
-            =image_tag "mandatory.gif", :class => "mandatory"
+            =image_tag "portfolio/mandatory.gif", :class => "mandatory"
 
       -if global_prefs.email_notifications?
       

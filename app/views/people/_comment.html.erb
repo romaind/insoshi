@@ -24,8 +24,9 @@
 	<tr><td class = "bottom_left"></td>
 	<tr><td colspan = "3" class = "bottom">
   			<%- if current_person?(comment.commentable) -%>
-  				<br />
-  				<%= link_to "delete", person_comment_path(@person, comment), :method => :delete %>
+				<br />
+  				<%= link_to image_tag("icons/trash.gif"), person_comment_path(@person, comment), :method => :delete %>
+  				<%= link_to "Delete", person_comment_path(@person, comment), :method => :delete %>
   			<%- end -%>
 		</td>
 	</table>

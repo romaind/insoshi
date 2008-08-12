@@ -29,6 +29,13 @@
 </table>
 <table class = "comment">
   <tr><td colspan = "3" class = "head"><span class="subject">Subject:<span class="title"><%= sanitize(message.subject) %></span></span></td>
+	  <td rowspan = "4" class  = "mail" >
+		<%- unless message.read? %>
+			<%= image_tag "icons/mail.gif", :class => "read" %>
+		<%- else %>
+			&nbsp;
+		<%- end %>
+	  </td>
   <tr><td class ="left_arrow"></td>
 	  <td rowspan = "2" class = "comment_body"><p><%= truncate(message.content, 150) %></p></td>
 	  <td rowspan = "2" class = "right_border"></td>

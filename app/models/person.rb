@@ -185,7 +185,7 @@ class Person < ActiveRecord::Base
 
   #Return the image source for gender
   def gender_image
-    gender == 1 ? "man.gif" : "woman.gif"
+    gender == 1 ? "portfolio/man.gif" : "portfolio/woman.gif"
   end
 
 
@@ -288,6 +288,13 @@ class Person < ActiveRecord::Base
                  :limit => NUM_RECENT_MESSAGES)
   end
   
+  def new_messages
+   new_messages = Message.find(:all,
+                               :conditions => [%(recipient_id = ? AND
+                                              recipient_read_at IS NULL), id])
+   new_messages.count
+  end
+  
   ## Photo helpers
 
   def photo
@@ -301,28 +308,28 @@ class Person < ActiveRecord::Base
   end
 
   def main_photo
-    photo.nil? ? "default.png" : photo.public_filename
+    photo.nil? ? "defaults/default.png" : photo.public_filename
   end
 
   def thumbnail
-    photo.nil? ? "default_thumbnail.png" : photo.public_filename(:thumbnail)
+    photo.nil? ? "defaults/default_thumbnail.png" : photo.public_filename(:thumbnail)
   end
 
   def profile
-    photo.nil? ? "default_profile.gif" : photo.public_filename(:profile)
+    photo.nil? ? "defaults/default_profile.gif" : photo.public_filename(:profile)
   end
 
   def minithumb
-    photo.nil? ? "default_minithumb.gif" : photo.public_filename(:minithumb)
+    photo.nil? ? "defaults/default_minithumb.gif" : photo.public_filename(:minithumb)
   end
 
 
   def icon
-    photo.nil? ? "default_icon.png" : photo.public_filename(:icon)
+    photo.nil? ? "defaults/default_icon.png" : photo.public_filename(:icon)
   end
 
   def bounded_icon
-    photo.nil? ? "default_icon.png" : photo.public_filename(:bounded_icon)
+    photo.nil? ? "defaults/default_icon.png" : photo.public_filename(:bounded_icon)
   end
 
   # Return the photos ordered by primary first, then by created_at.

@@ -1289,8 +1289,9 @@ body
       :margin 0
 
 .comment
-  :width 411px
   :border-collapse collapse
+  :margin
+    :bottom 10px
   .head
     :width 411px
     :height 30px
@@ -1304,6 +1305,7 @@ body
       :image url(../images/comments/comment_arrow.gif)
       :repeat no-repeat
   .comment_body
+    :width 240px
     :background
       :color white
     p
@@ -1325,9 +1327,20 @@ body
     :background
       :image url(../images/comments/comment_bottom.gif)
       :repeat no-repeat
+    :padding
+      :right 10px
+
     a
-      :margin
-        :right 10px
+      :color #333333
+      :text-decoration none
+      :font
+        :size 8pt
+
+.mail
+  :vertical-align top
+  :padding
+    :top 35px
+
 /**********Message comment**********
 #inbox
   h4
