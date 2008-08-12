@@ -78,6 +78,10 @@ class MessagesController < ApplicationController
         end
       end
     else
+      if params[:message]['recipient']
+        @recipient = Person.find(params[:message]['recipient'])
+      end
+      
       @message = Message.new(params[:message].merge(:sender => current_person,
                                                     :recipient => @recipient))
     

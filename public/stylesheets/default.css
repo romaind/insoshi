@@ -966,6 +966,40 @@ body {
 #message_recipient {
   width: 300px; }
 
+/* *********New message display********** */
+#new_message h4 {
+  margin: 0;
+  padding: 0;
+  width: 777px;
+  text-align: right;
+  color: #FF9900; }
+#new_message .col1 {
+  background-color: white;
+  width: 757px;
+  padding: 10px;
+  border: 1px solid #DDDDDD;
+  border-top: 2px solid #FF9900; }
+  #new_message .col1 img {
+    float: left; }
+  #new_message .col1 .form_row {
+    text-align: center;
+    margin-bottom: 10px; }
+    #new_message .col1 .form_row #message_subject {
+      width: 297px; }
+  #new_message .col1 #message_row {
+    text-align: center;
+    margin-bottom: 10px;
+    margin-left: 90px; }
+    #new_message .col1 #message_row #message_body {
+      width: 350px; }
+    #new_message .col1 #message_row p {
+      margin: 0; }
+  #new_message .col1 #message_submit {
+    margin-left: 90px; }
+  #new_message .col1 .button {
+    margin-top: 20px;
+    margin-left: 20px; }
+
 /* *********Alerts end notifications********** */
 .success {
   border: 1px solid #DDDDDD;

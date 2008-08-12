@@ -1,40 +1,44 @@
-%h2 New message
-- column_div :type => :primary do
+#new_message
+  %h4 New message
+  - column_div :type => :primary do
 
-  %p
-    = formatting_note
-
-  = error_messages_for :message
+    = error_messages_for :message
   
-  - unless @preview.nil?
-    %h3 Message preview
-    = display @preview
+    - unless @preview.nil?
+      %h3 Message preview
+      = display @preview
   
-  = image_link @recipient, :image => :thumbnail
+    = image_link @recipient, :image => :thumbnail
 
-  - form_for(:message, :url => person_messages_path(@recipient)) do |f|
-    .form_row_full
-      %label{ :for => "message_to" }To
-      -if current_person?(@recipient)
-        = f.select :recipient, @recipient.contacts.map{|c| [c.name, c.id]}
-      -else
-        = text_field_tag :recipient, h(@recipient.name)
-    .form_row_full
-      %label{ :for => "message_subject" }Subject
-      = f.text_field :subject, :id => "message_subject"
-    .form_row
-      %label{ :for => "message_body" }Your message
-      = f.text_area :content, :id => "message_body"
-      - if @message.reply?
-        = f.hidden_field :parent_id
-        = set_focus_to_id "message_body"
-      - else
-        = set_focus_to_id "message_subject"
+    - form_for(:message, :url => person_messages_path(@recipient)) do |f|
+      .form_row
+        %label{ :for => "message_to" }To:
+        %br
+        -if current_person?(@recipient)
+          = f.select :recipient, current_person.contacts.map{|c| [c.name, c.id]}
+        -else
+          = text_field_tag :recipient, h(@recipient.name)
+      .form_row
+        %label{ :for => "message_subject" }Subject:
+        %br
+        = f.text_field :subject, :id => "message_subject"
+      #message_row
+        %label{ :for => "message_body" }Your message:
+        %br
+        = f.text_area :content, :id => "message_body"
+        - if @message.reply?
+          = f.hidden_field :parent_id
+          = set_focus_to_id "message_body"
+        - else
+          = set_focus_to_id "message_subject"
 
-    .form_row
-      = f.submit "Send!", :class => "button", :id => "message_submit"
-      = f.submit "Preview", :class => "button", :id => "preview"
-      = f.submit "Cancel", :class => "button", :id => "cancel"
-      - if current_person?(@recipient) and current_person.admin?
-        = f.submit "Send to all", :class => "button", :id => "all_people"
+        %p
+          = formatting_note
 
+
+      .form_row
+        = f.submit "Send!", :class => "button", :id => "message_submit"
+        = f.submit "Preview", :class => "button", :id => "preview"
+        = f.submit "Cancel", :class => "button", :id => "cancel"
+        - if current_person?(@recipient) and current_person.admin?
+          = f.submit "Send to all", :class => "button", :id => "all_people"
