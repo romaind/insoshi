@@ -5,6 +5,7 @@ class HomeController < ApplicationController
     @body = "home"
     @topics = Topic.find_recent
     @members = Person.find(:all)
+    @projects = Project.recent_to_older(params[:page])
     if logged_in?
       @feed = current_person.feed
       @some_contacts = current_person.some_contacts

@@ -5,9 +5,9 @@
       <div id="wall_comment">
 		Leave a comment on my wall<br>
 		<%- if current_person?(@person) %>
-		 <%= image_tag "comment.gif" %>
+		 <%= image_tag "wall/comment.gif" %>
 		<%- else %>
-		 <%= image_tag "comment_public.gif" %>
+		 <%= image_tag "wall/comment_public.gif" %>
 		<%- end %>
 	  </div>
       <% form_for :comment, :url => person_comments_path(@person) do |f| %>

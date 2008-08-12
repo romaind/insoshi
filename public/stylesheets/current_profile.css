@@ -240,7 +240,7 @@
     text-align: center;
     width: 581px;
     height: 136px;
-    background-image: url(../images/wall.gif);
+    background-image: url(../images/wall/wall.gif);
     background-repeat: no-repeat; }
     .wall #wall_form #wall_comment {
       color: white;

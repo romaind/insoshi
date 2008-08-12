@@ -56,12 +56,12 @@
               = truncate(@person.description, 400)
             -if current_person?(@person)
               .profile_edit
-                =link_to image_tag("mini_edit.gif") + "Edit", edit_person_path(@person) + "#person_description"
+                =link_to image_tag("icons/mini_edit.gif") + "Edit", edit_person_path(@person) + "#person_description"
         -else
           .column_content
             -if current_person?(@person)
               .add
-                =link_to image_tag("add.gif"), edit_person_path(@person) + "#person_description"
+                =link_to image_tag("portfolio/add.gif"), edit_person_path(@person) + "#person_description"
                 %br
                 =link_to "Add a description", edit_person_path(@person) + "#person_description"
             -else
@@ -81,7 +81,7 @@
             -else
               -if current_person?(@person)
                 .add
-                  =link_to image_tag("add.gif"), edit_person_path(@person) + "#p_status" #"#person_status"
+                  =link_to image_tag("portfolio/add.gif"), edit_person_path(@person) + "#p_status" #"#person_status"
                   %br
                   =link_to "Set status", edit_person_path(@person) + "#p_status" #"#person_status"
               -else
@@ -95,7 +95,7 @@
               = link_to @person.website, "http://" + @person.website
               -if current_person?(@person)
                 .profile_edit
-                  =link_to image_tag("mini_edit.gif") + "Edit", edit_person_path(@person) + "#person_website"
+                  =link_to image_tag("icons/mini_edit.gif") + "Edit", edit_person_path(@person) + "#person_website"
             -else
               =display_empty_field("website")
   
@@ -110,7 +110,7 @@
                   ,
               -if current_person?(@person)
                 .profile_edit
-                  =link_to image_tag("mini_edit.gif") + "Edit", edit_person_path(@person) + "#person[language_ids][]"
+                  =link_to image_tag("icons/mini_edit.gif") + "Edit", edit_person_path(@person) + "#person[language_ids][]"
             -else
               =display_empty_field("languages")
 
@@ -125,7 +125,7 @@
                   ,
               -if current_person?(@person)
                 .profile_edit
-                  =link_to image_tag("mini_edit.gif") + "Edit", edit_person_path(@person) + "#person[software_ids][]"
+                  =link_to image_tag("icons/mini_edit.gif") + "Edit", edit_person_path(@person) + "#person[software_ids][]"
             -else
               =display_empty_field("software")
     
@@ -135,13 +135,13 @@
           %p
             -if @person.cv?
               #cv
-                =link_to image_tag("logoPDF.jpg") #, person_cv_path
+                =link_to image_tag("portfolio/logoPDF.jpg") #, person_cv_path
                 %br
                 =link_to "My CV"
-              =link_to image_tag("get_adobe.jpg"), "http://www.adobe.fr/products/acrobat/readstep2.html"
+              =link_to image_tag("portfolio/get_adobe.jpg"), "http://www.adobe.fr/products/acrobat/readstep2.html"
               -if current_person?(@person)
                 .profile_edit
-                  =link_to image_tag("mini_edit.gif") + "Edit", edit_person_path(@person) + "#person_cv"
+                  =link_to image_tag("icons/mini_edit.gif") + "Edit", edit_person_path(@person) + "#person_cv"
             -else
               =display_empty_field("cv")
 
@@ -158,7 +158,7 @@
               /    ,
               -if current_person?(@person)
                 .profile_edit
-                  =link_to image_tag("mini_edit.gif") + "Edit", edit_person_path(@person) + "#p_tags"#"#person_tags"
+                  =link_to image_tag("icons/mini_edit.gif") + "Edit", edit_person_path(@person) + "#p_tags"#"#person_tags"
             -else
               =display_empty_field("tags")
 

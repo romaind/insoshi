@@ -82,7 +82,7 @@ body {
   float: right;
   margin-left: 7px; }
   #toolbox #login {
-    background-image: url(../images/login.jpg);
+    background-image: url(../images/toolbox/login.jpg);
     background-repeat: no-repeat;
     color: white;
     text-align: right;
@@ -101,7 +101,7 @@ body {
       color: white;
       font-size: 8pt; }
   #toolbox #signin {
-    background-image: url(../images/signin.gif);
+    background-image: url(../images/toolbox/signin.gif);
     background-repeat: no-repeat;
     color: white;
     text-align: right;
@@ -112,7 +112,7 @@ body {
       color: white;
       font-size: 8pt; }
   #toolbox #signin {
-    background-image: url(../images/signin.gif);
+    background-image: url(../images/toolbox/signin.gif);
     background-repeat: no-repeat;
     color: white;
     text-align: right;
@@ -144,7 +144,7 @@ body {
   #toolbox img {
     margin-bottom: 10px; }
   #toolbox #feedback {
-    background-image: url(../images/feedback.jpg);
+    background-image: url(../images/toolbox/feedback.jpg);
     background-repeat: no-repeat;
     width: 187px;
     height: 202px; }
@@ -229,10 +229,10 @@ body {
   background-color: white;
   border-left: 1px solid #DDDDDD;
   border-right: 1px solid #DDDDDD;
-  width: 773px;
+  width: 777px;
   height: 470px;
-  padding-left: 5px;
-  padding-top: 10px; }
+  padding-left: 1px;
+  padding-top: 5px; }
   #lastproject #lastprojects_content .lastprojects {
     float: left;
     margin-right: 5px;
@@ -854,7 +854,7 @@ body {
     text-align: center;
     width: 581px;
     height: 136px;
-    background-image: url(../images/wall_public.gif);
+    background-image: url(../images/wall/wall_public.gif);
     background-repeat: no-repeat; }
     .wall #wall_form #wall_comment {
       color: white;

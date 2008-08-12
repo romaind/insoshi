@@ -37,7 +37,7 @@
 						<%- if current_person?(@person) and not(current_person.admin?) %>
 						<tr>
 							<td class="delete">
-								<%= link_to image_tag ("delete.gif"), connection_path(Connection.conn(current_person, contact)), :method => :delete, :confirm => "Are you sure you want to end connection with #{h person.name}?" %>
+								<%= link_to image_tag ("icons/delete.gif"), connection_path(Connection.conn(current_person, contact)), :method => :delete, :confirm => "Are you sure you want to end connection with #{h person.name}?" %>
 								<%= link_to "Delete", connection_path(Connection.conn(current_person, contact)), :method => :delete, :confirm => "Are you sure you want to end connection with #{h person.name}?" %>
 							</td>
 						</tr>

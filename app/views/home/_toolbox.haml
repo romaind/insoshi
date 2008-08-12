@@ -17,9 +17,9 @@
           -else
             =link_to "Admin view", admin_preferences_path
 
-    =link_to(image_tag("newproject.jpg"),new_person_project_path(current_person))
+    =link_to(image_tag("toolbox/newproject.jpg"),new_person_project_path(current_person))
     %br
-    =link_to(image_tag("my_portfolio.gif"),person_path(current_person))
+    =link_to(image_tag("toolbox/my_portfolio.gif"),person_path(current_person))
 
     #feedback
       #title
@@ -30,7 +30,7 @@
         -form_for (:feedback, :url => { :action => :index }) do |form|
           %textarea#feedback_message
           #thanks	
-          =image_submit_tag ("send.jpg", :id =>"send")
+          =image_submit_tag ("toolbox/send.jpg", :id =>"send")
 -else
   %span#toolbox
     #signin
@@ -51,7 +51,7 @@
               = link_to "I forgot my password!", new_password_reminder_path
 
             .form_row
-              = image_submit_tag 'signin_butt.gif', :id => "go_button"
+              = image_submit_tag 'toolbox/signin_butt.gif', :id => "go_button"
   
             .form_row
               %label{ :for => "remember_me", :class =>"checkbox" }Remember me:
@@ -68,4 +68,4 @@
         -form_for (:feedback, :url => { :action => :index }) do |form|
           %textarea#feedback_message
           #thanks	
-          =image_submit_tag ("send.jpg", :id =>"send")
+          =image_submit_tag ("toolbox/send.jpg", :id =>"send")

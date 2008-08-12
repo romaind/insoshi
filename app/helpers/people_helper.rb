@@ -55,7 +55,7 @@ module PeopleHelper
           
       haml_tag :div, { :class => "add"} do
         haml_tag :a, {:href => edit_person_path(@person) + link} do
-          haml_tag :img,{ :src => "../images/add.gif"}
+          haml_tag :img,{ :src => "../images/portfolio/add.gif"}
         end
         haml_tag :br
         haml_tag :a , "Add a " + field.singularize, {:href => edit_person_path(@person) + link}
