@@ -1037,15 +1037,27 @@ body {
     #project #project_global span {
       color: #FF9900;
       float: left;
-      width: 250px;
+      width: 270px;
       font-size: 9pt;
       text-align: right;
-      margin-right: 20px; }
+      margin-right: 15px; }
       #project #project_global span #_projects {
-        width: 250px;
+        width: 270px;
         margin-top: 5px; }
+    #project #project_global #create {
+      margin-right: 5px; }
+    #project #project_global #project_settings #left {
+      float: left; }
     #project #project_global #project_settings p {
       text-align: right; }
+    #project #project_global #project_settings #project_title {
+      width: 270px; }
+    #project #project_global #project_settings textarea {
+      width: 270px; }
+    #project #project_global #project_settings #project_desc {
+      padding-top: 12px; }
+    #project #project_global #project_settings table {
+      margin-left: 440px; }
 
 /* *********Alerts end notifications********** */
 .success {
