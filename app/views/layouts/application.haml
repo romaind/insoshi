@@ -30,7 +30,7 @@
           -flash.each do |key, msg|
             = content_tag :p, msg, :class => "flash #{key}"
         
-        =render :partial => "home/toolbox"
+        =render :partial => "shared/toolbox"
 
         %span#content
           =yield
