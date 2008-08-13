@@ -76,7 +76,7 @@
     width: 188px;
     padding-bottom: 5px; }
     .profile_right_column #description_content p {
-      text-align: left;
+      text-align: right;
       margin: 5px;
       font-size: 9pt; }
     .profile_right_column #description_content p:first-letter {
@@ -237,6 +237,7 @@
   padding-top: 10px;
   background-color: white; }
   .wall #wall_form {
+    margin-left: 33px;
     text-align: center;
     width: 581px;
     height: 136px;

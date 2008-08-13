@@ -15,7 +15,7 @@
         %label{ :for => "message_to" }To:
         %br
         -if current_person?(@recipient)
-          = f.select :recipient, current_person.contacts.map{|c| [c.name, c.id]}
+          = f.select :recipient, current_person.contacts.map{|c| [c.first_name + " " + c.name, c.id]}
         -else
           = text_field_tag :recipient, h(@recipient.name)
       .form_row
@@ -38,7 +38,6 @@
 
       .form_row
         = f.submit "Send!", :class => "button", :id => "message_submit"
-        = f.submit "Preview", :class => "button", :id => "preview"
         = f.submit "Cancel", :class => "button", :id => "cancel"
         - if current_person?(@recipient) and current_person.admin?
           = f.submit "Send to all", :class => "button", :id => "all_people"

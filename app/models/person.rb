@@ -279,6 +279,15 @@ class Person < ActiveRecord::Base
                                      :page => page,
                                      :per_page => MESSAGES_PER_PAGE)
   end
+  
+  def discussion(subject, page =1)
+    Message.paginate(:all,
+                 :conditions => [%((id = ? OR parent_id = ?) AND
+                                   recipient_deleted_at IS NULL), subject, subject],
+                 :order => "created_at",
+                 :page => page,
+                 :per_page => 5)
+  end
 
   def recent_messages
     Message.find(:all,

@@ -3,7 +3,7 @@
 <tr>
   <td class="commenter_image" rowspan="2" >
     <% other_person = current_person?(message.sender) ?
-                      message.recipient : message.sender %>
+                      current_person : message.sender %>
     <%= image_link other_person, :image => :thumbnail,
                    :image_options => { :class => "photo" } %>
   </td>
@@ -21,14 +21,14 @@
 </tr>
 <tr>
   <td class="time">
-    <%= message.created_at.strftime("On <b>%m/%d/%Y</b>") %>
+    <%= message.created_at.strftime("On <b>%d/%m/%Y</b>") %>
 	<br>
     <%= message.created_at.strftime("at <b>%I:%M%p</b>") %>
   </td>
 </tr>
 </table>
 <table class = "comment">
-  <tr><td colspan = "3" class = "head"><span class="subject">Subject:<span class="title"><%= sanitize(message.subject) %></span></span></td>
+  <tr><td colspan = "3" class = "head"><span class="subject">Subject: <span class="title"><%= sanitize(message.subject) %></span></span></td>
 	  <td rowspan = "4" class  = "mail" >
 		<%- unless message.read? %>
 			<%= image_tag "icons/mail.gif", :class => "read" %>
@@ -41,8 +41,8 @@
 	  <td rowspan = "2" class = "right_border"></td>
   <tr><td class = "bottom_left"></td>
   <tr><td colspan = "3" class = "bottom">
-  <p class="tools meta">
-    <%= link_to "Read", message %> |
+  <p class="tools_meta">
+	<%= link_to "Read", message %> |
     <%= link_to "Reply", reply_message_path(message) %> |
     <% unless message.trashed?(current_person) -%>
       <%= link_to("Trash", message, :method => :delete) %>

@@ -666,7 +666,7 @@ body {
     width: 188px;
     padding-bottom: 5px; }
     .profile_right_column #description_content p {
-      text-align: justify;
+      text-align: right;
       margin: 5px;
       font-size: 9pt; }
     .profile_right_column #description_content p:first-letter {
@@ -933,6 +933,14 @@ body {
     background-repeat: no-repeat;
     padding-right: 10px; }
     .comment .bottom a {
+      font-size: 9pt;
+      color: #333333;
+      text-decoration: none; }
+    .comment .bottom .del {
+      margin-right: 5px; }
+  .comment .tools_meta {
+    margin-right: 5px; }
+    .comment .tools_meta a {
       color: #333333;
       text-decoration: none;
       font-size: 8pt; }
@@ -963,6 +971,21 @@ body {
     text-decoration: none; }
 
 /* *********Inbox display********** */
+#message_nav {
+  text-align: center;
+  list-style-type: none;
+  margin-bottom: 50px; }
+  #message_nav li {
+    background-color: #333333;
+    display: inline;
+    margin-right: 20px;
+    padding: 5px; }
+    #message_nav li a {
+      color: white;
+      text-decoration: none; }
+  #message_nav .active a {
+    color: #FF9900; }
+
 #message_recipient {
   width: 300px; }
 
@@ -999,6 +1022,25 @@ body {
   #new_message .col1 .button {
     margin-top: 20px;
     margin-left: 20px; }
+
+/* *********New project display********** */
+#project {
+  width: 580px; }
+  #project h4 {
+    margin: 0;
+    color: #FF9900;
+    text-align: right; }
+  #project #project_global {
+    background-color: white;
+    border-top: 2px solid #FF9900; }
+    #project #project_global p {
+      width: 300px;
+      text-align: right; }
+      #project #project_global p #_projects {
+        width: 300px; }
+    #project #project_global #project_settings p {
+      width: 580px;
+      text-align: right; }
 
 /* *********Alerts end notifications********** */
 .success {
