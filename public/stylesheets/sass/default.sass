@@ -1471,6 +1471,10 @@ body
     :border
       :top 2px solid #FF9900
 
+    input
+      :margin
+        :top 10px
+
     span
       :color #FF9900
       :float left
@@ -1479,37 +1483,126 @@ body
         :size 9pt
       :text-align right
       :margin
-        :right 15px
+        :right 20px
 
-      #_projects
+      #person_projects
         :width 270px
         :margin
-          :top 5px
+          :top 7px
 
     #create
       :margin
-        :right 5px
+        :right 2px
 
     #project_settings
-      #left
-        :float left
+      :font
+        :size 9pt
 
       p
         :text-align right
 
-      #project_title
-        :width 270px
+      table
+        :margin 0
+        :border-collapse collapse
+        :text-align right
+        :width 271px
+        :font
+          :size 8pt
 
-      textarea
+      #title
+        :padding
+          :top 30px
         :width 270px
+        #project_title
+          :width 265px
 
       #project_desc
-        :padding
-          :top 12px
+        :float right
+        :margin
+          :top 15px
+          :left 20px
 
-      table
+        textarea
+          :margin
+            :top 10px
+          :width 267px
+
+      #categories
+        :margin
+          :top 20px
+
+      #tags
+        :margin
+          :top 20px
+        :width 270px
+
+        #p_tags
+          :width 265px
+
+      #status
+        :margin
+          :top 20px
+        :width 270px
+
+      #buttons
         :margin
           :left 440px
+        :width 100px
+
+
+    #project_edition
+      :font
+        :size 9pt
+
+      p
+        :text-align right
+
+      table
+        :margin 0
+        :border-collapse collapse
+        :text-align right
+        :width 271px
+        :font
+          :size 8pt
+
+      #title
+        :padding
+          :top 12px
+        :width 270px
+        #project_title
+          :width 265px
+
+      #project_desc
+        :float right
+        :margin
+          :left 20px
+
+        textarea
+          :margin
+            :top 10px
+          :width 267px
+
+      #categories
+        :margin
+          :top 20px
+
+      #tags
+        :margin
+          :top 20px
+        :width 270px
+
+        #p_tags
+          :width 265px
+
+      #status
+        :margin
+          :top 20px
+        :width 270px
+
+      #buttons
+        :margin
+          :left 440px
+        :width 100px
 
 /**********Alerts end notifications**********
 .success

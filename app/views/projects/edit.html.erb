@@ -1,32 +1,47 @@
 <%= error_messages_for :project %>
+<div id="project">
+	<h4>Editing project</h4>
+	<div id="project_global" >
+		<div id="project_edition" >
+		<% form_for(@project, :url => person_project_path(current_person, @project)) do |f| %>
+  		<p id="project_desc" >
+    		Description of your project:<br />
+    		<%= f.text_area :description %>
+  		</p>
 
-<h4>Editing project</h4>
+  		<p id="title" >
+    		Title of your project: *<br />
+    		<%= f.text_field :title %>
+  		</p>
 
-<% form_for(@project, :url => person_project_path(current_person, @project)) do |f| %>
-  <p>
-    <b>Title</b><br />
-    <%= f.text_field :title %>
-  </p>
+		<table>
+  			<%- i=0 %>
+    		<p id="categories" >Categories: *</p>
+ 			<% for skill in Skill.find(:all) %>
+     			<%- if i%2==0 %>
+        			<tr>
+     			<%- end %>
+        			<td>
+           				<label> <%= skill.name %>
+           				<%= check_box_tag "project[skill_ids][]", skill.id, @project.skills.include?(skill) %></label>
+        			</td>
+     				<%- i+=1 %>
+ 			<%- end %>
+		</table>
+		
+  		<p id="tags" >
+    		Tags of your project:<br />
+            (separate each tag with ",")<br />
+    		<%= text_field :p, :tags %>
+  		</p>
 
-  <p>
-    <b>Description</b><br />
-    <%= f.text_area :description %>
-  </p>
-
-  <p>
-    <b>Views</b><br />
-    <%= f.text_field :views %>
-  </p>
-  
-  <p>
-    <b>Licence</b><br />
-    <%= f.text_area :licence %>
-  </p>
-
-  <p>
-    <%= f.submit "Update" %>
-  </p>
-<% end %>
-
-<%= link_to 'Show', person_project_path(current_person, @project) %> |
-<%= link_to 'Back', person_projects_path %>
+		<% end %>
+		<table id="buttons" >
+				<tr>
+				  <td><%= link_to button_to('Show'), person_project_path(current_person, @project) %></td>
+				  <td><%= link_to button_to("Cancel"), :back %></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>

@@ -1034,30 +1034,89 @@ body {
     padding: 10px;
     background-color: white;
     border-top: 2px solid #FF9900; }
+    #project #project_global input {
+      margin-top: 10px; }
     #project #project_global span {
       color: #FF9900;
       float: left;
       width: 270px;
       font-size: 9pt;
       text-align: right;
-      margin-right: 15px; }
-      #project #project_global span #_projects {
+      margin-right: 20px; }
+      #project #project_global span #person_projects {
         width: 270px;
-        margin-top: 5px; }
+        margin-top: 7px; }
     #project #project_global #create {
-      margin-right: 5px; }
-    #project #project_global #project_settings #left {
-      float: left; }
-    #project #project_global #project_settings p {
-      text-align: right; }
-    #project #project_global #project_settings #project_title {
-      width: 270px; }
-    #project #project_global #project_settings textarea {
-      width: 270px; }
-    #project #project_global #project_settings #project_desc {
-      padding-top: 12px; }
-    #project #project_global #project_settings table {
-      margin-left: 440px; }
+      margin-right: 2px; }
+    #project #project_global #project_settings {
+      font-size: 9pt; }
+      #project #project_global #project_settings p {
+        text-align: right; }
+      #project #project_global #project_settings table {
+        margin: 0;
+        border-collapse: collapse;
+        text-align: right;
+        width: 271px;
+        font-size: 8pt; }
+      #project #project_global #project_settings #title {
+        padding-top: 30px;
+        width: 270px; }
+        #project #project_global #project_settings #title #project_title {
+          width: 265px; }
+      #project #project_global #project_settings #project_desc {
+        float: right;
+        margin-top: 15px;
+        margin-left: 20px; }
+        #project #project_global #project_settings #project_desc textarea {
+          margin-top: 10px;
+          width: 267px; }
+      #project #project_global #project_settings #categories {
+        margin-top: 20px; }
+      #project #project_global #project_settings #tags {
+        margin-top: 20px;
+        width: 270px; }
+        #project #project_global #project_settings #tags #p_tags {
+          width: 265px; }
+      #project #project_global #project_settings #status {
+        margin-top: 20px;
+        width: 270px; }
+      #project #project_global #project_settings #buttons {
+        margin-left: 440px;
+        width: 100px; }
+    #project #project_global #project_edition {
+      font-size: 9pt; }
+      #project #project_global #project_edition p {
+        text-align: right; }
+      #project #project_global #project_edition table {
+        margin: 0;
+        border-collapse: collapse;
+        text-align: right;
+        width: 271px;
+        font-size: 8pt; }
+      #project #project_global #project_edition #title {
+        padding-top: 12px;
+        width: 270px; }
+        #project #project_global #project_edition #title #project_title {
+          width: 265px; }
+      #project #project_global #project_edition #project_desc {
+        float: right;
+        margin-left: 20px; }
+        #project #project_global #project_edition #project_desc textarea {
+          margin-top: 10px;
+          width: 267px; }
+      #project #project_global #project_edition #categories {
+        margin-top: 20px; }
+      #project #project_global #project_edition #tags {
+        margin-top: 20px;
+        width: 270px; }
+        #project #project_global #project_edition #tags #p_tags {
+          width: 265px; }
+      #project #project_global #project_edition #status {
+        margin-top: 20px;
+        width: 270px; }
+      #project #project_global #project_edition #buttons {
+        margin-left: 440px;
+        width: 100px; }
 
 /* *********Alerts end notifications********** */
 .success {

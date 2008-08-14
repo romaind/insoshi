@@ -57,6 +57,7 @@ class ProjectsController < ApplicationController
   # PUT /projects/1
   # PUT /projects/1.xml
   def update
+    params[:project][:skill_ids] ||= []
     @project = Project.find(params[:id])
 
     respond_to do |format|
