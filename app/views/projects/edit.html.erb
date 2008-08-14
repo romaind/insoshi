@@ -36,12 +36,39 @@
   		</p>
 
 		<% end %>
-		<table id="buttons" >
+		<table class="buttons" >
 				<tr>
 				  <td><%= link_to button_to('Show'), person_project_path(current_person, @project) %></td>
 				  <td><%= link_to button_to("Cancel"), :back %></td>
 				</tr>
-			</table>
+		</table>
 		</div>
-	</div>
+		<h4>New creation</h4>
+
+		<%= error_messages_for :creation %>
+
+		<p id="project_header">
+			Header of your project:
+			<%= image_tag @project.creations.first.asset.item.url(:preview), { :id => "preview"} %>
+		</p>
+
+		<% form_for(Creation.new, :url => person_project_creation_path(current_person, @project, Creation.new), :html => { :multipart => true }) do |f| %>
+  		<p id="new_creation">Select a file to upload on your project:</p>
+    		<%= error_messages_for :assets %>
+    		<% fields_for :asset do |a| %>
+      			<%= a.file_field :item %>
+    		<% end %>
+
+		<p id="terms_content">
+			<span>I certify Iown all the rights on the content I'm uploading and this content respects the
+			<%= link_to "Terms of Use", "terms_of_use",{:id => "terms"} %> of Coaliz</span>
+			<%= f.radio_button :p, :terms%>
+		</p>
+<br>
+  		<p class="buttons">
+    		<%= f.submit "Create" %>
+  		</p>
+
+		<% end %>
+		</div>
 </div>

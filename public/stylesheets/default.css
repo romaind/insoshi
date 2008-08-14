@@ -1083,40 +1083,66 @@ body {
       #project #project_global #project_settings #buttons {
         margin-left: 440px;
         width: 100px; }
-    #project #project_global #project_edition {
-      font-size: 9pt; }
-      #project #project_global #project_edition p {
-        text-align: right; }
-      #project #project_global #project_edition table {
-        margin: 0;
-        border-collapse: collapse;
-        text-align: right;
-        width: 271px;
-        font-size: 8pt; }
-      #project #project_global #project_edition #title {
-        padding-top: 12px;
-        width: 270px; }
-        #project #project_global #project_edition #title #project_title {
-          width: 265px; }
-      #project #project_global #project_edition #project_desc {
-        float: right;
-        margin-left: 20px; }
-        #project #project_global #project_edition #project_desc textarea {
-          margin-top: 10px;
-          width: 267px; }
-      #project #project_global #project_edition #categories {
-        margin-top: 20px; }
-      #project #project_global #project_edition #tags {
-        margin-top: 20px;
-        width: 270px; }
-        #project #project_global #project_edition #tags #p_tags {
-          width: 265px; }
-      #project #project_global #project_edition #status {
-        margin-top: 20px;
-        width: 270px; }
-      #project #project_global #project_edition #buttons {
-        margin-left: 440px;
-        width: 100px; }
+  #project #project_edition {
+    font-size: 9pt; }
+    #project #project_edition p {
+      text-align: right; }
+    #project #project_edition table {
+      margin: 0;
+      border-collapse: collapse;
+      text-align: right;
+      width: 271px;
+      font-size: 8pt; }
+    #project #project_edition #title {
+      padding-top: 12px;
+      width: 270px; }
+      #project #project_edition #title #project_title {
+        width: 265px; }
+    #project #project_edition #project_desc {
+      float: right;
+      margin-left: 20px; }
+      #project #project_edition #project_desc textarea {
+        margin-top: 10px;
+        width: 267px; }
+    #project #project_edition #categories {
+      margin-top: 20px; }
+    #project #project_edition #tags {
+      margin-top: 20px;
+      width: 270px; }
+      #project #project_edition #tags #p_tags {
+        width: 265px; }
+    #project #project_edition #status {
+      margin-top: 20px;
+      width: 270px; }
+    #project #project_edition .buttons {
+      margin-bottom: 20px;
+      margin-left: 440px;
+      width: 100px; }
+  #project #new_creation {
+    text-align: right;
+    font-size: 9pt;
+    width: 300px; }
+    #project #new_creation input {
+      margin-top: 0px; }
+  #project #terms_content {
+    margin-top: 20px; }
+    #project #terms_content span {
+      color: #333333;
+      width: 270px;
+      margin: 0; }
+    #project #terms_content a {
+      color: #FF9900;
+      text-decoration: none; }
+  #project .buttons {
+    margin-bottom: 20px;
+    margin-left: 230px; }
+  #project #project_header {
+    float: right;
+    text-align: right;
+    width: 188px;
+    font-size: 9pt;
+    margin-top: 20px;
+    margin-bottom: 20px; }
 
 /* *********Alerts end notifications********** */
 .success {
