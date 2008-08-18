@@ -301,7 +301,7 @@ class Person < ActiveRecord::Base
    new_messages = Message.find(:all,
                                :conditions => [%(recipient_id = ? AND
                                               recipient_read_at IS NULL), id])
-   new_messages.count
+   new_messages.length
   end
   
   ## Photo helpers
