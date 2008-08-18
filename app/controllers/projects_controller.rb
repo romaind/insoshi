@@ -1,12 +1,21 @@
 class ProjectsController < ApplicationController
+  
+  before_filter :login_required, :only => [:edit, :update, :new, :create]
+  before_filter :correct_user_required, :only => [:edit, :update, :new, :create]
+  before_filter :setup
+  
   # GET /projects
   # GET /projects.xml
   def index
-    @all_projects = Project.find(:all)
-    @projects = Project.recent_to_older(params[:page])
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @all_projects }
+    if params[:person_id]
+      redirect_to person_path(params[:person_id])
+    else
+      @all_projects = Project.find(:all)
+      @projects = Project.recent_to_older(params[:page])
+      respond_to do |format|
+        format.html # index.html.erb
+        format.xml  { render :xml => @all_projects }
+      end
     end
   end
 
@@ -82,5 +91,15 @@ class ProjectsController < ApplicationController
       format.html { redirect_to person_projects_url }
       format.xml  { head :ok }
     end
+  end
+  
+  private
+
+  def setup
+    @body = "project"
+  end
+
+  def correct_user_required
+    redirect_to home_url unless Person.find(params[:person_id]) == current_person
   end
 end
