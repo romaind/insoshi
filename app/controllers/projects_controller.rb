@@ -100,6 +100,6 @@ class ProjectsController < ApplicationController
   end
 
   def correct_user_required
-    redirect_to home_url unless Person.find(params[:id]) == current_person && Project.find(params[:project_id]).person_id == current_person
+    redirect_to home_url unless Person.find(params[:person_id]) == current_person
   end
 end
