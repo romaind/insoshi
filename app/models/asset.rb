@@ -8,7 +8,7 @@ class Asset < ActiveRecord::Base
   # Paperclip
   has_attached_file :item,
     :styles => {
-      :tiny   => "48x48#",
+      :tiny   => "90x90#",
       :thumb  => "72x72#",
       :small  => "150x150>",
       :preview => "188x135!" }
