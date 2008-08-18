@@ -1,6 +1,6 @@
 <%- unless minifeed_item.item.nil? -%>
-<div class="minifeed" >
-  <table>
+<div>
+  <table class="minifeed" >
 	<tr>
 	  <td>
   		<p class="meta published">
@@ -8,8 +8,11 @@
     		<%= minifeed_item.created_at.strftime("at <b>%I:%M%p</b>") %>
   		</p>
   		<p><%= minifeed_message minifeed_item %></p>
+	  </td>
 	  <td class="thumb">
   		<%= image_link minifeed_item.person %>
+	  </td>
+	</tr>
   </table>
 </div>
 <%- end -%>

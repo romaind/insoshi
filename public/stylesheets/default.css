@@ -1,7 +1,8 @@
 body {
   background-image: url(../images/background_squares.jpg);
   background-repeat: repeat;
-  font: 11pt Tahoma,Georgia,Verdana,sans-serif;
+  font-size: 11pt;
+  font-family: Tahoma,Georgia,Verdana,sans-serif;
   height: 100%; }
   body img {
     border: 0;
@@ -34,17 +35,15 @@ body {
     position: absolute;
     margin-top: 10px;
     margin-left: 413px; }
+    #header #searchbox table {
+      text-align: right; }
     #header #searchbox #p_keyword {
       width: 183px; }
     #header #searchbox #adv_search {
       font-size: 8pt;
-      position: absolute;
-      margin-top: 5px;
-      margin-left: 123px; }
-    #header #searchbox #go {
-      position: absolute;
-      margin-left: 10px;
       margin-top: 5px; }
+    #header #searchbox #go {
+      margin-left: 3px; }
   #header #languages {
     float: right;
     margin-right: 30px;
@@ -91,15 +90,19 @@ body {
     padding-top: 10px; }
     #toolbox #login #login_content {
       padding-right: 10px; }
-    #toolbox #login h3 {
-      font-size: 9pt;
-      font-weight: normal;
-      padding: 0;
-      margin: 0;
-      margin-bottom: 10px; }
-    #toolbox #login a {
-      color: white;
-      font-size: 8pt; }
+      #toolbox #login #login_content h3 {
+        font-size: 9pt;
+        font-weight: normal;
+        padding: 0;
+        margin: 0;
+        margin-bottom: 10px; }
+      #toolbox #login #login_content a {
+        color: white;
+        font-size: 8pt; }
+      #toolbox #login #login_content #logout {
+        text-align: left;
+        margin-top: 15px;
+        padding-left: 10px; }
   #toolbox #signin {
     background-image: url(../images/toolbox/signin.gif);
     background-repeat: no-repeat;
@@ -111,14 +114,6 @@ body {
     #toolbox #signin a {
       color: white;
       font-size: 8pt; }
-  #toolbox #signin {
-    background-image: url(../images/toolbox/signin.gif);
-    background-repeat: no-repeat;
-    color: white;
-    text-align: right;
-    width: 187px;
-    height: 162px;
-    margin-bottom: 10px; }
     #toolbox #signin #member_title {
       margin-top: 0;
       margin-right: 10px;
@@ -149,12 +144,14 @@ body {
     width: 187px;
     height: 202px; }
     #toolbox #feedback #title {
-      margin-left: 30px;
+      margin-left: 37px;
       padding-top: 10px;
-      color: white; }
+      color: white;
+      font-size: 10pt; }
     #toolbox #feedback #subtitle {
-      margin-left: 45px;
-      color: white; }
+      margin-left: 50px;
+      color: white;
+      font-size: 10pt; }
     #toolbox #feedback #formbody {
       padding-top: 5px;
       margin-left: 20px;
@@ -460,7 +457,10 @@ body {
     #profile_details #details p {
       margin: 0;
       padding: 0; }
+    #profile_details #details #infos {
+      vertical-align: top; }
     #profile_details #details #skills {
+      vertical-align: bottom;
       margin-top: 8px;
       font-size: 9pt; }
   #profile_details #stats {
@@ -715,17 +715,18 @@ body {
       background-color: white;
       border-top: 2px solid #009900;
       width: 580px;
-      margin-bottom: 20px; }
+      margin-bottom: 20px;
+      padding-top: 20px; }
       #feed_requests #minifeeds .list_feed table {
-        width: 580px; }
+        width: 580px;
+        height: 36px; }
         #feed_requests #minifeeds .list_feed table td.thumb {
-          width: 36px; }
+          width: 36px;
+          vertical-align: middle; }
         #feed_requests #minifeeds .list_feed table td {
           vertical-align: top;
-          height: 36px; }
-          #feed_requests #minifeeds .list_feed table td img {
-            margin-left: 10px;
-            margin-bottom: 20px; }
+          padding-bottom: 10px;
+          padding-left: 5px; }
           #feed_requests #minifeeds .list_feed table td p {
             margin: 0;
             font-size: 10pt; }
@@ -775,33 +776,35 @@ body {
   #contacts_small #nocontact {
     text-align: center; }
   #contacts_small table {
-    font-size: 9pt;
     border-spacing: 7px 5px; }
     #contacts_small table td.thumb {
-      width: 194px;
-      height: 80px;
       vertical-align: top;
+      font-size: 8pt;
       padding-bottom: 10px;
+      width: 195px;
+      height: 80px;
       border-collapse: separate; }
       #contacts_small table td.thumb img {
         float: left;
         margin-right: 5px; }
       #contacts_small table td.thumb p {
-        margin: 0;
-        margin-top: 2px; }
-        #contacts_small table td.thumb p a {
-          color: #009900;
-          text-decoration: none; }
+        font-size: 7.5pt; }
+      #contacts_small table td.thumb a {
+        font-size: 8pt;
+        color: #009900;
+        text-decoration: none; }
       #contacts_small table td.thumb table {
         height: 80px;
         border-collapse: collapse; }
-        #contacts_small table td.thumb table .name {
-          vertical-align: top; }
-        #contacts_small table td.thumb table .delete {
+        #contacts_small table td.thumb table .person_skill {
           vertical-align: bottom; }
-          #contacts_small table td.thumb table .delete a {
-            color: red;
-            text-decoration: none; }
+          #contacts_small table td.thumb table .person_skill p {
+            margin: 0; }
+      #contacts_small table td.thumb .delete {
+        margin-top: 2px; }
+        #contacts_small table td.thumb .delete a {
+          color: red;
+          text-decoration: none; }
 
 /* ***********Common contacts*********** */
 #common_contacts h4 {
@@ -1160,7 +1163,7 @@ body {
     padding-top: 20px;
     border-top: 1px dotted #333333; }
   #project table .img_preview {
-    margin-bottom: 15px; }
+    margin-bottom: 16px; }
   #project table .del {
     color: #333333;
     text-decoration: none; }
@@ -1173,28 +1176,28 @@ body {
   background-color: white;
   font-size: 12px;
   padding: 6px;
-  width: 955px; }
+  width: 760px; }
 
 .notice {
   border: 1px solid #DDDDDD;
   background-color: white;
   font-size: 12px;
   padding: 6px;
-  width: 955px; }
+  width: 760px; }
 
 .error {
   border: 1px solid #DDDDDD;
   background-color: white;
   font-size: 12px;
   padding: 6px;
-  width: 955px; }
+  width: 760px; }
 
 .errorExplanation {
   border: 1px solid #DDDDDD;
   background-color: white;
   margin-bottom: 2px;
   padding: 1em;
-  width: 955px; }
+  width: 760px; }
 
 .errorExplanation h2 {
   background: 0;
@@ -1202,7 +1205,7 @@ body {
   font-size: 1.2em;
   margin-top: 0;
   padding: 0;
-  width: 955px; }
+  width: 760px; }
 
 .pagination {
   border-bottom: 1px solid #eee;
@@ -1210,4 +1213,4 @@ body {
   padding-bottom: 2px;
   text-align: center;
   margin-bottom: 2px;
-  width: 955px; }
+  width: 760px; }

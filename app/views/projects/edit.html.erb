@@ -52,13 +52,15 @@
     		Draft <%= check_box :p, :draft %>
   		</p>
 
-		<% end %>
+
 		<table class="buttons" >
 				<tr>
-				  <td><%= link_to button_to('Show'), person_project_path(current_person, @project) %></td>
+				  <td><%= submit_tag 'Show' %></td>
 				  <td><%= link_to button_to("Cancel"), :back %></td>
 				</tr>
 		</table>
+
+		<% end %>
 		</div>
 		<h3>New creation</h3>
 

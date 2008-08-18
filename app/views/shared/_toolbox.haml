@@ -10,12 +10,13 @@
         %br
         =link_to pluralize(current_person.requested_contacts.length, "New request"), { :controller => "home", :action => "requested_contacts" }
         %br
-        =link_to "Sign out", logout_path
-        -if current_person.admin?
-          -if admin_view?
-            =link_to "Standard view", home_path
-          -else
-            =link_to "Admin view", admin_preferences_path
+        #logout
+          =link_to "Log out", logout_path
+          -if current_person.admin?
+            -if admin_view?
+              =link_to "Standard view", home_path
+            -else
+              =link_to "Admin view", admin_preferences_path
 
     =link_to(image_tag("toolbox/newproject.jpg"),new_person_project_path(current_person))
     %br
