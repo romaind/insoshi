@@ -1025,7 +1025,8 @@ body {
 
 /* *********New project display********** */
 #project {
-  width: 580px; }
+  width: 580px;
+  font-size: 9pt; }
   #project h4 {
     margin: 0;
     color: #FF9900;
@@ -1146,14 +1147,25 @@ body {
     float: right;
     text-align: right;
     width: 188px;
-    height: 135px;
     font-size: 9pt;
-    margin-top: 10px;
     margin-bottom: 20px; }
+    #project #project_header img {
+      margin-top: 10px; }
     #project #project_header #preview_empty {
       width: 188px;
       height: 135px;
       background-color: #DDDDDD; }
+  #project #previews {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px dotted #333333; }
+  #project table .img_preview {
+    margin-bottom: 15px; }
+  #project table .del {
+    color: #333333;
+    text-decoration: none; }
+    #project table .del img {
+      margin-right: 5px; }
 
 /* *********Alerts end notifications********** */
 .success {

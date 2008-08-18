@@ -66,7 +66,7 @@
 
 		<div id="project_header">
 			Header of your project:
-			<%- if @project.creations.first.asset.item.nil? %>
+			<%- if @project.creations.first.nil? %>
 				<div id="preview_empty">&nbsp;</div>
 			<%- else %>
 				<%= image_tag @project.creations.first.asset.item.url(:preview), { :id => "preview"} %>
@@ -93,9 +93,12 @@
   		</p>
 
 		<% end %>
+		<p>
+			Maximum size: 5Mo<br>
+			Files type: jpeg, tiff, gif, png
+		</p>
 		
-		
-		<b>My Creations:</b>
+		<p id="previews">Content of your project: (drag and drop to reorganize)</p>
 		<table>
 			<%- i=0 %>
 			<%- unless @project.creations.nil? %>
@@ -105,6 +108,7 @@
 					<%- end %>
 					<td>
   						<%= link_to(image_tag(crea.asset.item.url(:tiny)), person_project_creation_path(current_person, @project, crea)) %>
+ 						<%= link_to image_tag("icons/trash.gif") + "delete", person_project_creation_path(current_person, @project, crea), :confirm => 'Are you sure?', :method => :delete, :class => "del" %>
 					</td>
 					<%- i+=1 %>
 					<%- if i%6==0 %>
@@ -116,7 +120,9 @@
 				<%- if i%6==0 %>
 					<tr>
 				<%- end %>
-				<td><%=image_tag "defaults/minipreview.gif"%></td>
+				<td>
+					<%=image_tag "defaults/minipreview.gif", :class => "img_preview" %>
+				</td>
 				<%- i+=1 %>
 				<%- if i%6==0 %>
 					</tr>

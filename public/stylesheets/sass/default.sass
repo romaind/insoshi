@@ -1458,6 +1458,8 @@ body
 /**********New project display**********
 #project
   :width 580px
+  :font
+    :size 9pt
 
   h4
     :margin 0
@@ -1644,18 +1646,39 @@ body
     :float right
     :text-align right
     :width 188px
-    :height 135px
     :font
       :size 9pt
     :margin
-      :top 10px
       :bottom 20px
 
+    img
+      :margin
+        :top 10px
     #preview_empty
       :width 188px
       :height 135px
       :background
         :color #DDDDDD
+
+  #previews
+    :margin
+      :top 20px
+    :padding
+      :top 20px
+    :border
+      :top 1px dotted #333333
+
+  table
+    .img_preview
+      :margin
+        :bottom 15px
+    .del
+      :color #333333
+      :text-decoration none
+
+      img
+        :margin
+          :right 5px
 
 /**********Alerts end notifications**********
 .success

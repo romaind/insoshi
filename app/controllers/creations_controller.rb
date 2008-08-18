@@ -53,7 +53,7 @@ class CreationsController < ApplicationController
         @creation.asset = @asset
         # if @asset.save
           flash[:notice] = 'Creation was successfully created.'
-          format.html { redirect_to person_project_creation_path(current_person, @project, @creation) }
+          format.html { redirect_to :back }
           format.xml  { render :xml => @creation, :status => :created, :location => @creation }
         # end
       else
@@ -71,7 +71,7 @@ class CreationsController < ApplicationController
     respond_to do |format|
       if @creation.update_attributes(params[:creation])
         flash[:notice] = 'Creation was successfully updated.'
-        format.html { redirect_to(@creation) }
+        format.html { redirect_to :back }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -87,7 +87,7 @@ class CreationsController < ApplicationController
     @creation.destroy
 
     respond_to do |format|
-      format.html { redirect_to(person_project_creations_url) }
+      format.html { redirect_to :back }
       format.xml  { head :ok }
     end
   end
