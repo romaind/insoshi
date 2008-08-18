@@ -1567,14 +1567,16 @@ body
 
     #title
       :padding
-        :top 12px
+        :top 40px
       :width 270px
+
       #project_title
         :width 265px
 
     #project_desc
       :float right
       :margin
+        :top 25px
         :left 20px
 
       textarea
@@ -1605,15 +1607,21 @@ body
         :left 440px
       :width 100px
 
+  h3
+    :text-align center
+
   #new_creation
-    :text-align right
+    :text-align left
+    :margin
+      :right 20px
     :font
       :size 9pt
     :width 300px
 
-    input
-      :margin
-        :top 0px
+    #label
+      :color #333333
+      :text-align right
+      :width 225px
 
   #terms_content
     :margin
@@ -1636,11 +1644,18 @@ body
     :float right
     :text-align right
     :width 188px
+    :height 135px
     :font
       :size 9pt
     :margin
-      :top 20px
+      :top 10px
       :bottom 20px
+
+    #preview_empty
+      :width 188px
+      :height 135px
+      :background
+        :color #DDDDDD
 
 /**********Alerts end notifications**********
 .success

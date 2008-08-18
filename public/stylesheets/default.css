@@ -1094,12 +1094,13 @@ body {
       width: 271px;
       font-size: 8pt; }
     #project #project_edition #title {
-      padding-top: 12px;
+      padding-top: 40px;
       width: 270px; }
       #project #project_edition #title #project_title {
         width: 265px; }
     #project #project_edition #project_desc {
       float: right;
+      margin-top: 25px;
       margin-left: 20px; }
       #project #project_edition #project_desc textarea {
         margin-top: 10px;
@@ -1118,12 +1119,17 @@ body {
       margin-bottom: 20px;
       margin-left: 440px;
       width: 100px; }
+  #project h3 {
+    text-align: center; }
   #project #new_creation {
-    text-align: right;
+    text-align: left;
+    margin-right: 20px;
     font-size: 9pt;
     width: 300px; }
-    #project #new_creation input {
-      margin-top: 0px; }
+    #project #new_creation #label {
+      color: #333333;
+      text-align: right;
+      width: 225px; }
   #project #terms_content {
     margin-top: 20px; }
     #project #terms_content span {
@@ -1140,9 +1146,14 @@ body {
     float: right;
     text-align: right;
     width: 188px;
+    height: 135px;
     font-size: 9pt;
-    margin-top: 20px;
+    margin-top: 10px;
     margin-bottom: 20px; }
+    #project #project_header #preview_empty {
+      width: 188px;
+      height: 135px;
+      background-color: #DDDDDD; }
 
 /* *********Alerts end notifications********** */
 .success {
