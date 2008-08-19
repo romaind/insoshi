@@ -20,7 +20,7 @@
 
 <p>
   <b>Tags:</b>
-  <%= @project.tag_counts %>
+  <%= @project.tags.collect{|t| t.name}.join(", ") %>
 <p>
 
 
