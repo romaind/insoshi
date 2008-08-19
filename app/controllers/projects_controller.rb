@@ -2,6 +2,7 @@ class ProjectsController < ApplicationController
   
   before_filter :login_required, :only => [:edit, :update, :new, :create]
   before_filter :correct_user_required, :only => [:edit, :update, :new, :create]
+  before_filter :correct_project_required, :only => [:edit, :update, :create]
   before_filter :setup
   
   # GET /projects
@@ -100,6 +101,14 @@ class ProjectsController < ApplicationController
   end
 
   def correct_user_required
-    redirect_to home_url unless Person.find(params[:person_id]) == current_person
+    redirect_to person_path(current_person) unless Person.find(params[:person_id]) == current_person
   end
+  
+  def correct_project_required
+    unless Project.find(params[:id]).person_id == current_person.id
+      flash[:error] = "Vous n'avez pas le droit de modifier ce projet!"
+      redirect_to person_project_path(params[:person_id], params[:id])
+    end
+  end
+  
 end

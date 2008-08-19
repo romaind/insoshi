@@ -1,4 +1,6 @@
 class Project < ActiveRecord::Base
+  acts_as_taggable
+
   belongs_to :person
   has_many :creations, :dependent => :destroy
   has_and_belongs_to_many :skills
