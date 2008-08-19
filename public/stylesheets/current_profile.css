@@ -207,20 +207,21 @@
     font-size: 9pt;
     border-spacing: 7px 5px; }
     #contacts_small table td.thumb {
+      vertical-align: top;
+      font-size: 8pt;
+      padding-bottom: 10px;
       width: 194px;
       height: 80px;
-      vertical-align: top;
-      padding-bottom: 10px;
       border-collapse: separate; }
       #contacts_small table td.thumb img {
         float: left;
         margin-right: 5px; }
       #contacts_small table td.thumb p {
-        margin: 0;
-        margin-top: 2px; }
-        #contacts_small table td.thumb p a {
-          color: #FF9900;
-          text-decoration: none; }
+        font-size: 7.5pt; }
+      #contacts_small table td.thumb a {
+        font-size: 8pt;
+        color: #FF9900;
+        text-decoration: none; }
 
 /* *********Wall if comments********** */
 #wall_title {

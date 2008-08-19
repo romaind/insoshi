@@ -2,7 +2,9 @@ body
   :background
     :image url(../images/background_squares.jpg)
     :repeat repeat
-  :font 11pt Tahoma,Georgia,Verdana,sans-serif
+  :font
+    :size 11pt
+    :family Tahoma,Georgia,Verdana,sans-serif
   :height 100%
 
   img
@@ -43,19 +45,19 @@ body
     :margin
       :top 10px
       :left 413px
+
+    table
+      :text-align right
+
     #p_keyword
       :width 183px
     #adv_search
       :font-size 8pt
-      :position absolute
       :margin
         :top 5px
-        :left 123px
     #go
-      :position absolute
       :margin
-        :left 10px
-        :top 5px
+        :left 3px
 
   #languages
     :float right
@@ -123,35 +125,26 @@ body
       :padding
         :right 10px
 
-    h3
-      :font
-        :size 9pt
-        :weight normal
-      :padding 0
-      :margin 0
-      :margin
-        :bottom 10px
+      h3
+        :font
+          :size 9pt
+          :weight normal
+        :padding 0
+        :margin 0
+        :margin
+          :bottom 10px
 
-    a
-      :color white
-      :font
-        :size 8pt
+      a
+        :color white
+        :font
+          :size 8pt
 
-  #signin
-    :background
-      :image url(../images/toolbox/signin.gif)
-      :repeat no-repeat
-    :color white
-    :text-align right
-    :width 187px
-    :height 162px
-    :margin
-      :bottom 10px
-
-    a
-      :color white
-      :font
-        :size 8pt
+      #logout
+        :text-align left
+        :margin
+          :top 15px
+        :padding
+          :left 10px
 
   #signin
     :background
@@ -163,6 +156,11 @@ body
     :height 162px
     :margin
       :bottom 10px
+
+    a
+      :color white
+      :font
+        :size 8pt
 
     #member_title
       :margin
@@ -212,15 +210,19 @@ body
 
     #title
       :margin
-        :left 30px
+        :left 37px
       :padding
         :top 10px
       :color white
+      :font
+        :size 10pt
 
     #subtitle
       :margin
-        :left 45px
+        :left 50px
       :color white
+      :font
+        :size 10pt
     
     #formbody
       :padding
@@ -683,7 +685,11 @@ body
       :margin 0
       :padding 0
 
+    #infos
+      :vertical-align top
+
     #skills
+      :vertical-align bottom
       :margin
         :top 8px
       :font
@@ -1044,18 +1050,21 @@ body
       :width 580px
       :margin
         :bottom 20px
+      :padding
+        :top 20px
 
       table
         :width 580px
+        :height 36px
         td.thumb
           :width 36px
+          :vertical-align middle
         td
           :vertical-align top
-          :height 36px
-          img
-            :margin
-              :left 10px
-              :bottom 20px
+          :padding
+            :bottom 10px
+            :left 5px
+
           p
             :margin 0
             :font
@@ -1122,15 +1131,15 @@ body
     :text-align center
 
   table
-    :font
-      :size 9pt
     :border-spacing 7px 5px
     td.thumb
-      :width 194px
-      :height 80px
       :vertical-align top
+      :font
+        :size 8pt
       :padding
         :bottom 10px
+      :width 195px
+      :height 80px
       :border-collapse separate
 
       img
@@ -1139,26 +1148,30 @@ body
           :right 5px
 
       p
-        :margin 0
-        :margin
-          :top 2px
+        :font
+          :size 7.5pt
 
-        a
-          :color #009900
-          :text-decoration none
+      a
+        :font
+          :size 8pt
+        :color #009900
+        :text-decoration none
 
       table
         :height 80px
         :border-collapse collapse
 
-        .name
-          :vertical-align top
-
-        .delete
+        .person_skill
           :vertical-align bottom
-          a
-            :color red
-            :text-decoration none
+          p
+            :margin 0
+
+      .delete
+        :margin
+          :top 2px
+        a
+          :color red
+          :text-decoration none
 
 /************Common contacts***********
 #common_contacts
@@ -1671,7 +1684,7 @@ body
   table
     .img_preview
       :margin
-        :bottom 15px
+        :bottom 16px
     .del
       :color #333333
       :text-decoration none
@@ -1686,28 +1699,28 @@ body
   :background-color white
   :font-size 12px
   :padding 6px
-  :width 955px
+  :width 760px
 
 .notice
   :border 1px solid #DDDDDD
   :background-color white
   :font-size 12px
   :padding 6px
-  :width 955px
+  :width 760px
 
 .error 
   :border 1px solid #DDDDDD
   :background-color white
   :font-size 12px
   :padding 6px
-  :width 955px
+  :width 760px
  
 .errorExplanation
   :border 1px solid #DDDDDD
   :background-color white
   :margin-bottom 2px
   :padding 1em
-  :width 955px
+  :width 760px
 
 .errorExplanation h2
   :background 0
@@ -1715,7 +1728,7 @@ body
   :font-size 1.2em
   :margin-top 0
   :padding 0
-  :width 955px
+  :width 760px
 
 .pagination
   :border-bottom 1px solid #eee
@@ -1723,4 +1736,4 @@ body
   :padding-bottom 2px
   :text-align center
   :margin-bottom 2px
-  :width 955px
+  :width 760px

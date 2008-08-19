@@ -28,21 +28,46 @@
                        						:link_options =>  { :class => "url" }) %>
 					<table>
 						<tr>
-							<td class="name">
-    							<p>
-      								<b><%= person_link contact, :class => "url fn" %></b>
-    							</p>
+	  						<td>
+      							<b><%= person_link contact, :class => "url fn" %></b>
+      						</td>
+						</tr>
+						<tr>
+							<td class="add_cell">
+								<%- if logged_in?%>
+									<%- if contact.city #and person.country %>
+										<%= contact.city.capitalize %>
+									<%- else %>
+										&nbsp;
+									<%- end%>
+								<%- end %>
 							</td>
 						</tr>
-						<%- if current_person?(@person) and not(current_person.admin?) %>
 						<tr>
-							<td class="delete">
+							<td class="person_skill">
+								<p>
+									<%- if contact.skills.empty? %>
+			  							&nbsp;
+									<%- else %>
+			  							<%- content = "" %>
+			  							<%- for skill in contact.skills do %>
+											<%- content << skill.name %>
+											<%- if not(contact.skills.last==skill) %>
+				  								<%- content << ", " %>
+											<%- end %>
+			  							<%- end %>
+			  							<%= truncate(content, 40)%>
+									<%- end %>
+								</p>
+							</td>
+						</tr>
+					</table>
+						<%- if current_person?(@person) and not(current_person.admin?) %>
+							<div class="delete">
 								<%= link_to image_tag ("icons/delete.gif"), connection_path(Connection.conn(current_person, contact)), :method => :delete, :confirm => "Are you sure you want to end connection with #{h person.name}?" %>
 								<%= link_to "Delete", connection_path(Connection.conn(current_person, contact)), :method => :delete, :confirm => "Are you sure you want to end connection with #{h person.name}?" %>
-							</td>
-						</tr>
+							</div>
 						<%- end %>
-					</table>
       			</td>
 			<%- i+=1 %>
 			<%- end %>

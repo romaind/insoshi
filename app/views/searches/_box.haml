@@ -1,5 +1,11 @@
--form_tag searches_path, :method => :get, :id => "frmSearch" do
-  %label{ :for =>"q" } Search
-  =text_field_tag :q, params[:q], :id => "txtSearch", :class => "txt", :maxlength => 50
-  =image_submit_tag ("go.jpg", :id => "go")
-  =link_to "Advanced search", { :controller =>"search", :action => "index" }, { :id =>"adv_search" }
+%table
+  -form_tag searches_path, :method => :get, :id => "frmSearch" do
+    %tr
+      %td
+        %label{ :for =>"q" } Search
+        =text_field_tag :q, params[:q], :id => "txtSearch", :class => "txt", :maxlength => 50
+      %td{ :rowspan => 2 }
+        =image_submit_tag ("go.jpg", :id => "go")
+    %tr
+      %td
+        =link_to "Advanced search", { :controller =>"search", :action => "index" }, { :id =>"adv_search" }

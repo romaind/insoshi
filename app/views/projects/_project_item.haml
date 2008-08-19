@@ -6,7 +6,7 @@
         %h4
           =link_to project.title.upcase, person_project_path(project.person,project)
         By
-        =link_to "#{project.person.first_name} #{project.person.name}"
+        =person_link project.person
         .votes_views
           45
           =image_tag ("icons/heart.gif")
