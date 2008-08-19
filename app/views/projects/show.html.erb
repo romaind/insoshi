@@ -18,6 +18,11 @@
   <%=h @project.licence %>
 </p>
 
+<p>
+  <b>Tags:</b>
+  <%= @project.tag_counts %>
+<p>
+
 
 <%= link_to 'Edit Project Informations', edit_person_project_path(current_person, @project) %>
 
