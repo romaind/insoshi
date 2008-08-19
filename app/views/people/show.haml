@@ -153,8 +153,7 @@
         %h4 TAGS
         .column_content
           %p
-            -if false#@person.tags
-              coaliz, groupe, ecole, test, blabla, divers, dessin
+            -if @person.tag_list
               /-for each @person.tags do |tag|
               /  =tag.name
               /  -if not(@person.tags.last == tags)

@@ -39,7 +39,8 @@ class Person < ActiveRecord::Base
                   #ADDED FIELD
                   :birthdate, :gender, :website, :address, :zipcode, :city, :phone
   acts_as_ferret :fields => [ :name, :first_name, :description ] if search?
-
+  
+  acts_as_taggable
   acts_as_state_machine :initial => :pending
   state :pending
   state :actived

@@ -348,6 +348,8 @@ body {
       width: 245px; }
     #profile_edit .form_row #p_status {
       width: 306px; }
+    #profile_edit .form_row #person_tag_list {
+      width: 300px; }
   #profile_edit #about_content .form_row p {
     margin: 0; }
     #profile_edit #about_content .form_row p label {
@@ -1029,7 +1031,7 @@ body {
 /* *********New project display********** */
 #project {
   width: 580px;
-  font-size: 9pt; }
+  font-size: 10pt; }
   #project h4 {
     margin: 0;
     color: #FF9900;
@@ -1114,7 +1116,7 @@ body {
     #project #project_edition #tags {
       margin-top: 20px;
       width: 270px; }
-      #project #project_edition #tags #p_tags {
+      #project #project_edition #tags #project_tag_list {
         width: 265px; }
     #project #project_edition #status {
       margin-top: 20px;

@@ -92,6 +92,10 @@
           %code http://
           = f.text_field :website
 
+        .form_row
+          %label Tag yourself (separate with ","):
+          = f.text_field :tag_list, :default => @person.tags.collect{|t| t.name}.join(", ")
+
         .form_row    
           -unless @preview.nil?
             = display @preview

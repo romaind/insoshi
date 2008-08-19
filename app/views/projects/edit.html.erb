@@ -30,17 +30,9 @@
 		</table>
 		
     <p id="tags">
-      <label>Tags of your project (separate with comma ','):</label>
+      <label>Tags of your project (separate with ","):</label>
       <span><%= f.text_field :tag_list, :default => @project.tags.collect{|t| t.name}.join(", ") %></span>  
     </p>
-		
-		
-		
-      <!-- <p id="tags" >
-        Tags of your project:<br />
-            (separate each tag with ",")<br />
-        <%= text_field :p, :tags %>
-      </p> -->
 
 
 		<table class="buttons" >
