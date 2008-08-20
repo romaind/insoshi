@@ -315,6 +315,8 @@ body {
   text-align: right;
   padding-top: 20px;
   padding-bottom: 10px; }
+  #profile_edit h3 {
+    color: #FF9900; }
   #profile_edit #legend {
     float: left;
     border: 1px solid #FF9900;
@@ -338,8 +340,12 @@ body {
       width: 300px; }
     #profile_edit .form_row #person_email {
       width: 300px; }
+    #profile_edit .form_row #person_country_id {
+      width: 306px; }
     #profile_edit .form_row #p_country {
       width: 306px; }
+    #profile_edit .form_row #p_newsletter {
+      margin-right: 30px; }
     #profile_edit .form_row #terms label {
       margin: 0; }
     #profile_edit .form_row code {
@@ -357,7 +363,7 @@ body {
       margin-left: 267px;
       padding-top: 15px; }
     #profile_edit #about_content .form_row p #person_description {
-      width: 306px;
+      width: 304px;
       height: 200px; }
   #profile_edit #about_content #description {
     margin-top: 40px;
@@ -375,7 +381,7 @@ body {
   #profile_edit #skills_checkboxes {
     font-size: 9pt; }
     #profile_edit #skills_checkboxes table {
-      margin-left: 140px;
+      margin-left: 120px;
       margin-bottom: 20px; }
   #profile_edit #languages_checkboxes {
     font-size: 9pt; }
@@ -388,12 +394,6 @@ body {
       width: 675px;
       margin-left: 10px;
       margin-bottom: 20px; }
-  #profile_edit #p_languages {
-    width: 306px; }
-  #profile_edit #p_software {
-    width: 306px; }
-  #profile_edit #p_cv {
-    width: 300px; }
   #profile_edit #cv {
     margin-top: 5px; }
   #profile_edit #person_phone {
@@ -410,6 +410,15 @@ body {
     text-align: center;
     margin-top: 20px;
     margin-bottom: 20px; }
+
+#person_verify_password {
+  width: 300px; }
+
+#person_new_password {
+  width: 300px; }
+
+#person_password_confirmation {
+  width: 300px; }
 
 /* ********** PENDING TABS ************* */
 #subtabs {

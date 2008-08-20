@@ -31,6 +31,8 @@ body
 
 /**********Toolbox**********
 #toolbox
+  :margin
+    :left 5px
   #login
     :margin
       :bottom 5px
@@ -74,6 +76,7 @@ body
 
 /**********Index content**********
 #content
+  :height 500px
   #player
   #description
     #desc_message
@@ -87,218 +90,34 @@ body
 
     h4
       :margin 0
-      :font
-        :weight normal
-      :color white
-      :font
-        :size 10pt
       :padding
-        :left 102px
         :top 5px
 
-  #lastprojects_content
-    :background
-      :color white
-    :border
-      :left 1px solid #DDDDDD
-      :right 1px solid #DDDDDD
-    :width 777px
-    :height 400px
-
-    .lastprojects
-      :float left
-      :margin
-        :right 5px
-        :top 10px
-      :width 188px
-      :background
-        :color #EFEFEF
-      :text-align right
-
-      h4
-        :font
-          :weight normal
-        :color #009900
-        :margin
-          :top 0
-          :bottom 5px
-
-      .details
-        :font
-          :size 8pt
-        :line-height 2em
-        :padding
-          :right 10px
-
-      .category
-        :font
-          :size 8pt
-        :background
-          :color #009900
-        :color white 
-        :padding
-          :right 10px
-
-  #lastprojectbottom
-    :background
-      :image url(../images/lastproj_bottom.gif)
-      :repeat no-repeat
-    :width 780px
-    :height 24px
-    :text-align right
-
-    a
-      :color #333333
-      :padding
-        :right 10px
-
 /**********Password reminder content**********
-#reminder_tab
-  :background
-    :image url(../images/personaldata_tab.gif)
-  :width 387px
-  :height 24px
-
-  h4
-    :font
-      :weight normal
-    :color white
-    :margin 0
-    :padding
-      :top 5px
-      :left 50px
-      :bottom 0
-    :font
-      :size 10pt
-
 #reminder_content
-  :background
-    :color white
-  :border
-    :left 1px solid #DDDDDD
-    :right 1px solid #DDDDDD
-  :width 365px
   :padding
-    :left 10px
-    :right 10px
-    :top 20px
-    :bottom 10px
-
-  #reminder
-    :float left
-    :margin
-      :top 2px
-      :bottom 5px
-      :right 20px
+    :bottom 0px
 
 /**********Personal Data content**********
 #data_title
-  :background
-    :image url(../images/personaldata_top.gif)
-    :repeat no-repeat
-  :width 780px
-  :height 24px
-  :color #FF9900
-  :text-align right
-
-  h4
-    :font
-      :weight normal
-    :margin 0
-    :padding
-      :top 5px
-      :right 10px
-      :bottom 0
-    :font
-      :size 10pt
+  :width 777px
 
 #profile_edit
-  :background
-    :color white
-  :border
-    :top 2px solid #FF9900
-    :left 1px solid #DDDDDD
-    :right 1px solid #DDDDDD
   :width 775px
-  :text-align right
-  :padding
-    :top 20px
-    :bottom 10px
-
-  #legend
-    :float left
-    :border 1px solid #FF9900
-    :margin
-      :left 10px
-    :padding 5px
-
-    
-  #gender
-    :margin
-      :bottom 15px
-      :right 100px
-
-    label
-      :margin
-        :left 40px
 
   .form_row
-    :margin
-      :bottom 15px
-      :right 100px
 
-    label
+    #p_newsletter
       :margin
-        :right 20px
-
-    .mandatory
-      :margin
-        :left 10px
-
-    #person_first_name
-      :width 300px
-
-    #person_name
-      :width 300px
-
-    #person_email
-      :width 300px
-
-    #p_country
-      :width 306px
-
-    #terms
-      label
-        :margin 0
-
-    code
-      :font
-        :size 9pt
-
-    #person_website
-      :width 245px
-
-    #p_status
-      :width 306px
-
-    #person_tag_list
-      :width 300px
+        :right 26px
 
   #about_content
     .form_row
       p
         :margin 0
 
-        label
-          :float left
-          :margin
-            :left 267px
-          :padding
-            :top 15px
-
         #person_description
-          :width 306px
-          :height 200px
+          :width 300px
 
     #description
       :margin
@@ -306,59 +125,26 @@ body
         :bottom 15px
         :right 100px
 
-  #person_address
-    :width 300px
-
-  #person_zipcode
-    :width 300px
-
-  #person_city
-    :width 300px
-
-  #p_schools
-    :width 300px
-    :margin
-      :bottom 5px
-
   #skills_checkboxes
-    :font
-      :size 9pt
     table
+      :width 650px
+      :font
+        :size 9pt
       :margin
-        :left 140px
-        :bottom 20px
+        :left 0
+        :right 95px
 
   #languages_checkboxes
-    :font
-      :size 9pt
     table
       :margin
-        :left 325px
-        :bottom 20px
+        :left 0
+        :right 95px
 
   #softwares_checkboxes
-    :font
-      :size 9pt
     table
-      :width 675px
       :margin
-        :left 10px
-        :bottom 20px
-  #p_languages
-    :width 306px
-
-  #p_software
-    :width 306px
-
-  #p_cv
-    :width 300px
-
-  #cv
-    :margin
-      :top 5px
-
-  #person_phone
-    :width 300px
+        :left 0
+        :right 95px
 
   #photo
     :text-align left
@@ -373,6 +159,10 @@ body
         :bottom 10px
 
   h3
+    :color #FF9900
+    :font
+      :size 11pt
+      :weight bold
     :text-align center
     :margin
       :top 20px

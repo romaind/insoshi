@@ -22,219 +22,77 @@ body {
       margin-left: 80px; }
 
 /* *********Toolbox********** */
-#toolbox #login {
-  margin-bottom: 5px; }
-  #toolbox #login #login_content #logout {
-    margin-top: 10px; }
-#toolbox #signin {
-  margin-bottom: 0px; }
-  #toolbox #signin .form_row #email {
-    width: 150px; }
-  #toolbox #signin .form_row #password {
-    width: 150px; }
-  #toolbox #signin #forgot {
-    margin-bottom: 3px; }
-#toolbox #feedback #title {
-  margin-left: 37px;
-  margin-bottom: 0; }
-#toolbox #feedback #formbody {
-  padding-top: 0px; }
-  #toolbox #feedback #formbody #feedback_message {
-    width: 145px;
-    height: 100px;
+#toolbox {
+  margin-left: 5px; }
+  #toolbox #login {
     margin-bottom: 5px; }
-  #toolbox #feedback #formbody #send {
-    float: right;
-    margin-right: 15px; }
+    #toolbox #login #login_content #logout {
+      margin-top: 10px; }
+  #toolbox #signin {
+    margin-bottom: 0px; }
+    #toolbox #signin .form_row #email {
+      width: 150px; }
+    #toolbox #signin .form_row #password {
+      width: 150px; }
+    #toolbox #signin #forgot {
+      margin-bottom: 3px; }
+  #toolbox #feedback #title {
+    margin-left: 37px;
+    margin-bottom: 0; }
+  #toolbox #feedback #formbody {
+    padding-top: 0px; }
+    #toolbox #feedback #formbody #feedback_message {
+      width: 145px;
+      height: 100px;
+      margin-bottom: 5px; }
+    #toolbox #feedback #formbody #send {
+      float: right;
+      margin-right: 15px; }
 
 /* *********Index content********** */
-#content #description #desc_message {
-  margin-top: -3px; }
+#content {
+  height: 500px; }
+  #content #description #desc_message {
+    margin-top: -3px; }
 
 #lastproject #lastprojectstab {
   width: 780px;
   height: 24px; }
   #lastproject #lastprojectstab h4 {
     margin: 0;
-    font-weight: normal;
-    color: white;
-    font-size: 10pt;
-    padding-left: 102px;
     padding-top: 5px; }
-#lastproject #lastprojects_content {
-  background-color: white;
-  border-left: 1px solid #DDDDDD;
-  border-right: 1px solid #DDDDDD;
-  width: 777px;
-  height: 400px; }
-  #lastproject #lastprojects_content .lastprojects {
-    float: left;
-    margin-right: 5px;
-    margin-top: 10px;
-    width: 188px;
-    background-color: #EFEFEF;
-    text-align: right; }
-    #lastproject #lastprojects_content .lastprojects h4 {
-      font-weight: normal;
-      color: #009900;
-      margin-top: 0;
-      margin-bottom: 5px; }
-    #lastproject #lastprojects_content .lastprojects .details {
-      font-size: 8pt;
-      line-height: 2em;
-      padding-right: 10px; }
-    #lastproject #lastprojects_content .lastprojects .category {
-      font-size: 8pt;
-      background-color: #009900;
-      color: white;
-      padding-right: 10px; }
-#lastproject #lastprojectbottom {
-  background-image: url(../images/lastproj_bottom.gif);
-  background-repeat: no-repeat;
-  width: 780px;
-  height: 24px;
-  text-align: right; }
-  #lastproject #lastprojectbottom a {
-    color: #333333;
-    padding-right: 10px; }
 
 /* *********Password reminder content********** */
-#reminder_tab {
-  background-image: url(../images/personaldata_tab.gif);
-  width: 387px;
-  height: 24px; }
-  #reminder_tab h4 {
-    font-weight: normal;
-    color: white;
-    margin: 0;
-    padding-top: 5px;
-    padding-left: 50px;
-    padding-bottom: 0;
-    font-size: 10pt; }
-
 #reminder_content {
-  background-color: white;
-  border-left: 1px solid #DDDDDD;
-  border-right: 1px solid #DDDDDD;
-  width: 365px;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 20px;
-  padding-bottom: 10px; }
-  #reminder_content #reminder {
-    float: left;
-    margin-top: 2px;
-    margin-bottom: 5px;
-    margin-right: 20px; }
+  padding-bottom: 0px; }
 
 /* *********Personal Data content********** */
 #data_title {
-  background-image: url(../images/personaldata_top.gif);
-  background-repeat: no-repeat;
-  width: 780px;
-  height: 24px;
-  color: #FF9900;
-  text-align: right; }
-  #data_title h4 {
-    font-weight: normal;
-    margin: 0;
-    padding-top: 5px;
-    padding-right: 10px;
-    padding-bottom: 0;
-    font-size: 10pt; }
+  width: 777px; }
 
 #profile_edit {
-  background-color: white;
-  border-top: 2px solid #FF9900;
-  border-left: 1px solid #DDDDDD;
-  border-right: 1px solid #DDDDDD;
-  width: 775px;
-  text-align: right;
-  padding-top: 20px;
-  padding-bottom: 10px; }
-  #profile_edit #legend {
-    float: left;
-    border: 1px solid #FF9900;
-    margin-left: 10px;
-    padding: 5px; }
-  #profile_edit #gender {
-    margin-bottom: 15px;
-    margin-right: 100px; }
-    #profile_edit #gender label {
-      margin-left: 40px; }
-  #profile_edit .form_row {
-    margin-bottom: 15px;
-    margin-right: 100px; }
-    #profile_edit .form_row label {
-      margin-right: 20px; }
-    #profile_edit .form_row .mandatory {
-      margin-left: 10px; }
-    #profile_edit .form_row #person_first_name {
-      width: 300px; }
-    #profile_edit .form_row #person_name {
-      width: 300px; }
-    #profile_edit .form_row #person_email {
-      width: 300px; }
-    #profile_edit .form_row #p_country {
-      width: 306px; }
-    #profile_edit .form_row #terms label {
-      margin: 0; }
-    #profile_edit .form_row code {
-      font-size: 9pt; }
-    #profile_edit .form_row #person_website {
-      width: 245px; }
-    #profile_edit .form_row #p_status {
-      width: 306px; }
-    #profile_edit .form_row #person_tag_list {
-      width: 300px; }
+  width: 775px; }
+  #profile_edit .form_row #p_newsletter {
+    margin-right: 26px; }
   #profile_edit #about_content .form_row p {
     margin: 0; }
-    #profile_edit #about_content .form_row p label {
-      float: left;
-      margin-left: 267px;
-      padding-top: 15px; }
     #profile_edit #about_content .form_row p #person_description {
-      width: 306px;
-      height: 200px; }
+      width: 300px; }
   #profile_edit #about_content #description {
     margin-top: 40px;
     margin-bottom: 15px;
     margin-right: 100px; }
-  #profile_edit #person_address {
-    width: 300px; }
-  #profile_edit #person_zipcode {
-    width: 300px; }
-  #profile_edit #person_city {
-    width: 300px; }
-  #profile_edit #p_schools {
-    width: 300px;
-    margin-bottom: 5px; }
-  #profile_edit #skills_checkboxes {
-    font-size: 9pt; }
-    #profile_edit #skills_checkboxes table {
-      margin-left: 140px;
-      margin-bottom: 20px; }
-  #profile_edit #languages_checkboxes {
-    font-size: 9pt; }
-    #profile_edit #languages_checkboxes table {
-      margin-left: 325px;
-      margin-bottom: 20px; }
-  #profile_edit #softwares_checkboxes {
-    font-size: 9pt; }
-    #profile_edit #softwares_checkboxes table {
-      width: 675px;
-      margin-left: 10px;
-      margin-bottom: 20px; }
-  #profile_edit #p_languages {
-    width: 306px; }
-  #profile_edit #p_software {
-    width: 306px; }
-  #profile_edit #p_cv {
-    width: 300px; }
-  #profile_edit #cv {
-    margin-top: 5px; }
-  #profile_edit #person_phone {
-    width: 300px; }
+  #profile_edit #skills_checkboxes table {
+    width: 650px;
+    font-size: 9pt;
+    margin-left: 0;
+    margin-right: 95px; }
+  #profile_edit #languages_checkboxes table {
+    margin-left: 0;
+    margin-right: 95px; }
+  #profile_edit #softwares_checkboxes table {
+    margin-left: 0;
+    margin-right: 95px; }
   #profile_edit #photo {
     text-align: left;
     margin-top: 10px;
@@ -244,6 +102,9 @@ body {
       text-align: center;
       margin-bottom: 10px; }
   #profile_edit h3 {
+    color: #FF9900;
+    font-size: 11pt;
+    font-weight: bold;
     text-align: center;
     margin-top: 20px;
     margin-bottom: 20px; }
