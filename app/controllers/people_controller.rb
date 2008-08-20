@@ -100,9 +100,12 @@ class PeopleController < ApplicationController
     params[:person][:language_ids] ||= []
     params[:person][:software_ids] ||= []
     @person = Person.find(params[:id])
+    
     respond_to do |format|
       case params[:type]
       when 'info_edit'
+        @country = Country.find(params[:person][:country_id])
+        @person.origin_country = @country
         if !preview? and @person.update_attributes(params[:person])
           flash[:success] = 'Profile updated!'
           format.html { redirect_to(@person) }

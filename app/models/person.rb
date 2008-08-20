@@ -35,9 +35,9 @@ class Person < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :name, :first_name,
                   :description, :connection_notifications,
                   :message_notifications, :wall_comment_notifications,
-                  :blog_comment_notifications, :skill_ids, :language_ids, :software_ids,
+                  :blog_comment_notifications, :skill_ids, :language_ids, :software_ids, :tag_list,
                   #ADDED FIELD
-                  :birthdate, :gender, :website, :address, :zipcode, :city, :phone
+                  :birthdate, :gender, :website, :address, :zipcode, :city, :phone, :country_id
   acts_as_ferret :fields => [ :name, :first_name, :description ] if search?
   
   acts_as_taggable
@@ -76,6 +76,9 @@ class Person < ActiveRecord::Base
                             deactivated = ? AND
                             (email_verified IS NULL OR email_verified = ?)),
                           Connection::REQUESTED, false, true]
+  belongs_to :origin_country,
+             :class_name => 'Country',
+             :foreign_key=> :country_id
 
   has_one :blog
   has_many :email_verifications

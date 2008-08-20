@@ -49,6 +49,7 @@ module PeopleHelper
         link = case field
           when "languages": "#person[language_ids][]"
           when "software": "#person[language_ids][]"
+          when "tags": "#person_tag_list"
          # when "tags": "#person[language_ids][]"
           else "#person_" + field
           end

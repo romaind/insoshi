@@ -19,6 +19,9 @@
             -unless @person.city.nil?
               =h @person.city.capitalize
 
+            -unless @person.origin_country.nil?
+              ,
+              =h @person.origin_country.name
         %tr
           %td#skills
             -if not(@person.skills.empty?)
@@ -153,11 +156,8 @@
         %h4 TAGS
         .column_content
           %p
-            -if @person.tag_list
-              /-for each @person.tags do |tag|
-              /  =tag.name
-              /  -if not(@person.tags.last == tags)
-              /    ,
+            -if not(@person.tags.first.nil?)
+              = @person.tags.collect{|t| t.name}.join(", ")
               -if current_person?(@person)
                 .profile_edit
                   =link_to image_tag("icons/mini_edit.gif") + "Edit", edit_person_path(@person) + "#p_tags"#"#person_tags"
