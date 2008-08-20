@@ -39,7 +39,7 @@
         #member_title Already member ?
         -form_tag session_path do
           .form_row
-            %label{ :for => "username" } Email address
+            %label{ :for => "email" } Email address
             =text_field_tag('email', params[:email], :maxlength => Person::MAX_EMAIL)
 
           =set_focus_to_id "email"

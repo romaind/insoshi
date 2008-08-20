@@ -1,334 +1,99 @@
 body
-  :background
-    :color white
-    :repeat repeat
   :font
     :size 11pt
-    :family Tahoma,Georgia,Verdana,sans-serif
-  :height 100%
-
-  img
-    :border 0
-    :margin 0
-    :padding 0
-
-/**********Centered Page**********
-#global
-  :width 994px
-  :margin
-    :left auto
-    :right auto
+    :weight bold
+    :family Arial,Georgia,Verdana,sans-serif
 
 /**********Header elements**********
 #header
-  :background
-    :image url(../images/header.jpg)
-    :repeat no-repeat
-  :padding-left 10px	
-  :width 994px
   :height 108px
-  :color white
-  
-  a
-    :color white
-    :text-decoration none
 
-  #logo
-    :width 120px
-    :margin
-      :top 15px
-      :left 5px
-    :float left
-
-  #searchbox
-    :position absolute
-    :margin
-      :top 10px
-      :left 413px
-
-    table
-      :text-align right
-
-    #p_keyword
-      :width 183px
-    #adv_search
-      :font-size 8pt
-      :margin
-        :top 5px
-    #go
-      :margin
-        :left 3px
-
-  #languages
-    :float right
-    :margin
-      :right 30px
-      :top 25px
-    #uk
-      :margin
-        :right 5px
-    #fr
-      :margin
-        :right 5px
   #menus
+    :padding 0
     :padding
-      :top 87px
+      :top 20px
+    :width 100%
     #gallery
       :margin
-        :left 132px
+        :left 126px
     #news
       :margin
-        :left 157px
+        :left 153px
     #mypage
       :margin
-        :left 137px
+        :left 133px
     #creativecontests
       :margin
-        :left 79px
+        :left 63px
     #coaliz
       :margin
-        :left 89px
-
-#submenus
-  :background
-    :color white
-  :border
-    :left 1px solid #DDDDDD
-    :right 1px solid #DDDDDD
-  :width 967px
-  :height 20px
-  :margin
-    :left 2px
-    :right auto
-  :padding
-    :left 10px
-    :right 10px
+        :left 80px
 
 /**********Toolbox**********
 #toolbox
-  :float right
-  :margin
-    :left 7px
-
   #login
-    :background
-      :image url(../images/toolbox/login.jpg)
-      :repeat no-repeat
-    :color white
-    :text-align right
-    :width 187px
-    :height 101px
-    :padding
-      :top 10px
-
+    :margin
+      :bottom 5px
     #login_content
-      :padding
-        :right 10px
-
-      h3
-        :font
-          :size 9pt
-          :weight normal
-        :padding 0
-        :margin 0
-        :margin
-          :bottom 10px
-
-      a
-        :color white
-        :font
-          :size 8pt
-
       #logout
-        :text-align left
         :margin
-          :top 15px
-        :padding
-          :left 10px
+          :top 10px
 
   #signin
-    :background
-      :image url(../images/toolbox/signin.gif)
-      :repeat no-repeat
-    :color white
-    :text-align right
-    :width 187px
-    :height 162px
     :margin
-      :bottom 10px
-
-    a
-      :color white
-      :font
-        :size 8pt
-
-    #member_title
-      :margin
-        :top 0
-        :right 10px
-        :bottom 10px
-      :font
-        :size 10pt
-
+      :bottom 0px
     .form_row
-      :margin
-        :right 10px
-        :bottom 2px
-      :font
-        :size 8pt
+      #email
+        :width 150px
+
+      #password
+        :width 150px
 
     #forgot
-      :font
-        :size 8pt
       :margin
-        :top 5px
-        :bottom 10px
-        :right 10px
-
-    #go_button
-      :float right
-      :margin
-        :left 15px
-
-    .remember
-      :margin
-        :left 10px
-
-    a
-      :color white
-      :text-decoration none
-  img
-    :margin
-      :bottom 10px
+        :bottom 3px
 
   #feedback
-    :background
-      :image url(../images/toolbox/feedback.jpg)
-      :repeat no-repeat
-    :width 187px
-    :height 202px
-
     #title
       :margin
         :left 37px
-      :padding
-        :top 10px
-      :color white
-      :font
-        :size 10pt
-
-    #subtitle
-      :margin
-        :left 50px
-      :color white
-      :font
-        :size 10pt
-    
+        :bottom 0
     #formbody
       :padding
-        :top 5px
-      :margin
-        :left 20px
-      :font
-        :size 8pt
+        :top 0px
 
       #feedback_message
         :width 145px
         :height 100px
         :margin
-          :bottom 15px
-
-      #thanks
-        :color #FF9900
+          :bottom 5px
       #send
         :float right
         :margin
-          :right 20px
-
-/**********Page content**********
-#main
-  :background
-    :color #EFEFEF
-  :border 1px solid #DDDDDD
-  :width 972px
-  :margin
-    :left 2px
-    :right auto
-  :padding
-    :left 5px
-    :right 10px
-    :top 5px
-    :bottom 20px
-  :min-height 600px
+          :right 15px
 
 /**********Index content**********
 #content
-  :color #333333
-
   #player
-
   #description
-    :float right
-    :font
-      :size 10pt
-    :width 190px
-
     #desc_message
-      :background
-        :color white
-      :border
-        :left 1px solid #DDDDDD
-        :right 1px solid #DDDDDD
-      :padding
-        :left 5px
-        :right 5px
-      :height 395px
-      :text-align right
-
-      h2
-        :margin
-          :top 0
-        :text-align center
-
-      h4
-        :font
-          :weight normal
-        :margin
-          :top 0
-
-      p
-        :text-align left
-        :margin
-          :top 20px
-          :bottom 0
-
-      p:first-letter
-        :margin
-          :left 5px
-
-      .sign
-        :width 160px
-        :margin
-          :bottom 10px
+      :margin
+        :top -3px
 
 #lastproject
-
   #lastprojectstab
-    :background
-      :image url(../images/lastproj_tab.gif)
-      :repeat no-repeat
-      :color #EFEFEF
     :width 780px
     :height 24px
 
     h4
+      :margin 0
       :font
         :weight normal
       :color white
       :font
         :size 10pt
       :padding
-        :left 96px
+        :left 102px
         :top 5px
 
   #lastprojects_content
@@ -338,10 +103,7 @@ body
       :left 1px solid #DDDDDD
       :right 1px solid #DDDDDD
     :width 777px
-    :height 470px
-    :padding
-      :left 1px
-      :top 5px
+    :height 400px
 
     .lastprojects
       :float left
@@ -873,9 +635,10 @@ body
   :padding
     :bottom 10px
 
+/*********************************************************************************************************************
 .project_item
   :margin
-    :right 2px
+    :right 1px
     :top 10px
   :width 188px
   :text-align right
@@ -1708,7 +1471,7 @@ body
   :border 1px solid #DDDDDD
   :background-color white
   :font-size 12px
-  :padding 6px
+  :padding 10px
   :width 760px
 
 .error 
