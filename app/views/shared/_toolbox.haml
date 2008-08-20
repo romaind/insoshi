@@ -28,10 +28,10 @@
       #subtitle
         REPORT A BUG
       #formbody
-        -form_for (:feedback, :url => { :action => :index }) do |form|
+        -form_for(:feedback, :url => { :action => :index }) do |form|
           %textarea#feedback_message
           #thanks	
-          =image_submit_tag ("toolbox/send.jpg", :id =>"send")
+          =image_submit_tag("toolbox/send.jpg", :id =>"send")
 -else
   %span#toolbox
     #signin
@@ -40,7 +40,7 @@
         -form_tag session_path do
           .form_row
             %label{ :for => "username" } Email address
-            =text_field_tag ('email', params[:email], :maxlength => Person::MAX_EMAIL)
+            =text_field_tag('email', params[:email], :maxlength => Person::MAX_EMAIL)
 
           =set_focus_to_id "email"
           .form_row
@@ -66,7 +66,7 @@
       #subtitle
         REPORT A BUG
       #formbody
-        -form_for (:feedback, :url => { :action => :index }) do |form|
+        -form_for(:feedback, :url => { :action => :index }) do |form|
           %textarea#feedback_message
           #thanks	
-          =image_submit_tag ("toolbox/send.jpg", :id =>"send")
+          =image_submit_tag("toolbox/send.jpg", :id =>"send")
