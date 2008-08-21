@@ -71,5 +71,41 @@
   		</p>
 
 		<% end %>
+		<p>
+      Maximum size: 5Mo<br>
+      Files type: jpeg, tiff, gif, png
+    </p>
+    
+    <p id="previews">Content of your project: (drag and drop to reorganize)</p>
+    <table>
+      <%- i=0 %>
+      <%- unless @project.creations.nil? %>
+        <% @project.creations.each do |crea| %>
+          <%- if i%6==0 %>
+            <tr>
+          <%- end %>
+          <td>
+              <%= link_to(image_tag(crea.asset.item.url(:tiny)), person_project_creation_path(current_person, @project, crea)) %>
+             <%= link_to image_tag("icons/trash.gif") + "delete", person_project_creation_path(current_person, @project, crea), :confirm => 'Are you sure?', :method => :delete, :class => "del" %>
+          </td>
+          <%- i+=1 %>
+          <%- if i%6==0 %>
+            </tr>
+          <%- end %>
+        <%- end %>
+      <%- end %>
+      <%- while i<12 %>
+        <%- if i%6==0 %>
+          <tr>
+        <%- end %>
+        <td>
+          <%=image_tag "defaults/minipreview.gif", :class => "img_preview" %>
+        </td>
+        <%- i+=1 %>
+        <%- if i%6==0 %>
+          </tr>
+        <%- end %>
+      <%- end %>
+    </table>
 		</div>
 </div>

@@ -23,7 +23,7 @@ body {
 
 /* *********Toolbox********** */
 #toolbox {
-  margin-left: 5px; }
+  margin-left: 3px; }
   #toolbox #login {
     margin-bottom: 5px; }
     #toolbox #login #login_content #logout {
@@ -52,8 +52,10 @@ body {
 /* *********Index content********** */
 #content {
   height: 500px; }
-  #content #description #desc_message {
-    margin-top: -3px; }
+  #content #description {
+    margin-right: 3px; }
+    #content #description #desc_message {
+      margin-top: -3px; }
 
 #lastproject #lastprojectstab {
   width: 780px;
@@ -109,76 +111,9 @@ body {
     margin-top: 20px;
     margin-bottom: 20px; }
 
-/* ********** PENDING TABS ************* */
-#subtabs {
-  background-image: url(../images/personaldata_subtab.gif);
-  background-repeat: no-repeat;
-  width: 775px;
-  height: 24px;
-  text-align: left;
-  padding-top: 2px; }
-  #subtabs h4 {
-    font-weight: normal;
-    margin: 0;
-    display: inline; }
-    #subtabs h4 a {
-      color: white;
-      text-decoration: none; }
-  #subtabs #about {
-    color: #FF9900;
-    padding-left: 112px; }
-  #subtabs #skills {
-    padding-left: 62px; }
-  #subtabs #contact {
-    padding-left: 100px; }
-  #subtabs #notification {
-    padding-left: 64px; }
-
 /* ********* Profile page********** */
 #profile_details {
-  width: 773px;
-  height: 153px;
-  background-color: white;
-  border-left: 1px solid #DDDDDD;
-  border-right: 1px solid #DDDDDD; }
-  #profile_details a {
-    color: #333333;
-    text-decoration: none;
-    font-size: 9pt; }
-  #profile_details #profile_image {
-    float: left;
-    margin-right: 7px;
-    margin-left: 1px; }
-  #profile_details #details {
-    float: left;
-    width: 197px;
-    height: 150px;
-    border-right: 1px dotted black; }
-    #profile_details #details p {
-      margin: 0;
-      padding: 0; }
-    #profile_details #details #infos {
-      vertical-align: top; }
-    #profile_details #details #skills {
-      vertical-align: bottom;
-      margin-top: 8px;
-      font-size: 9pt; }
-  #profile_details #stats {
-    color: #777777;
-    padding-left: 10px;
-    float: left;
-    width: 187px;
-    height: 150px;
-    font-size: 10pt;
-    border-right: 1px dotted black; }
-  #profile_details #actions {
-    float: left;
-    width: 170px;
-    height: 150px; }
-    #profile_details #actions #actions_list {
-      margin-left: 5px; }
-      #profile_details #actions #actions_list td {
-        padding-bottom: 10px; }
+  margin-top: -4px; }
 
 /* *********Contact Requests********** */
 #requests {
@@ -194,143 +129,31 @@ body {
     padding-bottom: 20px; }
 
 /* *********Mini Header********** */
-#what_is {
-  background-image: url(../images/banner_project.png);
-  background-repeat: no-repeat;
-  width: 384px;
-  height: 61px;
-  text-align: center;
-  padding-top: 20px; }
-  #what_is h4 {
-    font-weight: normal;
-    margin-top: 0; }
-  #what_is a {
-    font-size: 11pt;
-    color: white;
-    text-decoration: none; }
+#what_is h4 {
+  font-weight: bold; }
 
-#sort {
-  float: right;
-  background-image: url(../images/banner_project.png);
-  background-repeat: no-repeat;
-  width: 384px;
-  height: 61px;
-  text-align: center;
-  color: white; }
-  #sort h4 {
-    font-weight: normal;
-    font-size: 9pt;
-    margin-top: 15px;
-    margin-left: 20px;
-    width: 100px; }
-  #sort #sort_content {
-    float: right;
-    text-align: right;
-    margin-top: 10px;
-    margin-right: 20px; }
-    #sort #sort_content #_skills {
-      margin-top: 5px;
-      width: 200px; }
-    #sort #sort_content label {
-      margin: 0;
-      font-size: 9pt; }
+#sort h4 {
+  font-weight: bold; }
 
 /* *********People page********** */
 #people {
-  width: 775px;
-  background-color: white;
-  border-left: 1px solid #DDDDDD;
-  border-right: 1px solid #DDDDDD; }
-  #people table#list_people {
-    border-spacing: 5px 5px; }
-    #people table#list_people td {
-      vertical-align: top;
-      font-size: 8pt;
-      padding-bottom: 10px;
-      width: 195px;
-      height: 80px;
-      border-collapse: separate; }
-      #people table#list_people td img {
-        float: left;
-        margin-right: 5px; }
-      #people table#list_people td p {
-        font-size: 7pt;
-        margin: 0;
-        margin-top: 2px; }
-      #people table#list_people td a {
-        color: #009900;
-        text-decoration: none; }
-      #people table#list_people td table {
-        border-collapse: collapse;
-        height: 80px; }
-        #people table#list_people td table td {
-          padding: 0;
-          height: 5px; }
-        #people table#list_people td table .person_thumb {
-          width: 90px; }
-        #people table#list_people td table .person_skill {
-          vertical-align: bottom; }
-        #people table#list_people td table .add_cell {
-          vertical-align: bottom; }
-          #people table#list_people td table .add_cell a {
-            color: #009900;
-            text-decoration: none; }
-        #people table#list_people td table .count_common {
-          vertical-align: bottom; }
+  width: 775px; }
+  #people table#list_people td {
+    width: 187px; }
 
 /* *********My Project display*********** */
-#projects {
-  width: 583px; }
-  #projects h4 {
-    text-align: right;
-    color: #009900;
-    font-size: 10pt;
-    font-weight: normal;
-    margin: 0; }
-
-#my_projects {
-  background-color: white;
-  border-top: 2px solid #009900;
-  padding-bottom: 10px; }
-
-/* ******************************************************************************************************************** */
-.project_item {
-  margin-right: 1px;
-  margin-top: 10px;
-  width: 188px;
-  text-align: right; }
-  .project_item h4 {
-    font-weight: normal;
-    color: #009900;
-    margin-top: 0;
-    margin-bottom: 5px; }
-  .project_item .project_details {
-    font-size: 8pt;
-    line-height: 2em;
-    background-color: #EFEFEF;
-    padding-right: 10px; }
-    .project_item .project_details a {
-      color: #009900;
-      text-decoration: none; }
-    .project_item .project_details .votes_views {
-      font-size: 8pt; }
-  .project_item .category {
-    height: 15px;
-    font-size: 8pt;
-    background-color: #009900;
-    color: white;
-    padding-right: 10px; }
+.project_item h4 {
+  font-weight: bold; }
+.project_item .project_details a {
+  font-weight: bold; }
 
 /* *********Project display*********** */
 #projects_page {
   width: 777px; }
   #projects_page h4 {
-    text-align: right;
-    color: #009900;
-    font-size: 10pt;
-    font-weight: normal;
-    margin: 0; }
+    font-weight: bold; }
 
+/* ****************************************REPRENDRE LE CODE A CET ENDROIT************************************************** */
 /* *********Pagination display********** */
 .paginate {
   text-align: right;

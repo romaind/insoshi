@@ -13,7 +13,14 @@
           \- 532
           =image_tag ("icons/eye.gif")
       .category
-        Product design, Packaging, Artwork
+        -skills=""
+        -if project.skills
+          -for skill in project.skills do
+            -if skill == project.skills.first
+              -skills+="#{skill.name}"
+            -else
+              -skills+=", #{skill.name}"
+        =truncate(skills, 30)
       -if logged_in? and current_person?(@person)
         .project_edit
           =link_to image_tag("icons/mini_edit.gif") + "Edit", edit_person_project_path(current_person)

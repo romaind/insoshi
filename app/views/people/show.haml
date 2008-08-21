@@ -16,11 +16,10 @@
             ,
             =pluralize(@person.age, "year")
             %br
-            -unless @person.city.nil?
+            -unless @person.city.empty?
               =h @person.city.capitalize
-
-            -unless @person.origin_country.nil?
               ,
+            -unless @person.origin_country.nil?
               =h @person.origin_country.name
         %tr
           %td#skills

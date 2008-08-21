@@ -32,7 +32,7 @@ body
 /**********Toolbox**********
 #toolbox
   :margin
-    :left 5px
+    :left 3px
   #login
     :margin
       :bottom 5px
@@ -79,6 +79,8 @@ body
   :height 500px
   #player
   #description
+    :margin
+      :right 3px
     #desc_message
       :margin
         :top -3px
@@ -168,112 +170,10 @@ body
       :top 20px
       :bottom 20px
 
-/*********** PENDING TABS *************
-#subtabs
-  :background
-    :image url(../images/personaldata_subtab.gif)
-    :repeat no-repeat
-  :width 775px
-  :height 24px
-  :text-align left
-  :padding
-    :top 2px
-
-  h4
-    :font
-      :weight normal
-    :margin 0
-    :display inline
-
-    a
-      :color white
-      :text
-        :decoration none
-
-  #about
-    :color #FF9900
-    :padding
-      :left 112px
-
-  #skills
-    :padding
-      :left 62px
-
-  #contact
-    :padding
-      :left 100px
-
-  #notification
-    :padding
-      :left 64px
-
 /********** Profile page**********
 #profile_details
-  :width 773px
-  :height 153px
-  :background
-    :color white
-  :border
-    :left 1px solid #DDDDDD
-    :right 1px solid #DDDDDD
-
-  a
-    :color #333333
-    :text-decoration none
-    :font
-      :size 9pt
-
-  #profile_image
-    :float left
-    :margin
-      :right 7px
-      :left 1px
-
-  #details
-    :float left
-    :width 197px
-    :height 150px
-    :border
-      :right 1px dotted black
-
-    p
-      :margin 0
-      :padding 0
-
-    #infos
-      :vertical-align top
-
-    #skills
-      :vertical-align bottom
-      :margin
-        :top 8px
-      :font
-        :size 9pt
-
-  #stats
-    :color #777777
-    :padding
-      :left 10px
-    :float left
-    :width 187px
-    :height 150px
-    :font
-      :size 10pt
-    :border
-      :right 1px dotted black
-
-  #actions
-    :float left
-    :width 170px
-    :height 150px
-
-    #actions_list
-      :margin
-        :left 5px
-
-      td
-        :padding
-          :bottom 10px
+  :margin
+    :top -4px
 
 /**********Contact Requests**********
 #requests
@@ -295,189 +195,42 @@ body
 
 /**********Mini Header**********
 #what_is
-  :background
-    :image url(../images/banner_project.png)
-    :repeat no-repeat
-  :width 384px
-  :height 61px
-  :text-align center
-  :padding
-    :top 20px
-
   h4
     :font
-      :weight normal
-    :margin
-      :top 0
-
-  a
-    :font
-      :size 11pt
-    :color white
-    :text-decoration none
+      :weight bold
 
 #sort
-  :float right
-  :background
-    :image url(../images/banner_project.png)
-    :repeat no-repeat
-  :width 384px
-  :height 61px
-  :text-align center
-  :color white
-
   h4
     :font
-      :weight normal
-      :size 9pt
-    :margin
-      :top 15px
-      :left 20px
-    :width 100px
+      :weight bold
 
-  #sort_content
-    :float right
-    :text-align right
-    :margin
-      :top 10px
-      :right 20px
-
-    #_skills
-      :margin
-        :top 5px
-      :width 200px
-
-    label
-      :margin 0
-      :font
-        :size 9pt
 /**********People page**********
 #people
   :width 775px
-  :background
-    :color white
-  :border
-    :left 1px solid #DDDDDD
-    :right 1px solid #DDDDDD
 
   table#list_people
-    :border-spacing 5px 5px
     td
-      :vertical-align top
-      :font
-        :size 8pt
-      :padding
-        :bottom 10px
-      :width 195px
-      :height 80px
-      :border-collapse separate
-  
-      img
-        :float left
-        :margin
-          :right 5px
-
-      p
-        :font
-          :size 7pt
-        :margin 0
-        :margin
-          :top 2px
-
-      a
-        :color #009900
-        :text-decoration none
-
-      table
-        :border-collapse collapse
-        :height 80px
-        td
-          :padding 0
-          :height 5px
-        .person_thumb
-          :width 90px
-        .person_skill
-          :vertical-align bottom
-        .add_cell
-          :vertical-align bottom
-          a
-            :color #009900
-            :text-decoration none
-        .count_common
-          :vertical-align bottom
+      :width 187px
 
 /**********My Project display***********
-#projects
-  :width 583px
-  h4
-    :text-align right
-    :color #009900
-    :font
-      :size 10pt
-      :weight normal
-    :margin 0
-
-#my_projects
-  :background
-    :color white
-  :border
-    :top 2px solid #009900
-  :padding
-    :bottom 10px
-
-/*********************************************************************************************************************
 .project_item
-  :margin
-    :right 1px
-    :top 10px
-  :width 188px
-  :text-align right
-
   h4
     :font
-      :weight normal
-    :color #009900
-    :margin
-      :top 0
-      :bottom 5px
+      :weight bold
 
   .project_details
-    :font
-      :size 8pt
-    :line-height 2em
-    :background
-      :color #EFEFEF
-    :padding
-      :right 10px
-
     a
-      :color #009900
-      :text-decoration none
-
-    .votes_views
       :font
-        :size 8pt
-
-  .category
-    :height 15px
-    :font
-      :size 8pt
-    :background
-      :color #009900
-    :color white 
-    :padding
-      :right 10px
+        :weight bold
 
 /**********Project display***********
 #projects_page
   :width 777px
   h4
-    :text-align right
-    :color #009900
     :font
-      :size 10pt
-      :weight normal
-    :margin 0
+      :weight bold
+
+/*****************************************REPRENDRE LE CODE A CET ENDROIT**************************************************
 
 /**********Pagination display**********
 .paginate

@@ -2,7 +2,7 @@ body {
   background-image: url(../images/background_squares.jpg);
   background-repeat: repeat;
   font-size: 11pt;
-  font-family: Tahoma,Georgia,Verdana,sans-serif;
+  font-family: Arial,Georgia,Verdana,sans-serif;
   height: 100%; }
   body img {
     border: 0;
@@ -53,17 +53,18 @@ body {
     #header #languages #fr {
       margin-right: 5px; }
   #header #menus {
+    font-weight: bold;
     padding-top: 87px; }
     #header #menus #gallery {
-      margin-left: 132px; }
+      margin-left: 127px; }
     #header #menus #news {
-      margin-left: 157px; }
+      margin-left: 155px; }
     #header #menus #mypage {
-      margin-left: 137px; }
+      margin-left: 132px; }
     #header #menus #creativecontests {
-      margin-left: 79px; }
+      margin-left: 67px; }
     #header #menus #coaliz {
-      margin-left: 89px; }
+      margin-left: 79px; }
 
 #submenus {
   background-color: white;
@@ -419,31 +420,6 @@ body {
 
 #person_password_confirmation {
   width: 300px; }
-
-/* ********** PENDING TABS ************* */
-#subtabs {
-  background-image: url(../images/personaldata_subtab.gif);
-  background-repeat: no-repeat;
-  width: 775px;
-  height: 24px;
-  text-align: left;
-  padding-top: 2px; }
-  #subtabs h4 {
-    font-weight: normal;
-    margin: 0;
-    display: inline; }
-    #subtabs h4 a {
-      color: white;
-      text-decoration: none; }
-  #subtabs #about {
-    color: #FF9900;
-    padding-left: 112px; }
-  #subtabs #skills {
-    padding-left: 62px; }
-  #subtabs #contact {
-    padding-left: 100px; }
-  #subtabs #notification {
-    padding-left: 64px; }
 
 /* ********* Profile page********** */
 #profile_details {
@@ -854,13 +830,13 @@ body {
 #wall_title {
   font-size: 10pt;
   font-weight: normal;
-  width: 583px;
+  width: 777px;
   text-align: right;
   color: #009900;
   margin: 0; }
 
 .wall {
-  width: 583px;
+  width: 777px;
   border-top: 2px solid #009900;
   padding-top: 10px;
   background-color: white; }
