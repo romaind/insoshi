@@ -57,6 +57,7 @@ class MessagesController < ApplicationController
 
   def reply
     original_message = Message.find(params[:id])
+    subject = original_message.subject
     unless original_message.subject.include?("RE:")
       subject = "RE:" + original_message.subject
     end
