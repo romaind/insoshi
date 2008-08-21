@@ -854,17 +854,24 @@ body
   :text-align right
 
   h4
+    :width 178px
+    :height 2em
     :font
-      :weight normal
+      :weight bold
     :color #009900
     :margin
+      :right 10px
       :top 0
       :bottom 5px
+    :padding
+      :top 5px
+    :line-height 1em
 
   .project_details
     :font
       :size 8pt
     :line-height 2em
+    :height 75px
     :background
       :color #EFEFEF
     :padding
@@ -879,6 +886,7 @@ body
         :size 8pt
 
   .category
+    :text-align left
     :height 15px
     :font
       :size 8pt
@@ -886,7 +894,7 @@ body
       :color #009900
     :color white 
     :padding
-      :right 10px
+      :left 5px
 
 /**********Project display***********
 #projects_page
@@ -990,6 +998,11 @@ body
       :margin
         :top 5px
         :right 5px
+
+    .profile_edit
+      :border
+        :top 1px dotted #333333
+      :margin 5px
 
   .add
     :text-align center
@@ -1642,12 +1655,22 @@ body
 
     img
       :margin
-        :top 10px
+        :top 5px
+
     #preview_empty
+      :margin
+        :top 5px
       :width 188px
       :height 135px
       :background
         :color #DDDDDD
+
+  #label_new_creation
+    :text-align right
+    :margin
+      :top 10px
+      :bottom 0
+      :right 75px
 
   #previews
     :margin

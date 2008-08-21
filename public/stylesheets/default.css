@@ -586,13 +586,19 @@ body {
   width: 188px;
   text-align: right; }
   .project_item h4 {
-    font-weight: normal;
+    width: 178px;
+    height: 2em;
+    font-weight: bold;
     color: #009900;
+    margin-right: 10px;
     margin-top: 0;
-    margin-bottom: 5px; }
+    margin-bottom: 5px;
+    padding-top: 5px;
+    line-height: 1em; }
   .project_item .project_details {
     font-size: 8pt;
     line-height: 2em;
+    height: 75px;
     background-color: #EFEFEF;
     padding-right: 10px; }
     .project_item .project_details a {
@@ -601,11 +607,12 @@ body {
     .project_item .project_details .votes_views {
       font-size: 8pt; }
   .project_item .category {
+    text-align: left;
     height: 15px;
     font-size: 8pt;
     background-color: #009900;
     color: white;
-    padding-right: 10px; }
+    padding-left: 5px; }
 
 /* *********Project display*********** */
 #projects_page {
@@ -678,6 +685,9 @@ body {
     .profile_right_column .column_content img {
       margin-top: 5px;
       margin-right: 5px; }
+    .profile_right_column .column_content .profile_edit {
+      border-top: 1px dotted #333333;
+      margin: 5px; }
   .profile_right_column .add {
     text-align: center;
     margin-top: 15px;
@@ -1140,11 +1150,17 @@ body {
     font-size: 9pt;
     margin-bottom: 20px; }
     #project #project_header img {
-      margin-top: 10px; }
+      margin-top: 5px; }
     #project #project_header #preview_empty {
+      margin-top: 5px;
       width: 188px;
       height: 135px;
       background-color: #DDDDDD; }
+  #project #label_new_creation {
+    text-align: right;
+    margin-top: 10px;
+    margin-bottom: 0;
+    margin-right: 75px; }
   #project #previews {
     margin-top: 20px;
     padding-top: 20px;

@@ -50,15 +50,19 @@
 
 		<p id="project_header">
 			Header of your project:
-			<%= image_tag @project.creations.first.asset.item.url(:preview), { :id => "preview"} %>
+			<%- if @project.creations.first.nil? %>
+        		<span id="preview_empty">&nbsp;</span>
+      		<%- else %>
+        		<%= image_tag @project.creations.first.asset.item.url(:preview), { :id => "preview"} %>
+      		<%- end %>
 		</p>
 
 		<% form_for(Creation.new, :url => person_project_creation_path(current_person, @project, Creation.new), :html => { :multipart => true }) do |f| %>
-  		<p id="new_creation">Select a file to upload on your project:</p>
+  		<p id="label_new_creation">Select a file to upload on your project:</p>
     		<%= error_messages_for :assets %>
-    		<% fields_for :asset do |a| %>
+    		<%- fields_for :asset do |a| %>
       			<%= a.file_field :item %>
-    		<% end %>
+    		<%- end %>
 
 		<p id="terms_content">
 			<span>I certify Iown all the rights on the content I'm uploading and this content respects the

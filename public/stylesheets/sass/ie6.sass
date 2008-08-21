@@ -1,7 +1,6 @@
 body
   :font
     :size 11pt
-    :weight bold
     :family Arial,Georgia,Verdana,sans-serif
 
 /**********Header elements**********
@@ -9,6 +8,7 @@ body
   :height 108px
 
   #menus
+    :weight bold
     :padding 0
     :padding
       :top 20px
@@ -76,7 +76,7 @@ body
 
 /**********Index content**********
 #content
-  :height 500px
+  :height 700px
   #player
   #description
     :margin
@@ -88,13 +88,23 @@ body
 #lastproject
   #lastprojectstab
     :width 780px
-    :height 24px
 
     h4
-      :margin 0
       :padding
-        :top 5px
+        :left 102px
+      :margin
+        :bottom 0
 
+  #lastprojects_content
+    :width 777px
+    :height 470px
+
+.project_item
+  :margin
+    :right 0
+  h4
+    :margin
+      :right 0px
 /**********Password reminder content**********
 #reminder_content
   :padding
@@ -121,12 +131,6 @@ body
         #person_description
           :width 300px
 
-    #description
-      :margin
-        :top 40px
-        :bottom 15px
-        :right 100px
-
   #skills_checkboxes
     table
       :width 650px
@@ -148,20 +152,7 @@ body
         :left 0
         :right 95px
 
-  #photo
-    :text-align left
-    :margin
-      :top 10px
-      :left 110px
-
-    table
-      :border 1px solid #999999
-      :text-align center
-      :margin
-        :bottom 10px
-
   h3
-    :color #FF9900
     :font
       :size 11pt
       :weight bold
@@ -195,11 +186,15 @@ body
 
 /**********Mini Header**********
 #what_is
+  :margin
+    :left 2px
   h4
     :font
       :weight bold
 
 #sort
+  :margin
+    :right 5px
   h4
     :font
       :weight bold
@@ -214,18 +209,14 @@ body
 
 /**********My Project display***********
 .project_item
-  h4
-    :font
-      :weight bold
 
   .project_details
-    a
-      :font
-        :weight bold
+    :margin
+      :top -2px
 
 /**********Project display***********
 #projects_page
-  :width 777px
+  :width 779px
   h4
     :font
       :weight bold
@@ -251,90 +242,16 @@ body
 
 /**********Profile right column**********
 #right
-  :float right
-.profile_right_column
-  :width 188px
   :margin
-    :left 5px
-  :text-align right
-
-  h4
-    :text-align right
-    :color #009900
-    :font
-      :size 10pt
-      :weight normal
-    :margin 0
-
-  a
-    :color #333333
-    :text-decoration none
-
+    :right 5px
+.profile_right_column
   #description_content
-    :background
-      :color white
-    :border
-      :top 2px solid #009900
-    :width 188px
-    :padding
-      :bottom 5px
-
-    p
-      :text-align right
-      :margin 5px
-      :font
-        :size 9pt
-
-    p:first-letter
-      :margin
-        :left 20px
+    
 
   .column_content
-    :background
-      :color white
-    :border
-      :top 2px solid #009900
-    :width 188px
-    :padding
-      :bottom 5px
-
-    #p_status
+    .profile_edit
       :margin
-        :top 5px
-
-    p
-      :text-align right
-      :margin 5px
-      :font
-        :size 9pt
-
-    #cv
-      :text-align center
-      :font
-        :size 9pt
-      :margin
-        :bottom 15px
-
-      img
-        :margin
-          :right 10px
-
-    img
-      :margin
-        :top 5px
         :right 5px
-
-  .add
-    :text-align center
-    :margin
-      :top 15px
-      :bottom 10px
-    a
-      :margin
-        :top 5px
-      :font
-        :size 9pt
-      :color #333333
 
 /**********Recent Activity***********
 #feed_requests
