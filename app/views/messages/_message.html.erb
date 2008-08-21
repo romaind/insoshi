@@ -28,7 +28,7 @@
 </tr>
 </table>
 <table class = "comment">
-  <tr><td colspan = "3" class = "head"><span class="subject">Subject: <span class="title"><%= sanitize(message.subject) %></span></span></td>
+  <tr><td colspan = "3" class = "head"><span class="subject">Subject: <%=link_to sanitize(message.subject), message, :class => "title" %></span></td>
 	  <td rowspan = "4" class  = "mail" >
 		<%- unless message.read? %>
 			<%= image_tag "icons/mail.gif", :class => "read" %>
@@ -36,10 +36,9 @@
 			&nbsp;
 		<%- end %>
 	  </td>
-  <tr><td class ="left_arrow"></td>
-	  <td rowspan = "2" class = "comment_body"><p><%= truncate(message.content, 150) %></p></td>
-	  <td rowspan = "2" class = "right_border"></td>
-  <tr><td class = "bottom_left"></td>
+  <tr><td class ="left_arrow"><%= image_tag "comments/comment_arrow.gif"%></td>
+	  <td class = "comment_body"><p><%= truncate(message.content, 150) %></p></td>
+	  <td class = "right_border"></td>
   <tr><td colspan = "3" class = "bottom">
   <p class="tools_meta">
 	<%= link_to "Read", message %> |

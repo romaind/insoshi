@@ -1190,12 +1190,10 @@ body
       :width 60px
       :height 80px
       :vertical-align top
-      :padding
         :bottom 5px
       :border-collapse separate
 
       img
-        :float left
         :margin
           :right 5px
 
@@ -1303,9 +1301,11 @@ body
   .left_arrow
     :width 16px
     :height 42px
+    :padding 0
+    :vertical-align top
     :background
-      :image url(../images/comments/comment_arrow.gif)
-      :repeat no-repeat
+      :image url(../images/comments/comment_left.gif)
+      :repeat repeat-y
   .comment_body
     :width 240px
     :background
@@ -1316,11 +1316,6 @@ body
     :width 15px
     :background
       :image url(../images/comments/comment_right.gif)
-      :repeat repeat-y
-  .bottom_left
-    :width 20px
-    :background
-      :image url(../images/comments/comment_left.gif)
       :repeat repeat-y
   .bottom
     :text-align right

@@ -18,10 +18,9 @@
   </table>
   <table class = "comment">
 	<tr><td colspan = "3" class = "head"></td>
-	<tr><td class ="left_arrow"></td>
-		<td rowspan = "2" class = "comment_body"><p><%= display comment.body %></p>
-		<td rowspan = "2" class = "right_border"></td>
-	<tr><td class = "bottom_left"></td>
+	<tr><td class ="left_arrow"><%= image_tag "comments/comment_arrow.gif"%></td>
+		<td class = "comment_body"><%= display comment.body %></td>
+		<td class = "right_border"></td>
 	<tr><td colspan = "3" class = "bottom">
   			<%- if current_person?(comment.commentable) -%>
 				<br />

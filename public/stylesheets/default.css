@@ -824,10 +824,9 @@ body {
       width: 60px;
       height: 80px;
       vertical-align: top;
-      padding-bottom: 5px;
+      vertical-align-bottom: 5px;
       border-collapse: separate; }
       #common_list table td.thumb img {
-        float: left;
         margin-right: 5px; }
       #common_list table td.thumb p {
         margin: 0;
@@ -910,8 +909,10 @@ body {
   .comment .left_arrow {
     width: 16px;
     height: 42px;
-    background-image: url(../images/comments/comment_arrow.gif);
-    background-repeat: no-repeat; }
+    padding: 0;
+    vertical-align: top;
+    background-image: url(../images/comments/comment_left.gif);
+    background-repeat: repeat-y; }
   .comment .comment_body {
     width: 240px;
     background-color: white; }
@@ -920,10 +921,6 @@ body {
   .comment .right_border {
     width: 15px;
     background-image: url(../images/comments/comment_right.gif);
-    background-repeat: repeat-y; }
-  .comment .bottom_left {
-    width: 20px;
-    background-image: url(../images/comments/comment_left.gif);
     background-repeat: repeat-y; }
   .comment .bottom {
     text-align: right;
