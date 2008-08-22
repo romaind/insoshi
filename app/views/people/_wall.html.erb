@@ -1,6 +1,7 @@
+  <h4 id="wall_title">COMMENTS WALL</h4>
+<div class="wall">
 <%- if logged_in? -%>
-    <h4 id="wall_title">COMMENTS WALL</h4>
-  <div class="wall">
+
     <div id="wall_form" >
       <div id="wall_comment">
 		Leave a comment on my wall<br>
@@ -20,10 +21,10 @@
         </div>
     <%- end -%>
     </div>
+<%- end -%>
     <%- unless @person.comments.empty? -%>
       <div id="comments">
         <%= render :partial => 'comment', :collection => @person.comments %>
       </div>
     <%- end -%>
   </div>
-<%- end -%>

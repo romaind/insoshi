@@ -6,7 +6,11 @@
 			<%- form_for current_person do |f| %>
   			  Select one of your existing projects:<br />
   			  <%= f.collection_select :projects, current_person.projects, :id, :title %>
-			  <%= f.submit "Edit" %>
+			  <%- disabled = false %>
+			  <%- unless current_person.projects.first %>
+				<%- disabled = "disabled" %>
+			  <%- end %>
+			  <%= f.submit "Edit", :disabled => disabled %>
 			  <input type="hidden", name ="type", value ="project_edit" >
 			<%- end %>
 		</span>
@@ -22,13 +26,13 @@
   		</p>
 
   		<p id="title" >
-    		Title of your project: *<br />
+    		Title of your project: <%=image_tag "portfolio/mandatory.gif", :class => "mandatory"%><br />
     		<%= f.text_field :title %>
   		</p>
 
 		<table>
   			<%- i=0 %>
-    		<p id="categories" >Categories: *</p>
+    		<p id="categories" >Categories: <%=image_tag "portfolio/mandatory.gif", :class => "mandatory"%></p>
  			<% for skill in Skill.find(:all) %>
      			<%- if i%2==0 %>
         			<tr>
@@ -48,7 +52,7 @@
   		</p>
 
 		<p id="status" >
-    		Status of your project: *<br />
+    		Status of your project: <%=image_tag "portfolio/mandatory.gif", :class => "mandatory"%><br />
     		Published <%= check_box :p, :published %><br />
     		Draft <%= check_box :p, :draft %>
   		</p>

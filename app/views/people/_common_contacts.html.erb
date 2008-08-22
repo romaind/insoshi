@@ -5,6 +5,7 @@
 		<table>
 		<%- i=0 %>
       <%- @common_connections.each do |connection| -%>
+       <%- unless connection.contact.admin? %>
        <%- if i%2==0 %>
 		<tr>
 	   <%- end %>
@@ -14,6 +15,7 @@
                          							:link_options =>  { :class => "url" }) %>
         	</td>
 		<%- i+=1 %>
+		<%- end %>
       <%- end -%>
     </table>
   </div>

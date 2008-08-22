@@ -229,15 +229,8 @@ body {
   list-style-type: none;
   margin-bottom: 50px; }
   #message_nav li {
-    background-color: #333333;
     display: inline;
-    margin-right: 20px;
-    padding: 5px; }
-    #message_nav li a {
-      color: white;
-      text-decoration: none; }
-  #message_nav .active a {
-    color: #FF9900; }
+    margin-right: 20px; }
 
 #message_recipient {
   width: 300px; }

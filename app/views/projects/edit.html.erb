@@ -10,13 +10,13 @@
   		</p>
 
   		<p id="title" >
-    		Title of your project: *<br />
+    		Title of your project: <%=image_tag "portfolio/mandatory.gif", :class => "mandatory"%><br />
     		<%= f.text_field :title %>
   		</p>
 
 		<table>
   			<%- i=0 %>
-    		<p id="categories" >Categories: *</p>
+    		<p id="categories" >Categories: <%=image_tag "portfolio/mandatory.gif", :class => "mandatory"%></p>
  			<% for skill in Skill.find(:all) %>
      			<%- if i%2==0 %>
         			<tr>
@@ -34,6 +34,11 @@
       <span><%= f.text_field :tag_list, :default => @project.tags.collect{|t| t.name}.join(", ") %></span>  
     </p>
 
+	<p id="status" >
+    	Status of your project: <%=image_tag "portfolio/mandatory.gif", :class => "mandatory"%><br />
+    	Published <%= check_box :p, :published %><br />
+    	Draft <%= check_box :p, :draft %>
+  	</p>
 
 		<table class="buttons" >
 				<tr>
