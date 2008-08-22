@@ -270,153 +270,47 @@ body {
     margin-left: 20px; }
 
 /* *********New project display********** */
-#project {
-  width: 580px;
-  font-size: 10pt; }
-  #project h4 {
-    margin: 0;
-    color: #FF9900;
-    text-align: right; }
-  #project #project_global {
-    padding: 10px;
-    background-color: white;
-    border-top: 2px solid #FF9900; }
-    #project #project_global input {
-      margin-top: 10px; }
-    #project #project_global span {
-      color: #FF9900;
-      float: left;
-      width: 270px;
-      font-size: 9pt;
-      text-align: right;
-      margin-right: 20px; }
-      #project #project_global span #person_projects {
-        width: 270px;
-        margin-top: 7px; }
-    #project #project_global #create {
-      margin-right: 0px; }
-    #project #project_global #project_settings {
-      margin-top: -3px;
-      font-size: 9pt; }
-      #project #project_global #project_settings p {
-        text-align: right; }
-      #project #project_global #project_settings table {
-        margin: 0;
-        border-collapse: collapse;
-        text-align: right;
-        width: 271px;
-        font-size: 8pt; }
-      #project #project_global #project_settings #title {
-        padding-top: 0px;
-        width: 270px; }
-        #project #project_global #project_settings #title #project_title {
-          width: 265px; }
-      #project #project_global #project_settings #project_desc {
-        float: right;
-        margin-top: 18px;
-        margin-left: 10px; }
-        #project #project_global #project_settings #project_desc textarea {
-          margin-top: 10px;
-          width: 260px; }
-      #project #project_global #project_settings table p {
-        border: 1px solid red; }
-      #project #project_global #project_settings table #categories {
-        width: 270px;
-        text-align: right;
-        padding-right: 10px; }
-      #project #project_global #project_settings #tags {
-        margin-top: 20px;
-        width: 270px; }
-        #project #project_global #project_settings #tags #p_tags {
-          width: 265px; }
-      #project #project_global #project_settings #status {
-        margin-top: 20px;
-        width: 270px; }
-      #project #project_global #project_settings #buttons {
-        margin-left: 440px;
-        width: 100px; }
-  #project #project_edition {
-    font-size: 9pt; }
-    #project #project_edition p {
-      text-align: right; }
-    #project #project_edition table {
-      margin: 0;
-      border-collapse: collapse;
-      text-align: right;
-      width: 271px;
-      font-size: 8pt; }
-    #project #project_edition #title {
-      padding-top: 40px;
-      width: 270px; }
-      #project #project_edition #title #project_title {
-        width: 265px; }
-    #project #project_edition #project_desc {
-      float: right;
-      margin-top: 25px;
-      margin-left: 20px; }
-      #project #project_edition #project_desc textarea {
-        margin-top: 10px;
-        width: 260px; }
-    #project #project_edition #categories {
-      margin-top: 20px; }
-    #project #project_edition #tags {
-      margin-top: 20px;
-      width: 270px; }
-      #project #project_edition #tags #project_tag_list {
-        width: 265px; }
-    #project #project_edition #status {
-      margin-top: 20px;
-      width: 270px; }
-    #project #project_edition .buttons {
-      margin-bottom: 20px;
-      margin-left: 440px;
-      width: 100px; }
-  #project h3 {
-    text-align: center; }
-  #project #new_creation {
-    text-align: left;
-    margin-right: 20px;
-    font-size: 9pt;
-    width: 300px; }
-    #project #new_creation #label {
-      color: #333333;
-      text-align: right;
-      width: 225px; }
-  #project #terms_content {
-    margin-top: 20px; }
-    #project #terms_content span {
-      color: #333333;
-      width: 270px;
-      margin: 0; }
-    #project #terms_content a {
-      color: #FF9900;
-      text-decoration: none; }
-  #project .buttons {
-    margin-bottom: 20px;
-    margin-left: 230px; }
-  #project #project_header {
-    float: right;
-    text-align: right;
+#project #project_global #create {
+  margin-right: 0px; }
+#project #project_global #project_settings #title {
+  padding-top: 0px;
+  width: 270px; }
+#project #project_global #project_settings #project_desc {
+  float: right;
+  margin-top: 18px;
+  margin-left: 10px; }
+  #project #project_global #project_settings #project_desc textarea {
+    margin-top: 10px;
+    width: 260px; }
+#project #project_global #project_settings #categories {
+  margin-top: 20px; }
+#project #project_global #project_settings #buttons td {
+  vertical-align: top; }
+#project #project_edition #title {
+  padding-top: 25px;
+  width: 270px; }
+  #project #project_edition #title #project_title {
+    width: 265px; }
+#project #project_edition #project_desc {
+  float: right;
+  margin-top: 25px;
+  margin-left: 10px; }
+#project #project_edition .buttons td {
+  vertical-align: top; }
+#project h3 {
+  text-align: center; }
+#project #project_header {
+  float: right;
+  text-align: right;
+  width: 188px;
+  font-size: 9pt;
+  margin-bottom: 20px; }
+  #project #project_header img {
+    margin-top: 10px; }
+  #project #project_header #preview_empty {
     width: 188px;
-    font-size: 9pt;
-    margin-bottom: 20px; }
-    #project #project_header img {
-      margin-top: 10px; }
-    #project #project_header #preview_empty {
-      width: 188px;
-      height: 135px;
-      background-color: #DDDDDD; }
-  #project #previews {
-    margin-top: 20px;
-    padding-top: 20px;
-    border-top: 1px dotted #333333; }
-  #project table .img_preview {
-    margin-bottom: 16px; }
-  #project table .del {
-    color: #333333;
-    text-decoration: none; }
-    #project table .del img {
-      margin-right: 5px; }
+    height: 135px;
+    background-color: #DDDDDD; }
 
 /* *********Alerts end notifications********** */
 .success {
