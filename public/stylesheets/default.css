@@ -1176,28 +1176,28 @@ body {
   background-color: white;
   font-size: 12px;
   padding: 6px;
-  width: 760px; }
+  width: 745px; }
 
 .notice {
   border: 1px solid #DDDDDD;
   background-color: white;
   font-size: 12px;
   padding: 6px;
-  width: 760px; }
+  width: 745px; }
 
 .error {
   border: 1px solid #DDDDDD;
   background-color: white;
   font-size: 12px;
   padding: 6px;
-  width: 760px; }
+  width: 745px; }
 
 .errorExplanation {
   border: 1px solid #DDDDDD;
   background-color: white;
   margin-bottom: 2px;
   padding: 1em;
-  width: 760px; }
+  width: 550px; }
 
 .errorExplanation h2 {
   background: 0;
@@ -1205,7 +1205,7 @@ body {
   font-size: 1.2em;
   margin-top: 0;
   padding: 0;
-  width: 760px; }
+  width: 550px; }
 
 .pagination {
   border-bottom: 1px solid #eee;
@@ -1213,4 +1213,4 @@ body {
   padding-bottom: 2px;
   text-align: center;
   margin-bottom: 2px;
-  width: 760px; }
+  width: 745px; }

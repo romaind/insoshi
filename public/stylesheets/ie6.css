@@ -301,8 +301,9 @@ body {
         width: 270px;
         margin-top: 7px; }
     #project #project_global #create {
-      margin-right: 2px; }
+      margin-right: 0px; }
     #project #project_global #project_settings {
+      margin-top: -3px;
       font-size: 9pt; }
       #project #project_global #project_settings p {
         text-align: right; }
@@ -313,19 +314,23 @@ body {
         width: 271px;
         font-size: 8pt; }
       #project #project_global #project_settings #title {
-        padding-top: 30px;
+        padding-top: 0px;
         width: 270px; }
         #project #project_global #project_settings #title #project_title {
           width: 265px; }
       #project #project_global #project_settings #project_desc {
         float: right;
-        margin-top: 15px;
-        margin-left: 20px; }
+        margin-top: 18px;
+        margin-left: 10px; }
         #project #project_global #project_settings #project_desc textarea {
           margin-top: 10px;
           width: 260px; }
-      #project #project_global #project_settings #categories {
-        margin-top: 20px; }
+      #project #project_global #project_settings table p {
+        border: 1px solid red; }
+      #project #project_global #project_settings table #categories {
+        width: 270px;
+        text-align: right;
+        padding-right: 10px; }
       #project #project_global #project_settings #tags {
         margin-top: 20px;
         width: 270px; }
@@ -426,28 +431,28 @@ body {
   background-color: white;
   font-size: 12px;
   padding: 6px;
-  width: 760px; }
+  width: 745px; }
 
 .notice {
   border: 1px solid #DDDDDD;
   background-color: white;
   font-size: 12px;
-  padding: 10px;
-  width: 760px; }
+  padding: 6px;
+  width: 745px; }
 
 .error {
   border: 1px solid #DDDDDD;
   background-color: white;
   font-size: 12px;
   padding: 6px;
-  width: 760px; }
+  width: 745px; }
 
 .errorExplanation {
   border: 1px solid #DDDDDD;
   background-color: white;
   margin-bottom: 2px;
   padding: 1em;
-  width: 760px; }
+  width: 550px; }
 
 .errorExplanation h2 {
   background: 0;
@@ -455,7 +460,7 @@ body {
   font-size: 1.2em;
   margin-top: 0;
   padding: 0;
-  width: 760px; }
+  width: 550px; }
 
 .pagination {
   border-bottom: 1px solid #eee;
@@ -463,4 +468,4 @@ body {
   padding-bottom: 2px;
   text-align: center;
   margin-bottom: 2px;
-  width: 760px; }
+  width: 745px; }

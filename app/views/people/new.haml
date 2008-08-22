@@ -8,8 +8,6 @@
         %h2 Sign up for
         =global_prefs.app_name
 
-      =error_messages_for :person
-
       -form_for @person do |f|
         .form_row
           %label{ :for => "email"}
@@ -37,3 +35,5 @@
           =image_submit_tag 'icons/go_button_white.jpg', :class => "button"
   
   =image_tag ("desc_bottom.gif")
+
+=error_messages_for :person

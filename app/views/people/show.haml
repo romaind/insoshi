@@ -16,14 +16,14 @@
             ,
             =pluralize(@person.age, "year")
             %br
-            -unless @person.city.empty?
+            -if @person.city
               =h @person.city.capitalize
               ,
-            -unless @person.origin_country.nil?
+            -if @person.origin_country
               =h @person.origin_country.name
         %tr
           %td#skills
-            -if not(@person.skills.empty?)
+            -if not(@person.skills)
               -for skill in @person.skills do
                 =skill.name
                 -if not(@person.skills.last == skill)
@@ -77,8 +77,8 @@
         %h4 STATUS
         .column_content
           %p
-            -if false#@person.status?
-              -if curent_person?(@person)
+            -if false#@person.status
+              -if current_person?(@person)
                 =select :p, :status, ["Working", "Studying", "Looking for a job", "Looking for a partner"]
                 /Status selected by clicking on status option
               -else
@@ -108,11 +108,8 @@
         %h4 LANGUAGES
         .column_content
           %p
-            -if not(@person.languages.empty?)
-              -for language in @person.languages do
-                =language.name
-                -if not(@person.languages.last == language)
-                  ,
+            -if not(@person.languages)
+              =@person.languages.collect{|language| language.name}.join(", ")
               -if current_person?(@person)
                 .profile_edit
                   =link_to image_tag("icons/mini_edit.gif") + "Edit", edit_person_path(@person) + "#person[language_ids][]"
@@ -123,11 +120,8 @@
         %h4 SOFTWARE
         .column_content
           %p
-            -if not(@person.softwares.empty?)
-              -for software in @person.softwares do
-                =software.name
-                -if not(@person.softwares.last == software)
-                  ,
+            -if not(@person.softwares)
+              =@person.softwares.collect{|software| software.name}.join(", ")
               -if current_person?(@person)
                 .profile_edit
                   =link_to image_tag("icons/mini_edit.gif") + "Edit", edit_person_path(@person) + "#person[software_ids][]"
@@ -155,7 +149,7 @@
         %h4 TAGS
         .column_content
           %p
-            -if not(@person.tags.first.nil?)
+            -if @person.tags.first
               = @person.tags.collect{|t| t.name}.join(", ")
               -if current_person?(@person)
                 .profile_edit

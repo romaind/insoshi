@@ -209,7 +209,6 @@ body
 
 /**********My Project display***********
 .project_item
-
   .project_details
     :margin
       :top -2px
@@ -429,9 +428,11 @@ body
 
     #create
       :margin
-        :right 2px
+        :right 0px
 
     #project_settings
+      :margin
+        :top -3px
       :font
         :size 9pt
 
@@ -448,7 +449,7 @@ body
 
       #title
         :padding
-          :top 30px
+          :top 0px
         :width 270px
         #project_title
           :width 265px
@@ -456,17 +457,22 @@ body
       #project_desc
         :float right
         :margin
-          :top 15px
-          :left 20px
+          :top 18px
+          :left 10px
 
         textarea
           :margin
             :top 10px
           :width 260px
 
-      #categories
-        :margin
-          :top 20px
+      table
+        p
+          :border 1px solid red
+        #categories
+          :width 270px
+          :text-align right
+          :padding
+            :right 10px
 
       #tags
         :margin
@@ -621,28 +627,28 @@ body
   :background-color white
   :font-size 12px
   :padding 6px
-  :width 760px
+  :width 745px
 
 .notice
   :border 1px solid #DDDDDD
   :background-color white
   :font-size 12px
-  :padding 10px
-  :width 760px
+  :padding 6px
+  :width 745px
 
 .error 
   :border 1px solid #DDDDDD
   :background-color white
   :font-size 12px
   :padding 6px
-  :width 760px
+  :width 745px
  
 .errorExplanation
   :border 1px solid #DDDDDD
   :background-color white
   :margin-bottom 2px
   :padding 1em
-  :width 760px
+  :width 550px
 
 .errorExplanation h2
   :background 0
@@ -650,7 +656,7 @@ body
   :font-size 1.2em
   :margin-top 0
   :padding 0
-  :width 760px
+  :width 550px
 
 .pagination
   :border-bottom 1px solid #eee
@@ -658,4 +664,4 @@ body
   :padding-bottom 2px
   :text-align center
   :margin-bottom 2px
-  :width 760px
+  :width 745px

@@ -290,7 +290,7 @@ class Person < ActiveRecord::Base
                                    recipient_deleted_at IS NULL), subject, subject],
                  :order => "created_at",
                  :page => page,
-                 :per_page => 5)
+                 :per_page => 10)
   end
 
   def recent_messages

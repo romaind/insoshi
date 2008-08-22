@@ -61,7 +61,11 @@ class MessagesController < ApplicationController
     unless original_message.subject.include?("RE:")
       subject = "RE:" + original_message.subject
     end
-    @message = Message.new(:parent_id => original_message.id,
+    parent_id = original_message.parent_id
+    if original_message.parent_id.nil?
+      parent_id = original_message.id
+    end
+    @message = Message.new(:parent_id => parent_id,
                            :subject => subject,
                            :sender => current_person,
                            :recipient => original_message.sender)
