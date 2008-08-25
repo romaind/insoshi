@@ -9,7 +9,7 @@ class Asset < ActiveRecord::Base
   has_attached_file :item,
     :styles => {
       :tiny   => "90x90#",
-      :thumb  => "72x72#",
+      :thumb  => "57x57#",
       :small  => "150x150>",
       :preview => "188x145#" }
   
