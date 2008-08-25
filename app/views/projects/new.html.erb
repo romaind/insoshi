@@ -49,9 +49,8 @@
 		</table>
 		
   		<p id="tags" >
-    		Tags of your project:<br />
-            (separate each tag with ",")<br />
-    		<%= text_field :p, :tags %>
+    		<label for ="person_tag_list"> Tag yourself (separate with ","):</label>
+          		<%= f.text_field :tag_list, :default => @project.tags.collect{|t| t.name}.join(", ") %>
   		</p>
 
 		<p id="status" >

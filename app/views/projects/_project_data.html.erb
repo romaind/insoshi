@@ -1,0 +1,34 @@
+  <h4>Description:</h4>
+<p>
+  <%- if @project.description %>
+    <%=h truncate(@project.description, 100) %>
+  <%- end %>
+</p>
+
+	<h4>Created at: </h4>
+<p>
+	<%=h @project.created_at.strftime("%d/%m/%Y") %>
+	<%=h @project.created_at.strftime(" at %I:%M%p") %>
+</p>
+
+	<h4>Author: </h4>
+<p>
+	<%=h @project.person.first_name + " " + @project.person.name %>
+</p>
+
+	<h4>Categories: </h4>
+<p>
+	<%- if @project.skills %>
+		<%= @project.skills.collect{|skill| skill.name}.join(", ") %>
+	<%- end %>
+</p>
+
+	<h4>Tags: </h4>
+<p>
+	<%- if @project.tags.first %>
+    	<%= @project.tags.collect{|t| t.name}.join(", ") %>
+	<%- end %>
+</p>
+
+  <h4>Licence:</h4>
+  <%=h @project.licence %>

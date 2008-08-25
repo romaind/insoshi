@@ -183,11 +183,11 @@ body {
 /* *********Index content********** */
 #content {
   color: #333333; }
-  #content #description {
+  #content .description {
     float: right;
     font-size: 10pt;
     width: 190px; }
-    #content #description #desc_message {
+    #content .description .desc_message {
       background-color: white;
       border-left: 1px solid #DDDDDD;
       border-right: 1px solid #DDDDDD;
@@ -195,19 +195,19 @@ body {
       padding-right: 5px;
       height: 395px;
       text-align: right; }
-      #content #description #desc_message h2 {
+      #content .description .desc_message h2 {
         margin-top: 0;
         text-align: center; }
-      #content #description #desc_message h4 {
+      #content .description .desc_message h4 {
         font-weight: normal;
         margin-top: 0; }
-      #content #description #desc_message p {
+      #content .description .desc_message p {
         text-align: left;
         margin-top: 20px;
         margin-bottom: 0; }
-      #content #description #desc_message p:first-letter {
+      #content .description .desc_message p:first-letter {
         margin-left: 5px; }
-      #content #description #desc_message .sign {
+      #content .description .desc_message .sign {
         width: 160px;
         margin-bottom: 10px; }
 
@@ -1088,7 +1088,7 @@ body {
       #project #project_global #project_settings #tags {
         margin-top: 20px;
         width: 270px; }
-        #project #project_global #project_settings #tags #p_tags {
+        #project #project_global #project_settings #tags #project_tag_list {
           width: 265px; }
       #project #project_global #project_settings #status {
         margin-top: 20px;
@@ -1180,6 +1180,55 @@ body {
     text-decoration: none; }
     #project table .del img {
       margin-right: 2px; }
+
+/* *********Display project page********** */
+#show_project #player {
+  margin: 0; }
+#show_project h3 {
+  width: 580px;
+  text-align: right;
+  font-size: 10pt;
+  color: #009900;
+  margin: 0;
+  padding: 0; }
+#show_project h4 {
+  color: #009900;
+  margin-top: 1px;
+  margin-bottom: 2px;
+  font-size: 10pt; }
+#show_project #right {
+  float: right; }
+  #show_project #right .project_content {
+    margin: 0;
+    text-align: right;
+    width: 190px;
+    font-size: 9pt; }
+    #show_project #right .project_content a {
+      color: #009900;
+      text-decoration: none; }
+    #show_project #right .project_content .tab_title {
+      text-align: right;
+      padding-right: 10px;
+      padding-top: 7px;
+      width: 190px;
+      height: 12px;
+      background-image: url(../images/desc_top.gif);
+      background-repeat: no-repeat; }
+      #show_project #right .project_content .tab_title h4 {
+        color: #333333;
+        font-size: 9pt;
+        margin: 0;
+        margin-right: 10px; }
+    #show_project #right .project_content .content {
+      margin: 0;
+      padding-top: 10px;
+      padding-right: 10px;
+      background-color: white;
+      border-left: 1px solid #DDDDDD;
+      border-right: 1px solid #DDDDDD; }
+      #show_project #right .project_content .content p {
+        margin-top: 0;
+        margin-bottom: 10px; }
 
 /* *********Alerts end notifications********** */
 .success {

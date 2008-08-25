@@ -1,10 +1,10 @@
 <table>
-      <%- i=0 %>
-      <%- unless @project.creations.nil? %>
-      	<%- @project.creations.each do |crea| %>
-          <%- if i%3==0 %>
-            <tr>
-          <%- end %>
+    <%- i=0 %>
+    <%- unless @project.creations.nil? %>
+     <%- @project.creations.each do |crea| %>
+        <%- if i%3==0 %>
+          <tr>
+        <%- end %>
           <td>
               <%= link_to(image_tag(crea.asset.item.url(:thumb)), person_project_creation_path(current_person, @project, crea)) %>
           </td>
@@ -26,4 +26,4 @@
           </tr>
         <%- end %>
       <%- end %>
-    </table>
+</table>

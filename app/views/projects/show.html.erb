@@ -1,39 +1,30 @@
-<p>
-  <b>Title:</b>
-  <%=h @project.title %>
-</p>
+<div id="show_project">
 
-<p>
-  <b>Description:</b>
-  <%=h @project.description %>
-</p>
+<div id="right">
+	<div class="project_content">
+  		<div class="tab_title"><h4>Project content</h4></div>
+  		<div class="content">
+			by <%=link_to @project.person.first_name + " " + @project.person.name, person_path(@project.person) %>
+  			<%=render :partial => "creations/creation_list" %>
+  		</div>
+  		<%=image_tag ("desc_bottom.gif") %>
+	</div>
 
-<p>
-  <b>Project content:</b>
-  <%=render :partial => "creations/creation_list" %>
-</p>
+	<div class="project_content">
+  		<div class="tab_title"><h4>Project data</h4></div>
+  		<div class="content">
+			<%=render :partial => "project_data" %>
+  		</div>
+  		<%=image_tag ("desc_bottom.gif") %>
+	</div>
+</div>
 
-<p>
-  <b>Licence:</b>
-  <%=h @project.licence %>
-</p>
-
-<p>
-  <b>Tags:</b>
-  <%= @project.tags.collect{|t| t.name}.join(", ") %>
-<p>
-
-
-<%= link_to 'Edit Project Informations', edit_person_project_path(current_person, @project) %>
+<h3><%=h @project.title.upcase %></h3>
+<%=image_tag ("player_preview.jpg", :id =>"player") %>
 
 
-<hr/>
 <div>
-<p><b>My Creations:</b>
-<% @project.creations.each do |crea| %>
-  <%= link_to(image_tag(crea.asset.item.url(:tiny)), person_project_creation_path(current_person, @project, crea)) %>
-<% end %></p>
 <%= link_to 'Manage Creations', person_project_creations_path(current_person, @project) %>
 </div>
-<hr/>
 <%= link_to 'Back to the projects\' list', person_projects_path %>
+</div>
