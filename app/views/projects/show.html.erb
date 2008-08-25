@@ -15,17 +15,38 @@
 <h3><%=h @project.title.upcase %></h3>
 <%=image_tag ("player_preview.jpg", :id =>"player") %>
 
-<div id ="author">
-	
+<div class ="playlist_tab">
+	<h4>Projects from the author</h4>
+	<table class="playlist">
+		<tr>
+			<td class="left"><%=image_tag "last_project.gif"%></td>
+			<td>
+			<table>
+				<tr>
+				<%=render :partial => "projects_playlist", :collection => @author_projects %>
+				</tr>
+			</table>
+			</td>
+			<td class="right"><%=image_tag "next_project.gif"%></td>
+		</tr>
+	</table>
 </div>
-<div id ="all">
-	
-</div>
-<div id ="group">
-	
-</div>
-<div id ="contest">
-	
+
+<div class ="playlist_tab">
+	<h4>All Projects</h4>
+	<table class="playlist">
+		<tr>
+			<td class="left"><%=image_tag "last_project.gif"%></td>
+			<td>
+			<table>
+				<tr>
+				<%=render :partial => "projects_playlist", :collection => @all_projects %>
+				</tr>
+			</table>
+			</td>
+			<td class="right"><%=image_tag "next_project.gif"%></td>
+		</tr>
+	</table>
 </div>
 
 </div>

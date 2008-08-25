@@ -24,6 +24,9 @@ class ProjectsController < ApplicationController
   # GET /projects/1.xml
   def show
     @project = Project.find(params[:id])
+    @author = Person.find(params[:person_id])
+    @author_projects = @author.projects
+    @all_projects = Project.find(:all)
 
     respond_to do |format|
       format.html # show.html.erb

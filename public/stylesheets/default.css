@@ -1229,6 +1229,23 @@ body {
       #show_project #right .project_content .content p {
         margin-top: 0;
         margin-bottom: 10px; }
+#show_project .playlist_tab {
+  width: 582px; }
+  #show_project .playlist_tab h4 {
+    color: #009900;
+    text-align: right;
+    font-size: 9pt; }
+#show_project .playlist {
+  background-color: white;
+  border: 1px solid #DDDDDD;
+  border-top: 2px solid #009900;
+  width: 582px; }
+  #show_project .playlist .left {
+    width: 50px;
+    text-align: left; }
+  #show_project .playlist .right {
+    width: 50px;
+    text-align: right; }
 
 /* *********Alerts end notifications********** */
 .success {
