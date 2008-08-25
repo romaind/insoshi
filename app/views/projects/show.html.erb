@@ -2,19 +2,12 @@
 
 <div id="right">
 	<div class="project_content">
-  		<div class="tab_title"><h4>Project content</h4></div>
-  		<div class="content">
-			by <%=link_to @project.person.first_name + " " + @project.person.name, person_path(@project.person) %>
-  			<%=render :partial => "creations/creation_list" %>
-  		</div>
+		<%=render :partial => "creations/creation_list" %>
   		<%=image_tag ("desc_bottom.gif") %>
 	</div>
 
 	<div class="project_content">
-  		<div class="tab_title"><h4>Project data</h4></div>
-  		<div class="content">
-			<%=render :partial => "project_data" %>
-  		</div>
+		<%=render :partial => "project_data" %>
   		<%=image_tag ("desc_bottom.gif") %>
 	</div>
 </div>
@@ -22,9 +15,17 @@
 <h3><%=h @project.title.upcase %></h3>
 <%=image_tag ("player_preview.jpg", :id =>"player") %>
 
-
-<div>
-<%= link_to 'Manage Creations', person_project_creations_path(current_person, @project) %>
+<div id ="author">
+	
 </div>
-<%= link_to 'Back to the projects\' list', person_projects_path %>
+<div id ="all">
+	
+</div>
+<div id ="group">
+	
+</div>
+<div id ="contest">
+	
+</div>
+
 </div>

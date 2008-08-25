@@ -159,7 +159,9 @@
 
     #projects
       %h4 MY PROJECTS
-      =render :partial => 'my_projects'
+      -per_line = 3
+      #my_projects
+        =render :partial => 'projects/projects_list', :locals => {:per_line => per_line} 
 
 -if current_person?(@person)
   #feed_requests
