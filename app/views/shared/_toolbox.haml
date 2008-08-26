@@ -49,7 +49,7 @@
 
           -if global_prefs.can_send_mail?
             %p{ :id => "forgot" }
-              = link_to "I forgot my password!", new_password_reminder_path
+              =link_to "I forgot my password!", new_password_reminder_path
 
           .form_row
             = image_submit_tag 'toolbox/signin_butt.gif', :id => "go_button"
