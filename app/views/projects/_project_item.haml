@@ -18,6 +18,6 @@
 
       -if logged_in? and current_person?(@person)
         .project_edit
-          =link_to image_tag("icons/mini_edit.gif") + "Edit", edit_person_project_path(current_person)
+          =link_to image_tag("icons/mini_edit.gif") + "Edit", edit_person_project_path(current_person, project)
           |
           =link_to image_tag("icons/trash.gif") + "Delete", person_project_path(current_person, project), :confirm => 'Are you sure?', :method => :delete
