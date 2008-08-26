@@ -1226,6 +1226,8 @@ body {
       background-color: white;
       border-left: 1px solid #DDDDDD;
       border-right: 1px solid #DDDDDD; }
+      #show_project #right .project_content .content h4 {
+        margin: 0; }
       #show_project #right .project_content .content p {
         margin-top: 0;
         margin-bottom: 10px; }

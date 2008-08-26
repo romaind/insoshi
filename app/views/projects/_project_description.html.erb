@@ -1,0 +1,7 @@
+<div class="tab_title"><h4>Project description</h4></div>
+<div class="content">
+  <h4>Description:</h4>
+  <%- unless @project.description.empty? %>
+    	<%=h @project.description %>
+  <%- end %>
+</div>

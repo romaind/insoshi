@@ -1,11 +1,5 @@
 <div class="tab_title"><h4>Project data</h4></div>
 <div class="content">
-  <h4>Description:</h4>
-<p>
-  <%- if @project.description %>
-    <%=h truncate(@project.description, 100) %>
-  <%- end %>
-</p>
 
 	<h4>Created at: </h4>
 <p>
@@ -33,5 +27,4 @@
 </p>
 
   <h4>Licence:</h4>
-  <%=h @project.licence %>
 </div>
