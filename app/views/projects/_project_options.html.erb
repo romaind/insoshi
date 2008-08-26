@@ -1,4 +1,16 @@
 <div class="tab_title"><h4>Project data</h4></div>
 <div class="content">
-	<%=link_to "See portfolio", person_path(@project.person)%>
+	<div id="options">
+		<%=link_to "See portfolio", person_path(@project.person) %>
+		<p>
+			<%= link_to "Comment this project" %>
+		</p>
+		<p>
+			<%= link_to "Tag this project" %>
+		</p>
+		<p>
+			<%= link_to "Report an abuse" %>
+		</p>
+
+	</div>
 </div>
