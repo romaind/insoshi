@@ -1,6 +1,7 @@
 class CreationsController < ApplicationController
   
   before_filter :find_project, :only => [:index, :new, :edit, :create, :update, :show]
+  before_filter :correct_project_owner_required, :except => [:show]
   
   # GET /creations
   # GET /creations.xml
@@ -95,6 +96,14 @@ class CreationsController < ApplicationController
   protected
   def find_project
     @project = Project.find(params[:project_id])
+  end
+  
+  private
+  def correct_project_owner_required
+    unless Project.find(params[:project_id]).person == current_person
+      flash[:error] = "You're not allowed to access this area!"
+      redirect_to person_path(current_person)
+    end
   end
     
 end

@@ -105,14 +105,14 @@ class ProjectsController < ApplicationController
 
   def correct_user_required
     unless Person.find(params[:person_id]) == current_person
-      flash[:error] = "Vous n'avez pas le droit d'effectuer cette action!"
+      flash[:error] = "You're not allowed to access this area!"
       redirect_to person_path(current_person) 
     end
   end
   
   def correct_project_required
     unless Project.find(params[:id]).person_id == current_person.id
-      flash[:error] = "Vous n'avez pas le droit d'effectuer cette action!"
+      flash[:error] = "You're not allowed to access this area!"
       redirect_to person_project_path(params[:person_id], params[:id])
     end
   end
