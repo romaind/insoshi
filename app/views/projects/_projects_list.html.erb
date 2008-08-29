@@ -11,8 +11,10 @@
       <%- if i % per_line == 0 %>
         <tr>
       <%- end %>
-        <%= render :partial => "projects/project_item", :locals =>{ :project => project} %>
-      	<%- i+=1 %>
+	  <%- if project.creations.first %>
+        	<%= render :partial => "projects/project_item", :locals =>{ :project => project} %>
+      		<%- i+=1 %>
+	  <%- end %>
 	  <%- if i % per_line == 0 or project == @projects.last %>
         </tr>
       <%- end %>

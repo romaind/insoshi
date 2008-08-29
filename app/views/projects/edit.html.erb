@@ -33,7 +33,7 @@
 		</table>
 		
     <p id="tags">
-      <label>Tags of your project (separate with ","):</label>
+      <label>Tag your project (separate with ","):</label>
       <span><%= f.text_field :tag_list, :default => @project.tags.collect{|t| t.name}.join(", ") %></span>  
     </p>
 

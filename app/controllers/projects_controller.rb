@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  
+
   before_filter :login_required, :only => [:edit, :update, :new, :create]
   before_filter :correct_user_required, :only => [:edit, :update, :new, :create]
   before_filter :correct_project_required, :only => [:edit, :update]
@@ -25,8 +25,8 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     @author = Person.find(params[:person_id])
-    @author_projects = @author.projects
-    @all_projects = Project.find(:all)
+    @author_projects = @author.projects.paginate(:page => params[:author_page],:per_page => 5, :order => 'created_at DESC')
+    @all_projects = Project.find(:all, :order => 'created_at DESC').paginate(:page => params[:all_page], :per_page => 5)
 
     respond_to do |format|
       format.html # show.html.erb

@@ -50,9 +50,10 @@ ActionController::Routing::Routes.draw do |map|
   end
   
   map.resources :projects do |project|
-       project.resources :creations do |creation|
-         creation.resources :assets
-       end
+    project.resources :comments
+    project.resources :creations do |creation|
+      creation.resources :assets
+    end
   end
   
   map.simple_captcha '/simple_captcha/:action', :controller => 'simple_captcha'

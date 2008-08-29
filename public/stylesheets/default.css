@@ -53,18 +53,19 @@ body {
     #header #languages #fr {
       margin-right: 5px; }
   #header #menus {
+    font-size: 10pt;
     font-weight: bold;
     padding-top: 87px; }
     #header #menus #gallery {
-      margin-left: 127px; }
-    #header #menus #news {
-      margin-left: 155px; }
-    #header #menus #mypage {
       margin-left: 132px; }
+    #header #menus #news {
+      margin-left: 158px; }
+    #header #menus #mypage {
+      margin-left: 138px; }
     #header #menus #creativecontests {
-      margin-left: 67px; }
-    #header #menus #coaliz {
       margin-left: 79px; }
+    #header #menus #coaliz {
+      margin-left: 89px; }
 
 #submenus {
   background-color: white;
@@ -82,7 +83,7 @@ body {
   float: right;
   margin-left: 7px; }
   #toolbox #login {
-    background-image: url(../images/toolbox/login.jpg);
+    background-image: url(../images/toolbox/login.gif);
     background-repeat: no-repeat;
     color: white;
     text-align: right;
@@ -140,7 +141,7 @@ body {
   #toolbox img {
     margin-bottom: 10px; }
   #toolbox #feedback {
-    background-image: url(../images/toolbox/feedback.jpg);
+    background-image: url(../images/toolbox/feedback.gif);
     background-repeat: no-repeat;
     width: 187px;
     height: 202px; }
@@ -228,11 +229,10 @@ body {
   border-left: 1px solid #DDDDDD;
   border-right: 1px solid #DDDDDD;
   width: 777px;
-  height: 470px;
+  height: 500px;
   padding-left: 1px;
   padding-top: 5px; }
   #lastproject #lastprojects_content .lastprojects {
-    float: left;
     margin-right: 5px;
     margin-top: 10px;
     width: 188px;
@@ -1231,8 +1231,20 @@ body {
       #show_project #right .project_content .content p {
         margin-top: 0;
         margin-bottom: 10px; }
+      #show_project #right .project_content .content #options {
+        text-align: right;
+        padding-left: 10px; }
+        #show_project #right .project_content .content #options p {
+          width: 170px;
+          margin: 0;
+          margin-top: 5px;
+          padding-top: 5px;
+          border-top: 1px dotted #333333; }
+        #show_project #right .project_content .content #options a {
+          color: #333333;
+          text-decoration: none; }
 #show_project .playlist_tab {
-  width: 582px; }
+  width: 787px; }
   #show_project .playlist_tab h4 {
     color: #009900;
     text-align: right;
@@ -1241,7 +1253,7 @@ body {
   background-color: white;
   border: 1px solid #DDDDDD;
   border-top: 2px solid #009900;
-  width: 582px; }
+  width: 787px; }
   #show_project .playlist .left {
     width: 50px;
     text-align: left; }

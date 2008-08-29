@@ -26,10 +26,15 @@
 <%=image_tag ("player_preview.jpg", :id =>"player") %>
 
 <div class ="playlist_tab">
-	<h4>Projects from the author</h4>
+	<h4>PROJECTS FROM THIS AUTHOR</h4>
+	<%- will_paginate @author_projects %>
 	<table class="playlist">
 		<tr>
-			<td class="left"><%=image_tag "last_project.gif"%></td>
+			<%- if @author_projects.previous_page %>
+				<td class="left"><%= link_to(image_tag('last_project.gif'), :author_page => @author_projects.previous_page)%></td>
+			<%- else %>
+				<td class="left"><%= image_tag 'last_project_off.gif'%></td>
+			<%- end %>
 			<td>
 			<table>
 				<tr>
@@ -37,16 +42,25 @@
 				</tr>
 			</table>
 			</td>
-			<td class="right"><%=image_tag "next_project.gif"%></td>
+			<%- if @author_projects.next_page %>
+				<td class="right"><%= link_to(image_tag('next_project.gif'), :author_page => @author_projects.next_page)%></td>
+			<%- else %>
+				<td class="right"><%= image_tag 'next_project_off.gif'%></td>
+			<%- end %>
 		</tr>
 	</table>
 </div>
 
 <div class ="playlist_tab">
-	<h4>All Projects</h4>
+	<h4>ALL PROJECTS</h4>
+	<%- will_paginate @all_projects %>
 	<table class="playlist">
 		<tr>
-			<td class="left"><%=image_tag "last_project.gif"%></td>
+			<%- if @all_projects.previous_page %>
+				<td class="left"><%= link_to(image_tag('last_project.gif'), :all_page => @all_projects.previous_page)%></td>
+			<%- else %>
+				<td class="left"><%= image_tag 'last_project_off.gif'%></td>
+			<%- end %>
 			<td>
 			<table>
 				<tr>
@@ -54,9 +68,13 @@
 				</tr>
 			</table>
 			</td>
-			<td class="right"><%=image_tag "next_project.gif"%></td>
+			<%- if @all_projects.next_page %>
+				<td class="right"><%= link_to(image_tag('next_project.gif'), :all_page => @all_projects.next_page)%></td>
+			<%- else %>
+				<td class="right"><%= image_tag 'next_project_off.gif'%></td>
+			<%- end %>
 		</tr>
 	</table>
 </div>
-
+<%= render :partial => 'wall' %>
 </div>
