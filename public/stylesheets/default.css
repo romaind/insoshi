@@ -1271,6 +1271,7 @@ body {
   border-collapse: collapse; }
   #alpha_login td {
     padding: 0;
+    color: #333333;
     background-color: black; }
   #alpha_login #login_left {
     width: 7px;
