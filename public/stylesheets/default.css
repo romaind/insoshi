@@ -1261,6 +1261,69 @@ body {
     width: 50px;
     text-align: right; }
 
+/* *********Alpha version login page********** */
+#alpha_login {
+  margin-left: auto;
+  margin-right: auto;
+  width: 350px;
+  text-align: center;
+  border-spacing: 0px;
+  border-collapse: collapse; }
+  #alpha_login td {
+    padding: 0;
+    background-color: black; }
+  #alpha_login #login_left {
+    width: 7px;
+    background-image: url(../images/login_left.gif);
+    background-repeat: repeat-y; }
+  #alpha_login #login_right {
+    width: 10px;
+    background-image: url(../images/login_right.gif);
+    background-repeat: repeat-y; }
+  #alpha_login .login_body {
+    width: 333px;
+    color: white;
+    padding-top: 35px; }
+    #alpha_login .login_body #choice {
+      float: left;
+      text-align: right;
+      margin-left: 20px; }
+    #alpha_login .login_body #languages input {
+      margin-top: 15px;
+      margin-right: 5px; }
+    #alpha_login .login_body .form_row {
+      border-spacing: 5px;
+      margin-left: 20px;
+      margin-top: 15px; }
+      #alpha_login .login_body .form_row #email {
+        width: 170px; }
+      #alpha_login .login_body .form_row #password {
+        width: 170px; }
+      #alpha_login .login_body .form_row td {
+        text-align: right;
+        vertical-align: bottom; }
+    #alpha_login .login_body #invitation_form {
+      border-spacing: 5px;
+      margin-left: 43px;
+      margin-top: 15px; }
+      #alpha_login .login_body #invitation_form #invitation {
+        width: 170px; }
+      #alpha_login .login_body #invitation_form td {
+        text-align: right;
+        vertical-align: bottom; }
+    #alpha_login .login_body label {
+      text-align: right;
+      color: #333333;
+      font-size: 9pt; }
+  #alpha_login #login_bottom {
+    height: 185px;
+    vertical-align: bottom;
+    padding-bottom: 10px;
+    background-image: url(../images/login_bottom.gif); }
+    #alpha_login #login_bottom a {
+      color: white;
+      text-decoration: none; }
+
 /* *********Alerts end notifications********** */
 .success {
   border: 1px solid #DDDDDD;
