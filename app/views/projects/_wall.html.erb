@@ -1,0 +1,31 @@
+<%- unless @project.nil? %>
+  <h4 id="wall_title">COMMENTS WALL</h4>
+<div class="wall">
+<%- if logged_in? -%>
+    <div id="wall_form" >
+      <div id="wall_comment">
+		Leave a comment for this project<br>
+		<%- if current_person?(@project) %>
+		 <%= image_tag "wall/comment.gif" %>
+		<%- else %>
+		 <%= image_tag "wall/comment_public.gif" %>
+		<%- end %>
+	  </div>
+      <% form_for :comment, :url => project_comments_path(@project) do |f| %>
+        <div id="wall_textarea">
+          <%= f.text_area :body, :rows => 5 %>
+        </div>
+  
+        <div id="wall_button">
+          <%= submit_tag "SUBMIT", :class => "button" %>
+        </div>
+    <%- end -%>
+    </div>
+<%- end -%>
+    <%- unless @project.comments.empty? -%>
+      <div id="comments">
+        <%= render :partial => 'people/comment', :collection => @project.comments %>
+      </div>
+    <%- end -%>
+  </div>
+<%- end %>

@@ -24,7 +24,7 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.save
         flash[:success] = 'Comment was successfully created.'
-        format.html { redirect_to comments_url }
+        format.html { redirect_to :back }
       else
         format.html { render :action => resource_template("new") }
       end
@@ -44,7 +44,9 @@ class CommentsController < ApplicationController
   private
   
     def get_instance_vars
-      if wall?
+      if project_wall?
+        @project = Project.find(params[:project_id])
+      elsif wall?
         @person = Person.find(params[:person_id])
       elsif blog?
         @blog = Blog.find(params[:blog_id])
@@ -74,7 +76,9 @@ class CommentsController < ApplicationController
     
     # Return the comments array for the given resource.
     def resource_comments
-      if wall?
+      if project_wall?
+        @project.comments
+      elsif wall?
         @person.comments
       elsif blog?
         @post.comments.paginate(:page => params[:page])
@@ -83,7 +87,9 @@ class CommentsController < ApplicationController
     
     # Return a the parent (person or blog post) of the comment.
     def parent
-      if wall?
+      if project_wall?
+        @project
+      elsif wall?
         @person
       elsif blog?
         @post
@@ -98,7 +104,9 @@ class CommentsController < ApplicationController
 
     # Return a string for the resource.
     def resource
-      if wall?
+      if project_wall?
+        "project_wall"
+      elsif wall?
         "wall"
       elsif blog?
         "blog_post"
@@ -107,7 +115,9 @@ class CommentsController < ApplicationController
     
     # Return the URL for the resource comments.
     def comments_url
-      if wall?
+      if project_wall?
+        @project
+      elsif wall?
         @person
       elsif blog?
         blog_post_url(@blog, @post)
@@ -117,6 +127,10 @@ class CommentsController < ApplicationController
     # True if resource lives on a wall.
     def wall?
       !params[:person_id].nil?
+    end
+
+    def project_wall?
+      !params[:project_id].nil?
     end
 
     # True if resource lives in a blog.

@@ -2,6 +2,7 @@
 class SessionsController < ApplicationController
 
   skip_before_filter :require_activation, :only => [:new, :destroy]
+  layout "login"
 
   def new
     @body = "login single-col"

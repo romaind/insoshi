@@ -108,7 +108,7 @@
         %h4 LANGUAGES
         .column_content
           %p
-            -if not(@person.languages)
+            -if @person.languages
               =@person.languages.collect{|language| language.name}.join(", ")
               -if current_person?(@person)
                 .profile_edit
@@ -120,7 +120,7 @@
         %h4 SOFTWARE
         .column_content
           %p
-            -if not(@person.softwares)
+            -if @person.softwares
               =@person.softwares.collect{|software| software.name}.join(", ")
               -if current_person?(@person)
                 .profile_edit

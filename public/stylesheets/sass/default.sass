@@ -72,24 +72,25 @@ body
         :right 5px
   #menus
     :font
+      :size 10pt
       :weight bold
     :padding
       :top 87px
     #gallery
       :margin
-        :left 127px
+        :left 132px
     #news
       :margin
-        :left 155px
+        :left 158px
     #mypage
       :margin
-        :left 132px
+        :left 138px
     #creativecontests
       :margin
-        :left 67px
+        :left 79px
     #coaliz
       :margin
-        :left 79px
+        :left 89px
 
 #submenus
   :background
@@ -114,7 +115,7 @@ body
 
   #login
     :background
-      :image url(../images/toolbox/login.jpg)
+      :image url(../images/toolbox/login.gif)
       :repeat no-repeat
     :color white
     :text-align right
@@ -205,7 +206,7 @@ body
 
   #feedback
     :background
-      :image url(../images/toolbox/feedback.jpg)
+      :image url(../images/toolbox/feedback.gif)
       :repeat no-repeat
     :width 187px
     :height 202px
@@ -340,13 +341,12 @@ body
       :left 1px solid #DDDDDD
       :right 1px solid #DDDDDD
     :width 777px
-    :height 470px
+    :height 500px
     :padding
       :left 1px
       :top 5px
 
     .lastprojects
-      :float left
       :margin
         :right 5px
         :top 10px
@@ -1769,8 +1769,25 @@ body
             :top 0
             :bottom 10px
 
+        #options
+          :text-align right
+          :padding
+            :left 10px
+          p
+            :width 170px
+            :margin 0
+            :margin
+              :top 5px
+            :padding
+              :top 5px
+            :border
+              :top 1px dotted #333333
+          a
+            :color #333333
+            :text-decoration none
+
   .playlist_tab
-    :width 582px
+    :width 787px
     h4
       :color #009900
       :text-align right
@@ -1783,7 +1800,7 @@ body
     :border 1px solid #DDDDDD
     :border
       :top 2px solid #009900
-    :width 582px
+    :width 787px
 
     .left
       :width 50px
@@ -1791,6 +1808,84 @@ body
     .right
       :width 50px
       :text-align right
+/**********Alpha version login page**********
+#alpha_login
+  :margin
+    :left auto
+    :right auto
+  :width 350px
+  :text-align center
+  :border-spacing 0px
+  :border-collapse collapse
+
+  td
+    :padding 0
+    :color #333333
+    :background
+      :color black
+  #login_left
+    :width 7px
+    :background
+      :image url(../images/login_left.gif)
+      :repeat repeat-y
+  #login_right
+    :width 10px
+    :background
+      :image url(../images/login_right.gif)
+      :repeat repeat-y
+  .login_body
+    :width 333px
+    :color white
+    :padding
+      :top 35px
+    #choice
+      :float left
+      :text-align right
+      :margin
+        :left 20px
+    #languages
+      input
+        :margin
+          :top 15px
+          :right 5px
+    .form_row
+      :border-spacing 5px
+      :margin
+        :left 20px
+        :top 15px
+      #email
+        :width 170px
+      #password
+        :width 170px
+      td
+        :text-align right
+        :vertical-align bottom
+
+    #invitation_form
+      :border-spacing 5px
+      :margin
+        :left 43px
+        :top 15px
+      #invitation
+        :width 170px
+      td
+        :text-align right
+        :vertical-align bottom
+    label
+      :text-align right
+      :color #333333
+      :font
+        :size 9pt
+  #login_bottom
+    :height 185px
+    :vertical-align bottom
+    :padding
+      :bottom 10px
+    :background
+      :image url(../images/login_bottom.gif)
+    a
+      :color white
+      :text-decoration none
 
 /**********Alerts end notifications**********
 .success

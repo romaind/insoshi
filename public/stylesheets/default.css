@@ -53,18 +53,19 @@ body {
     #header #languages #fr {
       margin-right: 5px; }
   #header #menus {
+    font-size: 10pt;
     font-weight: bold;
     padding-top: 87px; }
     #header #menus #gallery {
-      margin-left: 127px; }
-    #header #menus #news {
-      margin-left: 155px; }
-    #header #menus #mypage {
       margin-left: 132px; }
+    #header #menus #news {
+      margin-left: 158px; }
+    #header #menus #mypage {
+      margin-left: 138px; }
     #header #menus #creativecontests {
-      margin-left: 67px; }
-    #header #menus #coaliz {
       margin-left: 79px; }
+    #header #menus #coaliz {
+      margin-left: 89px; }
 
 #submenus {
   background-color: white;
@@ -82,7 +83,7 @@ body {
   float: right;
   margin-left: 7px; }
   #toolbox #login {
-    background-image: url(../images/toolbox/login.jpg);
+    background-image: url(../images/toolbox/login.gif);
     background-repeat: no-repeat;
     color: white;
     text-align: right;
@@ -140,7 +141,7 @@ body {
   #toolbox img {
     margin-bottom: 10px; }
   #toolbox #feedback {
-    background-image: url(../images/toolbox/feedback.jpg);
+    background-image: url(../images/toolbox/feedback.gif);
     background-repeat: no-repeat;
     width: 187px;
     height: 202px; }
@@ -228,11 +229,10 @@ body {
   border-left: 1px solid #DDDDDD;
   border-right: 1px solid #DDDDDD;
   width: 777px;
-  height: 470px;
+  height: 500px;
   padding-left: 1px;
   padding-top: 5px; }
   #lastproject #lastprojects_content .lastprojects {
-    float: left;
     margin-right: 5px;
     margin-top: 10px;
     width: 188px;
@@ -1231,8 +1231,20 @@ body {
       #show_project #right .project_content .content p {
         margin-top: 0;
         margin-bottom: 10px; }
+      #show_project #right .project_content .content #options {
+        text-align: right;
+        padding-left: 10px; }
+        #show_project #right .project_content .content #options p {
+          width: 170px;
+          margin: 0;
+          margin-top: 5px;
+          padding-top: 5px;
+          border-top: 1px dotted #333333; }
+        #show_project #right .project_content .content #options a {
+          color: #333333;
+          text-decoration: none; }
 #show_project .playlist_tab {
-  width: 582px; }
+  width: 787px; }
   #show_project .playlist_tab h4 {
     color: #009900;
     text-align: right;
@@ -1241,13 +1253,77 @@ body {
   background-color: white;
   border: 1px solid #DDDDDD;
   border-top: 2px solid #009900;
-  width: 582px; }
+  width: 787px; }
   #show_project .playlist .left {
     width: 50px;
     text-align: left; }
   #show_project .playlist .right {
     width: 50px;
     text-align: right; }
+
+/* *********Alpha version login page********** */
+#alpha_login {
+  margin-left: auto;
+  margin-right: auto;
+  width: 350px;
+  text-align: center;
+  border-spacing: 0px;
+  border-collapse: collapse; }
+  #alpha_login td {
+    padding: 0;
+    color: #333333;
+    background-color: black; }
+  #alpha_login #login_left {
+    width: 7px;
+    background-image: url(../images/login_left.gif);
+    background-repeat: repeat-y; }
+  #alpha_login #login_right {
+    width: 10px;
+    background-image: url(../images/login_right.gif);
+    background-repeat: repeat-y; }
+  #alpha_login .login_body {
+    width: 333px;
+    color: white;
+    padding-top: 35px; }
+    #alpha_login .login_body #choice {
+      float: left;
+      text-align: right;
+      margin-left: 20px; }
+    #alpha_login .login_body #languages input {
+      margin-top: 15px;
+      margin-right: 5px; }
+    #alpha_login .login_body .form_row {
+      border-spacing: 5px;
+      margin-left: 20px;
+      margin-top: 15px; }
+      #alpha_login .login_body .form_row #email {
+        width: 170px; }
+      #alpha_login .login_body .form_row #password {
+        width: 170px; }
+      #alpha_login .login_body .form_row td {
+        text-align: right;
+        vertical-align: bottom; }
+    #alpha_login .login_body #invitation_form {
+      border-spacing: 5px;
+      margin-left: 43px;
+      margin-top: 15px; }
+      #alpha_login .login_body #invitation_form #invitation {
+        width: 170px; }
+      #alpha_login .login_body #invitation_form td {
+        text-align: right;
+        vertical-align: bottom; }
+    #alpha_login .login_body label {
+      text-align: right;
+      color: #333333;
+      font-size: 9pt; }
+  #alpha_login #login_bottom {
+    height: 185px;
+    vertical-align: bottom;
+    padding-bottom: 10px;
+    background-image: url(../images/login_bottom.gif); }
+    #alpha_login #login_bottom a {
+      color: white;
+      text-decoration: none; }
 
 /* *********Alerts end notifications********** */
 .success {
