@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   include AuthenticatedSystem
   include SharedHelper
   include PreferencesHelper
+  include SimpleCaptcha::ControllerHelpers
   
   before_filter :create_page_view, :require_activation, :tracker_vars,
                 :admin_warning

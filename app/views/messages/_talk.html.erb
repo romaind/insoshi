@@ -1,0 +1,49 @@
+<div>
+<table class="comment_image">
+<tr>
+  <td class="commenter_image" rowspan="2" >
+    <% other_person = current_person?(talk.sender) ?
+                      current_person : talk.sender %>
+    <%= image_link other_person, :image => :thumbnail,
+                   :image_options => { :class => "photo" } %>
+  </td>
+  <td class="commenter">
+  	<p>
+      <%- if current_person?(talk.sender) -%>
+        <span class="label">To:</span>
+        <%= person_link talk.recipient, :class => "url fn" %>
+      <%- else -%>
+        <span class="label">From:</span>
+        <%= person_link talk.sender, :class => "url fn" %>
+      <%- end -%>
+	</p>
+  </td>
+</tr>
+<tr>
+  <td class="time">
+    <%= talk.created_at.strftime("On <b>%d/%m/%Y</b>") %>
+	<br>
+    <%= talk.created_at.strftime("at <b>%I:%M%p</b>") %>
+  </td>
+</tr>
+</table>
+<table class = "comment">
+  <tr><td colspan = "3" class = "head"><span class="subject">Subject: <span class="title"><%= sanitize(talk.subject) %></span></span></td>
+	  <td rowspan = "4" class  = "mail" >
+	  </td>
+  <tr><td class ="left_arrow"><%= image_tag "comments/comment_arrow.gif"%></td>
+	  <td class = "comment_body"><p><%= truncate(talk.content, 150) %></p></td>
+	  <td class = "right_border"></td>
+  <tr><td colspan = "3" class = "bottom">
+  <p class="tools_meta">
+    <%= link_to "Reply", reply_message_path(talk) %> |
+    <% unless talk.trashed?(current_person) -%>
+      <%= link_to("Trash", talk, :method => :delete) %>
+    <% else -%>
+      <%= link_to "Untrash", undestroy_message_path(talk), 
+                             :method => :put %>
+    <% end -%>    
+  </p>
+	  </td>
+</table>
+</div>

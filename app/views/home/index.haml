@@ -1,0 +1,22 @@
+.description
+  =image_tag ("desc_top.gif")
+  .desc_message
+    %h4 Coaliz en 3 mots...
+    %p
+      Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin sodales. Aliquam sed diam et mi lacinia fermentum. Mauris quam elit, aliquam elementum, pretium et, auctor sed, orci. Phasellus at augue.
+    %p
+      Praesent nisi metus, cursus sed, venenatis et, scelerisque ac, lacus. Morbi eu pede a libero placerat vehicula. Etiam rhoncus. Donec consequat vestibulum nisi.
+    %p
+      Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Pellentesque eget eros.
+  =image_tag ("desc_bottom.gif")
+
+=image_tag ("player_preview.jpg", :id =>"player")
+
+#lastproject
+  #lastprojectstab
+    %h4 Last Projects
+  #lastprojects_content
+    -per_line = 4
+    =render :partial => "projects/projects_list", :locals => {:per_line => per_line}
+  #lastprojectbottom
+    =link_to "view all &raquo;", projects_path

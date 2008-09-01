@@ -1,7 +1,6 @@
-<ul id="message-nav">
-  <%= list_link_with_active "Inbox", messages_path %>
-  <%= list_link_with_active "Sent", sent_messages_path %>
-  <%= list_link_with_active "Trash", trash_messages_path %>
-  <%# TODO: be able to select people on the messages page %>
-  <!-- <li class="compose"><%= link_to "New message", new_message_path %></li> -->
+<ul id="message_nav">
+  <%= list_link_with_active "inbox/inbox", messages_path %>
+  <%= list_link_with_active "inbox/sent", sent_messages_path %>
+  <%= list_link_with_active "inbox/trash", trash_messages_path %>
+  <li><%= link_to image_tag("inbox/newoff.gif"), new_message_path %></li>
 </ul>

@@ -1,32 +1,125 @@
-<h1>Editing project</h1>
-
 <%= error_messages_for :project %>
+<div id="project">
+	<h4>Editing project</h4>
+	<div id="project_global" >
+		<div id="project_edition" >
+		<% form_for(@project, :url => person_project_path(current_person, @project)) do |f| %>
+  		<p id="project_desc" >
+    		Description of your project:<br />
+    		<%= f.text_area :description %>
+  		</p>
 
-<% form_for(@project, :url => person_project_path(current_person, @project)) do |f| %>
-  <p>
-    <b>Title</b><br />
-    <%= f.text_field :title %>
-  </p>
+  		<p id="title" >
+    		Title of your project: <%=image_tag "portfolio/mandatory.gif", :class => "mandatory"%><br />
+    		<%= f.text_field :title %>
+  		</p>
 
-  <p>
-    <b>Description</b><br />
-    <%= f.text_area :description %>
-  </p>
+    	<p id="categories" >
+			Categories: <%=image_tag "portfolio/mandatory.gif", :class => "mandatory"%>
+		</p>
+			
+		<table>
+  			<%- i=0 %>
+ 			<% for skill in Skill.find(:all) %>
+     			<%- if i%2==0 %>
+        			<tr>
+     			<%- end %>
+        			<td>
+           				<label> <%= skill.name %>
+           				<%= check_box_tag "project[skill_ids][]", skill.id, @project.skills.include?(skill) %></label>
+        			</td>
+     				<%- i+=1 %>
+ 			<%- end %>
+		</table>
+		
+    <p id="tags">
+      <label>Tag your project (separate with ","):</label>
+      <span><%= f.text_field :tag_list, :default => @project.tags.collect{|t| t.name}.join(", ") %></span>  
+    </p>
 
-  <p>
-    <b>Views</b><br />
-    <%= f.text_field :views %>
-  </p>
-  
-  <p>
-    <b>Licence</b><br />
-    <%= f.text_area :licence %>
-  </p>
+	<p id="status" >
+    	Status of your project: <%=image_tag "portfolio/mandatory.gif", :class => "mandatory"%><br />
+    	Published <%= check_box :p, :published %><br />
+    	Draft <%= check_box :p, :draft %>
+  	</p>
 
-  <p>
-    <%= f.submit "Update" %>
-  </p>
-<% end %>
+		<table class="buttons" >
+				<tr>
+				  <td><%= submit_tag 'Accept' %></td>
+				  <td><%= link_to button_to("Cancel"), :back %></td>
+				</tr>
+		</table>
 
-<%= link_to 'Show', person_project_path(current_person, @project) %> |
-<%= link_to 'Back', person_projects_path %>
+		<% end %>
+		</div>
+		<h3>New creation</h3>
+
+		<%= error_messages_for :creation %>
+
+		<p id="project_header">
+			Header of your project:
+			<%- if @project.creations.first.nil? %>
+        		<span id="preview_empty">&nbsp;</span>
+      		<%- else %>
+        		<%= image_tag @project.creations.first.asset.item.url(:preview), { :id => "preview"} %>
+      		<%- end %>
+		</p>
+
+		<% form_for(Creation.new, :url => person_project_creation_path(current_person, @project, Creation.new), :html => { :multipart => true }) do |f| %>
+  		<p id="label_new_creation">Select a file to upload on your project:</p>
+    		<%= error_messages_for :assets %>
+    		<%- fields_for :asset do |a| %>
+      			<%= a.file_field :item %>
+    		<%- end %>
+
+		<p id="terms_content">
+			<span>I certify Iown all the rights on the content I'm uploading and this content respects the
+			<%= link_to "Terms of Use", "terms_of_use",{:id => "terms"} %> of Coaliz</span>
+			<%= f.radio_button :p, :terms%>
+		</p>
+<br>
+  		<p class="buttons">
+    		<%= f.submit "Create" %>
+  		</p>
+
+		<% end %>
+		<p>
+      Maximum size: 5Mo<br>
+      Files type: jpeg, tiff, gif, png
+    </p>
+    
+    <p id="previews">Content of your project: (drag and drop to reorganize)</p>
+    <table>
+      <%- i=0 %>
+      <%- unless @project.creations.nil? %>
+        <% @project.creations.each do |crea| %>
+          <%- if i%6==0 %>
+            <tr>
+          <%- end %>
+          <td>
+              <%= link_to(image_tag(crea.asset.item.url(:tiny)), person_project_creation_path(current_person, @project, crea)) %>
+             <%= link_to image_tag("icons/trash.gif") + "delete", person_project_creation_path(current_person, @project, crea), :confirm => 'Are you sure?', :method => :delete, :class => "del" %>
+          </td>
+          <%- i+=1 %>
+          <%- if i%6==0 %>
+            </tr>
+          <%- end %>
+        <%- end %>
+      <%- end %>
+      <%- while i<12 %>
+        <%- if i%6==0 %>
+          <tr>
+        <%- end %>
+        <td>
+          <%=image_tag "defaults/minipreview.gif", :class => "img_preview" %>
+		  <br>
+		  &nbsp;
+        </td>
+        <%- i+=1 %>
+        <%- if i%6==0 %>
+          </tr>
+        <%- end %>
+      <%- end %>
+    </table>
+		</div>
+</div>

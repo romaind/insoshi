@@ -1,6 +1,7 @@
 class CreationsController < ApplicationController
   
   before_filter :find_project, :only => [:index, :new, :edit, :create, :update, :show]
+  before_filter :correct_project_owner_required, :except => [:show]
   
   # GET /creations
   # GET /creations.xml
@@ -53,7 +54,7 @@ class CreationsController < ApplicationController
         @creation.asset = @asset
         # if @asset.save
           flash[:notice] = 'Creation was successfully created.'
-          format.html { redirect_to person_project_creation_path(current_person, @project, @creation) }
+          format.html { redirect_to :back }
           format.xml  { render :xml => @creation, :status => :created, :location => @creation }
         # end
       else
@@ -71,7 +72,7 @@ class CreationsController < ApplicationController
     respond_to do |format|
       if @creation.update_attributes(params[:creation])
         flash[:notice] = 'Creation was successfully updated.'
-        format.html { redirect_to(@creation) }
+        format.html { redirect_to :back }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -87,7 +88,7 @@ class CreationsController < ApplicationController
     @creation.destroy
 
     respond_to do |format|
-      format.html { redirect_to(person_project_creations_url) }
+      format.html { redirect_to :back }
       format.xml  { head :ok }
     end
   end
@@ -97,4 +98,12 @@ class CreationsController < ApplicationController
     @project = Project.find(params[:project_id])
   end
   
+  private
+  def correct_project_owner_required
+    unless Project.find(params[:project_id]).person == current_person
+      flash[:error] = "You're not allowed to access this area!"
+      redirect_to person_path(current_person)
+    end
+  end
+    
 end

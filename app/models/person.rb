@@ -35,9 +35,12 @@ class Person < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :name, :first_name,
                   :description, :connection_notifications,
                   :message_notifications, :wall_comment_notifications,
-                  :blog_comment_notifications
+                  :blog_comment_notifications, :skill_ids, :language_ids, :software_ids, :tag_list,
+                  #ADDED FIELD
+                  :birthdate, :gender, :website, :address, :zipcode, :city, :phone, :country_id
   acts_as_ferret :fields => [ :name, :first_name, :description ] if search?
-
+  
+  acts_as_taggable
   acts_as_state_machine :initial => :pending
   state :pending
   state :actived
@@ -59,6 +62,10 @@ class Person < ActiveRecord::Base
   NUM_RECENT = 8
   FEED_SIZE = 10
   TIME_AGO_FOR_MOSTLY_ACTIVE = 1.month.ago
+  
+  ##4 choices maximum in skills
+  MAX_SKILLS = 4
+  
   # These constants should be methods, but I couldn't figure out  how to use
   # methods in the has_many associations.  I hope you can do better.
   ACCEPTED_AND_ACTIVE =  [%(status = ? AND
@@ -69,6 +76,9 @@ class Person < ActiveRecord::Base
                             deactivated = ? AND
                             (email_verified IS NULL OR email_verified = ?)),
                           Connection::REQUESTED, false, true]
+  belongs_to :origin_country,
+             :class_name => 'Country',
+             :foreign_key=> :country_id
 
   has_one :blog
   has_many :email_verifications
@@ -94,6 +104,9 @@ class Person < ActiveRecord::Base
                                             :limit => FEED_SIZE
   has_many :page_views, :order => 'created_at DESC'
   has_many :projects
+  has_and_belongs_to_many :languages
+  has_and_belongs_to_many :skills
+  has_and_belongs_to_many :softwares
   
   validates_presence_of     :email, :on => :create,
                                 :if => :pending?
@@ -108,6 +121,7 @@ class Person < ActiveRecord::Base
   validates_length_of       :name,  :maximum => MAX_NAME, :on => :update,
                                 :if => :actived?
   validates_length_of       :description, :maximum => MAX_DESCRIPTION
+  validates_length_of       :skills, :maximum => MAX_SKILLS
   validates_format_of       :email,
                             :with => EMAIL_REGEX,
                             :message => "must be a valid email address"
@@ -173,6 +187,26 @@ class Person < ActiveRecord::Base
     end
   end
 
+  #Return the image source for gender
+  def gender_image
+    gender == 1 ? "portfolio/man.gif" : "portfolio/woman.gif"
+  end
+
+
+  #Return the person's age
+  def age
+    now = Time.now.utc.to_date
+    if birthdate
+      now.year - birthdate.year - (birthdate.to_date.change(:year => now.year) > now ? 1 : 0)
+    else
+      "unknown"
+    end
+  end
+
+  #Return the last id of person table (needed in _person.html.erb)
+  def max
+    Person.count
+  end
   # Params for use in urls.
   # Profile urls have the form '/people/1-michael-hartl'.
   # This works automagically because Person.find(params[:id]) implicitly
@@ -221,6 +255,14 @@ class Person < ActiveRecord::Base
     end
   end
 
+  def waiting_acceptation?(person)
+    waiting =false
+    for requested_contact in person.requested_contacts do
+      waiting = true if requested_contact.id == self.id
+    end
+    waiting
+  end
+
   ## Message methods
 
   def received_messages(page = 1)
@@ -241,6 +283,15 @@ class Person < ActiveRecord::Base
                                      :page => page,
                                      :per_page => MESSAGES_PER_PAGE)
   end
+  
+  def discussion(subject, page =1)
+    Message.paginate(:all,
+                 :conditions => [%((id = ? OR parent_id = ?) AND
+                                   recipient_deleted_at IS NULL), subject, subject],
+                 :order => "created_at",
+                 :page => page,
+                 :per_page => 10)
+  end
 
   def recent_messages
     Message.find(:all,
@@ -249,7 +300,14 @@ class Person < ActiveRecord::Base
                  :order => "created_at DESC",
                  :limit => NUM_RECENT_MESSAGES)
   end
-
+  
+  def new_messages
+   new_messages = Message.find(:all,
+                               :conditions => [%(recipient_id = ? AND
+                                              recipient_read_at IS NULL), id])
+   new_messages.length
+  end
+  
   ## Photo helpers
 
   def photo
@@ -263,19 +321,28 @@ class Person < ActiveRecord::Base
   end
 
   def main_photo
-    photo.nil? ? "default.png" : photo.public_filename
+    photo.nil? ? "defaults/default.png" : photo.public_filename
   end
 
   def thumbnail
-    photo.nil? ? "default_thumbnail.png" : photo.public_filename(:thumbnail)
+    photo.nil? ? "defaults/default_thumbnail.png" : photo.public_filename(:thumbnail)
   end
 
+  def profile
+    photo.nil? ? "defaults/default_profile.gif" : photo.public_filename(:profile)
+  end
+
+  def minithumb
+    photo.nil? ? "defaults/default_minithumb.gif" : photo.public_filename(:minithumb)
+  end
+
+
   def icon
-    photo.nil? ? "default_icon.png" : photo.public_filename(:icon)
+    photo.nil? ? "defaults/default_icon.png" : photo.public_filename(:icon)
   end
 
   def bounded_icon
-    photo.nil? ? "default_icon.png" : photo.public_filename(:bounded_icon)
+    photo.nil? ? "defaults/default_icon.png" : photo.public_filename(:bounded_icon)
   end
 
   # Return the photos ordered by primary first, then by created_at.
@@ -390,6 +457,16 @@ class Person < ActiveRecord::Base
     conditions = [sql, id, person.id, Connection::ACCEPTED, false, true]
     opts = { :page => page, :per_page => RASTER_PER_PAGE }
     @common_connections ||= Connection.paginate_by_sql(conditions, opts)
+  end
+  
+  # Return the given person projects 
+  def last_projects(page = 1)
+    sql = %(SELECT projects.* FROM `projects`
+            WHERE (person_id = ?)
+            ORDER BY created_at)
+    conditions = [sql, id]
+    opts = { :page => page, :per_page => RASTER_PER_PAGE }
+    Project.paginate_by_sql(conditions, opts)
   end
   
   protected

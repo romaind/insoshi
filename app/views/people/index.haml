@@ -1,0 +1,19 @@
+#sort
+  %span#sort_content
+    -form_tag searches_path, :method => :get, :id => "frmSearch" do
+      %label{ :for => "q"}Choose a category:
+      %br
+      = collection_select(nil, :skills, Skill.find(:all), :id, :name,{:prompt   => "All categories"})
+  %h4#sort_title SORT PEOPLE BY CATEGORY
+#what_is
+  %h4
+    =link_to "How to create my network ?"
+
+
+- column_div :type => :primary do
+  -unless @people.empty?
+    = will_paginate
+    #people
+      %table#list_people
+        = render :partial => @people
+    = will_paginate

@@ -2,6 +2,7 @@
 class SessionsController < ApplicationController
 
   skip_before_filter :require_activation, :only => [:new, :destroy]
+  layout "login"
 
   def new
     @body = "login single-col"
@@ -17,7 +18,7 @@ class SessionsController < ApplicationController
             not person.email_verified? and not person.admin?
         flash[:notice] = %(Unverified email address. 
                            Please check your email for your activation code.)
-        redirect_to login_url and return
+        redirect_to home_url and return
       end
     end
     self.current_person = person
@@ -54,11 +55,11 @@ class SessionsController < ApplicationController
     if logged_in? and current_person.deactivated?
       reset_session
       flash[:error] = "Your account is inactive."
-      redirect_to login_url
+      redirect_to home_url
     else
       reset_session
       flash[:success] = "You have been logged out."
-      redirect_back_or_default(login_url)
+      redirect_back_or_default(home_url)
     end
   end
 end

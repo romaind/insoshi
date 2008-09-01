@@ -1,0 +1,188 @@
+-column_div :type => :primary do
+  #data_title
+    %h4 MY PERSONAL INFORMATIONS
+
+  #profile_edit
+
+    = error_messages_for :person
+    #legend
+      =image_tag "portfolio/mandatory.gif"
+      Mandatory fields
+    -form_for @person do |f|
+
+      .form_row
+        %label{ :for => "person_birthdate" } Birth Date:
+        = f.date_select :birthdate, :order => [:day, :month, :year], :start_year => 1900, :end_year => Date.today.year
+        =image_tag "portfolio/mandatory.gif", :class => "mandatory"
+
+      #gender
+        %label{ :for => "person_gender_1" } Man:
+        = f.radio_button :gender, 1
+        %label{ :for => "person_gender_2" } Woman:
+        = f.radio_button :gender, 2
+        =image_tag "portfolio/mandatory.gif", :class => "mandatory"
+
+      .form_row
+        %label{ :for => "person_first_name" } First Name:
+        = f.text_field :first_name
+        =image_tag "portfolio/mandatory.gif", :class => "mandatory"
+
+      .form_row
+        %label{ :for => "person_name" } Last Name:
+        = f.text_field :name, :maxlength => Person::MAX_NAME
+        =image_tag "portfolio/mandatory.gif", :class => "mandatory"
+
+      .form_row
+        %label{ :for => "person_email" } Email:
+        = f.text_field :email, :maxlength => Person::MAX_EMAIL, :disabled => "disabled"
+        =image_tag "portfolio/mandatory.gif", :class => "mandatory"
+
+      .form_row
+        -request_language = request.env['HTTP_ACCEPT_LANGUAGE']
+        -request_language = request_language.nil? ? nil : request_language[/[^,;]+/]
+
+        %label{ :for => "person_country_id" } Country:
+        =f.select :country_id, Country.find(:all).map{|obj| [obj.name,obj.id]}, {:selected => request_language}
+        =image_tag "portfolio/mandatory.gif", :class => "mandatory"
+
+      .form_row
+        #terms
+          %p
+            %label{ :for => "p_newsletter", :class => "checkbox" } Receive Coaliz' newsletter:
+            = check_box :p, :newsletter
+          %p
+            %label{ :for => "p_terms", :class => "checkbox" } I have read and agree to the
+            = link_to "Terms of use","terms_of_use"
+            = check_box :p, :terms
+            =image_tag "portfolio/mandatory.gif", :class => "mandatory"
+
+      -if global_prefs.email_notifications?
+      
+        %h3 Notification Preferences
+
+        .form_row
+          You will receive email notifications
+          for each event type whose box is checked.
+
+
+        .form_row
+          %p
+            %label{ :for => "connection_notifications", :class => "checkbox" } Connections:
+            = f.check_box :connection_notifications
+          %p
+            %label{ :for => "message_notifications", :class => "checkbox" } Messages:
+            = f.check_box :message_notifications
+          %p
+            %label{ :for => "wall_comment_notifications", :class => "checkbox" } Wall comments:
+            = f.check_box :wall_comment_notifications
+          %p
+            %label{ :for => "blog_comment_notifications", :class => "checkbox" } Blog comments:
+            = f.check_box :blog_comment_notifications
+      
+      %br
+
+      %input{ :type => "hidden", :name => "type", :value => "info_edit"}
+
+      %h3 About You
+      #about_content
+        
+        .form_row
+          %label{ :for => "p_status" } Status:
+          = select :p, :status, ["working", "studying", "looking for a job", "looking for a partner"]
+
+        .form_row
+          %label{ :for => "person_website" } Website:
+          %code http://
+          = f.text_field :website
+
+        .form_row
+          %label{ :for => "person_tag_list" } Tag yourself (separate with ","):
+          = f.text_field :tag_list, :default => @person.tags.collect{|t| t.name}.join(", ")
+
+        .form_row    
+          -unless @preview.nil?
+            = display @preview
+  
+          %p
+            %label{ :for => "person_description" } Description:
+            %br
+            = f.text_area :description
+            %br
+            = formatting_note
+
+      %h3 Skills and Education
+      #skills_content
+
+        .form_row
+          %label{ :for => "p_schools" } Schools:
+          =text_field :p, :schools
+          = button_to "Add a school", { :controller => ""}, :id => "newschool"
+
+        #skills_checkboxes
+          %h3 Skills
+          =render :partial => "skills", :locals =>{ :f => f }
+
+        #languages_checkboxes
+          %h3 Languages
+          =render :partial => "languages", :locals =>{ :f => f }
+        
+        #softwares_checkboxes
+          %h3 Software
+          =render :partial => "software", :locals =>{ :f => f }
+
+        .form_row
+          %label{ :for => "p_cv" } CV (PDF format):
+          =text_field :p, :cv
+          = button_to "Browse", { :controller => ""}, :id => "cv"
+
+      %h3 Contact data
+      #contact_content
+
+        .form_row
+          %label{ :for => "person_adress" } Address:
+          = f.text_field :address
+      
+        .form_row
+          %label{ :for => "person_zipcode" } Zipcode:
+          = f.text_field :zipcode
+      
+        .form_row
+          %label{ :for => "person_city" } City:
+          = f.text_field :city
+
+        .form_row
+          %label{ :for => "person_phone" } Phone:
+          = f.text_field :phone
+
+      .form_row
+        = f.submit "Update", :class => "button"
+        = f.submit "Preview", :id => "preview", :class => "button"
+
+
+      #photo
+        =render :partial => "photo"
+        = button_to "Add a photo", new_photo_path, :id => "newphoto"
+
+
+
+      %h3 Change Password
+      -form_for @person, :html => { :id => "change_password" } do |f|
+
+        .form_row
+          %label{ :for => "password" } Current Password
+          = f.password_field :verify_password, :maxlength => Person::MAX_PASSWORD
+
+        .form_row
+          %label{ :for => "password" } New Password
+          = f.password_field :new_password, :maxlength => Person::MAX_PASSWORD
+
+        .form_row
+          %label{ :for => "password_confirmation" } Confirm Password
+          = f.password_field :password_confirmation, :maxlength => Person::MAX_PASSWORD, :value => ""
+
+        .form_row
+          = submit_tag 'Change password', :class => "button"
+
+        %input{ :type => "hidden", :name => "type", :value => "password_edit" }
+
+  =image_tag "personaldata_bottom.gif"

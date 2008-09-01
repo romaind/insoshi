@@ -31,6 +31,12 @@ class MessagesController < ApplicationController
 
   def show
     @message.mark_as_read if current_person?(@message.recipient)
+    if @message.parent_id.nil?
+      subject_id = @message.id
+    else
+      subject_id = @message.parent_id
+    end
+    @talks = current_person.discussion(subject_id)
     respond_to do |format|
       format.html
     end
@@ -38,7 +44,11 @@ class MessagesController < ApplicationController
 
   def new    
     @message = Message.new
-    @recipient = Person.find(params[:person_id])
+    if params[:person_id].nil?
+      @recipient = current_person
+    else
+      @recipient = Person.find(params[:person_id])
+    end
 
     respond_to do |format|
       format.html
@@ -47,8 +57,16 @@ class MessagesController < ApplicationController
 
   def reply
     original_message = Message.find(params[:id])
-    @message = Message.new(:parent_id => original_message.id,
-                           :subject => original_message.subject,
+    subject = original_message.subject
+    unless original_message.subject.include?("RE:")
+      subject = "RE:" + original_message.subject
+    end
+    parent_id = original_message.parent_id
+    if original_message.parent_id.nil?
+      parent_id = original_message.id
+    end
+    @message = Message.new(:parent_id => parent_id,
+                           :subject => subject,
                            :sender => current_person,
                            :recipient => original_message.sender)
     @recipient = not_current_person(original_message)
@@ -78,6 +96,10 @@ class MessagesController < ApplicationController
         end
       end
     else
+      if params[:message]['recipient']
+        @recipient = Person.find(params[:message]['recipient'])
+      end
+      
       @message = Message.new(params[:message].merge(:sender => current_person,
                                                     :recipient => @recipient))
     

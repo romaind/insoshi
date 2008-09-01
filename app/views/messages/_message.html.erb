@@ -1,32 +1,47 @@
-<li class="message">
-  <div class="profile-image">
+<div>
+<table class="comment_image">
+<tr>
+  <td class="commenter_image" rowspan="2" >
     <% other_person = current_person?(message.sender) ?
-                      message.recipient : message.sender %>
+                      current_person : message.sender %>
     <%= image_link other_person, :image => :thumbnail,
                    :image_options => { :class => "photo" } %>
-
-    <%- if not message.read? and not current_person?(message.sender) -%>
-      <%= image_tag("icons/email.gif", :class => "icon") %>
-    <%- elsif message.replied_to? -%>
-      <%= image_tag("icons/reply.gif", :class => "icon" )  %>
-    <%- end -%>    
-  </div>
-  <p>
-    <%- if current_person?(message.sender) -%>
-      <span class="label">To:</span>
-      <%= person_link message.recipient, :class => "url fn" %>
-    <%- else -%>
-      <span class="label">From:</span>
-      <%= person_link message.sender, :class => "url fn" %>
-    <%- end -%>
-    <span class="meta"><%= time_ago_in_words message.created_at %> ago</span>
-  </p>
-  <p>
-    <span class="label">Subject:</span>
-    <%= link_to sanitize(message.subject), message %>    
-  </p>
-  <p class="tools meta">
-    <%= link_to "Read", message %> |
+  </td>
+  <td class="commenter">
+  	<p>
+      <%- if current_person?(message.sender) -%>
+        <span class="label">To:</span>
+        <%= person_link message.recipient, :class => "url fn" %>
+      <%- else -%>
+        <span class="label">From:</span>
+        <%= person_link message.sender, :class => "url fn" %>
+      <%- end -%>
+	</p>
+  </td>
+</tr>
+<tr>
+  <td class="time">
+    <%= message.created_at.strftime("On <b>%d/%m/%Y</b>") %>
+	<br>
+    <%= message.created_at.strftime("at <b>%I:%M%p</b>") %>
+  </td>
+</tr>
+</table>
+<table class = "comment">
+  <tr><td colspan = "3" class = "head"><span class="subject">Subject: <%=link_to sanitize(message.subject), message, :class => "title" %></span></td>
+	  <td rowspan = "4" class  = "mail" >
+		<%- unless message.read? %>
+			<%=link_to image_tag("icons/mail.gif"), message, :class => "read" %>
+		<%- else %>
+			&nbsp;
+		<%- end %>
+	  </td>
+  <tr><td class ="left_arrow"><%= image_tag "comments/comment_arrow.gif"%></td>
+	  <td class = "comment_body"><p><%= truncate(message.content, 150) %></p></td>
+	  <td class = "right_border"></td>
+  <tr><td colspan = "3" class = "bottom">
+  <p class="tools_meta">
+	<%= link_to "Read", message %> |
     <%= link_to "Reply", reply_message_path(message) %> |
     <% unless message.trashed?(current_person) -%>
       <%= link_to("Trash", message, :method => :delete) %>
@@ -35,4 +50,6 @@
                              :method => :put %>
     <% end -%>    
   </p>
-</li>
+	  </td>
+</table>
+</div>

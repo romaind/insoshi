@@ -1,7 +1,64 @@
-<li class="vcard person">
-  <div class="profile-image">
-    <%= image_link person, :class => "photo", :image => :thumbnail %>
-  </div>
-  <p><%= person_link person, :class => "url fn" %></p>
-  <%= display(truncate(person.description, 150), :class => "note") %>
-</li>
+<% if (person.id+3)%4 == 0 %>
+  <tr>
+<% end %>
+<td>
+  <table>
+	<tr>
+	  <td rowspan="3" class="person_thumb">
+    	<%= image_link person, :class => "photo", :image => :thumbnail %>
+      </td>
+	  <td>
+      	<b><%= person_link person, :class => "url fn" %></b>
+      </td>
+	<tr>
+		<td class="add_cell">
+			<%- if logged_in?%>
+				<%- if person.city and person.origin_country %>
+					<%= person.city.capitalize %>
+              		,
+              		<%=h person.origin_country.name%>
+				<%- else %>
+					&nbsp;
+				<%- end%>
+			<%- end %>
+		</td>
+	</tr>
+	<tr>
+		<td class="person_skill">
+			<p>
+			<%- if person.skills.empty? %>
+			  &nbsp;
+			<%- else %>
+			  <%- content = "" %>
+			  <%- for skill in person.skills do %>
+				<%- content << skill.name %>
+				<%- if not(person.skills.last==skill) %>
+				  <%- content << ", " %>
+				<%- end %>
+			  <%- end %>
+			  <%= truncate(content, 40)%>
+			<%- end %>
+			</p>
+		</td>
+	</tr>
+	<%- if logged_in? %>
+	<tr>
+		<td class="count_common" colspan="2">
+				<%- if person.admin? or current_person.admin? %>
+				  <%- if person.common_connections_with(current_person).length>0 %>
+					<%= pluralize(person.common_connections_with(current_person).length, "common contact") %>
+				  <%- end%>
+				<%- else %>
+					<%- if person.common_connections_with(current_person).length-1 > 0 %>
+    					<%= pluralize(person.common_connections_with(current_person).length-1, "common contact") %>
+					<%- else%>
+		  				&nbsp;
+					<%- end %>
+				<%- end %>
+		</td>
+ 	</tr>
+	<%- end%>
+	</table>
+<% if person.id%4 == 0 or person.id == person.max %>
+  </tr>
+<% end %>

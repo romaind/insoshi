@@ -1,17 +1,32 @@
-<li>
-  <div class="profile-image">
-    <%= image_link(comment.commenter, :image => :thumbnail) %>
-    <%= image_tag "icons/comment.gif", :class => "icon" %>
-  </div>
-  <p class="meta published">
-    <%= person_link comment.commenter %> said
-    <%= time_ago_in_words(comment.created_at) %> ago
-  </p>
-  <%= display comment.body %>
-
-  <%- if current_person?(comment.commentable) -%>
-  <br />
-  <%= link_to "delete", person_comment_path(@person, comment),
-                        :method => :delete %>
-  <%- end -%>  
-</li>
+<div>
+  <table class="comment_image">
+	<tr>
+		<td class="commenter_image" rowspan="2" >
+          	<%= image_link(comment.commenter, :image => :minithumb) %>
+        </td>
+		<td class="commenter">
+    		<%= person_link comment.commenter %>
+		</td>
+	</tr>
+	<tr>
+		<td class="time">
+    		<%= comment.created_at.strftime("On <b>%d/%m/%Y</b>") %>
+			<br>
+    		<%= comment.created_at.strftime("at <b>%I:%M%p</b>") %>
+		</td>
+	</tr>
+  </table>
+  <table class = "comment">
+	<tr><td colspan = "3" class = "head"></td>
+	<tr><td class ="left_arrow"><%= image_tag "comments/comment_arrow.gif"%></td>
+		<td class = "comment_body"><%= display comment.body %></td>
+		<td class = "right_border"></td>
+	<tr><td colspan = "3" class = "bottom">
+  			<%- if current_person?(comment.commentable) -%>
+				<br />
+  				<%= link_to image_tag("icons/trash.gif"), person_comment_path(@person, comment), :method => :delete %>
+  				<span class = "del"><%= link_to "Delete", person_comment_path(@person, comment), :method => :delete %></span>
+  			<%- end -%>
+		</td>
+	</table>
+</div>

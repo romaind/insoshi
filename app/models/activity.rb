@@ -34,5 +34,5 @@ class Activity < ActiveRecord::Base
                          false, true], 
          :order => 'activities.created_at DESC',
          :limit => GLOBAL_FEED_SIZE)
-  end
+  end  
 end

@@ -1,0 +1,17 @@
+<h1>Editing software</h1>
+
+<%= error_messages_for :software %>
+
+<% form_for(@software) do |f| %>
+  <p>
+    <b>Name</b><br />
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @software %> |
+<%= link_to 'Back', softwares_path %>

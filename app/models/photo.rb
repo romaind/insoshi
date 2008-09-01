@@ -23,18 +23,21 @@ class Photo < ActiveRecord::Base
   
   belongs_to :person
   has_attachment :content_type => :image, 
-                 :storage => :file_system, 
+                 :storage => :file_system,
+                 :processor => :rmagick,
                  :max_size => UPLOAD_LIMIT.megabytes,
                  :min_size => 1,
                  :resize_to => '240>',
-                 :thumbnails => { :thumbnail    => '72>',
+                 :thumbnails => { :profile      => '187x150!',
+                                  :thumbnail    => '90x80!',
+                                  :minithumb    => '60x60!',
                                   :icon         => '36>',
                                   :bounded_icon => '36x36>' }
   
   has_many :activities, :foreign_key => "item_id", :dependent => :destroy
     
   after_save :log_activity
-                 
+  
   # Override the crappy default AttachmentFu error messages.
   def validate
     if filename.nil?

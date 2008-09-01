@@ -1,0 +1,255 @@
+/* *********Project display*********** */
+
+#projects {
+  width: 584px; }
+  #projects h4 {
+    text-align: right;
+    color: #FF9900;
+    font-size: 10pt;
+    font-weight: normal;
+    margin: 0; }
+
+#my_projects {
+  background-color: white;
+  border-top: 2px solid #FF9900; }
+
+.project_item {
+  margin-right: 1px;
+  margin-left: 1px;
+  margin-top: 10px;
+  width: 188px;
+  text-align: right; }
+  .project_item h4 {
+    font-weight: normal;
+    color: #FF9900;
+    margin-top: 0;
+    margin-bottom: 5px; }
+  .project_item .project_details {
+    font-size: 8pt;
+    line-height: 2em;
+    background-color: #EFEFEF;
+    padding-right: 10px; }
+    .project_item .project_details a {
+      color: #FF9900;
+      text-decoration: none; }
+    .project_item .project_details .votes_views {
+      font-size: 8pt; }
+  .project_item .category {
+    font-size: 8pt;
+    background-color: #FF9900;
+    color: white;
+    padding-right: 10px; }
+
+/* *********Pagination display********** */
+.paginate {
+  text-align: right;
+  font-size: 9pt;
+  color: #FF9900; }
+  .paginate a {
+    color: #333333;
+    text-decoration: none; }
+  .paginate .next {
+    color: #FF9900; }
+  .paginate .prev {
+    color: #FF9900; }
+
+/* *********Profile right column********** */
+#right {
+  float: right; }
+
+.profile_right_column {
+  width: 188px;
+  margin-left: 5px;
+  text-align: right; }
+  .profile_right_column h4 {
+    text-align: right;
+    color: #FF9900;
+    font-size: 10pt;
+    font-weight: normal;
+    margin: 0; }
+  .profile_right_column a {
+    color: #333333;
+    text-decoration: none; }
+  .profile_right_column #description_content {
+    background-color: white;
+    border-top: 2px solid #FF9900;
+    width: 188px;
+    padding-bottom: 5px; }
+    .profile_right_column #description_content p {
+      text-align: right;
+      margin: 5px;
+      font-size: 9pt; }
+    .profile_right_column #description_content p:first-letter {
+      margin-left: 20px; }
+  .profile_right_column .column_content {
+    background-color: white;
+    border-top: 2px solid #FF9900;
+    width: 188px;
+    padding-bottom: 5px; }
+    .profile_right_column .column_content #p_status {
+      margin-top: 5px; }
+    .profile_right_column .column_content p {
+      text-align: right;
+      margin: 5px;
+      font-size: 9pt; }
+    .profile_right_column .column_content #cv {
+      text-align: center;
+      font-size: 9pt;
+      margin-bottom: 15px; }
+      .profile_right_column .column_content #cv img {
+        margin-right: 10px; }
+  .profile_right_column .profile_edit {
+    width: 168px;
+    text-align: left;
+    font-size: 8pt;
+    margin-top: 10px;
+    margin-left: 5px; }
+    .profile_right_column .profile_edit img {
+      margin-top: 5px;
+      margin-right: 5px; }
+    .profile_right_column .profile_edit a {
+      color: #333333;
+      text-decoration: none; }
+  .profile_right_column .add {
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 10px; }
+    .profile_right_column .add a {
+      margin-top: 5px;
+      font-size: 9pt;
+      color: #333333; }
+
+.project_edit {
+  width: 168px;
+  text-align: left;
+  font-size: 8pt;
+  margin-top: 2px;
+  margin-left: 5px; }
+  .project_edit img {
+    margin-top: 5px;
+    margin-right: 5px; }
+  .project_edit a {
+    color: #333333;
+    text-decoration: none; }
+
+/* *********Recent Activity*********** */
+#feed_requests {
+  width: 777px; }
+  #feed_requests #minifeeds {
+    text-align: right;
+    width: 583px; }
+    #feed_requests #minifeeds h4 {
+      color: #FF9900;
+      font-size: 10pt;
+      font-weight: normal;
+      margin: 0; }
+    #feed_requests #minifeeds .list_feed {
+      background-color: white;
+      border-top: 2px solid #FF9900;
+      width: 583px;
+      margin-bottom: 20px; }
+      #feed_requests #minifeeds .list_feed table {
+        width: 580px; }
+        #feed_requests #minifeeds .list_feed table td.thumb {
+          width: 36px; }
+        #feed_requests #minifeeds .list_feed table td {
+          vertical-align: top;
+          height: 36px; }
+          #feed_requests #minifeeds .list_feed table td img {
+            margin-left: 10px;
+            margin-bottom: 20px; }
+          #feed_requests #minifeeds .list_feed table td p {
+            margin: 0;
+            font-size: 10pt; }
+            #feed_requests #minifeeds .list_feed table td p a {
+              color: #FF9900;
+              text-decoration: none; }
+
+/* *********Requested contacts partial********** */
+#personal_requests {
+  margin-left: 7px;
+  width: 190px;
+  text-align: right; }
+  #personal_requests h4 {
+    width: 190px;
+    color: #FF9900;
+    font-size: 10pt;
+    font-weight: normal;
+    margin: 0; }
+  #personal_requests #person_request {
+    background-color: white;
+    border-top: 2px solid #FF9900;
+    width: 190px; }
+    #personal_requests #person_request table {
+      width: 190px;
+      text-align: right;
+      font-size: 9pt; }
+      #personal_requests #person_request table a {
+        color: #FF9900;
+        text-decoration: none; }
+
+/* *********Contacts Preview*********** */
+#contact_preview {
+  margin-top: 100px; }
+  #contact_preview h4 {
+    text-align: right;
+    width: 777px;
+    color: #FF9900;
+    font-size: 10pt;
+    font-weight: normal;
+    margin: 0; }
+
+#contacts_small {
+  width: 777px;
+  background-color: white;
+  border-top: 2px solid #FF9900; }
+  #contacts_small table {
+    font-size: 9pt;
+    border-spacing: 7px 5px; }
+    #contacts_small table td.thumb {
+      vertical-align: top;
+      font-size: 8pt;
+      padding-bottom: 10px;
+      width: 194px;
+      height: 80px;
+      border-collapse: separate; }
+      #contacts_small table td.thumb img {
+        float: left;
+        margin-right: 5px; }
+      #contacts_small table td.thumb p {
+        font-size: 7.5pt; }
+      #contacts_small table td.thumb a {
+        font-size: 8pt;
+        color: #FF9900;
+        text-decoration: none; }
+
+/* *********Wall if comments********** */
+#wall_title {
+  font-size: 10pt;
+  font-weight: normal;
+  width: 777px;
+  text-align: right;
+  color: #FF9900;
+  margin: 0; }
+
+.wall {
+  width: 777px;
+  border-top: 2px solid #FF9900;
+  padding-top: 10px;
+  background-color: white; }
+  .wall #wall_form {
+    margin-left: 33px;
+    text-align: center;
+    width: 581px;
+    height: 136px;
+    background-image: url(../images/wall/wall.gif);
+    background-repeat: no-repeat; }
+    .wall #wall_form #wall_comment {
+      color: white;
+      float: left;
+      width: 100px;
+      margin-top: 10px;
+      margin-right: 20px;
+      margin-left: 20px; }
+    .wall #wall_form #wall_textarea {
+      padding-top: 10px; }

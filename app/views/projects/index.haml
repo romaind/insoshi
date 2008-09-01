@@ -1,0 +1,16 @@
+#sort
+  %span#sort_content
+    -form_tag searches_path, :method => :get, :id => "frmSearch" do
+      %label{ :for => "q"}Choose a category:
+      %br
+      = collection_select(nil, :skills, Skill.find(:all), :id, :name,{:prompt   => "All categories"})
+  %h4#sort_title SORT PROJECTS BY CATEGORY
+#what_is
+  %h4
+    =link_to "How to create my network ?"
+
+#projects_page
+  %h4 PROJECTS
+  #my_projects
+    -per_line = 4
+    =render :partial => 'projects_list', :locals => {:per_line => per_line}

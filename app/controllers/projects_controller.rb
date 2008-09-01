@@ -1,12 +1,22 @@
 class ProjectsController < ApplicationController
+
+  before_filter :login_required, :only => [:edit, :update, :new, :create]
+  before_filter :correct_user_required, :only => [:edit, :update, :new, :create]
+  before_filter :correct_project_required, :only => [:edit, :update]
+  before_filter :setup
+  
   # GET /projects
   # GET /projects.xml
   def index
-    @projects = Project.find(:all)
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @projects }
+    if params[:person_id]
+      redirect_to person_path(params[:person_id])
+    else
+      @all_projects = Project.find(:all)
+      @projects = Project.recent_to_older(params[:page])
+      respond_to do |format|
+        format.html # index.html.erb
+        format.xml  { render :xml => @all_projects }
+      end
     end
   end
 
@@ -14,6 +24,9 @@ class ProjectsController < ApplicationController
   # GET /projects/1.xml
   def show
     @project = Project.find(params[:id])
+    @author = Person.find(params[:person_id])
+    @author_projects = @author.projects.paginate(:page => params[:author_page],:per_page => 5, :order => 'created_at DESC')
+    @all_projects = Project.find(:all, :order => 'created_at DESC').paginate(:page => params[:all_page], :per_page => 5)
 
     respond_to do |format|
       format.html # show.html.erb
@@ -57,6 +70,7 @@ class ProjectsController < ApplicationController
   # PUT /projects/1
   # PUT /projects/1.xml
   def update
+    params[:project][:skill_ids] ||= []
     @project = Project.find(params[:id])
 
     respond_to do |format|
@@ -82,4 +96,25 @@ class ProjectsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  private
+
+  def setup
+    @body = "project"
+  end
+
+  def correct_user_required
+    unless Person.find(params[:person_id]) == current_person
+      flash[:error] = "You're not allowed to access this area!"
+      redirect_to person_path(current_person) 
+    end
+  end
+  
+  def correct_project_required
+    unless Project.find(params[:id]).person_id == current_person.id
+      flash[:error] = "You're not allowed to access this area!"
+      redirect_to person_project_path(params[:person_id], params[:id])
+    end
+  end
+  
 end

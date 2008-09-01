@@ -32,17 +32,40 @@ module PeopleHelper
   def person_link(text, person = nil, html_options = nil)
     if person.nil?
       person = text
-      text = person.name
+      text = person.first_name + " " + person.name
     elsif person.is_a?(Hash)
       html_options = person
       person = text
-      text = person.name
+      text = person.first_name + " " + person.name
     end
     # We normally write link_to(..., person) for brevity, but that breaks
     # activities_helper_spec due to an RSpec bug.
     link_to(h(text), person, html_options)
   end
-    
+  
+  #If the field is empty, display depending current person
+  def display_empty_field(field)
+    if current_person?(@person)
+        link = case field
+          when "languages": "#person[language_ids][]"
+          when "software": "#person[language_ids][]"
+          when "tags": "#person_tag_list"
+         # when "tags": "#person[language_ids][]"
+          else "#person_" + field
+          end
+          
+      haml_tag :div, { :class => "add"} do
+        haml_tag :a, {:href => edit_person_path(@person) + link} do
+          haml_tag :img,{ :src => "../images/portfolio/add.gif"}
+        end
+        haml_tag :br
+        haml_tag :a , "Add a " + field.singularize, {:href => edit_person_path(@person) + link}
+      end
+    else
+        "No " + field + "."
+    end
+  end
+  
   private
     
     # Make captioned images.

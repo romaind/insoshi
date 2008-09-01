@@ -1,21 +1,19 @@
+<%= stylesheet_link_tag "current_profile" %>
 <%- column_div :type => :primary do -%>
-  <h2>Messages</h2>
+<div id="inbox">
+  <h4>MESSAGES</h4>
+  <div id="messages">
 
   <%= render :partial => 'message_nav' %>
   
   <%- if @messages.empty? -%>
     <h3 class="blankslate">No messages (yet!)</h3>
   <%- else -%>
-    <%= will_paginate %>
-    <ul class="list messages full">
-      <%= render :partial => "message", :collection => @messages %>
-    </ul>
-    <%= will_paginate %>
+    <%= will_paginate :prev_label => "<span class='prev'><</span>", :next_label => "<span class='next'>></span>", :class =>"paginate" %>
+    <%= render :partial => "message", :collection => @messages %>
+    <%= will_paginate :prev_label => "<span class='prev'><</span>", :next_label => "<span class='next'>></span>", :class =>"paginate" %>
   <%- end -%>
+  </div>
+</div>
 
-<%- end -%>
-
-<%- column_div :type => :secondary do -%>
-  <%= render :partial => 'searches/box' %>
-  <%= render :partial => 'shared/minifeed' %>
 <%- end -%>

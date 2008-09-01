@@ -1,32 +1,30 @@
+  <h4 id="wall_title">COMMENTS WALL</h4>
+<div class="wall">
 <%- if logged_in? -%>
-  <div class="wall">
-    <h2>Comment Wall</h2>
-    <a name="wall"></a>
-    
-    <%- if connected_to?(@person) -%>
+
+    <div id="wall_form" >
+      <div id="wall_comment">
+		Leave a comment on my wall<br>
+		<%- if current_person?(@person) %>
+		 <%= image_tag "wall/comment.gif" %>
+		<%- else %>
+		 <%= image_tag "wall/comment_public.gif" %>
+		<%- end %>
+	  </div>
       <% form_for :comment, :url => person_comments_path(@person) do |f| %>
-        <div class="form_row">
-          <%= f.text_area :body, :rows => 2 %>
+        <div id="wall_textarea">
+          <%= f.text_area :body, :rows => 5 %>
         </div>
   
-        <div class="form_row">
-          <%= submit_tag "Submit", :class => "button" %>
+        <div id="wall_button">
+          <%= submit_tag "SUBMIT", :class => "button" %>
         </div>
-      <% end %>
-    <%- else -%>
-      <p>
-      You must be connected to <%= h @person.name %> to leave a wall comment.
-      </p>
-      <p>
-      <%= link_to "Connect with #{h @person.name} now",
-                  person_connections_path(@person), :method => :post %>
-      </p>
     <%- end -%>
-
+    </div>
+<%- end -%>
     <%- unless @person.comments.empty? -%>
-      <ul class="list comments full">
+      <div id="comments">
         <%= render :partial => 'comment', :collection => @person.comments %>
-      </ul>
+      </div>
     <%- end -%>
   </div>
-<%- end -%>

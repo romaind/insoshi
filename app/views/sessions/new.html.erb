@@ -1,5 +1,77 @@
 <%- column_div :type => :primary do -%>
-  <h2>Sign in</h2>
+
+<table id="alpha_login">
+	<tr>
+		<td colspan="3"><%=image_tag "login_top.gif"%></td>
+	</tr>
+	<tr>
+		<td rowspan="4" id='login_left'></td>
+		<td>The social network for schools and designers</td>
+		<td rowspan="4" id="login_right"></td>
+	</tr>
+	<tr>
+		<td class="login_body">
+		<span id="choice">
+			Choose your language<br>
+			Choisissez votre langue<br>
+			Elige su idioma
+		</span>
+		<span id="languages">
+			<%-form_for(:language, :url => { :action => :index }) do |form| %>
+          		<%=image_submit_tag("flags/uk_on.jpg", :id => "uk", :onMouseOver => "this.src = '/images/flags/uk_on.jpg'") %>
+          		<%=image_submit_tag("flags/fr_off.jpg", :id => "fr", :title => "Coming soon", :onMouseOver => "this.src = '/images/flags/fr_on.jpg'", :onMouseOut => "this.src = '/images/flags/fr_off.jpg'") %>
+          		<%=image_submit_tag("flags/es_off.jpg", :id => "es", :title => "Coming soon", :onMouseOver => "this.src = '/images/flags/es_on.jpg'", :onMouseOut => "this.src = '/images/flags/es_off.jpg'") %>
+          <%-end %>
+		</span>
+		</td>
+	</tr>
+	<tr>
+		<td class="login_body">Please loggin to enter the alpha version
+			<%-form_tag session_path do %>
+				<table class="form_row">
+					<tr>
+					<td>
+            			<label for="email" >Email</label>
+            			<%=text_field_tag('email', params[:email], :maxlength => Person::MAX_EMAIL) %>
+					<td rowspan="2" id="arrow">
+						<%=image_submit_tag "login_arrow.gif" %>
+					</td>
+					</tr>
+					<tr><td>
+          		<%=set_focus_to_id "email"%>
+            		<label for="password">Password</label>
+            		<%=password_field_tag 'password', params[:password], :maxlength => Person::MAX_PASSWORD %>
+					</td>
+					</tr>
+				</table>
+			<%-end %>
+		</td>
+	</tr>
+	<tr>
+		<td class="login_body">
+		<div>Please enter your invitation code<br> for your first visit on Coaliz</div>
+			<table id="invitation_form">
+				<tr><td>
+					<label for="invitation">Code</label>
+					<%=text_field_tag('invitation', params[:invitation]) %>
+					</td>
+					<td>
+					<%=image_submit_tag "login_arrow.gif" %>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="3" id="login_bottom">
+		<%=link_to "contact" %>
+		</td>
+	</tr>
+</table>
+
+
+
+<!-->  <h2>Sign in</h2>
 
   <% form_tag session_path do -%>
     <div class="form_row">
@@ -28,5 +100,5 @@
     <p class="form_row">
       <%= link_to "I forgot my password!", new_password_reminder_path %>
     </p>
-  <% end -%>
+  <% end -%> -->
 <%- end -%>

@@ -1,0 +1,17 @@
+<h1>Editing skill</h1>
+
+<%= error_messages_for :skill %>
+
+<% form_for(@skill) do |f| %>
+  <p>
+    <b>Name</b><br />
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @skill %> |
+<%= link_to 'Back', skills_path %>

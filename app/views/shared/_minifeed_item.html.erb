@@ -1,11 +1,20 @@
 <%- unless minifeed_item.item.nil? -%>
-  <li>
-    <div class="profile-image">
-    <%= image_link minifeed_item.person %>
-  </div>
-  <p><%= minifeed_message minifeed_item %></p>
-  <p class="meta published">
-    <%= time_ago_in_words minifeed_item.created_at %> ago
-  </p>
-  </li>
+<%- if Connection.exists?(minifeed_item.person, current_person) and !minifeed_item.person.admin -%>
+<div>
+  <table class="minifeed" >
+	<tr>
+	  <td>
+  		<p class="meta published">
+    		<%= minifeed_item.created_at.strftime("On <b>%d/%m/%Y</b>") %>
+    		<%= minifeed_item.created_at.strftime("at <b>%I:%M%p</b>") %>
+  		</p>
+  		<p><%= minifeed_message minifeed_item %></p>
+	  </td>
+	  <td class="thumb">
+  		<%= image_link minifeed_item.person %>
+	  </td>
+	</tr>
+  </table>
+</div>
+<%- end -%>
 <%- end -%>

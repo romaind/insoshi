@@ -1,31 +1,73 @@
-<h1>New project</h1>
-
 <%= error_messages_for :project %>
+<div id="project">
+	<h4>New project</h4>
+	<div id="project_global" >
+		<span id="choose_project">
+			<%- form_for current_person do |f| %>
+  			  Select one of your existing projects:<br />
+  			  <%= f.collection_select :projects, current_person.projects, :id, :title %>
+			  <%- disabled = false %>
+			  <%- unless current_person.projects.first %>
+				<%- disabled = "disabled" %>
+			  <%- end %>
+			  <%= f.submit "Edit", :disabled => disabled %>
+			  <input type="hidden", name ="type", value ="project_edit" >
+			<%- end %>
+		</span>
+		<%= link_to image_tag("projects/create_project.gif", :id => "create") %>
+		<%= link_to image_tag("projects/delete_project.gif") %>
 
-<% form_for(@project, :url => person_projects_path) do |f| %>
-  <p>
-    <b>Title</b><br />
-    <%= f.text_field :title %>
-  </p>
+		<div id="project_settings" >
+		<% form_for(@project, :url => person_projects_path) do |f| %>
 
-  <p>
-    <b>Description</b><br />
-    <%= f.text_area :description %>
-  </p>
+  		<p id="project_desc" >
+    		Description of your project:<br />
+    		<%= f.text_area :description %>
+  		</p>
 
-  <p>
-    <b>Views</b><br />
-    <%= f.text_field :views %>
-  </p>
+  		<p id="title" >
+    		Title of your project: <%=image_tag "portfolio/mandatory.gif", :class => "mandatory"%><br />
+    		<%= f.text_field :title %>
+  		</p>
 
-  <p>
-    <b>Licence</b><br />
-    <%= f.text_area :licence %>
-  </p>
+		
+    	<p id="categories">
+			Categories: <%=image_tag "portfolio/mandatory.gif", :class => "mandatory"%>
+		</p>
+		<table>
+  			<%- i=0 %>
+ 			<% for skill in Skill.find(:all) %>
+     			<%- if i%2==0 %>
+        			<tr>
+     			<%- end %>
+        			<td>
+           				<label> <%= skill.name %>
+           				<%= check_box_tag "project[skill_ids][]", skill.id, @project.skills.include?(skill) %></label>
+        			</td>
+     				<%- i+=1 %>
+ 			<%- end %>
+		</table>
+		
+  		<p id="tags" >
+    		<label for ="person_tag_list"> Tag your project (separate with ","):</label>
+          		<%= f.text_field :tag_list, :default => @project.tags.collect{|t| t.name}.join(", ") %>
+  		</p>
 
-  <p>
-    <%= f.submit "Create" %>
-  </p>
-<% end %>
+		<p id="status" >
+    		Status of your project: <%=image_tag "portfolio/mandatory.gif", :class => "mandatory"%><br />
+    		Published <%= check_box :p, :published %><br />
+    		Draft <%= check_box :p, :draft %>
+  		</p>
 
-<%= link_to 'Back', person_projects_path %>
+  		<p>
+			<table id="buttons" >
+				<tr>
+				  <td><%= f.submit "Accept" %></td>
+				  <td><%= link_to button_to("Cancel"), :back %></td>
+				</tr>
+			</table>
+  		</p>
+		<%- end %>
+		</div>		
+	</div>
+</div>
