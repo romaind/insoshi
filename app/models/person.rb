@@ -45,10 +45,10 @@ class Person < ActiveRecord::Base
   acts_as_taggable
   acts_as_state_machine :initial => :pending
   state :pending
-  state :actived
+  state :activated
   
   event :be_active do
-    transitions :to => :actived, :from => :pending
+    transitions :to => :activated, :from => :pending
   end
 
   MAX_EMAIL = MAX_PASSWORD = 40
@@ -112,7 +112,7 @@ class Person < ActiveRecord::Base
   validates_presence_of     :email, :on => :create,
                                 :if => :pending?
   validates_presence_of     :email, :first_name, :name,
-                                :if => :actived?
+                                :if => :activated?
   validates_presence_of     :password,              :if => :password_required?
   validates_presence_of     :password_confirmation, :if => :password_required?
   validates_length_of       :password, :within => 4..MAX_PASSWORD,
@@ -120,7 +120,7 @@ class Person < ActiveRecord::Base
   validates_confirmation_of :password, :if => :password_required?
   validates_length_of       :email, :within => 6..MAX_EMAIL
   validates_length_of       :name,  :maximum => MAX_NAME, :on => :update,
-                                :if => :actived?
+                                :if => :activated?
   validates_length_of       :description, :maximum => MAX_DESCRIPTION
   validates_length_of       :skills, :maximum => MAX_SKILLS
   validates_format_of       :email,

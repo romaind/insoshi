@@ -1,6 +1,7 @@
 class BetaCouponsController < ApplicationController
   
   before_filter :login_required, :admin_required
+  skip_before_filter :require_activation
   
   # GET /beta_coupons
   # GET /beta_coupons.xml
