@@ -45,12 +45,12 @@
 	<tr>
 		<td class="count_common" colspan="2">
 				<%- if person.admin? or current_person.admin? %>
-				  <%- if person.common_connections_with(current_person).length>0 %>
-					<%= pluralize(person.common_connections_with(current_person).length, "common contact") %>
+				  <%- if person.common_contacts_with(current_person).length>0 %>
+					<%= pluralize(person.common_contacts_with(current_person).length, "common contact") %>
 				  <%- end%>
 				<%- else %>
-					<%- if person.common_connections_with(current_person).length-1 > 0 %>
-    					<%= pluralize(person.common_connections_with(current_person).length-1, "common contact") %>
+					<%- if person.common_contacts_with(current_person).length-1 > 0 %>
+    					<%= pluralize(person.common_contacts_with(current_person).length-1, "common contact") %>
 					<%- else%>
 		  				&nbsp;
 					<%- end %>

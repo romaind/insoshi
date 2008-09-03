@@ -1,11 +1,11 @@
 <%- if logged_in? -%>
-  <%- unless @common_connections.empty? -%>
+  <%- unless @common_contacts.empty? -%>
     <h4>COMMON CONTACTS</h4>
     <div id="common_list">
 		<table>
 		<%- i=0 %>
-      <%- @common_connections.each do |connection| -%>
-       <%- unless connection.contact.admin? %>
+      <%- @common_contacts.each do |connection| -%>
+       <%- unless connection.admin? %>
        <%- if i%2==0 %>
 		<tr>
 	   <%- end %>
