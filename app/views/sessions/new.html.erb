@@ -33,14 +33,14 @@
 					<td>
             			<label for="email" >Email</label>
             			<%=text_field_tag('email', params[:email], :maxlength => Person::MAX_EMAIL) %>
-					<td rowspan="2" id="arrow">
-						<%=image_submit_tag "login_arrow.gif" %>
-					</td>
 					</tr>
 					<tr><td>
           		<%=set_focus_to_id "email"%>
             		<label for="password">Password</label>
             		<%=password_field_tag 'password', params[:password], :maxlength => Person::MAX_PASSWORD %>
+					</td>
+					<td>
+					  <%= image_submit_tag "login_arrow.gif" %>
 					</td>
 					</tr>
 				</table>

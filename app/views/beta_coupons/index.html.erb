@@ -1,0 +1,22 @@
+<h1>Listing beta_coupons</h1>
+
+<table>
+  <tr>
+    <th>Coupon</th>
+    <th>User</th>
+  </tr>
+
+<% for beta_coupon in @beta_coupons %>
+  <tr>
+    <td><%=h beta_coupon.coupon %></td>
+    <td><%=h beta_coupon.user_id %></td>
+    <td><%= link_to 'Show', beta_coupon %></td>
+    <td><%= link_to 'Edit', edit_beta_coupon_path(beta_coupon) %></td>
+    <td><%= link_to 'Destroy', beta_coupon, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New beta_coupon', new_beta_coupon_path %>

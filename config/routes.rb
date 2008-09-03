@@ -1,4 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :beta_coupons
+
+  map.resources :beta_coupons
+
   map.resources :softwares
 
   map.resources :skills

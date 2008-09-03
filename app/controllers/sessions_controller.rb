@@ -2,6 +2,7 @@
 class SessionsController < ApplicationController
 
   skip_before_filter :require_activation, :only => [:new, :destroy]
+  skip_before_filter :require_login, :only => [:new, :create]
   layout "login"
 
   def new
@@ -59,7 +60,7 @@ class SessionsController < ApplicationController
     else
       reset_session
       flash[:success] = "You have been logged out."
-      redirect_back_or_default(home_url)
+      redirect_back_or_default(new_session_url)
     end
   end
 end
