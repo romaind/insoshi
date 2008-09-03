@@ -6,8 +6,7 @@
     <% other_person = @message.sender %>
     <% heading = "Message sent to #{h other_person.name}" %>
   <% else %>
-    <% other_person = @message.sender %>
-    <% heading = "Message from #{h other_person.name}" %>
+    <% heading = "Message from #{h @message.sender.name}" %>
   <% end %>
   
   <%= render :partial => 'message_nav' %>

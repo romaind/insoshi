@@ -76,7 +76,6 @@ class MessagesController < ApplicationController
   end
 
   def create
-    
     if params["commit"] == "Send to all" and current_person.admin?
       # Send messages to all (active) people.
       messages = Person.all_active.inject([]) do |messages, person|

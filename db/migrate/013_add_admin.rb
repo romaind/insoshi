@@ -1,21 +1,27 @@
 class AddAdmin < ActiveRecord::Migration
+
+  class Person < ActiveRecord::Base  
+  end
+  
+  class Blog < ActiveRecord::Base
+  end
+
   def self.up
     add_column :people, :admin, :boolean, :default => false, :null => false
     add_column :people, :deactivated, :boolean, 
                         :default => false, :null => false
+    
+    key = Crypto::Key.from_file("#{RAILS_ROOT}/rsa_key.pub")
     person = Person.new(:email => "admin@example.com",
                         :name => "admin", 
                         :first_name => "user",
                         :name => "admin",
-                        :password => "admin",
-                        :password_confirmation => "admin",
+                        :crypted_password => key.encrypt("admin"),
                         :description => "")
     person.admin = true
     person.save!
-    
-    # Create the admin user
-    # execute "INSERT INTO `people` (`email`, `name`, `first_name`, `crypted_password`, `state`, `description`, `admin`, `created_at`) VALUES('admin@coaliz.com', 'admin', 'user', 'ec8c99fc5e2905916dd5f467f1b6c522871b6dd3', 'active', '', 1, NOW())"
-    
+
+    Blog.create(:person_id => person.id)
   end
 
   def self.down
