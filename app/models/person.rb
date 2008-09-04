@@ -422,7 +422,7 @@ class Person < ActiveRecord::Base
   end
 
   def active?
-    if Person.global_prefs.email_verifications?
+    if Person.global_prefs && Person.global_prefs.email_verifications?
       not deactivated? and email_verified?
     else
       not deactivated?

@@ -47,7 +47,7 @@
             %label{ :for => "password" }Password
             =password_field_tag 'password', params[:password], :maxlength => Person::MAX_PASSWORD
 
-          -if global_prefs.can_send_mail?
+          -if global_prefs && global_prefs.can_send_mail?
             %p{ :id => "forgot" }
               =link_to "I forgot my password!", new_password_reminder_path
 

@@ -10,8 +10,8 @@ class ApplicationController < ActionController::Base
   include SimpleCaptcha::ControllerHelpers
   
   before_filter :create_page_view, :require_activation, :tracker_vars,
-                :admin_warning,
-                :require_login
+                :admin_warning# ,
+                #                 :require_login
 
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store

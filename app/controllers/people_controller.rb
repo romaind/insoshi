@@ -2,6 +2,7 @@ class PeopleController < ApplicationController
  
   skip_before_filter :require_activation, :only => :verify_email
   skip_before_filter :admin_warning, :only => [ :show, :update ]
+  skip_before_filter :require_login, :only => [ :coupon_validator]
   before_filter :login_required, :only => [ :edit, :update ]
   before_filter :correct_user_required, :only => [ :edit, :update ]
   before_filter :setup
@@ -146,6 +147,22 @@ class PeopleController < ApplicationController
 
     respond_to do |format|
       format.html
+    end
+  end
+  
+  def coupon_validator
+    if params[:invitation]
+      STDERR.puts 'Coupooooooooon : ' + params[:invitation]
+      if coupon = BetaCoupon.find_by_coupon(params[:invitation])
+        flash[:error] = "OK"
+        redirect_to new_session_path
+      else
+        flash[:error] = "This beta coupon is not valid"
+        redirect_to new_session_path
+      end
+    else
+      flash[:error] = "Please enter a beta coupon"
+      redirect_to new_session_path
     end
   end
   
