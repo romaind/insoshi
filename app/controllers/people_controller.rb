@@ -2,7 +2,7 @@ class PeopleController < ApplicationController
  
   skip_before_filter :require_activation, :only => :verify_email
   skip_before_filter :admin_warning, :only => [ :show, :update ]
-  skip_before_filter :require_login, :only => [ :coupon_validator]
+  skip_before_filter :require_login, :only => [ :coupon_validator, :verify_email]
   before_filter :login_required, :only => [ :edit, :update ]
   before_filter :correct_user_required, :only => [ :edit, :update ]
   before_filter :setup
@@ -45,26 +45,33 @@ class PeopleController < ApplicationController
     @person = Person.new(params[:person])
     respond_to do |format|
       @person.email_verified = false if global_prefs.email_verifications?
-      if simple_captcha_valid?
-        @person.save
-        if @person.errors.empty?
-          if global_prefs.email_verifications?
-            @person.email_verifications.create
-            flash[:notice] = %(Thanks for signing up! A verification email has 
-            been sent to #{@person.email}.)
-            format.html { redirect_to(home_url) }
+      if @betacoupon = BetaCoupon.find_by_coupon(params[:person][:coupon], :conditions => ["person_id is NULL"])
+        if simple_captcha_valid? && 
+          @person.save
+          @betacoupon.person = @person
+          @betacoupon.save
+          if @person.errors.empty?
+            if global_prefs.email_verifications?
+              @person.email_verifications.create
+              flash[:notice] = %(Thanks for signing up! A verification email has 
+              been sent to #{@person.email}.)
+              format.html { redirect_to new_session_path }
+            else
+              self.current_person = @person
+              flash[:notice] = "Thanks for signing up!"
+              format.html { redirect_back_or_default(home_url) }
+            end
           else
-            self.current_person = @person
-            flash[:notice] = "Thanks for signing up!"
-            format.html { redirect_back_or_default(home_url) }
+            @body = "register single-col"
+            format.html { render :action => 'new' }
           end
         else
-          @body = "register single-col"
+          flash[:error] = 'Captcha not valid'
           format.html { render :action => 'new' }
         end
       else
-        flash[:error] = 'Captcha not valid'
-        format.html { render :action => 'new' }
+        flash[:error] = 'Your coupon code is not valid'
+        redirect_to home_url
       end
     end
   rescue ActiveRecord::StatementInvalid
@@ -153,11 +160,11 @@ class PeopleController < ApplicationController
   def coupon_validator
     if params[:invitation]
       STDERR.puts 'Coupooooooooon : ' + params[:invitation]
-      if coupon = BetaCoupon.find_by_coupon(params[:invitation])
-        flash[:error] = "OK"
-        redirect_to new_session_path
+      if coupon = BetaCoupon.find_by_coupon(params[:invitation], :conditions => ["person_id is NULL"])
+        flash[:error] = "Your beta_coupon is valid, now please loggin"
+        redirect_to signup_path(:coupon => params[:invitation])
       else
-        flash[:error] = "This beta coupon is not valid"
+        flash[:error] = "This beta coupon is not valid or already used"
         redirect_to new_session_path
       end
     else

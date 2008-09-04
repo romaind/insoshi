@@ -30,7 +30,10 @@
  
         .form_row
           =show_simple_captcha
-
+          
+        -if params[:coupon]
+          =f.hidden_field :coupon, :value => params[:coupon]
+        
         .form_row
           =image_submit_tag 'icons/go_button_white.jpg', :class => "button"
   

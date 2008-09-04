@@ -108,6 +108,7 @@ class Person < ActiveRecord::Base
   has_and_belongs_to_many :languages
   has_and_belongs_to_many :skills
   has_and_belongs_to_many :softwares
+  has_one :beta_coupon
   
   validates_presence_of     :email, :on => :create,
                                 :if => :pending?
@@ -422,7 +423,7 @@ class Person < ActiveRecord::Base
   end
 
   def active?
-    if Person.global_prefs && Person.global_prefs.email_verifications?
+    if Person.global_prefs.email_verifications?
       not deactivated? and email_verified?
     else
       not deactivated?

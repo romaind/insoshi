@@ -10,15 +10,15 @@ class ApplicationController < ActionController::Base
   include SimpleCaptcha::ControllerHelpers
   
   before_filter :create_page_view, :require_activation, :tracker_vars,
-                :admin_warning# ,
-                #                 :require_login
+                :admin_warning,
+                :require_login
 
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store
   protect_from_forgery # :secret => '71a8c82e6d248750397d166001c5e308'
 
   def require_login
-    unless logged_in?
+    unless logged_in? or BetaCoupon.find_by_coupon(params[:coupon], :conditions => ["person_id is NULL"]) or (params[:person] && BetaCoupon.find_by_coupon(params[:person][:coupon], :conditions => ["person_id is NULL"]))
       redirect_to new_session_url
     end
   end
