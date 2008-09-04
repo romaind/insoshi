@@ -36,7 +36,7 @@ ActionController::Routing::Routes.draw do |map|
      end
   end
   map.namespace :admin do |admin|
-    admin.resources :people, :preferences
+    admin.resources :people, :preferences, :beta_coupons
     admin.resources :forums do |forums|
       forums.resources :topics do |topic|
         topic.resources :posts

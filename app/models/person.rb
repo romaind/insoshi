@@ -179,6 +179,9 @@ class Person < ActiveRecord::Base
     gender == 1 ? "portfolio/man.gif" : "portfolio/woman.gif"
   end
 
+  def display_name
+    (name.blank? || name == "Last Name") && (first_name.blank? || first_name == "First Name") ? email : [name, first_name].compact.join(' ')
+  end
 
   #Return the person's age
   def age
