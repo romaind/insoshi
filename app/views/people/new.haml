@@ -29,7 +29,7 @@
           =f.password_field :password_confirmation, :maxlength => Person::MAX_PASSWORD, :value => "", :class => "sign"
  
         .form_row
-          =show_simple_captcha
+          =show_simple_captcha(:image_style => 'distorted_black')
           
         -if params[:coupon]
           =f.hidden_field :coupon, :value => params[:coupon]
