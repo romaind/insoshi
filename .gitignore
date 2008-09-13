@@ -28,5 +28,3 @@ rsa_key*
 /public/items/*
 sphinx/*
 config/ultrasphinx/*.conf
-config/deploy.rb
-Capfile
