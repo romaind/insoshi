@@ -3,11 +3,7 @@
   <%=h @beta_coupon.coupon %>
 </p>
 
-<p>
-  <b>User:</b>
-  <%=h @beta_coupon.user_id %>
-</p>
 
 
-<%= link_to 'Edit', edit_beta_coupon_path(@beta_coupon) %> |
-<%= link_to 'Back', beta_coupons_path %>
+<%= link_to 'Edit', edit_admin_beta_coupon_path(@beta_coupon) %> |
+<%= link_to 'Back', admin_beta_coupons_path %>

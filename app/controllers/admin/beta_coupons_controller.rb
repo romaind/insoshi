@@ -51,7 +51,7 @@ class Admin::BetaCouponsController < ApplicationController
     respond_to do |format|
       if @beta_coupon.save
         flash[:notice] = 'BetaCoupon was successfully created.'
-        format.html { redirect_to(@beta_coupon) }
+        format.html { redirect_to(admin_beta_coupon_path(@beta_coupon)) }
         format.xml  { render :xml => @beta_coupon, :status => :created, :location => @beta_coupon }
       else
         format.html { render :action => "new" }
@@ -84,7 +84,7 @@ class Admin::BetaCouponsController < ApplicationController
     @beta_coupon.destroy
 
     respond_to do |format|
-      format.html { redirect_to(beta_coupons_url) }
+      format.html { redirect_to(admin_beta_coupons_url) }
       format.xml  { head :ok }
     end
   end

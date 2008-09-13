@@ -1,6 +1,6 @@
 <h1>New beta_coupon</h1>
 
-<% form_for(@beta_coupon) do |f| %>
+<% form_for(@beta_coupon, :url => admin_beta_coupons_path) do |f| %>
   <%= f.error_messages %>
 
   <p>
@@ -8,12 +8,8 @@
     <%= f.text_field :coupon %>
   </p>
   <p>
-    <%= f.label :user_id %><br />
-    <%= f.text_field :user_id %>
-  </p>
-  <p>
     <%= f.submit "Create" %>
   </p>
 <% end %>
 
-<%= link_to 'Back', beta_coupons_path %>
+<%= link_to 'Back', admin_beta_coupons_path %>
