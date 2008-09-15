@@ -75,7 +75,7 @@ namespace :coaliz do
     run <<-CMD
     rm -rf #{current_path}/public/items #{current_path}/public/photos &&
     ln -nfs #{shared_path}/files/items #{current_path}/public/items &&
-    ln -nfs #{shared_path}/files/photos #{current_path}/public/photos &&
+    ln -nfs #{shared_path}/files/photos #{current_path}/public/photos
     CMD
   end
 end
