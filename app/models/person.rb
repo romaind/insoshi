@@ -439,9 +439,10 @@ class Person < ActiveRecord::Base
             WHERE ((person_id = ? OR person_id = ?)
                   AND status = ? AND
                   contact.deactivated = ? AND
+                  contact_id != ? AND contact_id != ? AND
                   (contact.email_verified IS NULL
                   OR contact.email_verified = ?)))
-    conditions = [sql, id, contact.id, Connection::ACCEPTED, false, true]
+    conditions = [sql, id, contact.id, Connection::ACCEPTED, false, id, contact.id, true]
     opts = { :page => page, :per_page => RASTER_PER_PAGE }
     connections = 
     @common_contacts ||= Person.find(Connection.
