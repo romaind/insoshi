@@ -1,23 +1,59 @@
 <%- if logged_in? -%>
   <%- unless @common_contacts.empty? -%>
     <h4>COMMON CONTACTS</h4>
-    <div id="common_list">
-		<table>
-		<%- i=0 %>
-      <%- @common_contacts.each do |connection| -%>
-       <%- unless connection.admin? %>
-       <%- if i%2==0 %>
-		<tr>
-	   <%- end %>
-        	<td class="thumb">
-          		<%= image_link(connection,	:image => :minithumb,
-                         							:image_options => { :class => "photo fn" },
-                         							:link_options =>  { :class => "url" }) %>
-        	</td>
-		<%- i+=1 %>
-		<%- end %>
-      <%- end -%>
-    </table>
-  </div>
+    <div id="contacts_small">
+    	<table>
+        <%- @person.common_contacts_with(current_person).in_groups_of(3) do |row| -%>
+        	<tr>
+        	<%- row.each do |contact| %>
+        	  <%- if contact %>
+              <%- if !current_person?(@person) %>
+          			<td class="thumb">
+       					<%= image_link(contact, :image => :thumbnail,
+                           						:image_options => { :class => "photo fn" },
+                           						:link_options =>  { :class => "url" }) %>
+    					  <table>
+    						  <tr>
+    	  				    <td>
+          					  <b><%= person_link contact, :class => "url fn" %></b>
+          					</td>
+    						  </tr>
+    						  <tr>
+    							  <td class="add_cell">
+    								  <%- if logged_in? %>
+    									  <%- if contact.city #and person.country %>
+    										  <%= contact.city.capitalize %>
+    									  <%- else %>
+    										  &nbsp;
+    									  <%- end%>
+    								  <%- end %>
+    							  </td>
+    						  </tr>
+    						  <tr>
+    							  <td class="person_skill">
+    								  <p>
+    									  <%- if contact.skills.empty? %>
+    			  							&nbsp;
+    									  <%- else %>
+    			  							<%= truncate(contact.skills.collect{|u| u.name}.join(", "), 40) %>
+    									  <%- end %>
+    								  </p>
+    							  </td>
+    						  </tr>
+    					  </table>
+    						<%- if current_person?(@person) and not(current_person.admin?) %>
+    							<div class="delete">
+    								<%= link_to image_tag ("icons/delete.gif"), connection_path(Connection.conn(current_person, contact)), :method => :delete, :confirm => "Are you sure you want to end connection with #{h contact.first_name} #{h contact.name}?" %>
+    								<%= link_to "Delete", connection_path(Connection.conn(current_person, contact)), :method => :delete, :confirm => "Are you sure you want to end connection with #{h contact.first_name} #{h person.name}?" %>
+    							</div>
+    						<%- end %>
+          		  </td>
+          		<%- end -%>
+    			  <%- end %>
+        	<%- end -%>
+        	</tr>
+        <%- end -%>
+      </table>
+    </div>
   <%- end -%>
 <%- end %>

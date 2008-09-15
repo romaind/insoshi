@@ -326,7 +326,6 @@ class Person < ActiveRecord::Base
     photo.nil? ? "defaults/default_minithumb.gif" : photo.public_filename(:minithumb)
   end
 
-
   def icon
     photo.nil? ? "defaults/default_icon.png" : photo.public_filename(:icon)
   end
@@ -438,10 +437,10 @@ class Person < ActiveRecord::Base
     sql = %(SELECT DISTINCT contact_id FROM connections
             INNER JOIN people contact ON connections.contact_id = contact.id
             WHERE ((person_id = ? OR person_id = ?)
-                   AND status = ? AND
-                   contact.deactivated = ? AND
-                   (contact.email_verified IS NULL
-                    OR contact.email_verified = ?)))
+                  AND status = ? AND
+                  contact.deactivated = ? AND
+                  (contact.email_verified IS NULL
+                  OR contact.email_verified = ?)))
     conditions = [sql, id, contact.id, Connection::ACCEPTED, false, true]
     opts = { :page => page, :per_page => RASTER_PER_PAGE }
     connections = 

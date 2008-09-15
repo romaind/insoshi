@@ -41,12 +41,7 @@
           =pluralize(420, "total view")
           %br
           =pluralize(102, "total vote")
-          %br
-          =pluralize(6, "contest's participation")
-          %br
-          =pluralize(2, "contest's win")
-          %br
-          3 contest's "top 5"
+
 
       =render :partial => 'actions'
     = image_tag "profile_bottom.gif"
@@ -172,8 +167,9 @@
 -if logged_in?
   #contacts
     #contact_preview
-      = render :partial => 'shared/contacts_preview', :locals => { :person => @person }
-    #common_contacts
-      = render :partial => 'common_contacts'
+      =render :partial => 'shared/contacts_preview'#, :locals => { :person => @person }
+    -if !current_person?(@person)
+      #common_contacts
+        =render :partial => 'common_contacts'
 
 = render :partial => 'wall'
