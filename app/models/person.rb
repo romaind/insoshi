@@ -433,7 +433,7 @@ class Person < ActiveRecord::Base
   end
 
   # Return the common connections with the given person.
-  def common_contacts_with(contact, page = 1)
+  def common_contacts_with_old(contact, page = 1)
     sql = %(SELECT DISTINCT contact_id FROM connections
             INNER JOIN people contact ON connections.contact_id = contact.id
             WHERE ((person_id = ? OR person_id = ?)
@@ -443,6 +443,34 @@ class Person < ActiveRecord::Base
                   (contact.email_verified IS NULL
                   OR contact.email_verified = ?)))
     conditions = [sql, id, contact.id, Connection::ACCEPTED, false, id, contact.id, true]
+    opts = { :page => page, :per_page => RASTER_PER_PAGE }
+    connections = 
+    @common_contacts ||= Person.find(Connection.
+                                     paginate_by_sql(conditions, opts).
+                                     map(&:contact_id)).paginate
+  end
+  
+  def common_contacts_with(contact, page = 1)
+    sql = %(SELECT DISTINCT contact_id FROM connections
+                   INNER JOIN people contact ON connections.contact_id = contact.id
+                   WHERE (person_id = ?
+                   AND status = ? AND
+                   contact.deactivated = ? AND
+                   contact_id != ? AND contact_id != ? AND
+                   (contact.email_verified IS NULL
+                   OR contact.email_verified = ?))
+                  AND contact_id in (SELECT DISTINCT contact_id FROM connections
+                   INNER JOIN people contact ON connections.contact_id = contact.id
+                   WHERE (person_id = ?
+                   AND status = ? AND
+                   contact.deactivated = ? AND
+                   contact_id != ? AND contact_id != ? AND
+                   (contact.email_verified IS NULL
+                   OR contact.email_verified = ?))
+                  ))
+                  
+                  
+    conditions = [sql, id, Connection::ACCEPTED, false, id, contact.id, true, contact.id, Connection::ACCEPTED, false, id, contact.id, true]
     opts = { :page => page, :per_page => RASTER_PER_PAGE }
     connections = 
     @common_contacts ||= Person.find(Connection.
