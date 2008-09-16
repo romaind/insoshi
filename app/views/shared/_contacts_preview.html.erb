@@ -1,70 +1,56 @@
 <h4>CONTACTS</h4>
 <div id="contacts_small">
-<%- hidden_admin = 0 %>
-<%- @person.contacts.each do |contact| %>
-  <%- if not(contact.admin?) %>
-    <%- hidden_admin +=1 %>
-  <%- end %>
-<%- end %>
-<%- if @some_contacts.empty? or hidden_admin == 0 -%>
-	<p id="nocontact">No contact</p>
-<%- else %>
-	<table>
-		<%- i=0 %>
-    	<%- @person.contacts.each do |contact| -%>
-            <%- if current_person?(@person) %>
-    			<%- if i%4 == 0 %>
-      				<tr>
-    			<% end %>
-			<%- else %>
-				<%- if i%3 == 0 %>
-      				<tr>
-    			<% end %>
-			<%- end %>
-			<%- if not(contact.admin?) %>
-      			<td class="thumb">
-   					<%= image_link(contact, :image => :thumbnail,
-                       						:image_options => { :class => "photo fn" },
-                       						:link_options =>  { :class => "url" }) %>
-					<table>
-						<tr>
-	  				<td>
-      							<b><%= person_link contact, :class => "url fn" %></b>
-      						</td>
-						</tr>
-						<tr>
-							<td class="add_cell">
-								<%- if logged_in?%>
-									<%- if contact.city #and person.country %>
-										<%= contact.city.capitalize %>
-									<%- else %>
-										&nbsp;
-									<%- end%>
-								<%- end %>
-							</td>
-						</tr>
-						<tr>
-							<td class="person_skill">
-								<p>
-									<%- if contact.skills.empty? %>
-			  							&nbsp;
-									<%- else %>
-			  							<%= truncate(contact.skills.collect{|u| u.name}.join(", "), 40) %>
-									<%- end %>
-								</p>
-							</td>
-						</tr>
-					</table>
-						<%- if current_person?(@person) and not(current_person.admin?) %>
-							<div class="delete">
-								<%= link_to image_tag ("icons/delete.gif"), connection_path(Connection.conn(current_person, contact)), :method => :delete, :confirm => "Are you sure you want to end connection with #{h contact.first_name} #{h contact.name}?" %>
-								<%= link_to "Delete", connection_path(Connection.conn(current_person, contact)), :method => :delete, :confirm => "Are you sure you want to end connection with #{h contact.first_name} #{h contact.name}?" %>
-							</div>
-						<%- end %>
-      			</td>
-			<%- i+=1 %>
-			<%- end %>
-    	<%- end -%>
-    </table>
-<%- end -%>
+  <%- if @some_contacts.empty? -%>
+  	<p id="nocontact">No contact</p>
+  <%- else %>
+  	<table>
+      <%- @some_contacts.in_groups_of(3) do |row| -%>
+      	<tr>
+      	<%- row.each do |contact| %>
+      	  <%- if contact -%>
+            <td class="thumb">
+       			  <%= image_link( contact, :image => :thumbnail,
+                           						:image_options => { :class => "photo fn" },
+                           						:link_options =>  { :class => "url" }) %>
+    				  <table>
+    				    <tr>
+    	  		      <td>
+          				  <b><%= person_link contact, :class => "url fn" %></b>
+          				</td>
+    						</tr>
+    						<tr>
+    							<td class="add_cell">
+    								<%- if logged_in?%>
+    									<%- if contact.city #and person.country %>
+    										<%= contact.city.capitalize %>
+    									<%- else %>
+    										&nbsp;
+    									<%- end%>
+    								<%- end %>
+    							</td>
+    						</tr>
+    						<tr>
+    							<td class="person_skill">
+    								<p>
+    									<%- if contact.skills.empty? %>
+    			  							&nbsp;
+    									<%- else %>
+    			  							<%= truncate(contact.skills.collect{|u| u.name}.join(", "), 40) %>
+    									<%- end %>
+    								</p>
+    							</td>
+    						</tr>
+    					</table>
+    					<%- if current_person?(@person) and not(current_person.admin?) %>
+    						<div class="delete">
+    						  <%= link_to image_tag ("icons/delete.gif"), connection_path(Connection.conn(current_person, contact)), :method => :delete, :confirm => "Are you sure you want to end connection with #{h contact.first_name} #{h contact.name}?" %>
+    							<%= link_to "Delete", connection_path(Connection.conn(current_person, contact)), :method => :delete, :confirm => "Are you sure you want to end connection with #{h contact.first_name} #{h contact.name}?" %>
+    						</div>
+    					<%- end %>
+          		</td>
+          	<%- end -%>
+        	<%- end -%>
+      	<%- end -%>
+      </table>
+  <%- end -%>
 </div>
