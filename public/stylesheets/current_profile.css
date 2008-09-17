@@ -2,7 +2,18 @@
 
 #tabs {
 	margin-top: 10px;
-  width: 777px;}
+  width: 777px;
+	border-bottom: 2px solid #FF9900;
+	margin-bottom: 10px;}
+	#tabs a{
+/*		background-image: url(../images/portfolio/block1White.gif);*/
+/*		color: #FFFFFF;*/
+		font-size: 8pt;
+	}
+	#tabs div{
+/*		background-image: url(../images/portfolio/block1Yellow.gif);*/
+		color: #FFFFFF;
+	}
 
 #projects {
   width: 584px; }
