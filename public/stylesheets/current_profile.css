@@ -1,5 +1,9 @@
 /* *********Project display*********** */
 
+#tabs {
+	margin-top: 10px;
+  width: 777px;}
+
 #projects {
   width: 584px; }
   #projects h4 {
@@ -137,7 +141,7 @@
   width: 777px; }
   #feed_requests #minifeeds {
     text-align: right;
-    width: 583px; }
+    width: 777px; }
     #feed_requests #minifeeds h4 {
       color: #FF9900;
       font-size: 10pt;
@@ -146,15 +150,15 @@
     #feed_requests #minifeeds .list_feed {
       background-color: white;
       border-top: 2px solid #FF9900;
-      width: 583px;
+      width: 777px;
       margin-bottom: 20px; }
       #feed_requests #minifeeds .list_feed table {
-        width: 580px; }
+        width: 777px; }
         #feed_requests #minifeeds .list_feed table td.thumb {
           width: 36px; }
         #feed_requests #minifeeds .list_feed table td {
           vertical-align: top;
-          height: 36px; }
+          height: 36px;}
           #feed_requests #minifeeds .list_feed table td img {
             margin-left: 10px;
             margin-bottom: 20px; }
@@ -167,11 +171,11 @@
 
 /* *********Requested contacts partial********** */
 #personal_requests {
-  margin-left: 7px;
-  width: 190px;
+/*  margin-left: 7px;*/
+  width: 777px;
   text-align: right; }
   #personal_requests h4 {
-    width: 190px;
+    width: 777px;
     color: #FF9900;
     font-size: 10pt;
     font-weight: normal;
@@ -179,18 +183,21 @@
   #personal_requests #person_request {
     background-color: white;
     border-top: 2px solid #FF9900;
-    width: 190px; }
+    width: 777px; }
     #personal_requests #person_request table {
-      width: 190px;
+/*      width: 777px;*/
       text-align: right;
       font-size: 9pt; }
+			#personal_requests #person_request table td{
+				width: 194px;
+			}
       #personal_requests #person_request table a {
         color: #FF9900;
         text-decoration: none; }
 
 /* *********Contacts Preview*********** */
 #contact_preview {
-  margin-top: 100px; }
+  margin-top: 10px; }
   #contact_preview h4 {
     text-align: right;
     width: 777px;

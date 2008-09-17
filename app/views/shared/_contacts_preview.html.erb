@@ -4,7 +4,7 @@
   	<p id="nocontact">No contact</p>
   <%- else %>
   	<table>
-      <%- @some_contacts.in_groups_of(3) do |row| -%>
+      <%- @some_contacts.in_groups_of(4) do |row| -%>
       	<tr>
       	<%- row.each do |contact| %>
       	  <%- if contact -%>
