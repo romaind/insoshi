@@ -50,7 +50,7 @@
   
     #tabs
       -if current_person?(@person)
-        %ul.clearfix
+        %ul.clearfix.yellow
           -if not params[:tab] or params[:tab] == 'page'
             %li.current
               =link_to 'My page', person_url(@person, :tab => 'page') 
@@ -90,15 +90,17 @@
         
         
       -else
-        =link_to 'His page', person_url(@person, :tab => 'page')
-        |
-        =link_to 'His contacts', person_url(@person, :tab => 'contacts')
-        |
-        =link_to 'His favorites', person_url(@person, :tab => 'favorites')
-        |
-        =link_to 'His groups', person_url(@person, :tab => 'groups')
-        |
-        =link_to 'His comments', person_url(@person, :tab => 'comments')
+        %ul.clearfix.green
+          %li.current
+            =link_to 'His page', person_url(@person, :tab => 'page')
+          %li
+            =link_to 'His contacts', person_url(@person, :tab => 'contacts')
+          %li
+            =link_to 'His favorites', person_url(@person, :tab => 'favorites')
+          %li
+            =link_to 'His groups', person_url(@person, :tab => 'groups')
+          %li
+            =link_to 'His comments', person_url(@person, :tab => 'comments')
 
     -if not params[:tab] or params[:tab] == 'page'
       #right

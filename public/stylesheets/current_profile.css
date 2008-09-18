@@ -43,7 +43,6 @@
 	}
 	#tabs ul li{
 		float: left;
-		background: url("../images/MenuTabsYellow109.gif") no-repeat scroll left -19px;
 		list-style-image: none;
 		list-style-position: outside;
 		list-style-type: none;
@@ -55,12 +54,26 @@
 			font-size: 11px;
 			font-weight: bold;
 			color: #FFFFFF;
-/*			padding-left: 20px;*/
 		}
-	#tabs ul li.current{
-		background: url("../images/MenuTabsYellow109.gif") no-repeat left top;}
-		#tabs ul li.current a{
+		#tabs ul.yellow li{
+			background: url("../images/MenuTabsYellow109.gif") no-repeat scroll left -19px;
+		}
+		#tabs ul.yellow li a{
+		}
+		#tabs ul.yellow li.current{
+			background: url("../images/MenuTabsYellow109.gif") no-repeat left top;
+		}
+		#tabs ul.yellow li.current a{
 			color: #FF9900;
+		}
+		#tabs ul.green li{
+			background: url("../images/MenuTabsGreen109.gif") no-repeat scroll left -19px;
+		}
+		#tabs ul.green li.current{
+			background: url("../images/MenuTabsGreen109.gif") no-repeat scroll left top;
+		}
+		#tabs ul.green li.current a{
+			color: #009900;
 		}
 
 /* *********Project display*********** */
