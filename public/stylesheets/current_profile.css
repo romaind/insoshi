@@ -1,19 +1,69 @@
-/* *********Project display*********** */
+/* @group utility */
+	/*
+	Specific stuff, hacks, whatever...
+	*/
+	
+	/* Clearing by Tony Aslett
+	add clearfix class to any containter that must enclose floated elements
+	explained at http://www.positioniseverything.net/easyclearing.html */
+	
+	.clearfix:after {
+		content: ".";
+		display: block;
+		height: 0;
+		clear: both;
+		visibility: hidden;
+	}
+	
+	.clearfix {
+		display: inline-block;
+	}
+	
+	/* Hides from IE-mac \*/
+	
+	* html .clearfix {
+		height: 1%;
+	}
+	
+	.clearfix {
+		display: block;
+	}
+	/* End hide from IE-mac */
+/* @end */
 
 #tabs {
 	margin-top: 10px;
   width: 777px;
-	border-bottom: 2px solid #FF9900;
 	margin-bottom: 10px;}
-	#tabs a{
-/*		background-image: url(../images/portfolio/block1White.gif);*/
-/*		color: #FFFFFF;*/
-		font-size: 8pt;
+	#tabs ul{
+		width: 777px;
+		height: 19px;
+		padding: 0 0 0 0;
+/*		border-bottom: 2px solid #FF9900;*/
 	}
-	#tabs div{
-/*		background-image: url(../images/portfolio/block1Yellow.gif);*/
-		color: #FFFFFF;
-	}
+	#tabs ul li{
+		float: left;
+		background: url("../images/MenuTabsYellow109.gif") no-repeat scroll left -19px;
+		list-style-image: none;
+		list-style-position: outside;
+		list-style-type: none;
+		text-align: center;
+		width: 111px;
+		height: 19px;}
+		#tabs ul li a{
+			text-decoration: none;
+			font-size: 11px;
+			font-weight: bold;
+			color: #FFFFFF;
+/*			padding-left: 20px;*/
+		}
+	#tabs ul li.current{
+		background: url("../images/MenuTabsYellow109.gif") no-repeat left top;}
+		#tabs ul li.current a{
+			color: #FF9900;
+		}
+
+/* *********Project display*********** */
 
 #projects {
   width: 584px; }
