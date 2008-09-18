@@ -74,7 +74,7 @@
               =link_to 'My favorites', person_url(@person, :tab => 'favorites')
           -else
             %li
-              =link_to 'Mes commentaires', person_url(@person, :tab => 'favorites')
+              =link_to 'Mes favorites', person_url(@person, :tab => 'favorites')
           -if params[:tab] == 'groups'
             %li.current
               =link_to 'My groups', person_url(@person, :tab => 'groups')
