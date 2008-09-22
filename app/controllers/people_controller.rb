@@ -1,6 +1,7 @@
 class PeopleController < ApplicationController
  
   skip_before_filter :require_activation, :only => :verify_email
+  skip_before_filter :must_be_active, :only => [:verify_email, :edit, :update ]
   skip_before_filter :admin_warning, :only => [ :show, :update ]
   skip_before_filter :require_login, :only => [ :coupon_validator, :verify_email]
   before_filter :login_required, :only => [ :edit, :update ]
@@ -88,7 +89,6 @@ class PeopleController < ApplicationController
       cookies.delete :auth_token
       person = verification.person
       person.email_verified = true; person.save!
-      person.be_active!
       self.current_person = person
       flash[:success] = "Email verified. Your profile is active! Please fill your personnal informations !!"
       redirect_to edit_person_path(person)
@@ -114,6 +114,7 @@ class PeopleController < ApplicationController
         @country = Country.find(params[:person][:country_id])
         @person.origin_country = @country
         if !preview? and @person.update_attributes(params[:person])
+          @person.be_active!
           flash[:success] = 'Profile updated!'
           format.html { redirect_to(@person) }
         else
