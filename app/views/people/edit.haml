@@ -38,11 +38,8 @@
         =image_tag "portfolio/mandatory.gif", :class => "mandatory"
 
       .form_row
-        -request_language = request.env['HTTP_ACCEPT_LANGUAGE']
-        -request_language = request_language.nil? ? nil : request_language[/[^,;]+/]
-
         %label{ :for => "person_country_id" } Country:
-        =f.select :country_id, Country.find(:all).map{|obj| [obj.name,obj.id]}, {:selected => request_language}
+        =f.select :country_id, Country.find(:all).map{|obj| [obj.name,obj.id]}
         =image_tag "portfolio/mandatory.gif", :class => "mandatory"
 
       .form_row
