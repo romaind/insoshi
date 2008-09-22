@@ -67,16 +67,15 @@ namespace :deploy do
 end
 
 # A callback 
-# after "deploy:symlink", "coaliz:symlink_shared"
+after "deploy:symlink", "coaliz:symlink_shared"
 
 namespace :coaliz do 
   desc "Symlinks shared folders into current/public"
   task :symlink_shared do
     run <<-CMD
-    rm -rf #{current_path}/public/avatars #{current_path}/public/upshots #{current_path}/public/tmp && 
-    ln -nfs #{shared_path}/files/avatars #{current_path}/public/avatars &&
-    ln -nfs #{shared_path}/files/upshots #{current_path}/public/upshots &&
-    ln -nfs #{shared_path}/files/tmp #{current_path}/public/tmp
+    rm -rf #{current_path}/public/items #{current_path}/public/photos &&
+    ln -nfs #{shared_path}/files/items #{current_path}/public/items &&
+    ln -nfs #{shared_path}/files/photos #{current_path}/public/photos
     CMD
   end
 end

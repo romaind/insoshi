@@ -41,139 +41,194 @@
           =pluralize(420, "total view")
           %br
           =pluralize(102, "total vote")
-          %br
-          =pluralize(6, "contest's participation")
-          %br
-          =pluralize(2, "contest's win")
-          %br
-          3 contest's "top 5"
+
 
       =render :partial => 'actions'
     = image_tag "profile_bottom.gif"
 
   #my_page
-    #right
-      .profile_right_column
-        %h4 DESCRIPTION
-        -if @person.description?
-          #description_content
-            %p
-              = truncate(@person.description, 400)
-            -if current_person?(@person)
-              .profile_edit
-                =link_to image_tag("icons/mini_edit.gif") + "Edit", edit_person_path(@person) + "#person_description"
-        -else
-          .column_content
-            -if current_person?(@person)
-              .add
-                =link_to image_tag("portfolio/add.gif"), edit_person_path(@person) + "#person_description"
-                %br
-                =link_to "Add a description", edit_person_path(@person) + "#person_description"
-            -else
+  
+    #tabs
+      -if current_person?(@person)
+        %ul.clearfix.yellow
+          -if not params[:tab] or params[:tab] == 'page'
+            %li.current
+              =link_to 'My page', person_url(@person, :tab => 'page') 
+          -else
+            %li
+              =link_to 'My page', person_url(@person, :tab => 'page') 
+          -if params[:tab] == 'news'
+            %li.current
+              =link_to 'My news', person_url(@person, :tab => 'news')
+          -else
+            %li
+              =link_to 'My news', person_url(@person, :tab => 'news')
+          -if params[:tab] == 'contacts'
+            %li.current
+              =link_to 'My contacts', person_url(@person, :tab => 'contacts')
+          -else
+            %li
+              =link_to 'My contacts', person_url(@person, :tab => 'contacts')
+          -if params[:tab] == 'favorites'
+            %li.current
+              =link_to 'My favorites', person_url(@person, :tab => 'favorites')
+          -else
+            %li
+              =link_to 'My favorites', person_url(@person, :tab => 'favorites')
+          -if params[:tab] == 'groups'
+            %li.current
+              =link_to 'My groups', person_url(@person, :tab => 'groups')
+          -else
+            %li
+              =link_to 'My groups', person_url(@person, :tab => 'groups')
+          -if params[:tab] == 'comments'
+            %li.current
+              =link_to 'My comments', person_url(@person, :tab => 'comments')
+          -else
+            %li
+              =link_to 'My comments', person_url(@person, :tab => 'comments')
+        
+        
+      -else
+        %ul.clearfix.green
+          %li.current
+            =link_to 'His page', person_url(@person, :tab => 'page')
+          %li
+            =link_to 'His contacts', person_url(@person, :tab => 'contacts')
+          %li
+            =link_to 'His favorites', person_url(@person, :tab => 'favorites')
+          %li
+            =link_to 'His groups', person_url(@person, :tab => 'groups')
+          %li
+            =link_to 'His comments', person_url(@person, :tab => 'comments')
+
+    -if not params[:tab] or params[:tab] == 'page'
+      #right
+        .profile_right_column
+          %h4 DESCRIPTION
+          -if @person.description?
+            #description_content
               %p
-                No description.
-    
-      .profile_right_column
-        %h4 STATUS
-        .column_content
-          %p
-            -if false#@person.status
+                = truncate(@person.description, 400)
               -if current_person?(@person)
-                =select :p, :status, ["Working", "Studying", "Looking for a job", "Looking for a partner"]
-                /Status selected by clicking on status option
-              -else
-                = display(@person.status)
-            -else
+                .profile_edit
+                  =link_to image_tag("icons/mini_edit.gif") + "Edit", edit_person_path(@person) + "#person_description"
+          -else
+            .column_content
               -if current_person?(@person)
                 .add
-                  =link_to image_tag("portfolio/add.gif"), edit_person_path(@person) + "#p_status" #"#person_status"
+                  =link_to image_tag("portfolio/add.gif"), edit_person_path(@person) + "#person_description"
                   %br
-                  =link_to "Set status", edit_person_path(@person) + "#p_status" #"#person_status"
+                  =link_to "Add a description", edit_person_path(@person) + "#person_description"
               -else
-                No status.
-
-      .profile_right_column
-        %h4 WEBSITE
-        .column_content
-          %p
-            -if @person.website?
-              = link_to @person.website, "http://" + @person.website
-              -if current_person?(@person)
-                .profile_edit
-                  =link_to image_tag("icons/mini_edit.gif") + "Edit", edit_person_path(@person) + "#person_website"
-            -else
-              =display_empty_field("website")
-  
-      .profile_right_column
-        %h4 LANGUAGES
-        .column_content
-          %p
-            -if @person.languages
-              =@person.languages.collect{|language| language.name}.join(", ")
-              -if current_person?(@person)
-                .profile_edit
-                  =link_to image_tag("icons/mini_edit.gif") + "Edit", edit_person_path(@person) + "#person[language_ids][]"
-            -else
-              =display_empty_field("languages")
-
-      .profile_right_column
-        %h4 SOFTWARE
-        .column_content
-          %p
-            -if @person.softwares
-              =@person.softwares.collect{|software| software.name}.join(", ")
-              -if current_person?(@person)
-                .profile_edit
-                  =link_to image_tag("icons/mini_edit.gif") + "Edit", edit_person_path(@person) + "#person[software_ids][]"
-            -else
-              =display_empty_field("software")
+                %p
+                  No description.
     
-      .profile_right_column
-        %h4 CV
-        .column_content
-          %p
-            -if @person.cv?
-              #cv
-                =link_to image_tag("portfolio/logoPDF.jpg") #, person_cv_path
-                %br
-                =link_to "My CV"
-              =link_to image_tag("portfolio/get_adobe.jpg"), "http://www.adobe.fr/products/acrobat/readstep2.html"
-              -if current_person?(@person)
-                .profile_edit
-                  =link_to image_tag("icons/mini_edit.gif") + "Edit", edit_person_path(@person) + "#person_cv"
-            -else
-              =display_empty_field("cv")
+        .profile_right_column
+          %h4 STATUS
+          .column_content
+            %p
+              -if false#@person.status
+                -if current_person?(@person)
+                  =select :p, :status, ["Working", "Studying", "Looking for a job", "Looking for a partner"]
+                  /Status selected by clicking on status option
+                -else
+                  = display(@person.status)
+              -else
+                -if current_person?(@person)
+                  .add
+                    =link_to image_tag("portfolio/add.gif"), edit_person_path(@person) + "#p_status" #"#person_status"
+                    %br
+                    =link_to "Set status", edit_person_path(@person) + "#p_status" #"#person_status"
+                -else
+                  No status.
+
+        .profile_right_column
+          %h4 WEBSITE
+          .column_content
+            %p
+              -if @person.website?
+                = link_to @person.website, "http://" + @person.website
+                -if current_person?(@person)
+                  .profile_edit
+                    =link_to image_tag("icons/mini_edit.gif") + "Edit", edit_person_path(@person) + "#person_website"
+              -else
+                =display_empty_field("website")
+  
+        .profile_right_column
+          %h4 LANGUAGES
+          .column_content
+            %p
+              -if @person.languages
+                =@person.languages.collect{|language| language.name}.join(", ")
+                -if current_person?(@person)
+                  .profile_edit
+                    =link_to image_tag("icons/mini_edit.gif") + "Edit", edit_person_path(@person) + "#person[language_ids][]"
+              -else
+                =display_empty_field("languages")
+
+        .profile_right_column
+          %h4 SOFTWARE
+          .column_content
+            %p
+              -if @person.softwares
+                =@person.softwares.collect{|software| software.name}.join(", ")
+                -if current_person?(@person)
+                  .profile_edit
+                    =link_to image_tag("icons/mini_edit.gif") + "Edit", edit_person_path(@person) + "#person[software_ids][]"
+              -else
+                =display_empty_field("software")
+    
+        .profile_right_column
+          %h4 CV
+          .column_content
+            %p
+              -if @person.cv?
+                #cv
+                  =link_to image_tag("portfolio/logoPDF.jpg") #, person_cv_path
+                  %br
+                  =link_to "My CV"
+                =link_to image_tag("portfolio/get_adobe.jpg"), "http://www.adobe.fr/products/acrobat/readstep2.html"
+                -if current_person?(@person)
+                  .profile_edit
+                    =link_to image_tag("icons/mini_edit.gif") + "Edit", edit_person_path(@person) + "#person_cv"
+              -else
+                =display_empty_field("cv")
 
 
-      .profile_right_column
-        %h4 TAGS
-        .column_content
-          %p
-            -if @person.tags.first
-              = @person.tags.collect{|t| t.name}.join(", ")
-              -if current_person?(@person)
-                .profile_edit
-                  =link_to image_tag("icons/mini_edit.gif") + "Edit", edit_person_path(@person) + "#p_tags"#"#person_tags"
-            -else
-              =display_empty_field("tags")
+        .profile_right_column
+          %h4 TAGS
+          .column_content
+            %p
+              -if @person.tags.first
+                = @person.tags.collect{|t| t.name}.join(", ")
+                -if current_person?(@person)
+                  .profile_edit
+                    =link_to image_tag("icons/mini_edit.gif") + "Edit", edit_person_path(@person) + "#p_tags"#"#person_tags"
+              -else
+                =display_empty_field("tags")
 
-    #projects
-      %h4 MY PROJECTS
-      -per_line = 3
-      #my_projects
-        =render :partial => 'projects/projects_list', :locals => {:per_line => per_line} 
+      #projects
+        %h4 MY PROJECTS
+        -per_line = 3
+        #my_projects
+          =render :partial => 'projects/projects_list', :locals => {:per_line => per_line} 
 
--if current_person?(@person)
-  #feed_requests
-    #minifeeds
-      = render :partial => 'shared/minifeed'
-    #personal_requests
-      = render :partial => "requested_contacts"
--if logged_in?
-  #contacts
-    #contact_preview
-      = render :partial => 'shared/contacts_preview', :locals => { :person => @person }
-    #common_contacts
-      = render :partial => 'common_contacts'
-
-= render :partial => 'wall'
+    -elsif params[:tab] == 'news'
+      -if current_person?(@person)
+        #feed_requests
+          #minifeeds
+            = render :partial => 'shared/minifeed'
+    -elsif params[:tab] == 'contacts'
+      -if current_person?(@person)
+        #personal_requests
+          = render :partial => "requested_contacts"
+      -if logged_in?
+        #contacts
+          #contact_preview
+            =render :partial => 'shared/contacts_preview'#, :locals => { :person => @person }
+          -if !current_person?(@person)
+            #common_contacts
+              =render :partial => 'common_contacts'
+    -elsif params[:tab] == 'comments'
+      = render :partial => 'wall'

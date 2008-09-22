@@ -1,3 +1,37 @@
+/* @group utility */
+	/*
+	Specific stuff, hacks, whatever...
+	*/
+	
+	/* Clearing by Tony Aslett
+	add clearfix class to any containter that must enclose floated elements
+	explained at http://www.positioniseverything.net/easyclearing.html */
+	
+	.clearfix:after {
+		content: ".";
+		display: block;
+		height: 0;
+		clear: both;
+		visibility: hidden;
+	}
+	
+	.clearfix {
+		display: inline-block;
+	}
+	
+	/* Hides from IE-mac \*/
+	
+	* html .clearfix {
+		height: 1%;
+	}
+	
+	.clearfix {
+		display: block;
+	}
+	/* End hide from IE-mac */
+/* @end */
+
+
 body {
   background-image: url(../images/background_squares.jpg);
   background-repeat: repeat;
@@ -442,6 +476,53 @@ body {
 #person_password_confirmation {
   width: 300px; }
 
+/* ********* Tabs ************ */
+#tabs {
+	margin-top: 10px;
+  width: 777px;
+	margin-bottom: 10px;}
+	#tabs ul{
+		width: 777px;
+		height: 19px;
+		padding: 0 0 0 0;
+/*		border-bottom: 2px solid #FF9900;*/
+	}
+	#tabs ul li{
+		float: left;
+		list-style-image: none;
+		list-style-position: outside;
+		list-style-type: none;
+		text-align: center;
+		width: 111px;
+		height: 19px;}
+		#tabs ul li a{
+			text-decoration: none;
+			font-size: 11px;
+			font-weight: bold;
+			color: #FFFFFF;
+		}
+		#tabs ul.yellow li{
+			background: url("../images/MenuTabsYellow109.gif") no-repeat scroll left -19px;
+		}
+		#tabs ul.yellow li a{
+		}
+		#tabs ul.yellow li.current{
+			background: url("../images/MenuTabsYellow109.gif") no-repeat left top;
+		}
+		#tabs ul.yellow li.current a{
+			color: #FF9900;
+		}
+		#tabs ul.green li{
+			background: url("../images/MenuTabsGreen109.gif") no-repeat scroll left -19px;
+		}
+		#tabs ul.green li.current{
+			background: url("../images/MenuTabsGreen109.gif") no-repeat scroll left top;
+		}
+		#tabs ul.green li.current a{
+			color: #009900;
+		}
+
+
 /* ********* Profile page********** */
 #profile_details {
   width: 773px;
@@ -754,11 +835,11 @@ body {
 
 /* *********Requested contacts partial********** */
 #personal_requests {
-  margin-left: 7px;
-  width: 190px;
+/*  margin-left: 7px;*/
+  width: 777px;
   text-align: right; }
   #personal_requests h4 {
-    width: 190px;
+    width: 777px;
     color: #009900;
     font-size: 10pt;
     font-weight: normal;
@@ -766,9 +847,9 @@ body {
   #personal_requests #person_request {
     background-color: white;
     border-top: 2px solid #009900;
-    width: 190px; }
+    width: 777px; }
     #personal_requests #person_request table {
-      width: 190px;
+/*      width: 777px;*/
       text-align: right;
       font-size: 9pt; }
       #personal_requests #person_request table a {
@@ -779,16 +860,20 @@ body {
 #contacts {
   width: 7px; }
 
+#contact_preview {
+	margin-top: 10px;
+}
+
 #contact_preview h4 {
   text-align: right;
-  width: 583px;
+  width: 777px;
   color: #009900;
   font-size: 10pt;
   font-weight: normal;
   margin: 0; }
 
 #contacts_small {
-  width: 583px;
+  width: 777px;
   background-color: white;
   border-top: 2px solid #009900; }
   #contacts_small #nocontact {
@@ -825,9 +910,13 @@ body {
           text-decoration: none; }
 
 /* ***********Common contacts*********** */
+#common_contacts{
+	margin-top: 10px;
+}
+
 #common_contacts h4 {
   text-align: right;
-  width: 190px;
+  width: 777px;
   color: #009900;
   font-size: 10pt;
   font-weight: normal;

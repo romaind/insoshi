@@ -45,6 +45,7 @@ namespace :melipone do
   desc "Copy config files"
   task :copy_config_files do
     run "cp #{shared_path}/config/* #{release_path}/config/"
+    run "cp #{shared_path}/rsa_key* #{release_path}/"
   end
   after "deploy:update_code", "melipone:copy_config_files"
 

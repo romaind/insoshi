@@ -132,7 +132,7 @@ class Person < ActiveRecord::Base
   before_create :create_blog
   before_save :encrypt_password
   before_validation :prepare_email, :handle_nil_description
-  after_create :connect_to_admin
+  # after_create :connect_to_admin
 
   before_update :set_old_description
   after_update :log_activity_description_changed
@@ -326,7 +326,6 @@ class Person < ActiveRecord::Base
     photo.nil? ? "defaults/default_minithumb.gif" : photo.public_filename(:minithumb)
   end
 
-
   def icon
     photo.nil? ? "defaults/default_icon.png" : photo.public_filename(:icon)
   end
@@ -434,15 +433,44 @@ class Person < ActiveRecord::Base
   end
 
   # Return the common connections with the given person.
-  def common_contacts_with(contact, page = 1)
+  def common_contacts_with_old(contact, page = 1)
     sql = %(SELECT DISTINCT contact_id FROM connections
             INNER JOIN people contact ON connections.contact_id = contact.id
             WHERE ((person_id = ? OR person_id = ?)
+                  AND status = ? AND
+                  contact.deactivated = ? AND
+                  contact_id != ? AND contact_id != ? AND
+                  (contact.email_verified IS NULL
+                  OR contact.email_verified = ?)))
+    conditions = [sql, id, contact.id, Connection::ACCEPTED, false, id, contact.id, true]
+    opts = { :page => page, :per_page => RASTER_PER_PAGE }
+    connections = 
+    @common_contacts ||= Person.find(Connection.
+                                     paginate_by_sql(conditions, opts).
+                                     map(&:contact_id)).paginate
+  end
+  
+  def common_contacts_with(contact, page = 1)
+    sql = %(SELECT DISTINCT contact_id FROM connections
+                   INNER JOIN people contact ON connections.contact_id = contact.id
+                   WHERE (person_id = ?
                    AND status = ? AND
                    contact.deactivated = ? AND
+                   contact_id != ? AND contact_id != ? AND
                    (contact.email_verified IS NULL
-                    OR contact.email_verified = ?)))
-    conditions = [sql, id, contact.id, Connection::ACCEPTED, false, true]
+                   OR contact.email_verified = ?))
+                  AND contact_id in (SELECT DISTINCT contact_id FROM connections
+                   INNER JOIN people contact ON connections.contact_id = contact.id
+                   WHERE (person_id = ?
+                   AND status = ? AND
+                   contact.deactivated = ? AND
+                   contact_id != ? AND contact_id != ? AND
+                   (contact.email_verified IS NULL
+                   OR contact.email_verified = ?))
+                  ))
+                  
+                  
+    conditions = [sql, id, Connection::ACCEPTED, false, id, contact.id, true, contact.id, Connection::ACCEPTED, false, id, contact.id, true]
     opts = { :page => page, :per_page => RASTER_PER_PAGE }
     connections = 
     @common_contacts ||= Person.find(Connection.
