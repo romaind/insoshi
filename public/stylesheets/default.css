@@ -478,9 +478,9 @@ body {
 
 /* ********* Tabs ************ */
 #tabs {
-	margin-top: 10px;
-  width: 777px;
-	margin-bottom: 10px;}
+  width: 777px;/*
+  	margin-top: 10px;
+  	margin-bottom: 10px;*/}
 	#tabs ul{
 		width: 777px;
 		height: 19px;

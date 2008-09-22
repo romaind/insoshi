@@ -75,12 +75,6 @@
           -else
             %li
               =link_to 'My favorites', person_url(@person, :tab => 'favorites')
-          -if params[:tab] == 'groups'
-            %li.current
-              =link_to 'My groups', person_url(@person, :tab => 'groups')
-          -else
-            %li
-              =link_to 'My groups', person_url(@person, :tab => 'groups')
           -if params[:tab] == 'comments'
             %li.current
               =link_to 'My comments', person_url(@person, :tab => 'comments')
@@ -224,8 +218,8 @@
         #personal_requests
           = render :partial => "requested_contacts"
       -if logged_in?
-        #contacts
-          #contact_preview
+        #contacts.clearfix
+          #contact_preview.clearfix
             =render :partial => 'shared/contacts_preview'#, :locals => { :person => @person }
           -if !current_person?(@person)
             #common_contacts
