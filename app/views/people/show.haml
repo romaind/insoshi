@@ -23,7 +23,7 @@
               =h @person.origin_country.name
         %tr
           %td#skills
-            -if not(@person.skills)
+            -if @person.skills.length >0
               -for skill in @person.skills do
                 =skill.name
                 -if not(@person.skills.last == skill)
@@ -75,12 +75,6 @@
           -else
             %li
               =link_to 'My favorites', person_url(@person, :tab => 'favorites')
-          -if params[:tab] == 'groups'
-            %li.current
-              =link_to 'My groups', person_url(@person, :tab => 'groups')
-          -else
-            %li
-              =link_to 'My groups', person_url(@person, :tab => 'groups')
           -if params[:tab] == 'comments'
             %li.current
               =link_to 'My comments', person_url(@person, :tab => 'comments')
@@ -91,16 +85,30 @@
         
       -else
         %ul.clearfix.green
-          %li.current
-            =link_to 'His page', person_url(@person, :tab => 'page')
-          %li
-            =link_to 'His contacts', person_url(@person, :tab => 'contacts')
-          %li
-            =link_to 'His favorites', person_url(@person, :tab => 'favorites')
-          %li
-            =link_to 'His groups', person_url(@person, :tab => 'groups')
-          %li
-            =link_to 'His comments', person_url(@person, :tab => 'comments')
+          -if not params[:tab] or params[:tab] == 'page'
+            %li.current
+              =link_to 'Profile', person_url(@person, :tab => 'page')
+          -else
+            %li
+              =link_to 'Profile', person_url(@person, :tab => 'page')
+          -if params[:tab] == 'contacts'
+            %li.current
+              =link_to 'Network', person_url(@person, :tab => 'contacts')
+          -else
+            %li
+              =link_to 'Network', person_url(@person, :tab => 'contacts')
+          -if params[:tab] == 'favorites'
+            %li.current
+              =link_to 'Favorites', person_url(@person, :tab => 'favorites')
+          -else
+            %li
+              =link_to 'Favorites', person_url(@person, :tab => 'favorites')
+          -if params[:tab] == 'comments'
+            %li.current
+              =link_to 'Wall', person_url(@person, :tab => 'comments')
+          -else
+            %li
+              =link_to 'Wall', person_url(@person, :tab => 'comments')
 
     -if not params[:tab] or params[:tab] == 'page'
       #right
@@ -128,12 +136,15 @@
           %h4 STATUS
           .column_content
             %p
-              -if false#@person.status
+              -if @person.status
+                / -if current_person?(@person)
+                /   =select :p, :status, ["Working", "Studying", "Looking for a job", "Looking for a partner"]
+                /   /Status selected by clicking on status option
+                / -else
+                = display(@person.status)
                 -if current_person?(@person)
-                  =select :p, :status, ["Working", "Studying", "Looking for a job", "Looking for a partner"]
-                  /Status selected by clicking on status option
-                -else
-                  = display(@person.status)
+                  .profile_edit
+                    =link_to image_tag("icons/mini_edit.gif") + "Edit", edit_person_path(@person) + "#person_status"
               -else
                 -if current_person?(@person)
                   .add
@@ -159,7 +170,7 @@
           %h4 LANGUAGES
           .column_content
             %p
-              -if @person.languages
+              -if @person.languages.length >0
                 =@person.languages.collect{|language| language.name}.join(", ")
                 -if current_person?(@person)
                   .profile_edit
@@ -171,7 +182,7 @@
           %h4 SOFTWARE
           .column_content
             %p
-              -if @person.softwares
+              -if @person.softwares.length >0
                 =@person.softwares.collect{|software| software.name}.join(", ")
                 -if current_person?(@person)
                   .profile_edit
@@ -224,8 +235,8 @@
         #personal_requests
           = render :partial => "requested_contacts"
       -if logged_in?
-        #contacts
-          #contact_preview
+        #contacts.clearfix
+          #contact_preview.clearfix
             =render :partial => 'shared/contacts_preview'#, :locals => { :person => @person }
           -if !current_person?(@person)
             #common_contacts

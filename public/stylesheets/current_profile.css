@@ -31,14 +31,19 @@
 	/* End hide from IE-mac */
 /* @end */
 
+#my_page{
+	width: 777px;
+}
+
 #tabs {
-	margin-top: 10px;
-  width: 777px;
-	margin-bottom: 10px;}
+  width: 777px;/*
+  	margin-top: 10px;
+  	margin-bottom: 10px;*/}
 	#tabs ul{
 		width: 777px;
 		height: 19px;
 		padding: 0 0 0 0;
+		margin-bottom: 0px;
 /*		border-bottom: 2px solid #FF9900;*/
 	}
 	#tabs ul li{
@@ -81,10 +86,12 @@
 #projects {
   width: 584px; }
   #projects h4 {
+		background-color: #FFFFFF;
     text-align: right;
     color: #FF9900;
     font-size: 10pt;
     font-weight: normal;
+		padding-top: 14px;	
     margin: 0; }
 
 #my_projects {
@@ -133,9 +140,11 @@
 
 /* *********Profile right column********** */
 #right {
-  float: right; }
+  float: right;
+ 	background-color: #FFFFFF;}
 
-.profile_right_column {
+.profile_right_column {	
+	padding-top: 14px;
   width: 188px;
   margin-left: 5px;
   text-align: right; }
@@ -212,8 +221,10 @@
 
 /* *********Recent Activity*********** */
 #feed_requests {
-  width: 777px; }
+  width: 777px; 
+	background-color: #FFFFFF;}
   #feed_requests #minifeeds {
+		padding-top: 14px;
     text-align: right;
     width: 777px; }
     #feed_requests #minifeeds h4 {
@@ -247,7 +258,9 @@
 #personal_requests {
 /*  margin-left: 7px;*/
   width: 777px;
-  text-align: right; }
+	padding-top: 14px;
+  text-align: right;
+	background: #FFFFFF; }
   #personal_requests h4 {
     width: 777px;
     color: #FF9900;
@@ -258,6 +271,9 @@
     background-color: white;
     border-top: 2px solid #FF9900;
     width: 777px; }
+		#personal_requests #person_request p{
+			margin-bottom: 0px;
+		}
     #personal_requests #person_request table {
 /*      width: 777px;*/
       text-align: right;
@@ -270,15 +286,18 @@
         text-decoration: none; }
 
 /* *********Contacts Preview*********** */
+
 #contact_preview {
-  margin-top: 10px; }
+	background-color: #FFFFFF;
+  margin-top: 0px; }
   #contact_preview h4 {
     text-align: right;
+		padding-top: 14px;
+		background-color: white;
     width: 777px;
     color: #FF9900;
     font-size: 10pt;
-    font-weight: normal;
-    margin: 0; }
+    font-weight: normal;}
 
 #contacts_small {
   width: 777px;
@@ -311,12 +330,15 @@
   width: 777px;
   text-align: right;
   color: #FF9900;
+	padding-top: 14px;
+	background-color: white;
   margin: 0; }
 
 .wall {
   width: 777px;
   border-top: 2px solid #FF9900;
   padding-top: 10px;
+	padding-bottom: 10px;
   background-color: white; }
   .wall #wall_form {
     margin-left: 33px;

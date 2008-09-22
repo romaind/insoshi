@@ -11,7 +11,8 @@ class ApplicationController < ActionController::Base
   
   before_filter :create_page_view, :require_activation, :tracker_vars,
                 :admin_warning,
-                :require_login
+                :require_login,
+                :must_be_active
 
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store
@@ -77,6 +78,15 @@ class ApplicationController < ActionController::Base
         if current_person.unencrypted_password == default_password
           flash[:error] = %(Warning: your password is still the default.
             <a href="#{edit_person_path(current_person)}">Change it here</a>.)          
+        end
+      end
+    end
+    
+    def must_be_active
+      if logged_in?
+        unless current_person.activated?
+          flash[:error] = "Please fill your personal informations"
+          redirect_to edit_person_path(current_person)
         end
       end
     end

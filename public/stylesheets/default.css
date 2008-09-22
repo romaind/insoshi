@@ -347,6 +347,11 @@ body {
     margin-right: 20px; }
 
 /* *********Personal Data content********** */
+
+#my_page{
+	width: 777px;
+}
+
 #data_title {
   background-image: url(../images/personaldata_top.gif);
   background-repeat: no-repeat;
@@ -478,9 +483,9 @@ body {
 
 /* ********* Tabs ************ */
 #tabs {
-	margin-top: 10px;
-  width: 777px;
-	margin-bottom: 10px;}
+  width: 777px;/*
+  	margin-top: 10px;
+  	margin-bottom: 10px;*/}
 	#tabs ul{
 		width: 777px;
 		height: 19px;
