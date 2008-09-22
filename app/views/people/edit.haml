@@ -84,8 +84,8 @@
       #about_content
         
         .form_row
-          %label{ :for => "p_status" } Status:
-          = select :p, :status, ["working", "studying", "looking for a job", "looking for a partner"]
+          %label{ :for => "status" } Status:
+          =f.select :status, ["working", "studying", "looking for a job", "looking for a partner"]
 
         .form_row
           %label{ :for => "person_website" } Website:

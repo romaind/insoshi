@@ -37,7 +37,7 @@ class Person < ActiveRecord::Base
                   :message_notifications, :wall_comment_notifications,
                   :blog_comment_notifications, :skill_ids, :language_ids, :software_ids, :tag_list,
                   #ADDED FIELD
-                  :birthdate, :gender, :website, :address, :zipcode, :city, :phone, :country_id
+                  :birthdate, :gender, :website, :address, :zipcode, :city, :phone, :country_id, :status
   # Indexed fields for Sphinx
   is_indexed :fields => [ 'name', 'description', 'deactivated', 'email_verified'],
                              :conditions => "deactivated = false AND (email_verified IS NULL OR email_verified = true)"
@@ -69,11 +69,11 @@ class Person < ActiveRecord::Base
 
   # These constants should be methods, but I couldn't figure out how to use
   # methods in the has_many associations.  I hope you can do better.
-  ACCEPTED_AND_ACTIVE =  [%(status = ? AND
+  ACCEPTED_AND_ACTIVE =  [%(connections.status = ? AND
                             deactivated = ? AND
                             (email_verified IS NULL OR email_verified = ?)),
                           Connection::ACCEPTED, false, true]
-  REQUESTED_AND_ACTIVE =  [%(status = ? AND
+  REQUESTED_AND_ACTIVE =  [%(connections.status = ? AND
                             deactivated = ? AND
                             (email_verified IS NULL OR email_verified = ?)),
                           Connection::REQUESTED, false, true]
@@ -454,7 +454,7 @@ class Person < ActiveRecord::Base
     sql = %(SELECT DISTINCT contact_id FROM connections
                    INNER JOIN people contact ON connections.contact_id = contact.id
                    WHERE (person_id = ?
-                   AND status = ? AND
+                   AND connections.status = ? AND
                    contact.deactivated = ? AND
                    contact_id != ? AND contact_id != ? AND
                    (contact.email_verified IS NULL
@@ -462,7 +462,7 @@ class Person < ActiveRecord::Base
                   AND contact_id in (SELECT DISTINCT contact_id FROM connections
                    INNER JOIN people contact ON connections.contact_id = contact.id
                    WHERE (person_id = ?
-                   AND status = ? AND
+                   AND connections.status = ? AND
                    contact.deactivated = ? AND
                    contact_id != ? AND contact_id != ? AND
                    (contact.email_verified IS NULL

@@ -136,12 +136,15 @@
           %h4 STATUS
           .column_content
             %p
-              -if false#@person.status
+              -if @person.status
+                / -if current_person?(@person)
+                /   =select :p, :status, ["Working", "Studying", "Looking for a job", "Looking for a partner"]
+                /   /Status selected by clicking on status option
+                / -else
+                = display(@person.status)
                 -if current_person?(@person)
-                  =select :p, :status, ["Working", "Studying", "Looking for a job", "Looking for a partner"]
-                  /Status selected by clicking on status option
-                -else
-                  = display(@person.status)
+                  .profile_edit
+                    =link_to image_tag("icons/mini_edit.gif") + "Edit", edit_person_path(@person) + "#person_status"
               -else
                 -if current_person?(@person)
                   .add
