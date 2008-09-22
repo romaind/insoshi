@@ -23,7 +23,7 @@
               =h @person.origin_country.name
         %tr
           %td#skills
-            -if not(@person.skills)
+            -if @person.skills.length >0
               -for skill in @person.skills do
                 =skill.name
                 -if not(@person.skills.last == skill)
