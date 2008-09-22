@@ -85,16 +85,30 @@
         
       -else
         %ul.clearfix.green
-          %li.current
-            =link_to 'His page', person_url(@person, :tab => 'page')
-          %li
-            =link_to 'His contacts', person_url(@person, :tab => 'contacts')
-          %li
-            =link_to 'His favorites', person_url(@person, :tab => 'favorites')
-          %li
-            =link_to 'His groups', person_url(@person, :tab => 'groups')
-          %li
-            =link_to 'His comments', person_url(@person, :tab => 'comments')
+          -if not params[:tab] or params[:tab] == 'page'
+            %li.current
+              =link_to 'Profile', person_url(@person, :tab => 'page')
+          -else
+            %li
+              =link_to 'Profile', person_url(@person, :tab => 'page')
+          -if params[:tab] == 'contacts'
+            %li.current
+              =link_to 'Network', person_url(@person, :tab => 'contacts')
+          -else
+            %li
+              =link_to 'Network', person_url(@person, :tab => 'contacts')
+          -if params[:tab] == 'favorites'
+            %li.current
+              =link_to 'Favorites', person_url(@person, :tab => 'favorites')
+          -else
+            %li
+              =link_to 'Favorites', person_url(@person, :tab => 'favorites')
+          -if params[:tab] == 'comments'
+            %li.current
+              =link_to 'Wall', person_url(@person, :tab => 'comments')
+          -else
+            %li
+              =link_to 'Wall', person_url(@person, :tab => 'comments')
 
     -if not params[:tab] or params[:tab] == 'page'
       #right
@@ -153,7 +167,7 @@
           %h4 LANGUAGES
           .column_content
             %p
-              -if @person.languages
+              -if @person.languages.length >0
                 =@person.languages.collect{|language| language.name}.join(", ")
                 -if current_person?(@person)
                   .profile_edit
@@ -165,7 +179,7 @@
           %h4 SOFTWARE
           .column_content
             %p
-              -if @person.softwares
+              -if @person.softwares.length >0
                 =@person.softwares.collect{|software| software.name}.join(", ")
                 -if current_person?(@person)
                   .profile_edit
