@@ -10,7 +10,7 @@ else
   set :domain, "coaliz.typhon.net"
   set :rails_env, "staging"
   set :deploy_to, "/home/web/dev.coaliz.com/"
-  set :branch, "origin/coaliz"
+  set :branch, "coaliz"
 end
 
 ssh_options[:paranoid] = false 
