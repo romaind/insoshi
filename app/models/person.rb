@@ -37,7 +37,7 @@ class Person < ActiveRecord::Base
                   :message_notifications, :wall_comment_notifications,
                   :blog_comment_notifications, :skill_ids, :language_ids, :software_ids, :tag_list,
                   #ADDED FIELD
-                  :birthdate, :gender, :website, :address, :zipcode, :city, :phone, :country_id, :status
+                  :birthdate, :gender, :website, :address, :zipcode, :city, :phone, :country_id, :status, :terms_of_use
   # Indexed fields for Sphinx
   is_indexed :fields => [ 'name', 'description', 'deactivated', 'email_verified'],
                              :conditions => "deactivated = false AND (email_verified IS NULL OR email_verified = true)"
@@ -112,8 +112,11 @@ class Person < ActiveRecord::Base
   
   validates_presence_of     :email, :on => :create,
                                 :if => :pending?
-  validates_presence_of     :email, :first_name, :name,
+  validates_presence_of     :email, :first_name, :name, :gender,
                                 :if => :activated?
+  validates_presence_of     :terms_of_use,
+                                :if => :activated?,
+                                :message => ": Please read and agree the terms of use"
   validates_presence_of     :password,              :if => :password_required?
   validates_presence_of     :password_confirmation, :if => :password_required?
   validates_length_of       :password, :within => 4..MAX_PASSWORD,
