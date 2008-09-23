@@ -17,15 +17,16 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :password_reminders
   map.resources :photos
   map.resource :session
-  map.resources :messages, :collection => { :sent => :get, :trash => :get },
-                           :member => { :reply => :get, :undestroy => :put }
+  # map.resources :messages, :collection => { :sent => :get, :trash => :get },
+  #                          :member => { :reply => :get, :undestroy => :put }
 
   map.resources :people, :member => { :verify_email => :get,
                                       :common_contacts => :get }
   map.connect 'people/verify/:id', :controller => 'people',
                                     :action => 'verify_email'
   map.resources :people, :collection => {:coupon_validator => :get} do |person|
-     person.resources :messages
+     person.resources :messages, :collection => { :sent => :get, :trash => :get },
+                              :member => { :reply => :get, :undestroy => :put }
      person.resources :photos
      person.resources :connections
      person.resources :comments
