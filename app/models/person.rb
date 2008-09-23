@@ -131,6 +131,11 @@ class Person < ActiveRecord::Base
                             :with => EMAIL_REGEX,
                             :message => "must be a valid email address"
   validates_uniqueness_of   :email
+  
+  validates_inclusion_of    :birthdate,
+                              :in => Date.new(1900)..Time.now.years_ago(16).to_date,
+                              :message => ': You must be at least 16 to subscribe on Coaliz'
+  
 
   before_create :create_blog
   before_save :encrypt_password
