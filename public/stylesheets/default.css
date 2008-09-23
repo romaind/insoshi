@@ -1103,7 +1103,7 @@ body {
   color: #FF9900; }
 #new_message .col1 {
   background-color: white;
-  width: 757px;
+/*  width: 757px;*/
   padding: 10px;
   border: 1px solid #DDDDDD;
   border-top: 2px solid #FF9900; }

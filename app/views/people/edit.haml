@@ -48,9 +48,9 @@
             %label{ :for => "p_newsletter", :class => "checkbox" } Receive Coaliz' newsletter:
             = check_box :p, :newsletter
           %p
-            %label{ :for => "p_terms", :class => "checkbox" } I have read and agree to the
+            %label{ :for => "p_terms_of_use", :class => "checkbox" } I have read and agree to the
             = link_to "Terms of use","terms_of_use"
-            = check_box :p, :terms
+            = f.check_box :terms_of_use
             =image_tag "portfolio/mandatory.gif", :class => "mandatory"
 
       -if global_prefs.email_notifications?

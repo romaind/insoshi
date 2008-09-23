@@ -16,7 +16,7 @@
             ,
             =pluralize(@person.age, "year")
             %br
-            -if @person.city
+            -if @person.city != ''
               =h @person.city.capitalize
               ,
             -if @person.origin_country
@@ -81,7 +81,12 @@
           -else
             %li
               =link_to 'My comments', person_url(@person, :tab => 'comments')
-        
+          -if params[:tab] == 'messages'
+            %li.current
+              =link_to 'My messages', person_url(@person, :tab => 'messages')
+          -else
+            %li
+              =link_to 'My messages', person_url(@person, :tab => 'messages')        
         
       -else
         %ul.clearfix.green
@@ -243,3 +248,5 @@
               =render :partial => 'common_contacts'
     -elsif params[:tab] == 'comments'
       = render :partial => 'wall'
+    -elsif params[:tab] == 'message'
+    

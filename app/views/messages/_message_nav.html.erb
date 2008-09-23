@@ -1,6 +1,6 @@
 <ul id="message_nav">
-  <%= list_link_with_active "inbox/inbox", messages_path %>
-  <%= list_link_with_active "inbox/sent", sent_messages_path %>
-  <%= list_link_with_active "inbox/trash", trash_messages_path %>
-  <li><%= link_to image_tag("inbox/newoff.gif"), new_message_path %></li>
+  <%= list_link_with_active "inbox/inbox", person_messages_path %>
+  <%= list_link_with_active "inbox/sent", sent_person_messages_path %>
+  <%= list_link_with_active "inbox/trash", trash_person_messages_path %>
+  <li><%= link_to image_tag("inbox/newoff.gif"), new_person_message_path %></li>
 </ul>
