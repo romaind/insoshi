@@ -120,7 +120,7 @@ class Person < ActiveRecord::Base
   validates_presence_of     :password,              :if => :password_required?
   validates_presence_of     :password_confirmation, :if => :password_required?
   validates_presence_of     :skills,
-                            :message => ": Please choose at least a skill (max 4)"
+                            :message => ": Please choose at least a skill (maximum 4)"
   validates_length_of       :password, :within => 4..MAX_PASSWORD,
                                        :if => :password_required?
   validates_confirmation_of :password, :if => :password_required?
