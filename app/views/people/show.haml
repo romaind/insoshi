@@ -80,18 +80,13 @@
               =link_to 'Wall', person_url(@person, :tab => 'comments')
           -else
             %li
-<<<<<<< HEAD:app/views/people/show.haml
-              =link_to 'My comments', person_url(@person, :tab => 'comments')
+              =link_to 'Wall', person_url(@person, :tab => 'comments')
           -if params[:tab] == 'messages'
             %li.current
-              =link_to 'My messages', person_url(@person, :tab => 'messages')
+              =link_to 'Messages', person_url(@person, :tab => 'messages')
           -else
             %li
-              =link_to 'My messages', person_url(@person, :tab => 'messages')        
-=======
-              =link_to 'Wall', person_url(@person, :tab => 'comments')
-        
->>>>>>> New titles for other people tabs:app/views/people/show.haml
+              =link_to 'Messages', person_url(@person, :tab => 'messages')
         
       -else
         %ul.clearfix.green

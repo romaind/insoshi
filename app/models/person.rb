@@ -45,10 +45,15 @@ class Person < ActiveRecord::Base
   acts_as_taggable
   acts_as_state_machine :initial => :pending
   state :pending
+  state :draft
   state :activated
   
   event :be_active do
-    transitions :to => :activated, :from => :pending
+    transitions :to => :activated, :from => :draft
+  end
+  
+  event :be_draft do
+    transitions :to => :draft, :from => :pending
   end
 
   MAX_EMAIL = MAX_PASSWORD = 40
@@ -113,18 +118,22 @@ class Person < ActiveRecord::Base
   validates_presence_of     :email, :on => :create,
                                 :if => :pending?
   validates_presence_of     :email, :first_name, :name, :gender,
-                                :if => :activated?
+                                :on => :update,
+                                :if => :should_fill?
   validates_presence_of     :terms_of_use,
-                                :if => :activated?,
+                                :if => :should_fill?,
                                 :message => ": Please read and agree the terms of use"
   validates_presence_of     :password,              :if => :password_required?
   validates_presence_of     :password_confirmation, :if => :password_required?
+  validates_presence_of     :skills,
+                                :on => :update,
+                                :if => :should_fill?
   validates_length_of       :password, :within => 4..MAX_PASSWORD,
                                        :if => :password_required?
   validates_confirmation_of :password, :if => :password_required?
   validates_length_of       :email, :within => 6..MAX_EMAIL
   validates_length_of       :name,  :maximum => MAX_NAME, :on => :update,
-                                :if => :activated?
+                                :if => :should_fill?
   validates_length_of       :description, :maximum => MAX_DESCRIPTION
   validates_length_of       :skills, :maximum => MAX_SKILLS
   validates_format_of       :email,
@@ -133,6 +142,8 @@ class Person < ActiveRecord::Base
   validates_uniqueness_of   :email
   
   validates_inclusion_of    :birthdate,
+                              :on => :update,
+                              :if => :should_fill?,
                               :in => Date.new(1900)..Time.now.years_ago(16).to_date,
                               :message => ': You must be at least 16 to subscribe on Coaliz'
   
@@ -146,6 +157,9 @@ class Person < ActiveRecord::Base
   after_update :log_activity_description_changed
   before_destroy :destroy_activities, :destroy_feeds
 
+  def should_fill?
+    self.draft? || self.activated?
+  end
 
   class << self
 
