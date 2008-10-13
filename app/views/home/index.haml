@@ -17,7 +17,7 @@
     so.addParam('allowscriptaccess','always');
     so.addParam('allowfullscreen','true');
     so.addParam('wmode','opaque');
-    so.addParam('flashvars','&file=#{formatted_project_url(@project, :xml)}&screencolor=000000&logo=#{image_path("logo-player.png")}&playlistsize=100&playlist=right&autostart=false&fullscreen=true&backcolor=000000&frontcolor=ffffff');
+    so.addParam('flashvars','&file=#{formatted_person_project_url(@project.person, @project, :xml)}&screencolor=000000&logo=#{image_path("logo-player.png")}&playlistsize=100&playlist=right&autostart=false&fullscreen=true&backcolor=000000&frontcolor=ffffff');
     so.write('player');
 
 #lastproject
