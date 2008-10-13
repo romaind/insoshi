@@ -30,6 +30,7 @@ ActionController::Routing::Routes.draw do |map|
      person.resources :connections
      person.resources :comments
      person.resources :projects do |project|
+       project.resources :comments
        project.resources :creations do |creation|
          creation.resources :assets
        end

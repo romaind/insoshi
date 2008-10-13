@@ -11,7 +11,7 @@
 		 <%= image_tag "wall/comment_public.gif" %>
 		<%- end %>
 	  </div>
-      <% form_for :comment, :url => project_comments_path(@project) do |f| %>
+      <% form_for :comment, :url => person_project_comments_path(current_person, @project) do |f| %>
         <div id="wall_textarea">
           <%= f.text_area :body, :rows => 5 %>
         </div>
