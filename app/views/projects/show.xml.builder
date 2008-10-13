@@ -10,7 +10,7 @@ xml.playlist :version => "1", :xmlns => "http://xspf.org/ns/0/" do
         xml.info person_project_creation_url(@author, @project, creation)
         xml.annotation @project.description
         xml.location "http://#{PersonMailer.global_prefs.server_name}#{creation.asset.item.url}"
-        xml.image "http://#{PersonMailer.global_prefs.server_name}#{creation.asset.item.url(:small)}"
+        xml.image "http://#{PersonMailer.global_prefs.server_name}#{creation.asset.item.url(:preview)}"
       end
     end
   end
