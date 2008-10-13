@@ -10,7 +10,15 @@
       Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Pellentesque eget eros.
   =image_tag ("desc_bottom.gif")
 
-=image_tag ("player_preview.jpg", :id =>"player")
+#player
+  There should be a player here... in fact...
+  :javascript
+    var so = new SWFObject('/swf/player.swf','mpl','584','380','9','#000000');
+    so.addParam('allowscriptaccess','always');
+    so.addParam('allowfullscreen','true');
+    so.addParam('wmode','opaque');
+    so.addParam('flashvars','&file=#{formatted_project_url(@project, :xml)}&screencolor=000000&logo=#{image_path("logo-player.png")}&playlistsize=100&playlist=right&autostart=false&fullscreen=true&backcolor=000000&frontcolor=ffffff');
+    so.write('player');
 
 #lastproject
   #lastprojectstab

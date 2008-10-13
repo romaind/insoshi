@@ -1,4 +1,6 @@
 class Project < ActiveRecord::Base
+  include ActionView::Helpers::AssetTagHelper
+  
   NUM_WALL_COMMENTS = 10
   acts_as_taggable
 
@@ -17,4 +19,5 @@ class Project < ActiveRecord::Base
     end
     
   end
+  
 end
