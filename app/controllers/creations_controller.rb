@@ -46,19 +46,20 @@ class CreationsController < ApplicationController
   def create
     @creation = @project.creations.create(params[:creation])
     @asset = Asset.new(params[:asset])
+    @creation.asset = @asset
 
     respond_to do |format|
       if @creation.save
         # if @creation.assets.create(params[:asset])
         # if @creation.assets.save
-        @creation.asset = @asset
         # if @asset.save
           flash[:notice] = 'Creation was successfully created.'
           format.html { redirect_to :back }
           format.xml  { render :xml => @creation, :status => :created, :location => @creation }
         # end
       else
-        format.html { render :action => "new" }
+        flash[:error] = "Please choose a file"
+        format.html { redirect_to editproject_path(current_person, @project, "content") }
         format.xml  { render :xml => @creation.errors, :status => :unprocessable_entity }
       end
     end
