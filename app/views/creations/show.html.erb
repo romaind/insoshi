@@ -1,7 +1,18 @@
 <p>
   <b>Creation :</b><br/>
-  <%= image_tag @creation.asset.item.url %>
+  <%- if @creation.asset.item_content_type.starts_with? "video" -%>
+    <div id="player">There should be a player here... in fact...</div>
+    <script type="text/javascript">
+      var so = new SWFObject('/swf/player.swf','mpl','584','380','9','#000000');
+      so.addParam('allowscriptaccess','always');
+      so.addParam('allowfullscreen','true');
+      so.addParam('wmode','opaque');
+      so.addParam('flashvars','&file=<%= @creation.asset.item.url %>&image=<%= @creation.asset.url(:preview) %>&screencolor=000000&logo=<%= image_path("logo-player.png") %>&autostart=true&fullscreen=true&backcolor=000000&frontcolor=ffffff');
+      so.write('player');
+    </script>
+  <%- else -%>
+    <%= image_tag @creation.asset.item.url %>
+  <%- end -%>
 </p>
-
 
 <%= link_to 'Back to the project page', person_project_path(current_person, @creation.project) %>
