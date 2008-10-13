@@ -53,33 +53,34 @@
         %ul.clearfix.yellow
           -if not params[:tab] or params[:tab] == 'page'
             %li.current
-              =link_to 'My page', person_url(@person, :tab => 'page') 
+              =link_to 'Profile', person_url(@person, :tab => 'page') 
           -else
             %li
-              =link_to 'My page', person_url(@person, :tab => 'page') 
+              =link_to 'Profile', person_url(@person, :tab => 'page') 
           -if params[:tab] == 'news'
             %li.current
-              =link_to 'My news', person_url(@person, :tab => 'news')
+              =link_to 'News', person_url(@person, :tab => 'news')
           -else
             %li
-              =link_to 'My news', person_url(@person, :tab => 'news')
+              =link_to 'News', person_url(@person, :tab => 'news')
           -if params[:tab] == 'contacts'
             %li.current
-              =link_to 'My contacts', person_url(@person, :tab => 'contacts')
+              =link_to 'Network', person_url(@person, :tab => 'contacts')
           -else
             %li
-              =link_to 'My contacts', person_url(@person, :tab => 'contacts')
+              =link_to 'Network', person_url(@person, :tab => 'contacts')
           -if params[:tab] == 'favorites'
             %li.current
-              =link_to 'My favorites', person_url(@person, :tab => 'favorites')
+              =link_to 'Favorites', person_url(@person, :tab => 'favorites')
           -else
             %li
-              =link_to 'My favorites', person_url(@person, :tab => 'favorites')
+              =link_to 'Favorites', person_url(@person, :tab => 'favorites')
           -if params[:tab] == 'comments'
             %li.current
-              =link_to 'My comments', person_url(@person, :tab => 'comments')
+              =link_to 'Wall', person_url(@person, :tab => 'comments')
           -else
             %li
+<<<<<<< HEAD:app/views/people/show.haml
               =link_to 'My comments', person_url(@person, :tab => 'comments')
           -if params[:tab] == 'messages'
             %li.current
@@ -87,6 +88,10 @@
           -else
             %li
               =link_to 'My messages', person_url(@person, :tab => 'messages')        
+=======
+              =link_to 'Wall', person_url(@person, :tab => 'comments')
+        
+>>>>>>> New titles for other people tabs:app/views/people/show.haml
         
       -else
         %ul.clearfix.green
