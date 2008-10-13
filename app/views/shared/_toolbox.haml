@@ -28,8 +28,8 @@
       #subtitle
         REPORT A BUG
       #formbody
-        -form_for(:feedback, :url => { :action => :index }) do |form|
-          %textarea#feedback_message
+        -form_for(:feedback, :url => feedback_path ) do |form|
+          =form.text_area :message, :id => "feedback_message"
           #thanks	
           =image_submit_tag("toolbox/send.jpg", :id =>"send")
 -else
@@ -66,7 +66,6 @@
       #subtitle
         REPORT A BUG
       #formbody
-        -form_for(:feedback, :url => { :action => :index }) do |form|
-          %textarea#feedback_message
-          #thanks	
+        -form_tag feedback_path do
+          =text_area ('feedback', params[:message])
           =image_submit_tag("toolbox/send.jpg", :id =>"send")

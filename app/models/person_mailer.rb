@@ -63,6 +63,14 @@ class PersonMailer < ActionMailer::Base
                  "code" => ev.code
   end
   
+  def feedback(user, message)
+    from        "Email verification <email@#{domain}>"
+    recipients  "bugs@coaliz.com"
+    subject     formatted_subject("New feedback message")
+    body        "message" => message,
+                "user"    => user
+  end
+  
   private
   
     # Prepend the application name to subjects if present in preferences.

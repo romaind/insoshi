@@ -23,4 +23,16 @@ class HomeController < ApplicationController
       @requested_contacts = current_person.requested_contacts
     end
   end
+  
+  def feedback
+    if params[:feedback] && params[:feedback][:message]
+      PersonMailer.deliver_feedback(current_person, params[:feedback][:message])
+    end
+    
+    respond_to do |format|
+      format.html {
+        flash[:notice] = "Your message has been sent"
+        redirect_to '/'}
+    end
+  end
 end

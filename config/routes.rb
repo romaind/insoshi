@@ -62,6 +62,7 @@ ActionController::Routing::Routes.draw do |map|
   #     creation.resources :assets
   #   end
   # end
+  map.feedback  '/feedback', :controller => 'home', :action => 'feedback'
   map.projects '/projects', :controller => 'projects', :action => 'index'
   
   map.profile 'people/:id/:tab',  :controller => 'people',
