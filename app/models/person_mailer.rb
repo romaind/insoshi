@@ -50,7 +50,7 @@ class PersonMailer < ActionMailer::Base
     recipients   comment.commented_person.email
     subject      formatted_subject("New wall comment")
     body         "domain" => server, "comment" => comment,
-                 "url" => person_path(comment.commentable, :anchor => "wall"),
+                 "url" => profile_path(comment.commentable, "wall"),
                  "preferences_note" => 
                     preferences_note(comment.commented_person)
   end

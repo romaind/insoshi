@@ -1,8 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :beta_coupons
 
-  map.resources :beta_coupons
-
   map.resources :softwares
 
   map.resources :skills
@@ -25,8 +23,6 @@ ActionController::Routing::Routes.draw do |map|
                                       :common_contacts => :get }
   map.connect 'people/verify/:id', :controller => 'people',
                                     :action => 'verify_email'
-  map.profile 'people/:id/:tab',  :controller => 'people',
-                                  :action => 'show'  
   map.resources :people, :collection => {:coupon_validator => :get} do |person|
      person.resources :messages, :collection => { :sent => :get, :trash => :get },
                               :member => { :reply => :get, :undestroy => :put }
@@ -66,6 +62,8 @@ ActionController::Routing::Routes.draw do |map|
     end
   end
   
+  map.profile 'people/:id/:tab',  :controller => 'people',
+                                  :action => 'show'
   map.simple_captcha '/simple_captcha/:action', :controller => 'simple_captcha'
   map.signup '/signup', :controller => 'people', :action => 'new'
   map.login '/login', :controller => 'sessions', :action => 'new'
