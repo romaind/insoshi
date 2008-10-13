@@ -48,7 +48,7 @@
 
   #my_page
   
-    #tabs
+    #persontabs
       -if current_person?(@person)
         %ul.clearfix.yellow
           =tab_to "Profile", profile_path(@person, "profile"), :class => "current"

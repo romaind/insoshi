@@ -55,15 +55,17 @@ ActionController::Routing::Routes.draw do |map|
     end
   end
   
-  map.resources :projects do |project|
-    project.resources :comments
-    project.resources :creations do |creation|
-      creation.resources :assets
-    end
-  end
+  # map.resources :projects do |project|
+  #   project.resources :comments
+  #   project.resources :creations do |creation|
+  #     creation.resources :assets
+  #   end
+  # end
+  map.projects '/projects', :controller => 'projects', :action => 'index'
   
   map.profile 'people/:id/:tab',  :controller => 'people',
                                   :action => 'show'
+  map.editproject  'people/:person_id/projects/:id/edit/:tab', :controller => 'projects', :action => 'edit'
   map.simple_captcha '/simple_captcha/:action', :controller => 'simple_captcha'
   map.signup '/signup', :controller => 'people', :action => 'new'
   map.login '/login', :controller => 'sessions', :action => 'new'

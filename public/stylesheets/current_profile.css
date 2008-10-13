@@ -31,22 +31,81 @@
 	/* End hide from IE-mac */
 /* @end */
 
+/* @group align-position */
+	.fn{
+		float: none !important;
+	}
+	
+	.fl {
+		float: left;
+	}
+	
+	.fli {
+		float: left !important;
+	}
+	
+	.fr {
+		float: right;
+	}
+	
+	.l{
+		text-align: left;
+	}
+	
+	.r{
+		text-align: right;
+	}
+	
+	.fri {
+		float: right !important;
+	}
+	
+	.c {
+		margin-left: auto;
+		margin-right: auto;
+	}
+	
+	.tac {
+		text-align: center;
+	}
+	
+	.ib{
+	  	display: inline-block;
+	}
+	
+	.tal{
+	  text-align: left;
+	}
+	
+	.tar{
+	  text-align: right;
+	}
+	
+	.abs {
+		position: absolute;
+	}
+	
+	.rel {
+		position: relative;
+	}
+/* @end */
+
 #my_page{
 	width: 777px;
 }
 
-#tabs {
+#persontabs {
   width: 777px;/*
   	margin-top: 10px;
   	margin-bottom: 10px;*/}
-	#tabs ul{
+	#persontabs ul{
 		width: 777px;
 		height: 19px;
 		padding: 0 0 0 0;
 		margin-bottom: 0px;
 /*		border-bottom: 2px solid #FF9900;*/
 	}
-	#tabs ul li{
+	#persontabs ul li{
 		float: left;
 		list-style-image: none;
 		list-style-position: outside;
@@ -54,32 +113,33 @@
 		text-align: center;
 		width: 111px;
 		height: 19px;}
-		#tabs ul li a, #tabs ul li span{
+		#persontabs ul li a, #persontabs ul li span{
 			text-decoration: none;
 			font-size: 11px;
 			font-weight: bold;
 			color: #FFFFFF;
 		}
-		#tabs ul.yellow li{
+		#persontabs ul.yellow li{
 			background: url("../images/MenuTabsYellow109.gif") no-repeat scroll left -19px;
 		}
-		#tabs ul.yellow li.current{
+		#persontabs ul.yellow li.current{
 			background: url("../images/MenuTabsYellow109.gif") no-repeat left top;
 		}
-		#tabs ul.yellow li.current span{
+		#persontabs ul.yellow li.current span{
 			color: #FF9900;
 		}
-		#tabs ul.green li{
+		#persontabs ul.green li{
 			background: url("../images/MenuTabsGreen109.gif") no-repeat scroll left -19px;
 		}
-		#tabs ul.green li.current{
+		#persontabs ul.green li.current{
 			background: url("../images/MenuTabsGreen109.gif") no-repeat scroll left top;
 		}
-		#tabs ul.green li.current span{
+		#persontabs ul.green li.current span{
 			color: #009900;
 		}
 
 /* *********Project display*********** */
+
 
 #projects {
   width: 584px; }
