@@ -500,7 +500,7 @@ body {
 		text-align: center;
 		width: 111px;
 		height: 19px;}
-		#tabs ul li a{
+		#tabs ul li a, #tabs ul li span{
 			text-decoration: none;
 			font-size: 11px;
 			font-weight: bold;
@@ -509,12 +509,10 @@ body {
 		#tabs ul.yellow li{
 			background: url("../images/MenuTabsYellow109.gif") no-repeat scroll left -19px;
 		}
-		#tabs ul.yellow li a{
-		}
 		#tabs ul.yellow li.current{
 			background: url("../images/MenuTabsYellow109.gif") no-repeat left top;
 		}
-		#tabs ul.yellow li.current a{
+		#tabs ul.yellow li.current span{
 			color: #FF9900;
 		}
 		#tabs ul.green li{
@@ -523,7 +521,7 @@ body {
 		#tabs ul.green li.current{
 			background: url("../images/MenuTabsGreen109.gif") no-repeat scroll left top;
 		}
-		#tabs ul.green li.current a{
+		#tabs ul.green li.current span{
 			color: #009900;
 		}
 

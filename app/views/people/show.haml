@@ -51,69 +51,19 @@
     #tabs
       -if current_person?(@person)
         %ul.clearfix.yellow
-          -if not params[:tab] or params[:tab] == 'profile'
-            %li.current
-              =link_to 'Profile', profile_path(@person, "profile") 
-          -else
-            %li
-              =link_to 'Profile', profile_path(@person, "profile")
-          -if params[:tab] == 'news'
-            %li.current
-              =link_to 'News', profile_path(@person, "news")
-          -else
-            %li
-              =link_to 'News', profile_path(@person, "news")
-          -if params[:tab] == 'network'
-            %li.current
-              =link_to 'Network', profile_path(@person, "network")
-          -else
-            %li
-              =link_to 'Network', profile_path(@person, "network")
-          -if params[:tab] == 'favorites'
-            %li.current
-              =link_to 'Favorites', profile_path(@person, "favorites")
-          -else
-            %li
-              =link_to 'Favorites', profile_path(@person, "favorites")
-          -if params[:tab] == 'wall'
-            %li.current
-              =link_to 'Wall', profile_path(@person, "wall")
-          -else
-            %li
-              =link_to 'Wall', profile_path(@person, "wall")
-          -if params[:tab] == 'messages'
-            %li.current
-              =link_to 'Messages', profile_path(@person, "messages")
-          -else
-            %li
-              =link_to 'Messages', profile_path(@person, "messages")
-        
+          =tab_to "Profile", profile_path(@person, "profile"), :class => "current"
+          =tab_to "News", profile_path(@person, "news"), :class => "current"
+          =tab_to "Network", profile_path(@person, "network"), :class => "current"
+          =tab_to "Favorites", profile_path(@person, "favorites"), :class => "current"
+          =tab_to "Wall", profile_path(@person, "wall"), :class => "current"
+          =tab_to "Messages", profile_path(@person, "messages"), :class => "current"
       -else
         %ul.clearfix.green
-          -if not params[:tab] or params[:tab] == 'profile'
-            %li.current
-              =link_to 'Profile', profile_path(@person, "profile")
-          -else
-            %li
-              =link_to 'Profile', profile_path(@person, "profile")
-          -if params[:tab] == 'network'
-            %li.current
-              =link_to 'Network', profile_path(@person, "network")
-          -else
-            %li
-              =link_to 'Network', profile_path(@person, "network")
-          -if params[:tab] == 'favorites'
-            %li.current
-              =link_to 'Favorites', profile_path(@person, "favorites")
-          -else
-            %li
-              =link_to 'Favorites', profile_path(@person, "favorites")
-          -if params[:tab] == 'wall'
-            %li.current
-              =link_to 'Wall', profile_path(@person, "wall")
-          -else
-            %li
-              =link_to 'Wall', profile_path(@person, "wall")
+          =tab_to "Profile", profile_path(@person, "profile"), :class => "current"
+          =tab_to "Network", profile_path(@person, "network"), :class => "current"
+          =tab_to "Favorites", profile_path(@person, "favorites"), :class => "current"
+          =tab_to "Wall", profile_path(@person, "wall"), :class => "current"
+
 
     -if not params[:tab] or params[:tab] == 'profile'
       #right
