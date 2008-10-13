@@ -13,6 +13,9 @@ class ConnectionsController < ApplicationController
   
   def edit
     @contact = @connection.contact
+    respond_to do |format|
+      format.html {redirect_to profile_path(current_person, "contacts")}
+    end
   end
   
   def create
