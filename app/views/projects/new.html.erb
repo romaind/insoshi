@@ -2,21 +2,30 @@
 <div id="project">
 	<h4>New project</h4>
 	<div id="project_global" >
-		<span id="choose_project">
-			<%- form_for current_person do |f| %>
-  			  Select one of your existing projects:<br />
-  			  <%= f.collection_select :projects, current_person.projects, :id, :title %>
-			  <%- disabled = false %>
-			  <%- unless current_person.projects.first %>
-				<%- disabled = "disabled" %>
-			  <%- end %>
-			  <%= f.submit "Edit", :disabled => disabled %>
-			  <input type="hidden", name ="type", value ="project_edit" >
-			<%- end %>
-		</span>
-		<%= link_to image_tag("projects/create_project.gif", :id => "create") %>
-		<%= link_to image_tag("projects/delete_project.gif") %>
+    <div id="choose_project" class="clearfix">
+      <%- form_for current_person, :html => {:class => "fl"} do |f| %>
+        Select one of your existing projects:<br />
+        <%= f.collection_select :projects, current_person.projects, :id, :title %>
+        <%- disabled = false %>
+        <%- unless current_person.projects.first %>
+          <%- disabled = "disabled" %>
+        <%- end %>
+        <%= f.submit "Edit", :disabled => disabled %>
+        <input type="hidden", name ="type", value ="project_edit" >
+      <%- end %>
+      <%= link_to image_tag("projects/delete_project.gif"), projects_path(),  :class => "fr" %>
+      <%= link_to image_tag("projects/create_project.gif", :id => "create"), new_person_project_path(current_person), :class => "fr" %>
+    </div>
 
+
+    <!-- <div id="projecttabs" class="clearfix">
+      <ul class="clearfix yellow">
+        <%= tab_to "Settings", editproject_path(current_person, @project, "settings"), :class => "current" %>
+        <%= tab_to "Content", editproject_path(current_person, @project, "content"), :class => "current" %>
+        <%= tab_to "Copyrights", editproject_path(current_person, @project, "network"), :class => "current" %>
+      </ul>
+    </div> -->
+	  
 		<div id="project_settings" >
 		<% form_for(@project, :url => person_projects_path) do |f| %>
 
@@ -35,16 +44,16 @@
 			Categories: <%=image_tag "portfolio/mandatory.gif", :class => "mandatory"%>
 		</p>
 		<table>
-  			<%- i=0 %>
- 			<% for skill in Skill.find(:all) %>
-     			<%- if i%2==0 %>
-        			<tr>
-     			<%- end %>
-        			<td>
-           				<label> <%= skill.name %>
-           				<%= check_box_tag "project[skill_ids][]", skill.id, @project.skills.include?(skill) %></label>
+ 			<% Skill.find(:all).in_groups_of(2) do |row| %>
+ 			  <tr>
+ 			    <% row.each do |skill| %>
+ 			      <% if skill %>
+        	    <td>
+           			<label> <%= skill.name %>
+           			<%= check_box_tag "project[skill_ids][]", skill.id, @project.skills.include?(skill) %></label>
         			</td>
-     				<%- i+=1 %>
+        		<% end %>
+        	<% end %>
  			<%- end %>
 		</table>
 		

@@ -18,11 +18,9 @@ class CommentsController < ApplicationController
 
   # Used for both wall and blog comments.
   def create
-    STDERR.puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
     @comment = parent.comments.new(params[:comment].
                                    merge(:commenter => current_person))
-    logger.info ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" + parent.email
-    
+   
     respond_to do |format|
       if @comment.save
         flash[:success] = 'Comment was successfully created.'
@@ -128,7 +126,7 @@ class CommentsController < ApplicationController
 
     # True if resource lives on a wall.
     def wall?
-      !params[:person_id].nil?
+      !params[:person_id].nil? && params[:project_id].nil?
     end
 
     def project_wall?
@@ -139,4 +137,5 @@ class CommentsController < ApplicationController
     def blog?
       !params[:blog_id].nil?
     end
+    
 end

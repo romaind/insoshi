@@ -48,6 +48,12 @@ class ProjectsController < ApplicationController
   # GET /projects/1/edit
   def edit
     @project = Project.find(params[:id])
+    @creation = Creation.new
+    if params[:tab]
+      @part = params[:tab]
+    else
+      @part = "settings"
+    end
   end
 
   # POST /projects
@@ -58,7 +64,7 @@ class ProjectsController < ApplicationController
     respond_to do |format|
       if @project.save
         flash[:notice] = 'Project was successfully created.'
-        format.html { redirect_to person_project_path(current_person, @project) }
+        format.html { redirect_to editproject_path(current_person, @project, "content") }
         format.xml  { render :xml => @project, :status => :created, :location => @project }
       else
         format.html { render :action => "new" }

@@ -31,6 +31,64 @@
 	/* End hide from IE-mac */
 /* @end */
 
+/* @group align-position */
+	.fn{
+		float: none !important;
+	}
+	
+	.fl {
+		float: left;
+	}
+	
+	.fli {
+		float: left !important;
+	}
+	
+	.fr {
+		float: right;
+	}
+	
+	.l{
+		text-align: left;
+	}
+	
+	.r{
+		text-align: right;
+	}
+	
+	.fri {
+		float: right !important;
+	}
+	
+	.c {
+		margin-left: auto;
+		margin-right: auto;
+	}
+	
+	.tac {
+		text-align: center;
+	}
+	
+	.ib{
+	  	display: inline-block;
+	}
+	
+	.tal{
+	  text-align: left;
+	}
+	
+	.tar{
+	  text-align: right;
+	}
+	
+	.abs {
+		position: absolute;
+	}
+	
+	.rel {
+		position: relative;
+	}
+/* @end */
 
 body {
   background-image: url(../images/background_squares.jpg);
@@ -482,17 +540,17 @@ body {
   width: 300px; }
 
 /* ********* Tabs ************ */
-#tabs {
+#persontabs {
   width: 777px;/*
   	margin-top: 10px;
   	margin-bottom: 10px;*/}
-	#tabs ul{
+	#persontabs ul{
 		width: 777px;
 		height: 19px;
 		padding: 0 0 0 0;
 /*		border-bottom: 2px solid #FF9900;*/
 	}
-	#tabs ul li{
+	#persontabs ul li{
 		float: left;
 		list-style-image: none;
 		list-style-position: outside;
@@ -500,28 +558,28 @@ body {
 		text-align: center;
 		width: 111px;
 		height: 19px;}
-		#tabs ul li a, #tabs ul li span{
+		#persontabs ul li a, #persontabs ul li span{
 			text-decoration: none;
 			font-size: 11px;
 			font-weight: bold;
 			color: #FFFFFF;
 		}
-		#tabs ul.yellow li{
+		#persontabs ul.yellow li{
 			background: url("../images/MenuTabsYellow109.gif") no-repeat scroll left -19px;
 		}
-		#tabs ul.yellow li.current{
+		#persontabs ul.yellow li.current{
 			background: url("../images/MenuTabsYellow109.gif") no-repeat left top;
 		}
-		#tabs ul.yellow li.current span{
+		#persontabs ul.yellow li.current span{
 			color: #FF9900;
 		}
-		#tabs ul.green li{
+		#persontabs ul.green li{
 			background: url("../images/MenuTabsGreen109.gif") no-repeat scroll left -19px;
 		}
-		#tabs ul.green li.current{
+		#persontabs ul.green li.current{
 			background: url("../images/MenuTabsGreen109.gif") no-repeat scroll left top;
 		}
-		#tabs ul.green li.current span{
+		#persontabs ul.green li.current span{
 			color: #009900;
 		}
 
@@ -680,6 +738,10 @@ body {
     font-weight: normal;
     margin: 0; }
 
+#choose_project{
+	height: 80px;
+}
+
 #my_projects {
   background-color: white;
   border-top: 2px solid #009900;
@@ -728,6 +790,50 @@ body {
     font-size: 10pt;
     font-weight: normal;
     margin: 0; }
+
+/* *********Project Tabs ************* */
+#projecttabs{
+	  width: 560px;
+	  height: 32px;/*
+	  	margin-top: 10px;
+	  	margin-bottom: 10px;*/}
+		#projecttabs ul{
+			width: 560px;
+			height: 32px;
+			background-color: #FF9900;
+			margin: 0 0 0 0;
+			padding: 0 0 0 0;
+	/*		border-bottom: 2px solid #FF9900;*/
+		}
+		#projecttabs ul li{
+			float: left;
+			list-style-image: none;
+			list-style-position: outside;
+			list-style-type: none;
+			text-align: center;
+			padding-top: 6px;
+			width: 111px;
+			height: 26px;}
+			#projecttabs ul li a, #projecttabs ul li span{
+				text-decoration: none;
+				font-size: 12px;
+/*				padding-top: 5px;*/
+/*				font-weight: bold;*/
+				color: #FFFFFF;
+			}
+			#projecttabs ul.yellow li{
+				background-color: #FF9900;
+				border-right: 1px solid #FFFFFF;
+			}
+			#projecttabs ul.yellow li.current{
+				border-top: 2px solid #FF9900;
+				background-color: #FFFFFF;
+			}
+			#projecttabs ul.yellow li.current span{
+				width: 111px;
+				color: #FF9900;
+				text-align: center;
+			}
 
 /* *********Pagination display********** */
 .paginate {
@@ -1142,11 +1248,11 @@ body {
       margin-top: 10px; }
     #project #project_global span {
       color: #FF9900;
-      float: left;
-      width: 270px;
+/*      float: left;*/
+/*      width: 270px;*/
       font-size: 9pt;
       text-align: right;
-      margin-right: 20px; }
+/*      margin-right: 20px; */}
       #project #project_global span #person_projects {
         width: 270px;
         margin-top: 7px; }
