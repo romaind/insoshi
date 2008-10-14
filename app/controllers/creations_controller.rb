@@ -45,18 +45,16 @@ class CreationsController < ApplicationController
   # POST /creations.xml
   def create
     @creation = @project.creations.create(params[:creation])
-    @asset = Asset.new(params[:asset])
-    @creation.asset = @asset
-
+    @asset = Asset.create(params[:asset])
+    
+    @asset.item_content_type.starts_with?("video") ? jobs = Bj.submit("./script/runner ./jobs/convert_video_to_flv.rb #{@asset.id}", :rails_env => 'production') : @asset.is_picture!
+    
     respond_to do |format|
       if @creation.save
-        # if @creation.assets.create(params[:asset])
-        # if @creation.assets.save
-        # if @asset.save
-          flash[:notice] = 'Creation was successfully created.'
-          format.html { redirect_to :back }
-          format.xml  { render :xml => @creation, :status => :created, :location => @creation }
-        # end
+        @creation.asset = @asset
+        flash[:notice] = 'Creation was successfully created.'
+        format.html { redirect_to :back }
+        format.xml  { render :xml => @creation, :status => :created, :location => @creation }
       else
         flash[:error] = "Please choose a file"
         format.html { redirect_to editproject_path(current_person, @project, "content") }

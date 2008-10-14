@@ -1,9 +1,10 @@
 require 'paperclip'
+require 'rvideo'
 class Asset < ActiveRecord::Base
   # belongs_to :creation
   belongs_to :item, :polymorphic => true
 
-  #validates_attachment_presence :item
+  STD_WIDTH = 480
 
   # Paperclip
   has_attached_file :item,
@@ -60,7 +61,7 @@ class Asset < ActiveRecord::Base
   
   def url(style = :original)
     unless done?
-      "/images/portfolio/waiting.gif"
+      "/images/waiting-#{style}.gif"
     else
       item.url(style)
     end
@@ -70,12 +71,15 @@ class Asset < ActiveRecord::Base
 
   # This method creates the ffmpeg command that we'll be using
   def convert_command
+    file = RVideo::Inspector.new(:file => item.path)
+    height_to = ((STD_WIDTH*file.height)/file.width).floor
+    
     flv = File.join(File.dirname(item.path), "#{id}.flv")
     File.open(flv, 'w')
 
     command = <<-end_command
     ffmpeg -i #{ item.path }  -ar 22050 -ab 32 -acodec libmp3lame
-    -s 480x360 -vcodec flv -r 25 -qscale 8 -f flv -y #{ flv }
+    -s #{ STD_WIDTH }x#{ height_to } -vcodec flv -r 25 -qscale 8 -f flv -y #{ flv }
     end_command
     command.gsub!(/\s+/, " ")
   end

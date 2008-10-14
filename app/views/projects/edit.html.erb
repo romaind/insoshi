@@ -120,7 +120,7 @@
               <% row.each do |crea| %>
                 <% if crea %>
                   <td>
-                      <%= link_to(image_tag(crea.asset.item.url(:tiny)), person_project_creation_path(current_person, @project, crea)) %>
+                      <%= link_to(image_tag(crea.asset.url(:tiny)), person_project_creation_path(current_person, @project, crea)) %>
                      <%= link_to image_tag("icons/trash.gif") + "delete", person_project_creation_path(current_person, @project, crea), :confirm => 'Are you sure?', :method => :delete, :class => "del" %>
                   </td>
                 <% else %>
