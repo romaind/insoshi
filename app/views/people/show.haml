@@ -34,11 +34,11 @@
 
       #stats
         %p
-          =pluralize(10, "project")
+          =pluralize(@person.projects.count, "project")
           %br
           =pluralize(@person.contacts.count, "contact")
           %br
-          =pluralize(420, "total view")
+          =pluralize(@views, "total view")
           %br
           =pluralize(102, "total vote")
 

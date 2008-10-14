@@ -27,6 +27,7 @@ class PeopleController < ApplicationController
       @common_contacts = current_person.common_contacts_with(@person)
       @person_projects = @person.projects
     end
+    @views = PageView.find(:all, :conditions => ["request_url like '/people/?%'", @person.id]).length
     respond_to do |format|
       format.html
     end
