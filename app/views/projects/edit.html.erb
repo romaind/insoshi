@@ -21,7 +21,7 @@
 	    <ul class="clearfix yellow">
   	    <%= tab_to "Settings", editproject_path(current_person, @project, "settings"), :class => "current" %>
         <%= tab_to "Content", editproject_path(current_person, @project, "content"), :class => "current" %>
-        <%= tab_to "Copyrights", editproject_path(current_person, @project, "network"), :class => "current" %>
+        <%= tab_to "Copyrights", editproject_path(current_person, @project, "copyrights"), :class => "current" %>
       </ul>
 	  </div>
 	  <% case @part
@@ -144,9 +144,20 @@
           <%- end %>
         <%- end %>
       </table>
+    <% when "copyrights" %>
+      <p>
+        <div class="bot20"><%= @project.common.label %></div>
+        <%= cc_icons(@project.common) %>
+      </p>
+      
+      <% form_for(@project, :url => person_project_path(current_person, @project)) do |f| %>
+        <label>Want to change ?</label>
+        <%= f.select :creative_common_id, CreativeCommon.find(:all).map{|obj| [obj.label,obj.id]} %>
+        <%= submit_tag 'Save' %>
+      <% end %>
     <% else %>
       <p>
-        Please choose a tab
+        Please choose a correct tab
       </p>
     <% end %>
 		</div>
