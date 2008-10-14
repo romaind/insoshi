@@ -81,6 +81,11 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.update_attributes(params[:project])
+        if params[:project][:state] == 'draft' && !@project.draft?
+          @project.be_draft!
+        elsif params[:project][:state] == 'published' && !@project.published?
+          @project.publish!
+        end
         flash[:notice] = 'Project was successfully updated.'
         format.html { 
           if params[:project][:creative_common_id]

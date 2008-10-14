@@ -1,8 +1,23 @@
 class Project < ActiveRecord::Base
   include ActionView::Helpers::AssetTagHelper
   
+  # attr_accessor :status
+  attr_protected :state
+  
   NUM_WALL_COMMENTS = 10
   acts_as_taggable
+
+  acts_as_state_machine :initial => :draft
+  state :draft
+  state :published
+  
+  event :publish do
+    transitions :to => :published, :from => :draft
+  end
+  
+  event :be_draft do
+    transitions :to => :draft, :from => :published
+  end
 
   belongs_to :person
   belongs_to :common,
