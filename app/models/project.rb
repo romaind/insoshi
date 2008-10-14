@@ -5,6 +5,9 @@ class Project < ActiveRecord::Base
   acts_as_taggable
 
   belongs_to :person
+  belongs_to :common,
+             :class_name => 'CreativeCommon',
+             :foreign_key => :creative_common_id
   has_many :creations, :dependent => :destroy
   has_and_belongs_to_many :skills
   has_many :comments, :as => :commentable, :order => 'created_at DESC',
