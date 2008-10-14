@@ -1,8 +1,23 @@
 class Project < ActiveRecord::Base
   include ActionView::Helpers::AssetTagHelper
   
+  # attr_accessor :status
+  attr_protected :state
+  
   NUM_WALL_COMMENTS = 10
   acts_as_taggable
+
+  acts_as_state_machine :initial => :draft
+  state :draft
+  state :published
+  
+  event :publish do
+    transitions :to => :published, :from => :draft
+  end
+  
+  event :be_draft do
+    transitions :to => :draft, :from => :published
+  end
 
   belongs_to :person
   belongs_to :common,
@@ -21,6 +36,23 @@ class Project < ActiveRecord::Base
                      :order => 'created_at DESC')
     end
     
+    def published_recent_to_older(page = 1)
+      paginate(:all, :page => page,
+                     :per_page => RASTER_PER_PAGE,
+                     :order => 'created_at DESC',
+                     :conditions => conditions_for_published)
+    end
+    
+    def all_published
+      find(:all, :conditions => conditions_for_published)
+    end
+    
+  end
+  
+  protected
+  
+  def self.conditions_for_published
+    [%(state = 'published')]
   end
   
 end

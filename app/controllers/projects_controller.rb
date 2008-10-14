@@ -3,6 +3,7 @@ class ProjectsController < ApplicationController
   before_filter :login_required, :only => [:edit, :update, :new, :create]
   before_filter :correct_user_required, :only => [:edit, :update, :new, :create]
   before_filter :correct_project_required, :only => [:edit, :update]
+  before_filter :must_be_a_published_project, :only => [:show]
   before_filter :setup
   
   # GET /projects
@@ -11,8 +12,8 @@ class ProjectsController < ApplicationController
     if params[:person_id]
       redirect_to person_path(params[:person_id])
     else
-      @all_projects = Project.find(:all)
-      @projects = Project.recent_to_older(params[:page])
+      @all_projects = Project.all_published
+      @projects = Project.published_recent_to_older(params[:page])
       respond_to do |format|
         format.html # index.html.erb
         format.xml  { render :xml => @all_projects }
@@ -81,6 +82,11 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.update_attributes(params[:project])
+        if params[:project][:state] == 'draft' && !@project.draft?
+          @project.be_draft!
+        elsif params[:project][:state] == 'published' && !@project.published?
+          @project.publish!
+        end
         flash[:notice] = 'Project was successfully updated.'
         format.html { 
           if params[:project][:creative_common_id]
@@ -122,7 +128,7 @@ class ProjectsController < ApplicationController
   end
   
   def correct_project_required
-    unless Project.find(params[:id]).person_id == current_person.id
+    unless @project = Project.find(params[:id]) && @project.person_id == current_person.id
       flash[:error] = "You're not allowed to access this area!"
       redirect_to person_project_path(params[:person_id], params[:id])
     end
