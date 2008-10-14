@@ -36,6 +36,23 @@ class Project < ActiveRecord::Base
                      :order => 'created_at DESC')
     end
     
+    def published_recent_to_older(page = 1)
+      paginate(:all, :page => page,
+                     :per_page => RASTER_PER_PAGE,
+                     :order => 'created_at DESC',
+                     :conditions => conditions_for_published)
+    end
+    
+    def all_published
+      find(:all, :conditions => conditions_for_published)
+    end
+    
+  end
+  
+  protected
+  
+  def self.conditions_for_published
+    [%(state = 'published')]
   end
   
 end

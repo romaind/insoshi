@@ -90,4 +90,14 @@ class ApplicationController < ActionController::Base
         end
       end
     end
+    
+    def must_be_a_published_project
+      if logged_in?
+        unless Project.find(params[:id]).published? or Project.find(params[:id]).person_id == current_person.id
+          flash[:error] = "You're not allowed to access this project"
+          redirect_to home_url
+        end
+      end
+    end
+    
 end
