@@ -47,7 +47,7 @@ class CreationsController < ApplicationController
     @creation = @project.creations.create(params[:creation])
     @asset = Asset.create(params[:asset])
     
-    @asset.item_content_type.starts_with?("video") ? jobs = Bj.submit("./script/runner ./jobs/convert_video_to_flv.rb #{@asset.id}", :rails_env => 'production') : @asset.is_picture!
+    @asset.item_content_type.starts_with?("video") ? jobs = Bj.submit("./script/runner ./jobs/convert_video_to_flv.rb #{@asset.id}", :rails_env => ENV['RAILS_ENV']) : @asset.is_picture!
     
     respond_to do |format|
       if @creation.save

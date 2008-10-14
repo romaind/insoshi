@@ -3,6 +3,7 @@ class ProjectsController < ApplicationController
   before_filter :login_required, :only => [:edit, :update, :new, :create]
   before_filter :correct_user_required, :only => [:edit, :update, :new, :create]
   before_filter :correct_project_required, :only => [:edit, :update]
+  before_filter :find_project, :only => [:show]
   before_filter :must_be_a_published_project, :only => [:show]
   before_filter :setup
   
@@ -119,6 +120,12 @@ class ProjectsController < ApplicationController
   def setup
     @body = "project"
   end
+  
+  def find_project
+    if params[:id]
+      @project = Project.find(params[:id])
+    end
+  end
 
   def correct_user_required
     unless Person.find(params[:person_id]) == current_person
@@ -128,7 +135,7 @@ class ProjectsController < ApplicationController
   end
   
   def correct_project_required
-    unless @project = Project.find(params[:id]) && @project.person_id == current_person.id
+    unless Project.find(params[:id]).person_id == current_person.id
       flash[:error] = "You're not allowed to access this area!"
       redirect_to person_project_path(params[:person_id], params[:id])
     end
