@@ -25,6 +25,6 @@
     %h4 Last Projects
   #lastprojects_content
     -per_line = 4
-    =render :partial => "projects/projects_list", :locals => {:per_line => per_line}
+    =render :partial => "projects/projects_list", :locals => {:per_line => per_line, :projects => @projects}
   #lastprojectbottom
     =link_to "view all &raquo;", projects_path

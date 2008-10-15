@@ -1,13 +1,13 @@
-<%= will_paginate @projects, :prev_label => "<span class='prev'><</span>", :next_label => "<span class='next'>></span>", :class =>"paginate" %>
-  <%- if @projects.empty? %>
+<%= will_paginate projects, :prev_label => "<span class='prev'><</span>", :next_label => "<span class='next'>></span>", :class =>"paginate" %>
+  <%- if projects.empty? %>
 <table>
     <tr>
-	  <td>No published project</td>
+	  <td>No project</td>
 	</tr>
   <%- else %>
 <table>
     <%- i=0 %>
-  	<%- for project in @projects %>
+  	<%- for project in projects %>
       <%- if i % per_line == 0 %>
         <tr>
       <%- end %>
@@ -15,10 +15,10 @@
         	<%= render :partial => "projects/project_item", :locals =>{ :project => project} %>
       		<%- i+=1 %>
 	  <%- end %>
-	  <%- if i % per_line == 0 or project == @projects.last %>
+	  <%- if i % per_line == 0 or project == projects.last %>
         </tr>
       <%- end %>
 	<%- end %>
   <%- end %>
 </table>
-<%= will_paginate @projects, :prev_label => "<span class='prev'><</span>", :next_label => "<span class='next'>></span>", :class =>"paginate" %>
+<%= will_paginate projects, :prev_label => "<span class='prev'><</span>", :next_label => "<span class='next'>></span>", :class =>"paginate" %>
