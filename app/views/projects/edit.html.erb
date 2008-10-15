@@ -131,16 +131,16 @@
                 <% end %>
               <% end %>
             </tr>
-            <tr>
-              <% 6.times do %>
-                <td>
-                  <%=image_tag "defaults/minipreview.gif", :class => "img_preview" %>
-        		      <br>
-        		      &nbsp;
-                </td>
-              <% end %>
-            </tr>
-          <%- end %>
+          <%- end %>  
+          <tr>
+            <% 6.times do %>
+              <td>
+                <%=image_tag "defaults/minipreview.gif", :class => "img_preview" %>
+      		      <br>
+      		      &nbsp;
+              </td>
+            <% end %>
+          </tr>
         <%- end %>
       </table>
     <% when "copyrights" %>
