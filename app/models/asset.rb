@@ -72,11 +72,13 @@ class Asset < ActiveRecord::Base
   def convert_command
     if ENV['RAILS_ENV'] == "production" || ENV['RAILS_ENV'] == "staging"
       file = RVideo::Inspector.new(:file => item.path, :ffmpeg_binary => '/usr/local/bin/ffmpeg')
-      logger.info "Path: " + item.path
-      logger.info file
     else
       file = RVideo::Inspector.new(:file => item.path)
     end
+    
+    logger.info "ItemPath: " + item.path
+    logger.info "File.debug: #{file.to_yaml}"
+    logger.info "File.height: " + file.height
       
     height_to = ((STD_WIDTH*file.height)/file.width).floor
     
