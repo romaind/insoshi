@@ -2,6 +2,14 @@
 <div class="content">
 	<div id="options">
 		<%=link_to "See portfolio", person_path(@project.person) %>
+		<% if current_person?(@project.person) %>		
+  		<p>
+  			<%= link_to "Edit this project", editproject_path(@project.person, @project, "settings") %>
+  		</p>
+  		<p>
+  			<%= link_to "Delete this project" %>
+  		</p>
+		<% end %>
 		<p>
 			<%= link_to "Comment this project" %>
 		</p>
