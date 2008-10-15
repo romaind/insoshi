@@ -49,7 +49,14 @@ class Asset < ActiveRecord::Base
   def convert
     self.convert!
     success = system(convert_command)
-    if success && $?.exitstatus == 0
+    
+    logger.info "Success: " + success
+    
+    exit_status = $?.exitstatus
+    
+    logger.info "Exit status: " + exit_status
+    
+    if success && exit_status == 0
       self.converted!
       self.item.reprocess_for_video_thumnbails!
       self.ready!
@@ -79,7 +86,6 @@ class Asset < ActiveRecord::Base
     logger.info "ItemPath: " + item.path
     logger.info "File.debug: #{file.to_yaml}"
     logger.info "File.height: " + file.height.to_s
-    #/home/web/dev.coaliz.com/releases/20081015121139/public/items/47/original/Sequence_1.mov
       
     height_to = ((STD_WIDTH*file.height)/file.width).floor
     
@@ -90,6 +96,9 @@ class Asset < ActiveRecord::Base
     ffmpeg -i #{ item.path }  -ar 22050 -ab 32 -acodec libmp3lame
     -s #{ STD_WIDTH }x#{ height_to } -vcodec flv -r 25 -qscale 8 -f flv -y #{ flv }
     end_command
+    
+    logger.info "Command: " + command
+    
     command.gsub!(/\s+/, " ")
   end
 
