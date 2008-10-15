@@ -1,6 +1,9 @@
 class Project < ActiveRecord::Base
   include ActionView::Helpers::AssetTagHelper
   
+  validates_presence_of :title
+  validates_presence_of :skills
+  
   # attr_accessor :status
   attr_protected :state
   
