@@ -71,7 +71,9 @@ class Asset < ActiveRecord::Base
   # This method creates the ffmpeg command that we'll be using
   def convert_command
     if ENV['RAILS_ENV'] == "production" || ENV['RAILS_ENV'] == "staging"
-      file = RVideo::Inspector.new(:file => item.path, :ffmpeg_binary => '/usr/local/bin/')
+      file = RVideo::Inspector.new(:file => item.path, :ffmpeg_binary => '/usr/local/bin/ffmpeg')
+      logger.info "Path: " + item.path
+      logger.info file
     else
       file = RVideo::Inspector.new(:file => item.path)
     end
