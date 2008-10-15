@@ -1,4 +1,3 @@
-require 'paperclip'
 require 'rvideo'
 class Asset < ActiveRecord::Base
   # belongs_to :creation
@@ -71,7 +70,12 @@ class Asset < ActiveRecord::Base
 
   # This method creates the ffmpeg command that we'll be using
   def convert_command
-    file = RVideo::Inspector.new(:file => item.path)
+    if ENV['RAILS_ENV'] == "production" || ENV['RAILS_ENV'] == "staging"
+      file = RVideo::Inspector.new(:file => item.path, :ffmpeg_binary => '/usr/local/bin/')
+    else
+      file = RVideo::Inspector.new(:file => item.path)
+    end
+      
     height_to = ((STD_WIDTH*file.height)/file.width).floor
     
     flv = File.join(File.dirname(item.path), "#{id}.flv")
