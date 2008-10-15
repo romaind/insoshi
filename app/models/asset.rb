@@ -78,7 +78,8 @@ class Asset < ActiveRecord::Base
     
     logger.info "ItemPath: " + item.path
     logger.info "File.debug: #{file.to_yaml}"
-    logger.info "File.height: " + file.height
+    logger.info "File.height: " + file.height.to_s
+    #/home/web/dev.coaliz.com/releases/20081015121139/public/items/47/original/Sequence_1.mov
       
     height_to = ((STD_WIDTH*file.height)/file.width).floor
     
