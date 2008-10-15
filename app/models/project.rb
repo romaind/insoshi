@@ -53,4 +53,10 @@ class Project < ActiveRecord::Base
     
   end
   
+  protected
+  
+  def self.conditions_for_published
+    [%(state = 'published')]
+  end
+  
 end

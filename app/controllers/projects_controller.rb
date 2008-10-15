@@ -27,8 +27,8 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     @author = @project.person
-    @author_projects = @author.projects.paginate(:page => params[:author_page],:per_page => 5, :order => 'created_at DESC')
-    @all_projects = Project.find(:all, :order => 'created_at DESC').paginate(:page => params[:all_page], :per_page => 5)
+    @author_projects = @author.projects.all_published.paginate(:page => params[:author_page],:per_page => 5, :order => 'created_at DESC')
+    @all_projects = Project.all_published.paginate(:page => params[:all_page], :per_page => 5)
 
 
     respond_to do |format|
