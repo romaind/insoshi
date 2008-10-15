@@ -30,8 +30,14 @@ class ProjectsController < ApplicationController
     @author_projects = @author.projects.paginate(:page => params[:author_page],:per_page => 5, :order => 'created_at DESC')
     @all_projects = Project.find(:all, :order => 'created_at DESC').paginate(:page => params[:all_page], :per_page => 5)
 
+
     respond_to do |format|
-      format.html # show.html.erb
+      format.html {
+        if !@project.views
+          @project.update_attributes(:views => 0)
+        end
+        @project.update_attributes(:views => @project.views+1)
+      }# show.html.erb
       format.xml
     end
   end
