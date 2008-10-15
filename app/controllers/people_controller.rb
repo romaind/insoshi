@@ -143,7 +143,7 @@ class PeopleController < ApplicationController
           format.html { render :action => "edit" }
         end
       when 'project_edit'
-        format.html { redirect_to edit_person_project_path(current_person, params[:person][:projects]) }
+        format.html { redirect_to editproject_path(current_person, params[:person][:projects], "settings") }
       end
     end
   end

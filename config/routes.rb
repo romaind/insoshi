@@ -29,7 +29,7 @@ ActionController::Routing::Routes.draw do |map|
      person.resources :photos
      person.resources :connections
      person.resources :comments
-     person.resources :projects do |project|
+     person.resources :projects, :collection => {:choose => :get} do |project|
        project.resources :comments
        project.resources :creations do |creation|
          creation.resources :assets
@@ -67,7 +67,10 @@ ActionController::Routing::Routes.draw do |map|
   
   map.profile 'people/:id/:tab',  :controller => 'people',
                                   :action => 'show'
+                                  
+  map.newproject  'people/:person_id/projects/new/:tab', :controller => 'projects', :action => 'new'
   map.editproject  'people/:person_id/projects/:id/edit/:tab', :controller => 'projects', :action => 'edit'
+  
   map.simple_captcha '/simple_captcha/:action', :controller => 'simple_captcha'
   map.signup '/signup', :controller => 'people', :action => 'new'
   map.login '/login', :controller => 'sessions', :action => 'new'

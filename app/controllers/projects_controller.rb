@@ -121,6 +121,10 @@ class ProjectsController < ApplicationController
     end
   end
   
+  def choose
+    
+  end
+  
   private
 
   def setup
