@@ -13,7 +13,7 @@
         <input type="hidden", name ="type", value ="project_edit" >
       <%- end %>
       <%#= link_to image_tag("projects/delete_project.gif"), projects_path(),  :class => "fr" %>
-      <%= link_to image_tag("projects/create_project.gif", :id => "create"), new_person_project_path(current_person), :class => "fr" %>
+      <%= link_to image_tag("projects/create_project.gif", :id => "create"), newproject_path(current_person, "settings"), :class => "fr" %>
     </div>
   </div>
 </div>
