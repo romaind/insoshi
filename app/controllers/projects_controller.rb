@@ -71,6 +71,11 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save
+        if params[:project][:state] == 'draft' && !@project.draft?
+          @project.be_draft!
+        elsif params[:project][:state] == 'published' && !@project.published?
+          @project.publish!
+        end
         flash[:notice] = 'Project was successfully created.'
         format.html { redirect_to editproject_path(current_person, @project, "content") }
         format.xml  { render :xml => @project, :status => :created, :location => @project }

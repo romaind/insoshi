@@ -48,16 +48,15 @@
           		<%= f.text_field :tag_list, :default => @project.tags.collect{|t| t.name}.join(", ") %>
   		</p>
 
-		<p id="status" >
-    		Status of your project: <%=image_tag "portfolio/mandatory.gif", :class => "mandatory"%><br />
-    		Published <%= check_box :p, :published %><br />
-    		Draft <%= check_box :p, :draft %>
-  		</p>
+  	  <p id="status" >
+      	Status of your project: <%=image_tag "portfolio/mandatory.gif", :class => "mandatory"%><br />
+        <%= f.select :state, ["draft", "published"] %>
+    	</p>
 
   		<p>
 			<table id="buttons" >
 				<tr>
-				  <td><%= f.submit "Accept" %></td>
+				  <td><%= f.submit "Save & Continue" %></td>
 				  <td><%= link_to button_to("Cancel"), :back %></td>
 				</tr>
 			</table>
