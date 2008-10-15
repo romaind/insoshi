@@ -2,20 +2,6 @@
 <div id="project">
 	<h4>Editing project</h4>
 	<div id="project_global" >
-    <div id="choose_project" class="clearfix">
-      <%- form_for current_person, :html => {:class => "fl"} do |f| %>
-        Select one of your existing projects:<br />
-        <%= f.collection_select :projects, current_person.projects, :id, :title %>
-        <%- disabled = false %>
-        <%- unless current_person.projects.first %>
-          <%- disabled = "disabled" %>
-        <%- end %>
-        <%= f.submit "Edit", :disabled => disabled %>
-        <input type="hidden", name ="type", value ="project_edit" >
-      <%- end %>
-      <%= link_to image_tag("projects/delete_project.gif"), projects_path(),  :class => "fr" %>
-      <%= link_to image_tag("projects/create_project.gif", :id => "create"), new_person_project_path(current_person), :class => "fr" %>
-    </div>
 	  
 	  <div id="projecttabs" class="clearfix">
 	    <ul class="clearfix yellow">
@@ -131,16 +117,16 @@
                 <% end %>
               <% end %>
             </tr>
-            <tr>
-              <% 6.times do %>
-                <td>
-                  <%=image_tag "defaults/minipreview.gif", :class => "img_preview" %>
-        		      <br>
-        		      &nbsp;
-                </td>
-              <% end %>
-            </tr>
-          <%- end %>
+          <%- end %>  
+          <tr>
+            <% 6.times do %>
+              <td>
+                <%=image_tag "defaults/minipreview.gif", :class => "img_preview" %>
+      		      <br>
+      		      &nbsp;
+              </td>
+            <% end %>
+          </tr>
         <%- end %>
       </table>
     <% when "copyrights" %>

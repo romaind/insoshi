@@ -114,7 +114,7 @@
           .column_content
             %p
               -if @person.website?
-                = link_to @person.website, "http://" + @person.website
+                = link_to @person.website, "http://" + @person.website, :target => :blank
                 -if current_person?(@person)
                   .profile_edit
                     =link_to image_tag("icons/mini_edit.gif") + "Edit", edit_person_path(@person) + "#person_website"
@@ -175,16 +175,18 @@
                 =display_empty_field("tags")
 
       #projects
-        %h4 PUBLISHED PROJECTS
-        -per_line = 3
-        #my_projects
-          =render :partial => 'projects/projects_list', :locals => {:per_line => per_line, :projects => @publishedprojects} 
         
         -if current_person?(@person)  
           %h4 DRAFT PROJECTS
           -per_line = 3
           #my_projects
             =render :partial => 'projects/projects_list', :locals => {:per_line => per_line, :projects => @draftprojects}
+            
+        %h4 PUBLISHED PROJECTS
+        -per_line = 3
+        #my_projects
+          =render :partial => 'projects/projects_list', :locals => {:per_line => per_line, :projects => @publishedprojects} 
+
 
     -elsif params[:tab] == 'news'
       -if current_person?(@person)

@@ -2,29 +2,15 @@
 <div id="project">
 	<h4>New project</h4>
 	<div id="project_global" >
-    <div id="choose_project" class="clearfix">
-      <%- form_for current_person, :html => {:class => "fl"} do |f| %>
-        Select one of your existing projects:<br />
-        <%= f.collection_select :projects, current_person.projects, :id, :title %>
-        <%- disabled = false %>
-        <%- unless current_person.projects.first %>
-          <%- disabled = "disabled" %>
-        <%- end %>
-        <%= f.submit "Edit", :disabled => disabled %>
-        <input type="hidden", name ="type", value ="project_edit" >
-      <%- end %>
-      <%= link_to image_tag("projects/delete_project.gif"), projects_path(),  :class => "fr" %>
-      <%= link_to image_tag("projects/create_project.gif", :id => "create"), new_person_project_path(current_person), :class => "fr" %>
-    </div>
 
 
-    <!-- <div id="projecttabs" class="clearfix">
+    <div id="projecttabs" class="clearfix">
       <ul class="clearfix yellow">
-        <%= tab_to "Settings", editproject_path(current_person, @project, "settings"), :class => "current" %>
-        <%= tab_to "Content", editproject_path(current_person, @project, "content"), :class => "current" %>
-        <%= tab_to "Copyrights", editproject_path(current_person, @project, "network"), :class => "current" %>
+        <%= tab_to "Settings", newproject_path(current_person, "settings"), :class => "current" %>
+        <%#= tab_to "Content", newproject_path(current_person, "content"), :class => "current" %>
+        <%#= tab_to "Copyrights", newproject_path(current_person, "network"), :class => "current" %>
       </ul>
-    </div> -->
+    </div>
 	  
 		<div id="project_settings" >
 		<% form_for(@project, :url => person_projects_path) do |f| %>
@@ -62,16 +48,15 @@
           		<%= f.text_field :tag_list, :default => @project.tags.collect{|t| t.name}.join(", ") %>
   		</p>
 
-		<p id="status" >
-    		Status of your project: <%=image_tag "portfolio/mandatory.gif", :class => "mandatory"%><br />
-    		Published <%= check_box :p, :published %><br />
-    		Draft <%= check_box :p, :draft %>
-  		</p>
+  	  <p id="status" >
+      	Status of your project: <%=image_tag "portfolio/mandatory.gif", :class => "mandatory"%><br />
+        <%= f.select :state, ["draft", "published"] %>
+    	</p>
 
   		<p>
 			<table id="buttons" >
 				<tr>
-				  <td><%= f.submit "Accept" %></td>
+				  <td><%= f.submit "Save & Continue" %></td>
 				  <td><%= link_to button_to("Cancel"), :back %></td>
 				</tr>
 			</table>
