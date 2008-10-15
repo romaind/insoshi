@@ -44,15 +44,13 @@ class Project < ActiveRecord::Base
     end
     
     def all_published
-      find(:all, :conditions => conditions_for_published)
+      find_in_state(:all, :published)
     end
     
-  end
-  
-  protected
-  
-  def self.conditions_for_published
-    [%(state = 'published')]
+    def all_draft
+      find_in_state(:all, :draft)
+    end
+    
   end
   
 end

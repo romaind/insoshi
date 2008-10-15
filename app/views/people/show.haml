@@ -175,10 +175,15 @@
                 =display_empty_field("tags")
 
       #projects
-        %h4 MY PROJECTS
+        %h4 MY PUBLISHED PROJECTS
         -per_line = 3
         #my_projects
-          =render :partial => 'projects/projects_list', :locals => {:per_line => per_line} 
+          =render :partial => 'projects/projects_list', :locals => {:per_line => per_line, :projects => @publishedprojects} 
+          
+        %h4 MY DRAFT PROJECTS
+        -per_line = 3
+        #my_projects
+          =render :partial => 'projects/projects_list', :locals => {:per_line => per_line, :projects => @draftprojects}
 
     -elsif params[:tab] == 'news'
       -if current_person?(@person)
