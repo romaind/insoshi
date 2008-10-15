@@ -7,7 +7,7 @@
   			<%= link_to "Edit this project", editproject_path(@project.person, @project, "settings") %>
   		</p>
   		<p>
-  			<%= link_to "Delete this project" %>
+  			<%= link_to "Delete this project", person_project_path(@project.person, @project), :confirm => 'Are you sure?', :method => :delete  %>
   		</p>
 		<% end %>
 		<p>
