@@ -13,7 +13,7 @@ class ProjectsController < ApplicationController
     if params[:person_id]
       redirect_to person_path(params[:person_id])
     else
-      @all_projects = Project.all_published
+      @all_projects = Project.all_published.paginate(:page => params[:author_page],:per_page => 5, :order => 'created_at DESC')
       @projects = Project.published_recent_to_older(params[:page])
       respond_to do |format|
         format.html # index.html.erb

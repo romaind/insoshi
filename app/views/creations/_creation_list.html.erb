@@ -4,12 +4,13 @@
 	<table>
     	<%- i=0 %>
     	<%- unless @project.creations.nil? %>
-    		<%- @project.creations.each do |crea| %>
+    		<%- @project.creations.each_index do |i| %>
+    		  <%- crea = @project.creations[i]  -%>
        			<%- if i%3==0 %>
        				<tr>
         		<%- end %>
           				<td>
-              				<%= link_to(image_tag(crea.asset.url(:thumb)), 				person_project_creation_path(current_person, @project, crea)) %>
+              				<%= link_to(image_tag(crea.asset.url(:thumb)), person_project_creation_path(current_person, @project, crea), :id => i, :class => dom_class(crea, :thumb)) %>
           				</td>
           		<%- i+=1 %>
           		<%- if i%3==0 %>
