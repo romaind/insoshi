@@ -1585,6 +1585,7 @@ body {
 
 /* *********Display project page********** */
 #show_project #player {
+ width: 584px;
   margin: 0; }
 #show_project h3 {
   width: 580px;
@@ -1610,12 +1611,17 @@ body {
       text-decoration: none; }
     #show_project #right .project_content .tab_title {
       text-align: right;
+/*	  background-color: #FFFFFF;*/
       padding-right: 10px;
       padding-top: 7px;
       width: 190px;
       height: 12px;
-      background-image: url(../images/desc_top.gif);
-      background-repeat: no-repeat; }
+/*      background-image: url(../images/desc_top.gif);*/
+/*      background-repeat: no-repeat;*/ }
+	#show_project #right .project_content .tab_title {
+		background-image: url(../images/desc_top.gif);
+		background-repeat: no-repeat;
+	}
       #show_project #right .project_content .tab_title h4 {
         color: #333333;
         font-size: 9pt;

@@ -1,30 +1,30 @@
-<div class="tab_title"><h4>Project data</h4></div>
-<div class="content">
+<div class="accordion_toggle tab_title clearfix"><h4>Project data</h4></div>
+<div class="accordion_content content">
 
 	<h4>Created at: </h4>
-<p>
-	<%=h @project.created_at.strftime("%d/%m/%Y") %>
-	<%=h @project.created_at.strftime(" at %I:%M%p") %>
-</p>
+  <p>
+  	<%=h @project.created_at.strftime("%d/%m/%Y") %>
+  	<%=h @project.created_at.strftime(" at %I:%M%p") %>
+  </p>
 
-	<h4>Author: </h4>
-<p>
-	<%=h @project.person.first_name + " " + @project.person.name %>
-</p>
+  	<h4>Author: </h4>
+  <p>
+  	<%=h @project.person.first_name + " " + @project.person.name %>
+  </p>
 
-	<h4>Categories: </h4>
-<p>
-	<%- if @project.skills %>
-		<%= @project.skills.collect{|skill| skill.name}.join(", ") %>
-	<%- end %>
-</p>
+  	<h4>Categories: </h4>
+  <p>
+  	<%- if @project.skills %>
+  		<%= @project.skills.collect{|skill| skill.name}.join(", ") %>
+  	<%- end %>
+  </p>
 
-	<h4>Tags: </h4>
-<p>
-	<%- if @project.tags.first %>
-    	<%= @project.tags.collect{|t| t.name}.join(", ") %>
-	<%- end %>
-</p>
+  	<h4>Tags: </h4>
+  <p>
+  	<%- if @project.tags.first %>
+      	<%= @project.tags.collect{|t| t.name}.join(", ") %>
+  	<%- end %>
+  </p>
 
   <h4>Licence:</h4>
   	<%= cc_icons(@project.common) %>

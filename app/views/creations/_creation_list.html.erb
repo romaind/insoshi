@@ -1,33 +1,49 @@
-<div class="tab_title"><h4>Project content</h4></div>
+<!-- <div class="tab_title"><h4>Project content</h4></div>
 <div class="content">
+  by <%=link_to @project.person.first_name + " " + @project.person.name, person_path(@project.person) %>
+  <table>
+    <%- unless @project.creations.nil? %>
+      <%- @project.creations.in_groups_of(3) do |row| %>
+        <tr>
+          <% row.each do |crea| %>
+            <% if crea %>
+              <td>
+                  <%= link_to(image_tag(crea.asset.url(:thumb)), person_project_creation_path(current_person, @project, crea)) %>
+              </td>
+            <% else %>
+              <td>
+                <%= image_tag "defaults/minipreview.gif", :class => "img_preview", :width => "57px" %>
+              </td>
+            <% end %>
+          <%- end %>
+        </tr>
+      <%- end %>
+    <%- end %>
+  </table>
+</div> -->
+
+<div class="accordion_toggle tab_title top clearfix"><h4 class="">Project content</h4</div>
+<div class="accordion_content content">
+  <div>
 	by <%=link_to @project.person.first_name + " " + @project.person.name, person_path(@project.person) %>
 	<table>
-    	<%- i=0 %>
-    	<%- unless @project.creations.nil? %>
-    		<%- @project.creations.each do |crea| %>
-       			<%- if i%3==0 %>
-       				<tr>
-        		<%- end %>
-          				<td>
-              				<%= link_to(image_tag(crea.asset.url(:thumb)), 				person_project_creation_path(current_person, @project, crea)) %>
-          				</td>
-          		<%- i+=1 %>
-          		<%- if i%3==0 %>
-            		</tr>
-          		<%- end %>
+  	<%- unless @project.creations.nil? %>
+  		<%- @project.creations.in_groups_of(3) do |row| %>
+ 				<tr>
+    		  <% row.each do |crea| %>
+   				  <% if crea %>
+      				<td>
+          				<%= link_to(image_tag(crea.asset.url(:thumb)), person_project_creation_path(current_person, @project, crea)) %>
+      				</td>
+      			<% else %>
+      			  <td>
+      			    <%= image_tag "defaults/minipreview.gif", :class => "img_preview", :width => "57px" %>
+      			  </td>
+      			<% end %>
         	<%- end %>
-      	<%- end %>
-      	<%- while i<12 %>
-        	<%- if i%6==0 %>
-          		<tr>
-        	<%- end %>
-        			<td>
-          				<%=image_tag "defaults/minipreview.gif", :class => "img_preview", :width => "57px" %>
-        			</td>
-        	<%- i+=1 %>
-        	<%- if i%3==0 %>
-          		</tr>
-        	<%- end %>
-      	<%- end %>
+        </tr>
+      <%- end %>
+    <%- end %>
 	</table>
+	</div>
 </div>

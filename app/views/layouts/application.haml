@@ -4,7 +4,8 @@
     %meta{ 'http-equiv' => "Content-Type", :content => "text/html; charset=utf-8" }
     %title Coaliz - Community & creative contests
     = stylesheet_link_tag "default"
-    = javascript_include_tag :all
+    / = javascript_include_tag :all
+    =javascript_include_tag 'prototype.js', 'swfobject.js', 'effects.js', 'accordion.js'
     /[if lt IE 7]
       = stylesheet_link_tag 'ie6.css', :media => 'screen, projection' 
   %body
@@ -33,5 +34,5 @@
           -flash.each do |key, msg|
             = content_tag :p, msg, :class => "flash #{key}"
         
-        %span#content
+        %div#content
           =yield
