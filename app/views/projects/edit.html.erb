@@ -77,9 +77,11 @@
 
   		<% form_for(@creation, :url => person_project_creation_path(current_person, @project, @creation), :html => { :multipart => true }) do |f| %>
     		<p id="label_new_creation">Select a file to upload on your project:</p>
-      		<%= error_messages_for :assets %>
+      		<%= error_messages_for :asset %>
       		<%- fields_for :asset do |a| %>
         			<%= a.file_field :item %>
+        			<%#= f.file_field :asset %>
+        			<!-- <input type="file" id="creation_asset_item" name="creation[asset][item]" /> -->
       		<%- end %>
 
     		<p id="terms_content">

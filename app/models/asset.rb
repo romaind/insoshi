@@ -14,6 +14,8 @@ class Asset < ActiveRecord::Base
     :small  => ["130x90#", "jpg"],
     :preview => ["188x145#", "jpg"]
   }
+  validates_attachment_presence :item
+  validates_attachment_content_type :item, :content_type => ['image/jpeg', 'image/pjpeg', 'image/gif', 'image/png', 'image/x-png', 'image/jpg', 'image/bmp', 'image/tiff']
 
   # Acts as State Machine
   # http://elitists.textdriven.com/svn/plugins/acts_as_state_machine
@@ -50,11 +52,11 @@ class Asset < ActiveRecord::Base
     self.convert!
     success = system(convert_command)
     
-    logger.info "Success: " + success
+    # logger.info "Success: " + success
     
     exit_status = $?.exitstatus
     
-    logger.info "Exit status: " + exit_status
+    # logger.info "Exit status: " + exit_status
     
     if success && exit_status == 0
       self.converted!
@@ -83,9 +85,9 @@ class Asset < ActiveRecord::Base
       file = RVideo::Inspector.new(:file => item.path)
     end
     
-    logger.info "ItemPath: " + item.path
-    logger.info "File.debug: #{file.to_yaml}"
-    logger.info "File.height: " + file.height.to_s
+    # logger.info "ItemPath: " + item.path
+    # logger.info "File.debug: #{file.to_yaml}"
+    # logger.info "File.height: " + file.height.to_s
       
     height_to = ((STD_WIDTH*file.height)/file.width).floor
     
@@ -97,7 +99,7 @@ class Asset < ActiveRecord::Base
     -s #{ STD_WIDTH }x#{ height_to } -vcodec flv -r 25 -qscale 8 -f flv -y #{ flv }
     end_command
     
-    logger.info "Command: " + command
+    # logger.info "Command: " + command
     
     command.gsub!(/\s+/, " ")
   end
