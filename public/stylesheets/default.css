@@ -31,6 +31,268 @@
 	/* End hide from IE-mac */
 /* @end */
 
+/* @group align-position */
+	.fn{
+		float: none !important;
+	}
+	
+	.fl {
+		float: left;
+	}
+	
+	.fli {
+		float: left !important;
+	}
+	
+	.fr {
+		float: right;
+	}
+	
+	.l{
+		text-align: left;
+	}
+	
+	.r{
+		text-align: right;
+	}
+	
+	.fri {
+		float: right !important;
+	}
+	
+	.c {
+		margin-left: auto;
+		margin-right: auto;
+	}
+	
+	.tac {
+		text-align: center;
+	}
+	
+	.ib{
+	  	display: inline-block;
+	}
+	
+	.tal{
+	  text-align: left;
+	}
+	
+	.tar{
+	  text-align: right;
+	}
+	
+	.abs {
+		position: absolute;
+	}
+	
+	.rel {
+		position: relative;
+	}
+/* @end */
+
+/* @group spaces */			
+	.bot20 {
+		margin-bottom: 20px !important;
+	}
+	
+	.bot50 {
+		margin-bottom: 50px !important;
+	}
+	
+	.pbot20 {
+		padding-bottom: 20px;
+	}
+	
+	.top20 {
+		margin-top: 20px;
+	}
+	
+	.bot10 {
+		margin-bottom: 10px;
+	}
+	
+	.pbot10 {
+		padding-bottom: 10px;
+	}
+	
+	.bot0 {
+		margin-bottom: 0px !important;
+		padding-bottom: 0px !important;
+	}
+	
+	.top1 {
+		margin-top: 1px !important;
+	}
+	
+	.top5 {
+		margin-top: 5px !important;
+	}
+	
+	.top7 {
+		margin-top: 7px !important;
+	}
+	
+	.top11 {
+		margin-top: 11px !important;
+	}
+	
+	.top10 {
+		margin-top: 10px !important;
+	}
+	
+	.top20 {
+		margin-top: 20px !important;
+	}
+	
+	.ptop10 {
+		padding-top: 10px !important;
+	}
+	
+	.ptop50 {
+		padding-top: 50px !important;
+	}
+	
+	.top50{
+		margin-top: 50px !important;
+	}
+	
+	.top95{
+		margin-top: 95px !important;
+	}
+	
+	.pad10 {
+		padding-left: 10px !important;
+	}
+	
+	.padR10 {
+		padding-right: 10px !important;
+	}
+	
+	.pad20 {
+		padding-left: 20px;
+	}
+	
+	.padR20 {
+		padding-right: 20px !important;
+	}
+	
+	.mar5 {
+		margin-left: 5px !important;
+	}
+	
+	.marR5 {
+		margin-right: 5px !important;
+	}
+	
+	.mar8 {
+		margin-left: 8px !important;
+	}
+	
+	.mar10 {
+		margin-left: 10px !important;
+	}
+	
+	.marR10 {
+		margin-right: 10px !important;
+	}
+	
+	.mar20 {
+		margin-left: 20px !important;
+	}
+	
+	.mar50 {
+		margin-left: 50px;
+	}
+	
+	.marR20 {
+		margin-right: 20px;
+	}
+	
+	.fullMar3{
+		margin: 3px;
+	}
+	
+	.fullMar5{
+		margin: 5px;
+	}
+	
+	.fullMar10{
+		margin: 10px;
+	}
+	
+	.full0 {
+		margin: 0px !important;
+		padding: 0px !important;
+	}
+	
+	.fullPad0{
+		padding: 0px !important;
+	}
+	
+	.fullPad5{
+		padding: 5px !important;
+	}
+	
+	.fullPad3{
+		padding: 3px !important;
+	}
+	
+	.fullPad10{
+		padding: 10px !important;
+	}
+	
+	.fullPad20{
+		padding: 20px !important;
+	}
+	
+	.w75{
+	  width: 75%;
+	}
+	
+	.w75px{
+		width: 75px;
+	}
+	
+	.w50px{
+		width: 50px;
+	}
+	
+	.w100{
+		width: 100px;
+	}
+	
+	.w435{
+		width: 435px;
+	}
+	
+	.w500{
+	  width: 500px;
+	}
+	
+	.w247{
+	  width: 247px !important;
+	}
+	
+	.w310 {
+		width: 310px !important;
+	}
+	
+	.w172{
+	  width: 172px;
+	}
+	
+	.w149{
+	  width: 149px;
+	}
+	
+	.he95{
+		height: 95px;
+	}
+	
+	p.small {
+		font-size: xx-small;
+	}
+/* @end */
 
 body {
   background-image: url(../images/background_squares.jpg);
@@ -482,17 +744,17 @@ body {
   width: 300px; }
 
 /* ********* Tabs ************ */
-#tabs {
+#persontabs {
   width: 777px;/*
   	margin-top: 10px;
   	margin-bottom: 10px;*/}
-	#tabs ul{
+	#persontabs ul{
 		width: 777px;
 		height: 19px;
 		padding: 0 0 0 0;
 /*		border-bottom: 2px solid #FF9900;*/
 	}
-	#tabs ul li{
+	#persontabs ul li{
 		float: left;
 		list-style-image: none;
 		list-style-position: outside;
@@ -500,30 +762,28 @@ body {
 		text-align: center;
 		width: 111px;
 		height: 19px;}
-		#tabs ul li a{
+		#persontabs ul li a, #persontabs ul li span{
 			text-decoration: none;
 			font-size: 11px;
 			font-weight: bold;
 			color: #FFFFFF;
 		}
-		#tabs ul.yellow li{
+		#persontabs ul.yellow li{
 			background: url("../images/MenuTabsYellow109.gif") no-repeat scroll left -19px;
 		}
-		#tabs ul.yellow li a{
-		}
-		#tabs ul.yellow li.current{
+		#persontabs ul.yellow li.current{
 			background: url("../images/MenuTabsYellow109.gif") no-repeat left top;
 		}
-		#tabs ul.yellow li.current a{
+		#persontabs ul.yellow li.current span{
 			color: #FF9900;
 		}
-		#tabs ul.green li{
+		#persontabs ul.green li{
 			background: url("../images/MenuTabsGreen109.gif") no-repeat scroll left -19px;
 		}
-		#tabs ul.green li.current{
+		#persontabs ul.green li.current{
 			background: url("../images/MenuTabsGreen109.gif") no-repeat scroll left top;
 		}
-		#tabs ul.green li.current a{
+		#persontabs ul.green li.current span{
 			color: #009900;
 		}
 
@@ -682,6 +942,10 @@ body {
     font-weight: normal;
     margin: 0; }
 
+#choose_project{
+	height: 80px;
+}
+
 #my_projects {
   background-color: white;
   border-top: 2px solid #009900;
@@ -730,6 +994,50 @@ body {
     font-size: 10pt;
     font-weight: normal;
     margin: 0; }
+
+/* *********Project Tabs ************* */
+#projecttabs{
+	  width: 560px;
+	  height: 32px;/*
+	  	margin-top: 10px;
+	  	margin-bottom: 10px;*/}
+		#projecttabs ul{
+			width: 560px;
+			height: 32px;
+			background-color: #FF9900;
+			margin: 0 0 0 0;
+			padding: 0 0 0 0;
+	/*		border-bottom: 2px solid #FF9900;*/
+		}
+		#projecttabs ul li{
+			float: left;
+			list-style-image: none;
+			list-style-position: outside;
+			list-style-type: none;
+			text-align: center;
+			padding-top: 6px;
+			width: 111px;
+			height: 26px;}
+			#projecttabs ul li a, #projecttabs ul li span{
+				text-decoration: none;
+				font-size: 12px;
+/*				padding-top: 5px;*/
+/*				font-weight: bold;*/
+				color: #FFFFFF;
+			}
+			#projecttabs ul.yellow li{
+				background-color: #FF9900;
+				border-right: 1px solid #FFFFFF;
+			}
+			#projecttabs ul.yellow li.current{
+				border-top: 2px solid #FF9900;
+				background-color: #FFFFFF;
+			}
+			#projecttabs ul.yellow li.current span{
+				width: 111px;
+				color: #FF9900;
+				text-align: center;
+			}
 
 /* *********Pagination display********** */
 .paginate {
@@ -1144,11 +1452,11 @@ body {
       margin-top: 10px; }
     #project #project_global span {
       color: #FF9900;
-      float: left;
-      width: 270px;
+/*      float: left;*/
+/*      width: 270px;*/
       font-size: 9pt;
       text-align: right;
-      margin-right: 20px; }
+/*      margin-right: 20px; */}
       #project #project_global span #person_projects {
         width: 270px;
         margin-top: 7px; }
@@ -1188,7 +1496,7 @@ body {
         margin-top: 20px;
         width: 270px; }
       #project #project_global #project_settings #buttons {
-        margin-left: 440px;
+        margin-left: 390px;
         width: 100px; }
   #project #project_edition {
     font-size: 9pt; }

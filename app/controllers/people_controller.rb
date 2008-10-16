@@ -17,7 +17,8 @@ class PeopleController < ApplicationController
 
   def show
     @person = Person.find(params[:id])
-    @projects = @person.projects.paginate(:page => params[:page], :per_page => 12, :order => 'created_at DESC')
+    @publishedprojects = @person.projects.all_published.paginate(:page => params[:page], :per_page => 12, :order => 'created_at DESC')
+    @draftprojects = @person.projects.all_draft.paginate(:page => params[:page], :per_page => 12, :order => 'created_at DESC')
     unless @person.active? or current_person.admin?
       flash[:error] = "That person is not active"
       redirect_to home_url and return
@@ -25,7 +26,13 @@ class PeopleController < ApplicationController
     if logged_in?
       @some_contacts = @person.some_contacts
       @common_contacts = current_person.common_contacts_with(@person)
-      @person_projects = @person.projects
+      @person_projects = @person.projects.all_published
+    end
+    @views = 0
+    @publishedprojects.each do |p|
+      unless !p.views
+        @views += p.views
+      end
     end
     respond_to do |format|
       format.html
@@ -89,6 +96,7 @@ class PeopleController < ApplicationController
       cookies.delete :auth_token
       person = verification.person
       person.email_verified = true; person.save!
+      person.be_draft!
       self.current_person = person
       flash[:success] = "Email verified. Your profile is active! Please fill your personnal informations !!"
       redirect_to edit_person_path(person)
@@ -135,7 +143,7 @@ class PeopleController < ApplicationController
           format.html { render :action => "edit" }
         end
       when 'project_edit'
-        format.html { redirect_to edit_person_project_path(current_person, params[:person][:projects]) }
+        format.html { redirect_to editproject_path(current_person, params[:person][:projects], "settings") }
       end
     end
   end

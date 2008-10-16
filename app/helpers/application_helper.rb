@@ -127,6 +127,18 @@ module ApplicationHelper
       "HTML formatting supported"
     end
   end
+  
+  def tab_to(name, options = {}, html_options = {}, *parameters_for_method_reference, &block)
+    if current_page?(options)
+      if block.nil?
+        content_tag(:li, content_tag(:span, name), html_options)
+      else
+        block.call(name)
+      end
+    else
+      content_tag(:li, link_to(name, options, *parameters_for_method_reference))
+    end
+  end
 
   private
   

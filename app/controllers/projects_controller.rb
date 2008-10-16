@@ -3,6 +3,8 @@ class ProjectsController < ApplicationController
   before_filter :login_required, :only => [:edit, :update, :new, :create]
   before_filter :correct_user_required, :only => [:edit, :update, :new, :create]
   before_filter :correct_project_required, :only => [:edit, :update]
+  before_filter :find_project, :only => [:show]
+  before_filter :must_be_a_published_project, :only => [:show]
   before_filter :setup
   
   # GET /projects
@@ -11,8 +13,8 @@ class ProjectsController < ApplicationController
     if params[:person_id]
       redirect_to person_path(params[:person_id])
     else
-      @all_projects = Project.find(:all)
-      @projects = Project.recent_to_older(params[:page])
+      @all_projects = Project.all_published.paginate(:page => params[:author_page],:per_page => 5, :order => 'created_at DESC')
+      @projects = Project.published_recent_to_older(params[:page])
       respond_to do |format|
         format.html # index.html.erb
         format.xml  { render :xml => @all_projects }
@@ -24,13 +26,19 @@ class ProjectsController < ApplicationController
   # GET /projects/1.xml
   def show
     @project = Project.find(params[:id])
-    @author = Person.find(params[:person_id])
-    @author_projects = @author.projects.paginate(:page => params[:author_page],:per_page => 5, :order => 'created_at DESC')
-    @all_projects = Project.find(:all, :order => 'created_at DESC').paginate(:page => params[:all_page], :per_page => 5)
+    @author = @project.person
+    @author_projects = @author.projects.all_published.paginate(:page => params[:author_page],:per_page => 5, :order => 'created_at DESC')
+    @all_projects = Project.all_published.paginate(:page => params[:all_page], :per_page => 5)
+
 
     respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @project }
+      format.html {
+        if !@project.views
+          @project.update_attributes(:views => 0)
+        end
+        @project.update_attributes(:views => @project.views+1)
+      }# show.html.erb
+      format.xml
     end
   end
 
@@ -48,6 +56,12 @@ class ProjectsController < ApplicationController
   # GET /projects/1/edit
   def edit
     @project = Project.find(params[:id])
+    @creation = Creation.new
+    if params[:tab]
+      @part = params[:tab]
+    else
+      @part = "settings"
+    end
   end
 
   # POST /projects
@@ -57,8 +71,13 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save
+        if params[:project][:state] == 'draft' && !@project.draft?
+          @project.be_draft!
+        elsif params[:project][:state] == 'published' && !@project.published?
+          @project.publish!
+        end
         flash[:notice] = 'Project was successfully created.'
-        format.html { redirect_to person_project_path(current_person, @project) }
+        format.html { redirect_to editproject_path(current_person, @project, "content") }
         format.xml  { render :xml => @project, :status => :created, :location => @project }
       else
         format.html { render :action => "new" }
@@ -75,8 +94,18 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.update_attributes(params[:project])
+        if params[:project][:state] == 'draft' && !@project.draft?
+          @project.be_draft!
+        elsif params[:project][:state] == 'published' && !@project.published?
+          @project.publish!
+        end
         flash[:notice] = 'Project was successfully updated.'
-        format.html { redirect_to person_project_path(current_person, @project) }
+        format.html { 
+          if params[:project][:creative_common_id]
+            redirect_to editproject_path(current_person, @project, "copyrights")
+          else
+            redirect_to person_project_path(current_person, @project)
+          end }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -97,10 +126,20 @@ class ProjectsController < ApplicationController
     end
   end
   
+  def choose
+    
+  end
+  
   private
 
   def setup
     @body = "project"
+  end
+  
+  def find_project
+    if params[:id]
+      @project = Project.find(params[:id])
+    end
   end
 
   def correct_user_required

@@ -34,11 +34,11 @@
 
       #stats
         %p
-          =pluralize(10, "project")
+          =pluralize(@person.projects.count, "project")
           %br
           =pluralize(@person.contacts.count, "contact")
           %br
-          =pluralize(420, "total view")
+          =pluralize(@views, "total view")
           %br
           =pluralize(102, "total vote")
 
@@ -48,74 +48,24 @@
 
   #my_page
   
-    #tabs
+    #persontabs
       -if current_person?(@person)
         %ul.clearfix.yellow
-          -if not params[:tab] or params[:tab] == 'page'
-            %li.current
-              =link_to 'Profile', person_url(@person, :tab => 'page') 
-          -else
-            %li
-              =link_to 'Profile', person_url(@person, :tab => 'page') 
-          -if params[:tab] == 'news'
-            %li.current
-              =link_to 'Newsfeed', person_url(@person, :tab => 'news')
-          -else
-            %li
-              =link_to 'Newsfeed', person_url(@person, :tab => 'news')
-          -if params[:tab] == 'contacts'
-            %li.current
-              =link_to 'Network', person_url(@person, :tab => 'contacts')
-          -else
-            %li
-              =link_to 'Network', person_url(@person, :tab => 'contacts')
-          -if params[:tab] == 'favorites'
-            %li.current
-              =link_to 'Favorites', person_url(@person, :tab => 'favorites')
-          -else
-            %li
-              =link_to 'Favorites', person_url(@person, :tab => 'favorites')
-          -if params[:tab] == 'comments'
-            %li.current
-              =link_to 'Wall', person_url(@person, :tab => 'comments')
-          -else
-            %li
-              =link_to 'Wall', person_url(@person, :tab => 'comments')
-          -if params[:tab] == 'messages'
-            %li.current
-              =link_to 'Messages', person_url(@person, :tab => 'messages')
-          -else
-            %li
-              =link_to 'Messages', person_url(@person, :tab => 'messages')        
-        
+          =tab_to "Profile", profile_path(@person, "profile"), :class => "current"
+          =tab_to "News", profile_path(@person, "news"), :class => "current"
+          =tab_to "Network", profile_path(@person, "network"), :class => "current"
+          =tab_to "Favorites", profile_path(@person, "favorites"), :class => "current"
+          =tab_to "Wall", profile_path(@person, "wall"), :class => "current"
+          =tab_to "Messages", profile_path(@person, "messages"), :class => "current"
       -else
         %ul.clearfix.green
-          -if not params[:tab] or params[:tab] == 'page'
-            %li.current
-              =link_to 'Profile', person_url(@person, :tab => 'page')
-          -else
-            %li
-              =link_to 'Profile', person_url(@person, :tab => 'page')
-          -if params[:tab] == 'contacts'
-            %li.current
-              =link_to 'Network', person_url(@person, :tab => 'contacts')
-          -else
-            %li
-              =link_to 'Network', person_url(@person, :tab => 'contacts')
-          -if params[:tab] == 'favorites'
-            %li.current
-              =link_to 'Favorites', person_url(@person, :tab => 'favorites')
-          -else
-            %li
-              =link_to 'Favorites', person_url(@person, :tab => 'favorites')
-          -if params[:tab] == 'comments'
-            %li.current
-              =link_to 'Wall', person_url(@person, :tab => 'comments')
-          -else
-            %li
-              =link_to 'Wall', person_url(@person, :tab => 'comments')
+          =tab_to "Profile", profile_path(@person, "profile"), :class => "current"
+          =tab_to "Network", profile_path(@person, "network"), :class => "current"
+          =tab_to "Favorites", profile_path(@person, "favorites"), :class => "current"
+          =tab_to "Wall", profile_path(@person, "wall"), :class => "current"
 
-    -if not params[:tab] or params[:tab] == 'page'
+
+    -if not params[:tab] or params[:tab] == 'profile'
       #right
         .profile_right_column
           %h4 DESCRIPTION
@@ -164,7 +114,7 @@
           .column_content
             %p
               -if @person.website?
-                = link_to @person.website, "http://" + @person.website
+                = link_to @person.website, "http://" + @person.website, :target => :blank
                 -if current_person?(@person)
                   .profile_edit
                     =link_to image_tag("icons/mini_edit.gif") + "Edit", edit_person_path(@person) + "#person_website"
@@ -225,17 +175,25 @@
                 =display_empty_field("tags")
 
       #projects
-        %h4 MY PROJECTS
+        
+        -if current_person?(@person)  
+          %h4 DRAFT PROJECTS
+          -per_line = 3
+          #my_projects
+            =render :partial => 'projects/projects_list', :locals => {:per_line => per_line, :projects => @draftprojects}
+            
+        %h4 PUBLISHED PROJECTS
         -per_line = 3
         #my_projects
-          =render :partial => 'projects/projects_list', :locals => {:per_line => per_line} 
+          =render :partial => 'projects/projects_list', :locals => {:per_line => per_line, :projects => @publishedprojects} 
+
 
     -elsif params[:tab] == 'news'
       -if current_person?(@person)
         #feed_requests
           #minifeeds
             = render :partial => 'shared/minifeed'
-    -elsif params[:tab] == 'contacts'
+    -elsif params[:tab] == 'network'
       -if current_person?(@person)
         #personal_requests
           = render :partial => "requested_contacts"
@@ -246,7 +204,7 @@
           -if !current_person?(@person)
             #common_contacts
               =render :partial => 'common_contacts'
-    -elsif params[:tab] == 'comments'
+    -elsif params[:tab] == 'wall'
       = render :partial => 'wall'
     -elsif params[:tab] == 'message'
     

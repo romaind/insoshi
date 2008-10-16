@@ -50,7 +50,7 @@ class PersonMailer < ActionMailer::Base
     recipients   comment.commented_person.email
     subject      formatted_subject("New wall comment")
     body         "domain" => server, "comment" => comment,
-                 "url" => person_path(comment.commentable, :anchor => "wall"),
+                 "url" => profile_path(comment.commentable, "wall"),
                  "preferences_note" => 
                     preferences_note(comment.commented_person)
   end
@@ -61,6 +61,14 @@ class PersonMailer < ActionMailer::Base
     subject      formatted_subject("Email verification")
     body         "server_name" => server,
                  "code" => ev.code
+  end
+  
+  def feedback(user, message)
+    from        "Email verification <email@#{domain}>"
+    recipients  "bugs@coaliz.com"
+    subject     formatted_subject("New feedback message")
+    body        "message" => message,
+                "user"    => user
   end
   
   private

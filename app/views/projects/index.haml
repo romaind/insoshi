@@ -13,4 +13,4 @@
   %h4 PROJECTS
   #my_projects
     -per_line = 4
-    =render :partial => 'projects_list', :locals => {:per_line => per_line}
+    =render :partial => 'projects_list', :locals => {:per_line => per_line, :projects => @all_projects}

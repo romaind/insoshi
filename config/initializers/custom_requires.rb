@@ -11,6 +11,9 @@ rescue LoadError
   nil
 end
 
+require 'rss/2.0'
+require 'rss/itunes'
+
 # In some cases autotest interprets the initialization of the UUID generator
 # as something new, and so just keeps running the tests.
 # This stub here fixes the problem.

@@ -23,7 +23,15 @@
 </div>
 
 <h3><%=h @project.title.upcase %></h3>
-<%=image_tag ("player_preview.jpg", :id =>"player") %>
+<div id="player">There should be a player here... in fact...</div>
+<script type="text/javascript">
+  var so = new SWFObject('/swf/player.swf','mpl','584','380','9','#000000');
+  so.addParam('allowscriptaccess','always');
+  so.addParam('allowfullscreen','true');
+  so.addParam('wmode','opaque');
+  so.addParam('flashvars','&file=<%= formatted_person_project_url(@author, @project, :xml) %>&screencolor=000000&logo=<%= image_path("logo-player.png") %>&playlistsize=100&playlist=right&autostart=true&fullscreen=true&backcolor=000000&frontcolor=000000');
+  so.write('player');
+</script>
 
 <div class ="playlist_tab">
 	<h4>PROJECTS FROM THIS AUTHOR</h4>

@@ -3,6 +3,7 @@ class SessionsController < ApplicationController
 
   skip_before_filter :require_activation, :only => [:new, :destroy]
   skip_before_filter :require_login, :only => [:new, :create]
+  skip_before_filter :must_be_active
   layout "login"
 
   def new
@@ -28,8 +29,10 @@ class SessionsController < ApplicationController
       if current_person.last_logged_in_at.nil? and current_person.admin?
         @first_admin_login = true
       end
-      current_person.last_logged_in_at = Time.now
-      current_person.save!
+      if current_person.activated?
+        current_person.last_logged_in_at = Time.now
+        current_person.save!
+      end
       if params[:remember_me] == "1"
         self.current_person.remember_me
         cookies[:auth_token] = {

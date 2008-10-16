@@ -5,7 +5,9 @@ class HomeController < ApplicationController
     @body = "home"
     @topics = Topic.find_recent
     @members = Person.find(:all)
-    @projects = Project.recent_to_older(params[:page])
+    @projects = Project.published_recent_to_older(params[:page])
+    @project = @projects.first
+    
     if logged_in?
       @feed = current_person.feed
       @some_contacts = current_person.some_contacts
@@ -21,6 +23,18 @@ class HomeController < ApplicationController
   def requested_contacts
     if logged_in?
       @requested_contacts = current_person.requested_contacts
+    end
+  end
+  
+  def feedback
+    if params[:feedback] && params[:feedback][:message]
+      PersonMailer.deliver_feedback(current_person, params[:feedback][:message])
+    end
+    
+    respond_to do |format|
+      format.html {
+        flash[:notice] = "Your message has been sent"
+        redirect_to '/'}
     end
   end
 end

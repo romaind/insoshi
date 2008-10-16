@@ -1,8 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :beta_coupons
 
-  map.resources :beta_coupons
-
   map.resources :softwares
 
   map.resources :skills
@@ -20,6 +18,7 @@ ActionController::Routing::Routes.draw do |map|
   # map.resources :messages, :collection => { :sent => :get, :trash => :get },
   #                          :member => { :reply => :get, :undestroy => :put }
 
+
   map.resources :people, :member => { :verify_email => :get,
                                       :common_contacts => :get }
   map.connect 'people/verify/:id', :controller => 'people',
@@ -30,7 +29,8 @@ ActionController::Routing::Routes.draw do |map|
      person.resources :photos
      person.resources :connections
      person.resources :comments
-     person.resources :projects do |project|
+     person.resources :projects, :collection => {:choose => :get} do |project|
+       project.resources :comments
        project.resources :creations do |creation|
          creation.resources :assets
        end
@@ -56,12 +56,20 @@ ActionController::Routing::Routes.draw do |map|
     end
   end
   
-  map.resources :projects do |project|
-    project.resources :comments
-    project.resources :creations do |creation|
-      creation.resources :assets
-    end
-  end
+  # map.resources :projects do |project|
+  #   project.resources :comments
+  #   project.resources :creations do |creation|
+  #     creation.resources :assets
+  #   end
+  # end
+  map.feedback  '/feedback', :controller => 'home', :action => 'feedback'
+  map.projects '/projects', :controller => 'projects', :action => 'index'
+  
+  map.profile 'people/:id/:tab',  :controller => 'people',
+                                  :action => 'show'
+                                  
+  map.newproject  'people/:person_id/projects/new/:tab', :controller => 'projects', :action => 'new'
+  map.editproject  'people/:person_id/projects/:id/edit/:tab', :controller => 'projects', :action => 'edit'
   
   map.simple_captcha '/simple_captcha/:action', :controller => 'simple_captcha'
   map.signup '/signup', :controller => 'people', :action => 'new'
