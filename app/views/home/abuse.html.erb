@@ -1,6 +1,6 @@
 <div class="w310">
 <p>The abuse form</p>
-<% form_tag send_abuse_path, :id => "theform", :method => :post do %>
+<% form_tag send_abuse_path, :id => "theform", :name => "theform", :method => :post do %>
   <p>
     <label>Email</label>
     <%= text_field :abuse, :email %>
@@ -12,14 +12,10 @@
   <%= hidden_field_tag :item, nil, :value => params[:item] -%>
   <%= hidden_field_tag :id, nil, :value => params[:id] -%>
   
-  <%= submit_tag "Envoyer" %>
+  <%= submit_tag "Send" %>
   
-  <!-- <a href="<%= send_abuse_path %>" params="lightwindow_form=theform,lightwindow_type=page" class="lightwindow_action" rel="submitForm"><button>Submit</button></a>  -->
+  <!-- <a href="<%= send_abuse_path %>" params="lightwindow_form=theform," class="lightwindow_action" rel="submitForm"><button>Submit</button></a> -->
   <a href="#" class="lightwindow_action" rel="deactivate">Cancel</a>
   
 <% end %>
-
-
-
-
 </div>

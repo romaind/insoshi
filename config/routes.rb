@@ -77,7 +77,7 @@ ActionController::Routing::Routes.draw do |map|
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
   
   map.abuse '/home/abuse/:item/:id', :controller => 'home', :action => 'abuse'
-  map.send_abuse '/home/send_abuse', :controller => 'home', :action => 'send_abuse', :method => :post
+  map.send_abuse '/home/send_abuse', :controller => 'home', :action => 'send_abuse'
   
   map.home '/', :controller => 'home'
   map.about '/about', :controller => 'home', :action => 'about'
