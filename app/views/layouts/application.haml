@@ -6,6 +6,8 @@
     = stylesheet_link_tag "default"
     / = javascript_include_tag :all
     =javascript_include_tag 'prototype.js', 'swfobject.js', 'effects.js', 'accordion.js'
+    / =javascript_include_tag 'swfobject.js'
+    / %script{ 'type' => "text/" + "javascript", :src   => "http://stickmanlabs.com/accordion/combine.php?type=javascript&files=prototype.js,effects.js,accordion.js,code_highlighter.js,javascript.js,html.js" }
     /[if lt IE 7]
       = stylesheet_link_tag 'ie6.css', :media => 'screen, projection' 
   %body

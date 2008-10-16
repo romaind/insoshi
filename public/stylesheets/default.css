@@ -294,6 +294,10 @@
 	}
 /* @end */
 
+.hand {
+	cursor: pointer;
+}
+
 body {
   background-image: url(../images/background_squares.jpg);
   background-repeat: repeat;
@@ -1616,12 +1620,8 @@ body {
       padding-top: 7px;
       width: 190px;
       height: 12px;
-/*      background-image: url(../images/desc_top.gif);*/
-/*      background-repeat: no-repeat;*/ }
-	#show_project #right .project_content .tab_title {
-		background-image: url(../images/desc_top.gif);
-		background-repeat: no-repeat;
-	}
+      background-image: url(../images/desc_top.gif);
+      background-repeat: no-repeat; }
       #show_project #right .project_content .tab_title h4 {
         color: #333333;
         font-size: 9pt;
