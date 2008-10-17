@@ -129,11 +129,16 @@ class ProjectsController < ApplicationController
   
   def vote
     project = Project.find(params[:id])
-    current_person.vote_for(project)
+    if Vote.find_by_voteable_id_and_voteable_type_and_voter_id(project.id, "Project", current_person.id)
+      message = "You've already voted for this project"
+    else
+      current_person.vote_for(project)
+      message = "Thank you for your vote"
+    end
     
     respond_to do |format|
       format.html { 
-        flash[:notice] = "Thank you for your vote"
+        flash[:notice] = message
         redirect_to person_project_path(project.person, project)
         }
     end
