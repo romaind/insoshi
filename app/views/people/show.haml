@@ -1,217 +1,150 @@
-- column_div :type => :primary do
-  -if current_person?(@person)
-    = stylesheet_link_tag "current_profile"
-  #profile
-    =image_tag "profile_top.gif"
-    #profile_details
-      = image_tag @person.profile, :id => "profile_image", :alt => h(@person.name)
-      %table#details
-        %tr
-          %td#infos
-            %p
-              %b
-                =h @person.first_name
-                =h @person.name
-            =image_tag @person.gender_image
-            ,
-            =pluralize(@person.age, "year")
-            %br
-            -if @person.city != ''
-              =h @person.city.capitalize
-              ,
-            -if @person.origin_country
-              =h @person.origin_country.name
-        %tr
-          %td#skills
-            -if @person.skills.length >0
-              -for skill in @person.skills do
-                =skill.name
-                -if not(@person.skills.last == skill)
-                  %br
-            -else
-              -if current_person?(@person)
-                =link_to "Add skills", edit_person_path(@person) + "#person[skill_ids][]"
-
-      #stats
-        %p
-          =pluralize(@person.projects.count, "project")
-          %br
-          =pluralize(@person.contacts.count, "contact")
-          %br
-          =pluralize(@views, "total view")
-          %br
-          =pluralize(102, "total vote")
-
-
-      =render :partial => 'actions'
-    = image_tag "profile_bottom.gif"
-
-  #my_page
-    #persontabs
-      -if current_person?(@person)
-        %ul.clearfix.yellow
-          =tab_to "Profile", profile_path(@person, "profile"), :class => "current"
-          =tab_to "News", profile_path(@person, "news"), :class => "current"
-          =tab_to "Network", profile_path(@person, "network"), :class => "current"
-          =tab_to "Favorites", profile_path(@person, "favorites"), :class => "current"
-          =tab_to "Wall", profile_path(@person, "wall"), :class => "current"
-          =tab_to "Messages", profile_path(@person, "messages"), :class => "current"
+=render :partial => 'people/profile'
+-if not params[:tab] or params[:tab] == 'profile'
+  #right
+    .profile_right_column
+      %h4 DESCRIPTION
+      -if @person.description?
+        #description_content
+          %p
+            = truncate(@person.description, 400)
+          -if current_person?(@person)
+            .profile_edit
+              =link_to image_tag("icons/mini_edit.gif") + "Edit", edit_person_path(@person) + "#person_description"
       -else
-        %ul.clearfix.green
-          =tab_to "Profile", profile_path(@person, "profile"), :class => "current"
-          =tab_to "Network", profile_path(@person, "network"), :class => "current"
-          =tab_to "Favorites", profile_path(@person, "favorites"), :class => "current"
-          =tab_to "Wall", profile_path(@person, "wall"), :class => "current"
-
-
-    -if not params[:tab] or params[:tab] == 'profile'
-      #right
-        .profile_right_column
-          %h4 DESCRIPTION
-          -if @person.description?
-            #description_content
-              %p
-                = truncate(@person.description, 400)
-              -if current_person?(@person)
-                .profile_edit
-                  =link_to image_tag("icons/mini_edit.gif") + "Edit", edit_person_path(@person) + "#person_description"
+        .column_content
+          -if current_person?(@person)
+            .add
+              =link_to image_tag("portfolio/add.gif"), edit_person_path(@person) + "#person_description"
+              %br
+              =link_to "Add a description", edit_person_path(@person) + "#person_description"
           -else
-            .column_content
-              -if current_person?(@person)
-                .add
-                  =link_to image_tag("portfolio/add.gif"), edit_person_path(@person) + "#person_description"
-                  %br
-                  =link_to "Add a description", edit_person_path(@person) + "#person_description"
-              -else
-                %p
-                  No description.
-    
-        .profile_right_column
-          %h4 STATUS
-          .column_content
             %p
-              -if @person.status
-                / -if current_person?(@person)
-                /   =select :p, :status, ["Working", "Studying", "Looking for a job", "Looking for a partner"]
-                /   /Status selected by clicking on status option
-                / -else
-                = display(@person.status)
-                -if current_person?(@person)
-                  .profile_edit
-                    =link_to image_tag("icons/mini_edit.gif") + "Edit", edit_person_path(@person) + "#person_status"
-              -else
-                -if current_person?(@person)
-                  .add
-                    =link_to image_tag("portfolio/add.gif"), edit_person_path(@person) + "#p_status" #"#person_status"
-                    %br
-                    =link_to "Set status", edit_person_path(@person) + "#p_status" #"#person_status"
-                -else
-                  No status.
+              No description.
 
-        .profile_right_column
-          %h4 WEBSITE
-          .column_content
-            %p
-              -if @person.website?
-                = link_to @person.website, "http://" + @person.website, :target => :blank
-                -if current_person?(@person)
-                  .profile_edit
-                    =link_to image_tag("icons/mini_edit.gif") + "Edit", edit_person_path(@person) + "#person_website"
-              -else
-                =display_empty_field("website")
-  
-        .profile_right_column
-          %h4 LANGUAGES
-          .column_content
-            %p
-              -if @person.languages.length >0
-                =@person.languages.collect{|language| language.name}.join(", ")
-                -if current_person?(@person)
-                  .profile_edit
-                    =link_to image_tag("icons/mini_edit.gif") + "Edit", edit_person_path(@person) + "#person[language_ids][]"
-              -else
-                =display_empty_field("languages")
-
-        .profile_right_column
-          %h4 SOFTWARE
-          .column_content
-            %p
-              -if @person.softwares.length >0
-                =@person.softwares.collect{|software| software.name}.join(", ")
-                -if current_person?(@person)
-                  .profile_edit
-                    =link_to image_tag("icons/mini_edit.gif") + "Edit", edit_person_path(@person) + "#person[software_ids][]"
-              -else
-                =display_empty_field("software")
-    
-        .profile_right_column
-          %h4 CV
-          .column_content
-            %p
-              -if @person.cv?
-                #cv
-                  =link_to image_tag("portfolio/logoPDF.jpg") #, person_cv_path
-                  %br
-                  =link_to "My CV"
-                =link_to image_tag("portfolio/get_adobe.jpg"), "http://www.adobe.fr/products/acrobat/readstep2.html"
-                -if current_person?(@person)
-                  .profile_edit
-                    =link_to image_tag("icons/mini_edit.gif") + "Edit", edit_person_path(@person) + "#person_cv"
-              -else
-                =display_empty_field("cv")
-
-
-        .profile_right_column
-          %h4 TAGS
-          .column_content
-            %p
-              -if @person.tags.first
-                = @person.tags.collect{|t| t.name}.join(", ")
-                -if current_person?(@person)
-                  .profile_edit
-                    =link_to image_tag("icons/mini_edit.gif") + "Edit", edit_person_path(@person) + "#p_tags"#"#person_tags"
-              -else
-                =display_empty_field("tags")
-
-      #projects
-        -if current_person?(@person)
-          -if @draftprojects.size == 0 && @publishedprojects.size == 0
-            %p.fullPad20
-              You have no project created for the moment.
-              %br/
-              Use Coaliz to upload your creations and share them with others by pushing the button 
-              =link_to "New Project", choose_person_projects_path(current_person)
-              on the right of the page.
-              %br/
-              At any moment you can edit your projects by pushing this button.
+    .profile_right_column
+      %h4 STATUS
+      .column_content
+        %p
+          -if @person.status
+            / -if current_person?(@person)
+            /   =select :p, :status, ["Working", "Studying", "Looking for a job", "Looking for a partner"]
+            /   /Status selected by clicking on status option
+            / -else
+            = display(@person.status)
+            -if current_person?(@person)
+              .profile_edit
+                =link_to image_tag("icons/mini_edit.gif") + "Edit", edit_person_path(@person) + "#person_status"
           -else
-            %h4 DRAFT PROJECTS
-            -per_line = 3
-            #my_projects
-              =render :partial => 'projects/projects_list', :locals => {:per_line => per_line, :projects => @draftprojects}
-            
-            %h4 PUBLISHED PROJECTS
-            -per_line = 3
-            #my_projects
-              =render :partial => 'projects/projects_list', :locals => {:per_line => per_line, :projects => @publishedprojects} 
+            -if current_person?(@person)
+              .add
+                =link_to image_tag("portfolio/add.gif"), edit_person_path(@person) + "#p_status" #"#person_status"
+                %br
+                =link_to "Set status", edit_person_path(@person) + "#p_status" #"#person_status"
+            -else
+              No status.
 
-    -elsif params[:tab] == 'news'
-      -if current_person?(@person)
-        #feed_requests
-          #minifeeds
-            = render :partial => 'shared/minifeed'
-    -elsif params[:tab] == 'network'
-      -if current_person?(@person)
-        #personal_requests
-          = render :partial => "requested_contacts"
-      -if logged_in?
-        #contacts.clearfix
-          #contact_preview.clearfix
-            =render :partial => 'shared/contacts_preview'#, :locals => { :person => @person }
-          -if !current_person?(@person)
-            #common_contacts
-              =render :partial => 'common_contacts'
-    -elsif params[:tab] == 'wall'
-      = render :partial => 'wall'
-    -elsif params[:tab] == 'message'
-    
+    .profile_right_column
+      %h4 WEBSITE
+      .column_content
+        %p
+          -if @person.website?
+            = link_to @person.website, "http://" + @person.website, :target => :blank
+            -if current_person?(@person)
+              .profile_edit
+                =link_to image_tag("icons/mini_edit.gif") + "Edit", edit_person_path(@person) + "#person_website"
+          -else
+            =display_empty_field("website")
+
+    .profile_right_column
+      %h4 LANGUAGES
+      .column_content
+        %p
+          -if @person.languages.length >0
+            =@person.languages.collect{|language| language.name}.join(", ")
+            -if current_person?(@person)
+              .profile_edit
+                =link_to image_tag("icons/mini_edit.gif") + "Edit", edit_person_path(@person) + "#person[language_ids][]"
+          -else
+            =display_empty_field("languages")
+
+    .profile_right_column
+      %h4 SOFTWARE
+      .column_content
+        %p
+          -if @person.softwares.length >0
+            =@person.softwares.collect{|software| software.name}.join(", ")
+            -if current_person?(@person)
+              .profile_edit
+                =link_to image_tag("icons/mini_edit.gif") + "Edit", edit_person_path(@person) + "#person[software_ids][]"
+          -else
+            =display_empty_field("software")
+
+    .profile_right_column
+      %h4 CV
+      .column_content
+        %p
+          -if @person.cv?
+            #cv
+              =link_to image_tag("portfolio/logoPDF.jpg") #, person_cv_path
+              %br
+              =link_to "My CV"
+            =link_to image_tag("portfolio/get_adobe.jpg"), "http://www.adobe.fr/products/acrobat/readstep2.html"
+            -if current_person?(@person)
+              .profile_edit
+                =link_to image_tag("icons/mini_edit.gif") + "Edit", edit_person_path(@person) + "#person_cv"
+          -else
+            =display_empty_field("cv")
+
+
+    .profile_right_column
+      %h4 TAGS
+      .column_content
+        %p
+          -if @person.tags.first
+            = @person.tags.collect{|t| t.name}.join(", ")
+            -if current_person?(@person)
+              .profile_edit
+                =link_to image_tag("icons/mini_edit.gif") + "Edit", edit_person_path(@person) + "#p_tags"#"#person_tags"
+          -else
+            =display_empty_field("tags")
+
+  #projects
+    -if current_person?(@person)
+      -if @draftprojects.size == 0 && @publishedprojects.size == 0
+        %p.fullPad20
+          You have no project created for the moment.
+          %br/
+          Use Coaliz to upload your creations and share them with others by pushing the button 
+          =link_to "New Project", choose_person_projects_path(current_person)
+          on the right of the page.
+          %br/
+          At any moment you can edit your projects by pushing this button.
+      -else
+        %h4 DRAFT PROJECTS
+        -per_line = 3
+        #my_projects
+          =render :partial => 'projects/projects_list', :locals => {:per_line => per_line, :projects => @draftprojects}
+        
+        %h4 PUBLISHED PROJECTS
+        -per_line = 3
+        #my_projects
+          =render :partial => 'projects/projects_list', :locals => {:per_line => per_line, :projects => @publishedprojects} 
+
+-elsif params[:tab] == 'news'
+  -if current_person?(@person)
+    #feed_requests
+      #minifeeds
+        = render :partial => 'shared/minifeed'
+-elsif params[:tab] == 'network'
+  -if current_person?(@person)
+    #personal_requests
+      = render :partial => "requested_contacts"
+  -if logged_in?
+    #contacts.clearfix
+      #contact_preview.clearfix
+        =render :partial => 'shared/contacts_preview'#, :locals => { :person => @person }
+      -if !current_person?(@person)
+        #common_contacts
+          =render :partial => 'common_contacts'
+-elsif params[:tab] == 'wall'
+  = render :partial => 'wall'
