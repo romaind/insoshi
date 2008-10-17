@@ -10,21 +10,17 @@
   %body
     #global
       #header
-        %span
-          =link_to image_tag("logo.jpg", :id => "logo"), { :controller => "home", :action =>"index" }
-        %span#searchbox
-          = render :partial => "searches/box", :locals => { :search => @searches }
-        %span#languages
-          -form_for(:language, :url => { :action => :index }) do |form|
-            =image_submit_tag("flags/uk_on.jpg", :id => "uk", :onMouseOver => "this.src = '/images/flags/uk_on.jpg'")
-            =image_submit_tag("flags/fr_off.jpg", :id => "fr", :title => "Coming soon", :onMouseOver => "this.src = '/images/flags/fr_on.jpg'", :onMouseOut => "this.src = '/images/flags/fr_off.jpg'")
-            =image_submit_tag("flags/es_off.jpg", :id => "es", :title => "Coming soon", :onMouseOver => "this.src = '/images/flags/es_on.jpg'", :onMouseOut => "this.src = '/images/flags/es_off.jpg'")
-        #menus
-          =link_to "Gallery",projects_path, { :id =>"gallery" }
-          =link_to "News",{ :controller => "news", :action => "index" }, { :id =>"news" }
-          =link_to "My Page",{ :controller => "people", :action => "index" }, { :id =>"mypage" }
-          =link_to "Creative Contests",{ :controller => "creative_contest", :action => "index" }, { :id =>"creativecontests" }
-          =link_to 'What is Coaliz ?',{ :controller => "coaliz", :action => "index" }, { :id =>"coaliz" }
+        .clearfix
+          %div.fl
+            =link_to image_tag("logo.jpg", :id => "logo"), { :controller => "home", :action =>"index" }
+          %div#languages.fr
+            -form_for(:language, :url => { :action => :index }) do |form|
+              =image_submit_tag("flags/uk_on.jpg", :id => "uk", :onMouseOver => "this.src = '/images/flags/uk_on.jpg'")
+              =image_submit_tag("flags/fr_off.jpg", :id => "fr", :title => "Coming soon", :onMouseOver => "this.src = '/images/flags/fr_on.jpg'", :onMouseOut => "this.src = '/images/flags/fr_off.jpg'")
+              =image_submit_tag("flags/es_off.jpg", :id => "es", :title => "Coming soon", :onMouseOver => "this.src = '/images/flags/es_on.jpg'", :onMouseOut => "this.src = '/images/flags/es_off.jpg'")
+          %div#searchbox.fr
+            = render :partial => "searches/box", :locals => { :search => @searches }
+        = render :partial => "layouts/top_menu.haml"
       #submenus
       #main
         =render :partial => "shared/toolbox"
@@ -33,5 +29,5 @@
           -flash.each do |key, msg|
             = content_tag :p, msg, :class => "flash #{key}"
         
-        %span#content
+        %div#content
           =yield

@@ -6,13 +6,11 @@ function playerReady(obj) {
 	var id = obj['id'];
 	var version = obj['version'];
 	var client = obj['client'];
-	// alert('the videoplayer '+id+' has been instantiated');
 	player = document.getElementById(id);
-	// player.sendEvent('ITEM', 2);
-	// player.sendEvent('PLAY');
 };
 
 Event.observe(window, 'load', observeThumbs, false);
+Event.observe(window, 'load', initNav, false);
 
 function observeThumbs(event){
 	var creationThumbs = $$('a.thumb_creation');
@@ -23,6 +21,23 @@ function observeThumbs(event){
 		creation.observe('mouseover', opacityTo1);
 		creation.observe('mouseout', opacityTo0);
 
+	});
+};
+
+function initNav(event){
+	var menus = $$('#menus li.top');
+	menus.each(function(menu){
+		
+		var submenu = menu.down("ul")
+		if(submenu){
+			submenu.toggle();
+		
+			menu.onmouseover = 
+			menu.onmouseout = 
+			function(){
+				Element.toggle(submenu);
+			};
+		}
 	});
 };
 

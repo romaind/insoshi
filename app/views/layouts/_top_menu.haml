@@ -1,0 +1,62 @@
+%ul#menus
+  %li.top
+    .bgGreen.top.topRounded.b
+      =link_to "Gallery", projects_path
+    %ul.bgGreen.botRounded.abs
+      %li
+        =link_to "People", people_path
+      %li
+        =link_to "Projects", projects_path
+  %li.top
+    .bgBlue.top.topRounded.b
+      %span.opa50
+        News
+      / =link_to "News",{ :controller => "news", :action => "index" }, { :id =>"news" }
+    / %ul.bgBlue.botRounded.abs
+    /       %li
+    /         =link_to "Cool Stuff",projects_path
+    /       %li
+    /         =link_to "Websites",projects_path
+    /       %li
+    /         =link_to "Events",projects_path
+    /       %li
+    /         =link_to "News",projects_path
+    /       %li
+    /         =link_to "All",projects_path
+  %li.top
+    .bgOrange.top.topRounded.b
+      =link_to "My Page", person_path(current_person)
+    %ul.bgOrange.botRounded.abs
+      %li
+        =link_to "Messages", person_messages_path(current_person)
+      %li
+        =link_to "Edit my projects", choose_person_projects_path(current_person)
+      %li
+        =link_to "Edit my profile", edit_person_path(current_person)
+      %li.botRounded
+        =link_to "My portfolio", profile_path(current_person, "profile")
+  %li.top
+    .bgPink.top.topRounded.b
+      %span.opa50
+        Creative Contests
+      /=link_to "Creative Contests",{ :controller => "creative_contest", :action => "index" }, { :id =>"creativecontests" }
+  %li.top
+    .bgGrey.top.topRounded.b
+      %span.opa50
+        What is Coaliz ?
+      /=link_to 'What is Coaliz ?',{ :controller => "coaliz", :action => "index" }, { :id =>"coaliz" }
+    / %ul.bgGrey.botRounded.abs
+    /       %li
+    /         =link_to "Contact",projects_path
+    /       %li
+    /         =link_to "About us",projects_path
+    /       %li
+    /         =link_to "Terms of use",projects_path
+    /       %li.botRounded
+    /         =link_to "FAQ",projects_path
+    
+    / Gallery: People, Projects  /  
+    /    News & links: Cool stuff, Websites, Events, News, All  /  
+    /    My portfolio: Messages, Edit my project, Edit my profile, My portfolio  /  
+    /    Creative contests  /  
+    /    What is Coaliz?: Contact (lien vers formulaire de contact: contact@coaliz.com), About us (contact vers page: "about us"), Terms of use (lien vers terms of use), FAQ (lien vers FAQ), What is Coaliz? (lien vers page d'inscription ou si loggé vers FAQ)
