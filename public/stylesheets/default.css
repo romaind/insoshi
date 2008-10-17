@@ -564,9 +564,9 @@ ul#menus, ul#menus li{
 	background-color: white;
 	border-left: 1px solid #DDDDDD;
 	border-right: 1px solid #DDDDDD;
-	width: 967px;
+	width: 972px;
 	height: 20px;
-	margin-left: 2px;
+	/*margin-left: 2px;*/
 	margin-right: auto;
 	padding-left: 10px;
 	padding-right: 10px;
@@ -711,11 +711,11 @@ ul#menus, ul#menus li{
 #main {
 	background-color: #EFEFEF;
 	border: 1px solid #DDDDDD;
-	width: 972px;
-	margin-left: 2px;
+	width: 982px;
+	/*margin-left: 2px;*/
 	margin-right: auto;
 	padding-left: 5px;
-	padding-right: 10px;
+	padding-right: 5px;
 	padding-top: 5px;
 	padding-bottom: 20px;
 	min-height: 600px;

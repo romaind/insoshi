@@ -17,17 +17,24 @@ class PeopleController < ApplicationController
 
   def show
     @person = Person.find(params[:id])
-    @publishedprojects = @person.projects.all_published.paginate(:page => params[:page], :per_page => 12, :order => 'created_at DESC')
-    @draftprojects = @person.projects.all_draft.paginate(:page => params[:page], :per_page => 12, :order => 'created_at DESC')
+    
+    @publishedprojects = @person.projects.all_published
+    @publishedprojects = @person.projects.all_published.paginate(:page => params[:page], :per_page => 12, :order => 'created_at DESC') if @publishedprojects.size > 0
+      
+    @draftprojects = @person.projects.all_draft
+    @draftprojects = @person.projects.all_draft.paginate(:page => params[:page], :per_page => 12, :order => 'created_at DESC') if @draftprojects.size > 0
+    
     unless @person.active? or current_person.admin?
       flash[:error] = "That person is not active"
       redirect_to home_url and return
     end
+    
     if logged_in?
       @some_contacts = @person.some_contacts
       @common_contacts = current_person.common_contacts_with(@person)
       @person_projects = @person.projects.all_published
     end
+    
     @views = 0
     @publishedprojects.each do |p|
       unless !p.views

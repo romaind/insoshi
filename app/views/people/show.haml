@@ -47,7 +47,6 @@
     = image_tag "profile_bottom.gif"
 
   #my_page
-  
     #persontabs
       -if current_person?(@person)
         %ul.clearfix.yellow
@@ -175,18 +174,26 @@
                 =display_empty_field("tags")
 
       #projects
-        
-        -if current_person?(@person)  
-          %h4 DRAFT PROJECTS
-          -per_line = 3
-          #my_projects
-            =render :partial => 'projects/projects_list', :locals => {:per_line => per_line, :projects => @draftprojects}
+        -if current_person?(@person)
+          -if @draftprojects.size == 0 && @publishedprojects.size == 0
+            %p.fullPad20
+              You have no project created for the moment.
+              %br/
+              Use Coaliz to upload your creations and share them with others by pushing the button 
+              =link_to "New Project", choose_person_projects_path(current_person)
+              on the right of the page.
+              %br/
+              At any moment you can edit your projects by pushing this button.
+          -else
+            %h4 DRAFT PROJECTS
+            -per_line = 3
+            #my_projects
+              =render :partial => 'projects/projects_list', :locals => {:per_line => per_line, :projects => @draftprojects}
             
-        %h4 PUBLISHED PROJECTS
-        -per_line = 3
-        #my_projects
-          =render :partial => 'projects/projects_list', :locals => {:per_line => per_line, :projects => @publishedprojects} 
-
+            %h4 PUBLISHED PROJECTS
+            -per_line = 3
+            #my_projects
+              =render :partial => 'projects/projects_list', :locals => {:per_line => per_line, :projects => @publishedprojects} 
 
     -elsif params[:tab] == 'news'
       -if current_person?(@person)

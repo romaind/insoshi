@@ -25,7 +25,7 @@
     /         =link_to "All",projects_path
   %li.top
     .bgOrange.top.topRounded.b
-      =link_to "My Page", person_path(current_person)
+      =link_to "My Page", profile_path(current_person, "profile")
     %ul.bgOrange.botRounded.abs
       %li
         =link_to "Messages", person_messages_path(current_person)
