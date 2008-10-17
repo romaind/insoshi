@@ -127,6 +127,11 @@ class ProjectsController < ApplicationController
     
   end
   
+  def vote
+    
+    
+  end
+  
   private
 
   def setup

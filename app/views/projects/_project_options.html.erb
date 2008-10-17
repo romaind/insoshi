@@ -10,6 +10,11 @@
   			<%= link_to "Delete this project", person_project_path(@project.person, @project), :confirm => 'Are you sure?', :method => :delete  %>
   		</p>
 		<% end %>
+		<% if logged_in? %>
+		  <p>
+		    
+		  </p>
+		<% end %>
 		<p>
 			<%= link_to "Comment this project" %>
 		</p>

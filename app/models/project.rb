@@ -20,6 +20,8 @@ class Project < ActiveRecord::Base
     transitions :to => :draft, :from => :published
   end
 
+  acts_as_voteable
+
   belongs_to :person
   belongs_to :common,
              :class_name => 'CreativeCommon',
