@@ -44,7 +44,7 @@ module PeopleHelper
   end
   
   #If the field is empty, display depending current person
-  def display_empty_field(field)
+  def display_empty_field(field, tab)
     if current_person?(@person)
         link = case field
           when "languages": "#person[language_ids][]"
@@ -55,11 +55,11 @@ module PeopleHelper
           end
           
       haml_tag :div, { :class => "add"} do
-        haml_tag :a, {:href => edit_person_path(@person) + link} do
+        haml_tag :a, {:href => editprofile_path(@person, tab) + link} do
           haml_tag :img,{ :src => "../images/portfolio/add.gif"}
         end
         haml_tag :br
-        haml_tag :a , "Add a " + field.singularize, {:href => edit_person_path(@person) + link}
+        haml_tag :a , "Add a " + field.singularize, {:href => editprofile_path(@person, tab) + link}
       end
     else
         "No " + field + "."

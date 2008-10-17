@@ -30,7 +30,7 @@
                   %br
             -else
               -if current_person?(@person)
-                =link_to "Add skills", edit_person_path(@person) + "#person[skill_ids][]"
+                =link_to "Add skills", editprofile_path(@person, "mandatory") + "#person[skill_ids][]"
 
       #stats
         %p
@@ -74,14 +74,14 @@
                 = truncate(@person.description, 400)
               -if current_person?(@person)
                 .profile_edit
-                  =link_to image_tag("icons/mini_edit.gif") + "Edit", edit_person_path(@person) + "#person_description"
+                  =link_to image_tag("icons/mini_edit.gif") + "Edit", editprofile_path(@person, "about") + "#person_description"
           -else
             .column_content
               -if current_person?(@person)
                 .add
-                  =link_to image_tag("portfolio/add.gif"), edit_person_path(@person) + "#person_description"
+                  =link_to image_tag("portfolio/add.gif"), editprofile_path(@person, "about") + "#person_description"
                   %br
-                  =link_to "Add a description", edit_person_path(@person) + "#person_description"
+                  =link_to "Add a description", editprofile_path(@person, "about") + "#person_description"
               -else
                 %p
                   No description.
@@ -98,13 +98,13 @@
                 = display(@person.status)
                 -if current_person?(@person)
                   .profile_edit
-                    =link_to image_tag("icons/mini_edit.gif") + "Edit", edit_person_path(@person) + "#person_status"
+                    =link_to image_tag("icons/mini_edit.gif") + "Edit", editprofile_path(@person, "about") + "#person_status"
               -else
                 -if current_person?(@person)
                   .add
-                    =link_to image_tag("portfolio/add.gif"), edit_person_path(@person) + "#p_status" #"#person_status"
+                    =link_to image_tag("portfolio/add.gif"), editprofile_path(@person, "about") + "#p_status" #"#person_status"
                     %br
-                    =link_to "Set status", edit_person_path(@person) + "#p_status" #"#person_status"
+                    =link_to "Set status", editprofile_path(@person, "about") + "#p_status" #"#person_status"
                 -else
                   No status.
 
@@ -116,9 +116,9 @@
                 = link_to @person.website, "http://" + @person.website, :target => :blank
                 -if current_person?(@person)
                   .profile_edit
-                    =link_to image_tag("icons/mini_edit.gif") + "Edit", edit_person_path(@person) + "#person_website"
+                    =link_to image_tag("icons/mini_edit.gif") + "Edit", editprofile_path(@person, "about") + "#person_website"
               -else
-                =display_empty_field("website")
+                =display_empty_field("website", "about")
   
         .profile_right_column
           %h4 LANGUAGES
@@ -128,9 +128,9 @@
                 =@person.languages.collect{|language| language.name}.join(", ")
                 -if current_person?(@person)
                   .profile_edit
-                    =link_to image_tag("icons/mini_edit.gif") + "Edit", edit_person_path(@person) + "#person[language_ids][]"
+                    =link_to image_tag("icons/mini_edit.gif") + "Edit", editprofile_path(@person, "education") + "#person[language_ids][]"
               -else
-                =display_empty_field("languages")
+                =display_empty_field("languages", "education")
 
         .profile_right_column
           %h4 SOFTWARE
@@ -140,9 +140,9 @@
                 =@person.softwares.collect{|software| software.name}.join(", ")
                 -if current_person?(@person)
                   .profile_edit
-                    =link_to image_tag("icons/mini_edit.gif") + "Edit", edit_person_path(@person) + "#person[software_ids][]"
+                    =link_to image_tag("icons/mini_edit.gif") + "Edit", editprofile_path(@person, "education") + "#person[software_ids][]"
               -else
-                =display_empty_field("software")
+                =display_empty_field("software", "education")
     
         .profile_right_column
           %h4 CV
@@ -156,9 +156,9 @@
                 =link_to image_tag("portfolio/get_adobe.jpg"), "http://www.adobe.fr/products/acrobat/readstep2.html"
                 -if current_person?(@person)
                   .profile_edit
-                    =link_to image_tag("icons/mini_edit.gif") + "Edit", edit_person_path(@person) + "#person_cv"
+                    =link_to image_tag("icons/mini_edit.gif") + "Edit", editprofile_path(@person, "education") + "#person_cv"
               -else
-                =display_empty_field("cv")
+                =display_empty_field("cv", "education")
 
 
         .profile_right_column
@@ -169,9 +169,9 @@
                 = @person.tags.collect{|t| t.name}.join(", ")
                 -if current_person?(@person)
                   .profile_edit
-                    =link_to image_tag("icons/mini_edit.gif") + "Edit", edit_person_path(@person) + "#p_tags"#"#person_tags"
+                    =link_to image_tag("icons/mini_edit.gif") + "Edit", editprofile_path(@person, "about") + "#p_tags"#"#person_tags"
               -else
-                =display_empty_field("tags")
+                =display_empty_field("tags", "about")
 
       #projects
         -if current_person?(@person)

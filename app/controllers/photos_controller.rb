@@ -30,10 +30,10 @@ class PhotosController < ApplicationController
     if params[:photo].nil?
       # This is mainly to prevent exceptions on iPhones.
       flash[:error] = "Your browser doesn't appear to support file uploading"
-      redirect_to edit_person_url(current_person) and return
+      redirect_to editprofile_url(current_person, "education") and return
     end
     if params[:commit] == "Cancel"
-      redirect_to edit_person_url(current_person) and return
+      redirect_to editprofile_url(current_person, "education") and return
     end
     person_data = { :person => current_person,
                     :primary => current_person.photos.empty? }
@@ -42,7 +42,7 @@ class PhotosController < ApplicationController
     respond_to do |format|
       if @photo.save
         flash[:success] = "Photo successfully uploaded"
-        format.html { redirect_to(edit_person_path(current_person)) }
+        format.html { redirect_to(editprofile_path(current_person, "education")) }
       else
         format.html { render :action => "new" }
       end
@@ -53,7 +53,7 @@ class PhotosController < ApplicationController
   # This marks the other photos as non-primary as a side-effect.
   def update
     if @photo.nil? or @photo.primary?
-      redirect_to edit_person_url(current_person) and return
+      redirect_to editprofile_url(current_person, "education") and return
     end
     # This should only have one entry, but be paranoid.
     @old_primary = current_person.photos.select(&:primary?)
@@ -61,7 +61,7 @@ class PhotosController < ApplicationController
     respond_to do |format|
       if @photo.update_attributes(:primary => true)
         @old_primary.each { |p| p.update_attributes!(:primary => false) }
-        format.html { redirect_to(edit_person_path(current_person)) }
+        format.html { redirect_to(editprofile_path(current_person, "education")) }
       else    
         format.html do
           flash[:error] = "Invalid image!"

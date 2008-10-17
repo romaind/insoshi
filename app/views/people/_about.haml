@@ -1,0 +1,34 @@
+
+%h3 About You
+#about_content
+
+-form_for @person do |f|
+
+  .form_row
+    %label{ :for => "status" } Status:
+    =f.select :status, ["working", "studying", "looking for a job", "looking for a partner"]
+
+  .form_row
+    %label{ :for => "person_website" } Website:
+    %code http://
+    = f.text_field :website
+
+  .form_row
+    %label{ :for => "person_tag_list" } Tag yourself (separate with ","):
+    = f.text_field :tag_list, :default => @person.tags.collect{|t| t.name}.join(", ")
+
+  .form_row    
+    -unless @preview.nil?
+      = display @preview
+
+    %p
+      %label{ :for => "person_description" } Description:
+      %br
+      = f.text_area :description
+      %br
+      = formatting_note
+    
+  %input{ :type => "hidden", :name => "type", :value => "about_edit"} 
+
+  .form_row
+    = f.submit "Update", :class => "button"

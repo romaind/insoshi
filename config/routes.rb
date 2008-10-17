@@ -64,10 +64,13 @@ ActionController::Routing::Routes.draw do |map|
   # end
   map.feedback  '/feedback', :controller => 'home', :action => 'feedback'
   map.projects '/projects', :controller => 'projects', :action => 'index'
-  
+
   map.profile 'people/:id/:tab',  :controller => 'people',
                                   :action => 'show'
-                                  
+  
+  map.editprofile 'people/:id/edit/:tab', :controller => 'people',
+                                      :action => 'edit'
+                                                                        
   map.newproject  'people/:person_id/projects/new/:tab', :controller => 'projects', :action => 'new'
   map.editproject  'people/:person_id/projects/:id/edit/:tab', :controller => 'projects', :action => 'edit'
   

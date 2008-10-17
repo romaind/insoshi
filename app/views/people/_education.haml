@@ -1,0 +1,52 @@
+%h3 Contact data
+#contact_content
+
+-form_for @person do |f|
+
+  .form_row
+    %label{ :for => "person_adress" } Address:
+    = f.text_field :address
+
+  .form_row
+    %label{ :for => "person_zipcode" } Zipcode:
+    = f.text_field :zipcode
+
+  .form_row
+    %label{ :for => "person_city" } City:
+    = f.text_field :city
+
+  .form_row
+    %label{ :for => "person_phone" } Phone:
+    = f.text_field :phone
+
+
+    %h3 Skills and Education
+    #skills_content
+
+      .form_row
+        %label{ :for => "p_schools" } Schools:
+        =text_field :p, :schools
+        = button_to "Add a school", { :controller => ""}, :id => "newschool"
+
+      #languages_checkboxes
+        %h3 Languages
+        =render :partial => "languages", :locals =>{ :f => f }
+    
+      #softwares_checkboxes
+        %h3 Software
+        =render :partial => "software", :locals =>{ :f => f }
+
+      / .form_row
+      /   %label{ :for => "p_cv" } CV (PDF format):
+      /   =text_field :p, :cv
+      /   = button_to "Browse", { :controller => ""}, :id => "cv"
+
+  %input{ :type => "hidden", :name => "type", :value => "skill_edit"}
+
+  .form_row
+    = f.submit "Update", :class => "button"
+
+
+  #photo
+    =render :partial => "photo"
+    = button_to "Add a photo", new_photo_path, :id => "newphoto"

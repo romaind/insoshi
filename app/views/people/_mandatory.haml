@@ -1,0 +1,58 @@
+=image_tag "portfolio/mandatory.gif"
+Mandatory fields
+
+-form_for @person do |f|
+
+  .form_row
+    %label{ :for => "person_birthdate" } Birth Date:
+    = f.date_select :birthdate, :order => [:day, :month, :year], :start_year => 1900, :end_year => Date.today.year
+    =image_tag "portfolio/mandatory.gif", :class => "mandatory"
+
+  #gender
+    %label{ :for => "person_gender_1" } Man:
+    = f.radio_button :gender, 1
+    %label{ :for => "person_gender_2" } Woman:
+    = f.radio_button :gender, 2
+    =image_tag "portfolio/mandatory.gif", :class => "mandatory"
+
+  .form_row
+    %label{ :for => "person_first_name" } First Name:
+    = f.text_field :first_name
+    =image_tag "portfolio/mandatory.gif", :class => "mandatory"
+
+  .form_row
+    %label{ :for => "person_name" } Last Name:
+    = f.text_field :name, :maxlength => Person::MAX_NAME
+    =image_tag "portfolio/mandatory.gif", :class => "mandatory"
+
+  .form_row
+    %label{ :for => "person_email" } Email:
+    = f.text_field :email, :maxlength => Person::MAX_EMAIL, :disabled => "disabled"
+    =image_tag "portfolio/mandatory.gif", :class => "mandatory"
+
+  .form_row
+    %label{ :for => "person_country_id" } Country:
+    =f.select :country_id, Country.find(:all).map{|obj| [obj.name,obj.id]}
+    =image_tag "portfolio/mandatory.gif", :class => "mandatory"
+
+  .form_row
+    #terms
+      %p
+        %label{ :for => "p_newsletter", :class => "checkbox" } Receive Coaliz' newsletter:
+        = check_box :p, :newsletter
+      %p
+        %label{ :for => "p_terms_of_use", :class => "checkbox" } I have read and agree to the
+        = link_to "Terms of use","terms_of_use"
+        = f.check_box :terms_of_use
+        =image_tag "portfolio/mandatory.gif", :class => "mandatory"
+        
+        
+  #skills_checkboxes.form_row
+    %h3 Skills
+    =image_tag "portfolio/mandatory.gif", :class => "mandatory"
+    =render :partial => "skills", :locals =>{ :f => f }
+
+  %input{ :type => "hidden", :name => "type", :value => "mandatory_edit"}
+
+  .form_row
+    = f.submit "Update", :class => "button"

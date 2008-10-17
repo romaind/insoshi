@@ -111,6 +111,8 @@ class PeopleController < ApplicationController
   end
 
   def edit
+    @part = params[:tab]
+    
     @person = Person.find(params[:id])
     respond_to do |format|
       format.html
@@ -118,16 +120,38 @@ class PeopleController < ApplicationController
   end
 
   def update
-    params[:person][:skill_ids] ||= []
-    params[:person][:language_ids] ||= []
     params[:person][:software_ids] ||= []
     @person = Person.find(params[:id])
     
     respond_to do |format|
       case params[:type]
-      when 'info_edit'
+      when 'mandatory_edit'
+        params[:person][:skill_ids] ||= []
         @country = Country.find(params[:person][:country_id])
         @person.origin_country = @country
+        if !preview? and @person.update_attributes(params[:person])
+          @person.be_active!
+          flash[:success] = 'Profile updated!'
+          format.html { redirect_to(@person) }
+        else
+          if preview?
+            @preview = @person.description = params[:person][:description]
+          end
+          format.html { render :action => "edit" }
+        end
+      when 'about_edit'
+        if !preview? and @person.update_attributes(params[:person])
+          @person.be_active!
+          flash[:success] = 'Profile updated!'
+          format.html { redirect_to(@person) }
+        else
+          if preview?
+            @preview = @person.description = params[:person][:description]
+          end
+          format.html { render :action => "edit" }
+        end
+      when 'skill_edit'
+        params[:person][:language_ids] ||= []
         if !preview? and @person.update_attributes(params[:person])
           @person.be_active!
           flash[:success] = 'Profile updated!'

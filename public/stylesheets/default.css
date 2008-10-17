@@ -1528,6 +1528,68 @@ order-bottom: 2px solid #FF9900;*/
 	text-align: center;
 }
 
+
+
+/* ********* Project Tabs ************* */
+
+#editprofiletabs {
+	width: 775px;
+	height: 32px;
+	margin-bottom: 20px;
+/*
+	
+
+margin-top: 10px;
+	  	margin-bottom: 10px;*/
+}
+
+#editprofiletabs ul {
+	width: 775px;
+	height: 32px;
+	background-color: #FF9900;
+	margin: 0 0 20 0;
+	padding: 0 0 0 0;
+/*		b
+
+order-bottom: 2px solid #FF9900;*/
+}
+
+#editprofiletabs ul li {
+	float: left;
+	list-style-image: none;
+	list-style-position: outside;
+	list-style-type: none;
+	text-align: center;
+	padding-top: 6px;
+	width: 130px;
+	height: 26px;
+}
+
+#editprofiletabs ul li a, #projecttabs ul li span {
+	text-decoration: none;
+	font-size: 12px;
+	/*	padding-top: 5px;*/
+	/*	font-weight: bold;*/
+	color: #FFFFFF;
+}
+
+#editprofiletabs ul.yellow li {
+	background-color: #FF9900;
+	border-right: 1px solid #FFFFFF;
+}
+
+#editprofiletabs ul.yellow li.current {
+	border-top: 2px solid #FF9900;
+	background-color: #FFFFFF;
+}
+
+#editprofiletabs ul.yellow li.current span {
+	width: 111px;
+	color: #FF9900;
+	text-align: center;
+}
+
+
 /* *********Pagination display********** */
 
 .paginate {
