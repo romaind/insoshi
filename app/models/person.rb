@@ -55,6 +55,8 @@ class Person < ActiveRecord::Base
   event :be_draft do
     transitions :to => :draft, :from => :pending
   end
+  
+  acts_as_voter
 
   MAX_EMAIL = MAX_PASSWORD = 40
   MAX_NAME = 40

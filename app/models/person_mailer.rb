@@ -71,6 +71,14 @@ class PersonMailer < ActionMailer::Base
                 "user"    => user
   end
   
+  def abuse(email, message)
+    from        "Email verification <email@#{domain}>"
+    recipients  "abus@coaliz.com"
+    subject     formatted_subject("New abuse message")
+    body        "message" => message,
+                "email"    => email
+  end
+  
   private
   
     # Prepend the application name to subjects if present in preferences.
