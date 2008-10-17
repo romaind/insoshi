@@ -2061,6 +2061,20 @@ order-bottom: 2px solid #FF9900;*/
 }
 
 /* *********New message display********** */
+.hand {
+	cursor: pointer;
+}
+
+body {
+  background-image: url(../images/background_squares.jpg);
+  background-repeat: repeat;
+  font-size: 11pt;
+  font-family: Arial,Georgia,Verdana,sans-serif;
+  height: 100%; }
+  body img {
+    border: 0;
+    margin: 0;
+    padding: 0; }
 
 #new_message h4 {
 	margin: 0;
@@ -2360,7 +2374,8 @@ margin-right: 20px; */
 /* *********Display project page********** */
 
 #show_project #player {
-	margin: 0;
+	width: 584px;
+  	margin: 0; 
 }
 
 #show_project h3 {
@@ -2380,74 +2395,54 @@ margin-right: 20px; */
 }
 
 #show_project #right {
-	float: right;
-}
-
-#show_project #right .project_content {
-	margin: 0;
-	text-align: right;
-	width: 190px;
-	font-size: 9pt;
-}
-
-#show_project #right .project_content a {
-	color: #009900;
-	text-decoration: none;
-}
-
-#show_project #right .project_content .tab_title {
-	text-align: right;
-	padding-right: 10px;
-	padding-top: 7px;
-	width: 190px;
-	height: 12px;
-	background-image: url(../images/desc_top.gif);
-	background-repeat: no-repeat;
-}
-
-#show_project #right .project_content .tab_title h4 {
-	color: #333333;
-	font-size: 9pt;
-	margin: 0;
-	margin-right: 10px;
-}
-
-#show_project #right .project_content .content {
-	margin: 0;
-	padding-top: 10px;
-	padding-right: 10px;
-	background-color: white;
-	border-left: 1px solid #DDDDDD;
-	border-right: 1px solid #DDDDDD;
-}
-
-#show_project #right .project_content .content h4 {
-	margin: 0;
-}
-
-#show_project #right .project_content .content p {
-	margin-top: 0;
-	margin-bottom: 10px;
-}
-
-#show_project #right .project_content .content #options {
-	text-align: right;
-	padding-left: 10px;
-}
-
-#show_project #right .project_content .content #options p {
-	width: 170px;
-	margin: 0;
-	margin-top: 5px;
-	padding-top: 5px;
-	border-top: 1px dotted #333333;
-}
-
-#show_project #right .project_content .content #options a {
-	color: #333333;
-	text-decoration: none;
-}
-
+  float: right; }
+  #show_project #right .project_content {
+    margin: 0;
+    text-align: right;
+    width: 190px;
+    font-size: 9pt; }
+    #show_project #right .project_content a {
+      color: #009900;
+      text-decoration: none; }
+    #show_project #right .project_content .tab_title {
+      text-align: right;
+/*	  background-color: #FFFFFF;*/
+      padding-right: 10px;
+      padding-top: 7px;
+      width: 190px;
+      height: 12px;
+      background-image: url(../images/desc_top.gif);
+      background-repeat: no-repeat; }
+      #show_project #right .project_content .tab_title h4 {
+        color: #333333;
+        font-size: 9pt;
+        margin: 0;
+        margin-right: 10px; }
+    #show_project #right .project_content .content {
+      margin: 0;
+      padding-top: 10px;
+      padding-right: 10px;
+      background-color: white;
+      border-left: 1px solid #DDDDDD;
+      border-right: 1px solid #DDDDDD; }
+      #show_project #right .project_content .content h4 {
+        margin: 0; }
+      #show_project #right .project_content .content p {
+        margin-top: 0;
+        margin-bottom: 10px; }
+      #show_project #right .project_content .content #options {
+        text-align: right;
+        padding-left: 10px; }
+        #show_project #right .project_content .content #options p {
+          width: 170px;
+          margin: 0;
+          margin-top: 5px;
+          padding-top: 5px;
+          border-top: 1px dotted #333333; }
+        #show_project #right .project_content .content #options a {
+          color: #333333;
+          text-decoration: none; }
+          
 #show_project .playlist_tab {
 	width: 787px;
 }

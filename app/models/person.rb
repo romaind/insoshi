@@ -55,6 +55,8 @@ class Person < ActiveRecord::Base
   event :be_draft do
     transitions :to => :draft, :from => :pending
   end
+  
+  acts_as_voter
 
   MAX_EMAIL = MAX_PASSWORD = 40
   MAX_NAME = 40
@@ -126,8 +128,9 @@ class Person < ActiveRecord::Base
   validates_presence_of     :password,              :if => :password_required?
   validates_presence_of     :password_confirmation, :if => :password_required?
   validates_presence_of     :skills,
-                                :on => :update,
-                                :if => :should_fill?
+                            :message => ": Please choose at least a skill (maximum 4)",
+                            :on => :update,
+                            :if => :should_fill?
   validates_length_of       :password, :within => 4..MAX_PASSWORD,
                                        :if => :password_required?
   validates_confirmation_of :password, :if => :password_required?

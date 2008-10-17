@@ -1,8 +1,6 @@
 class Project < ActiveRecord::Base
   include ActionView::Helpers::AssetTagHelper
   
-  validates_presence_of :title
-  validates_presence_of :skills
   
   # attr_accessor :status
   attr_protected :state
@@ -22,6 +20,8 @@ class Project < ActiveRecord::Base
     transitions :to => :draft, :from => :published
   end
 
+  acts_as_voteable
+
   belongs_to :person
   belongs_to :common,
              :class_name => 'CreativeCommon',
@@ -31,6 +31,10 @@ class Project < ActiveRecord::Base
   has_many :comments, :as => :commentable, :order => 'created_at DESC',
                       :limit => NUM_WALL_COMMENTS,
                       :dependent => :destroy
+    
+    
+  validates_presence_of :title
+  validates_presence_of :skills
     
   class << self
     

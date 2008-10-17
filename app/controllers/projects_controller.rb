@@ -89,7 +89,9 @@ class ProjectsController < ApplicationController
   # PUT /projects/1
   # PUT /projects/1.xml
   def update
-    params[:project][:skill_ids] ||= []
+    unless params[:project][:creative_common_id]
+      params[:project][:skill_ids] ||= []
+    end
     @project = Project.find(params[:id])
 
     respond_to do |format|
@@ -100,12 +102,7 @@ class ProjectsController < ApplicationController
           @project.publish!
         end
         flash[:notice] = 'Project was successfully updated.'
-        format.html { 
-          if params[:project][:creative_common_id]
-            redirect_to editproject_path(current_person, @project, "copyrights")
-          else
-            redirect_to person_project_path(current_person, @project)
-          end }
+        format.html { redirect_to person_project_path(current_person, @project) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -127,6 +124,25 @@ class ProjectsController < ApplicationController
   end
   
   def choose
+    
+  end
+  
+  def vote
+    project = Project.find(params[:id])
+    if Vote.find_by_voteable_id_and_voteable_type_and_voter_id(project.id, "Project", current_person.id)
+      message = "You've already voted for this project"
+    else
+      current_person.vote_for(project)
+      message = "Thank you for your vote"
+    end
+    
+    respond_to do |format|
+      format.html { 
+        flash[:notice] = message
+        redirect_to person_project_path(project.person, project)
+        }
+    end
+    
     
   end
   

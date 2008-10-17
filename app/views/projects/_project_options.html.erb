@@ -1,5 +1,5 @@
-<div class="tab_title"><h4>Project options</h4></div>
-<div class="content">
+<div class="accordion_toggle tab_title clearfix hand"><h4>Project options</h4></div>
+<div class="content accordion_content">
 	<div id="options">
 		<%=link_to "See portfolio", person_path(@project.person) %>
 		<% if current_person?(@project.person) %>		
@@ -10,6 +10,11 @@
   			<%= link_to "Delete this project", person_project_path(@project.person, @project), :confirm => 'Are you sure?', :method => :delete  %>
   		</p>
 		<% end %>
+		<% if logged_in? %>
+		  <p>
+		    
+		  </p>
+		<% end %>
 		<p>
 			<%= link_to "Comment this project" %>
 		</p>
@@ -17,11 +22,12 @@
 			<%= link_to "Tag this project" %>
 		</p>
 		<p>
-			<%= link_to "Report an abuse" %>
+		  <a href="<%= abuse_path("project", @project.id) %>" class="lightwindow" caption="Report an abuse." params="lightwindow_type=page">Report an abuse</a><br/>
+			<%#= link_to "Report an abuse" %>
 		</p>
 		<p>
 			<!-- AddThis Button BEGIN -->
-<a href="http://www.addthis.com/bookmark.php" onclick="addthis_url   = location.href; addthis_title = document.title; return addthis_click(this);" target="_blank"><img src="http://s9.addthis.com/button1-share.gif" width="125" height="16" border="0" alt="Bookmark and Share" /></a> <script type="text/javascript">var addthis_pub = 'coaliz';</script><script type="text/javascript" src="http://s9.addthis.com/js/widget.php?v=10"></script>  
+      <a href="http://www.addthis.com/bookmark.php" onclick="addthis_url   = location.href; addthis_title = document.title; return addthis_click(this);" target="_blank"><img src="http://s9.addthis.com/button1-share.gif" width="125" height="16" border="0" alt="Bookmark and Share" /></a> <script type="text/javascript">var addthis_pub = 'coaliz';</script><script type="text/javascript" src="http://s9.addthis.com/js/widget.php?v=10"></script>  
 			<!-- AddThis Button END -->
 		</p>
 	</div>

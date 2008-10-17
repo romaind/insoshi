@@ -33,8 +33,35 @@ class HomeController < ApplicationController
     
     respond_to do |format|
       format.html {
-        flash[:notice] = "Your message has been sent"
+        flash[:notice] = "Your message has been sent. Thank you"
         redirect_to '/'}
     end
   end
+  
+  def abuse
+    render :layout => false
+  end
+  
+  def send_abuse
+    if params[:item] == "project"
+      item = Project.find(params[:id])
+    end
+    if params[:abuse] && params[:abuse][:message]
+      # if params[:abuse][:message]
+      #   email = params[:abuse][:message]
+      # else
+      #   email = "no email"
+      # end
+      PersonMailer.deliver_abuse(params[:abuse][:message], params[:abuse][:message])
+    end
+    respond_to do |format|
+      format.html {
+        flash[:notice] = "Your message has been sent. Thank you"
+        redirect_to person_project_path(item.person, item)
+      }
+      
+    end
+    
+  end
+  
 end
