@@ -33,10 +33,9 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       format.html {
-        if !@project.views
-          @project.update_attributes(:views => 0)
+        if !current_person?(@project.person)
+          @project.update_attributes(:views => @project.views+1)
         end
-        @project.update_attributes(:views => @project.views+1)
       }# show.html.erb
       format.xml
     end
