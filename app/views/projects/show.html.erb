@@ -37,7 +37,12 @@
 		
 		<%=render :partial => "project_options" %>
 	</div>  
-  	<%=image_tag ("desc_bottom.gif") %>
+  <%=image_tag ("desc_bottom.gif") %>
+  <% if logged_in? %>
+  <p>
+    <%= link_to "vote", vote_person_project_path(@project.person, @project) %>
+  </p>
+  <% end %>
 </div>
 
 <h3><%=h @project.title.upcase %></h3>

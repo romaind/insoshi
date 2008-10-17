@@ -56,7 +56,7 @@ class Person < ActiveRecord::Base
     transitions :to => :draft, :from => :pending
   end
   
-  # acts_as_voter
+  acts_as_voter
 
   MAX_EMAIL = MAX_PASSWORD = 40
   MAX_NAME = 40

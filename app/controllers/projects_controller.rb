@@ -128,6 +128,15 @@ class ProjectsController < ApplicationController
   end
   
   def vote
+    project = Project.find(params[:id])
+    current_person.vote_for(project)
+    
+    respond_to do |format|
+      format.html { 
+        flash[:notice] = "Thank you for your vote"
+        redirect_to person_project_path(project.person, project)
+        }
+    end
     
     
   end
