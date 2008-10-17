@@ -10,11 +10,11 @@
           =link_to image_tag("portfolio/edit_profile.gif"), edit_person_path(@person)
         %td
           =link_to "Edit my profile", edit_person_path(@person)
-      %tr
-        %td
-          =link_to image_tag("portfolio/new_message.gif"), new_person_message_path(@person)
-        %td
-          =link_to "Send a message", new_person_message_path(@person)
+      / %tr
+      /   %td
+      /     =link_to image_tag("portfolio/new_message.gif"), new_person_message_path(@person)
+      /   %td
+      /     =link_to "Send a message", new_person_message_path(@person)
   -else
     -if logged_in?
       -if current_person.waiting_acceptation?(@person)
