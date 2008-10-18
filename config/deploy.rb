@@ -74,6 +74,8 @@ namespace :coaliz do
   task :symlink_shared do
     run <<-CMD
     rm -rf #{current_path}/public/items #{current_path}/public/photos &&
+    ln -nfs #{shared_path}/rsa_key #{current_path}/rsa_key &&
+    ln -nfs #{shared_path}/rsa_key.pub #{current_path}/rsa_key.pub &&
     ln -nfs #{shared_path}/files/items #{current_path}/public/items &&
     ln -nfs #{shared_path}/files/photos #{current_path}/public/photos
     CMD
