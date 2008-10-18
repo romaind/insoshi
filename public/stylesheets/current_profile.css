@@ -95,15 +95,21 @@
 }
 
 #persontabs {
-  width: 777px;/*
+  width: 777px;
+	height: 32px;/*
   	margin-top: 10px;
   	margin-bottom: 10px;*/}
 	#persontabs ul{
 		width: 777px;
-		height: 19px;
+		height: 32px;
 		padding: 0 0 0 0;
 		margin-bottom: 0px;
-/*		border-bottom: 2px solid #FF9900;*/
+	}
+	#persontabs ul.yellow{
+		background-color: #FF9900;
+	}
+	#persontabs ul.green{
+		background-color: #009900;
 	}
 	#persontabs ul li{
 		float: left;
@@ -112,27 +118,31 @@
 		list-style-type: none;
 		text-align: center;
 		width: 111px;
-		height: 19px;}
+		padding-top: 6px;
+		height: 26px;}
 		#persontabs ul li a, #persontabs ul li span{
 			text-decoration: none;
-			font-size: 11px;
-			font-weight: bold;
+			font-size: 12px;
 			color: #FFFFFF;
 		}
 		#persontabs ul.yellow li{
-			background: url("../images/MenuTabsYellow109.gif") no-repeat scroll left -19px;
+			background-color: #FF9900;
+			border-right: 1px solid #FFFFFF;
 		}
 		#persontabs ul.yellow li.current{
-			background: url("../images/MenuTabsYellow109.gif") no-repeat left top;
+			background-color: #FFFFFF;
+			border-top: 2px solid #FF9900;
 		}
 		#persontabs ul.yellow li.current span{
 			color: #FF9900;
 		}
 		#persontabs ul.green li{
-			background: url("../images/MenuTabsGreen109.gif") no-repeat scroll left -19px;
+			background-color: #009900;
+			border-right: 1px solid #FFFFFF;
 		}
 		#persontabs ul.green li.current{
-			background: url("../images/MenuTabsGreen109.gif") no-repeat scroll left top;
+			background-color: #FFFFFF;
+			border-top: 2px solid #009900;
 		}
 		#persontabs ul.green li.current span{
 			color: #009900;
