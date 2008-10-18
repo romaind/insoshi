@@ -8,6 +8,33 @@ class MessagesController < ApplicationController
   # GET /messages
   def index
     @messages = current_person.received_messages(params[:page])
+    
+    @person = Person.find(params[:person_id])
+    
+    @publishedprojects = @person.projects.all_published
+    @publishedprojects = @person.projects.all_published.paginate(:page => params[:page], :per_page => 12, :order => 'created_at DESC') if @publishedprojects.size > 0
+      
+    @draftprojects = @person.projects.all_draft
+    @draftprojects = @person.projects.all_draft.paginate(:page => params[:page], :per_page => 12, :order => 'created_at DESC') if @draftprojects.size > 0
+    
+    unless @person.active? or current_person.admin?
+      flash[:error] = "That person is not active"
+      redirect_to home_url and return
+    end
+    
+    if logged_in?
+      @some_contacts = @person.some_contacts
+      @common_contacts = current_person.common_contacts_with(@person)
+      @person_projects = @person.projects.all_published
+    end
+    
+    @views = 0
+    @publishedprojects.each do |p|
+      unless !p.views
+        @views += p.views
+      end
+    end
+    
     respond_to do |format|
       format.html { render :template => "messages/index" }
     end
@@ -16,6 +43,33 @@ class MessagesController < ApplicationController
   # GET /messages/sent
   def sent
     @messages = current_person.sent_messages(params[:page])
+    
+    @person = Person.find(params[:person_id])
+    
+    @publishedprojects = @person.projects.all_published
+    @publishedprojects = @person.projects.all_published.paginate(:page => params[:page], :per_page => 12, :order => 'created_at DESC') if @publishedprojects.size > 0
+      
+    @draftprojects = @person.projects.all_draft
+    @draftprojects = @person.projects.all_draft.paginate(:page => params[:page], :per_page => 12, :order => 'created_at DESC') if @draftprojects.size > 0
+    
+    unless @person.active? or current_person.admin?
+      flash[:error] = "That person is not active"
+      redirect_to home_url and return
+    end
+    
+    if logged_in?
+      @some_contacts = @person.some_contacts
+      @common_contacts = current_person.common_contacts_with(@person)
+      @person_projects = @person.projects.all_published
+    end
+    
+    @views = 0
+    @publishedprojects.each do |p|
+      unless !p.views
+        @views += p.views
+      end
+    end
+    
     respond_to do |format|
       format.html { render :template => "messages/index" }
     end
@@ -24,6 +78,33 @@ class MessagesController < ApplicationController
   # GET /messages/trash
   def trash
     @messages = current_person.trashed_messages(params[:page])
+    
+    @person = Person.find(params[:person_id])
+    
+    @publishedprojects = @person.projects.all_published
+    @publishedprojects = @person.projects.all_published.paginate(:page => params[:page], :per_page => 12, :order => 'created_at DESC') if @publishedprojects.size > 0
+      
+    @draftprojects = @person.projects.all_draft
+    @draftprojects = @person.projects.all_draft.paginate(:page => params[:page], :per_page => 12, :order => 'created_at DESC') if @draftprojects.size > 0
+    
+    unless @person.active? or current_person.admin?
+      flash[:error] = "That person is not active"
+      redirect_to home_url and return
+    end
+    
+    if logged_in?
+      @some_contacts = @person.some_contacts
+      @common_contacts = current_person.common_contacts_with(@person)
+      @person_projects = @person.projects.all_published
+    end
+    
+    @views = 0
+    @publishedprojects.each do |p|
+      unless !p.views
+        @views += p.views
+      end
+    end
+    
     respond_to do |format|
       format.html { render :template => "messages/index" }
     end    
@@ -37,6 +118,33 @@ class MessagesController < ApplicationController
       subject_id = @message.parent_id
     end
     @talks = current_person.discussion(subject_id)
+    
+    @person = Person.find(params[:person_id])
+    
+    @publishedprojects = @person.projects.all_published
+    @publishedprojects = @person.projects.all_published.paginate(:page => params[:page], :per_page => 12, :order => 'created_at DESC') if @publishedprojects.size > 0
+      
+    @draftprojects = @person.projects.all_draft
+    @draftprojects = @person.projects.all_draft.paginate(:page => params[:page], :per_page => 12, :order => 'created_at DESC') if @draftprojects.size > 0
+    
+    unless @person.active? or current_person.admin?
+      flash[:error] = "That person is not active"
+      redirect_to home_url and return
+    end
+    
+    if logged_in?
+      @some_contacts = @person.some_contacts
+      @common_contacts = current_person.common_contacts_with(@person)
+      @person_projects = @person.projects.all_published
+    end
+    
+    @views = 0
+    @publishedprojects.each do |p|
+      unless !p.views
+        @views += p.views
+      end
+    end
+    
     respond_to do |format|
       format.html
     end
@@ -48,6 +156,32 @@ class MessagesController < ApplicationController
       @recipient = current_person
     else
       @recipient = Person.find(params[:person_id])
+    end
+    
+    @person = Person.find(params[:person_id])
+    
+    @publishedprojects = @person.projects.all_published
+    @publishedprojects = @person.projects.all_published.paginate(:page => params[:page], :per_page => 12, :order => 'created_at DESC') if @publishedprojects.size > 0
+      
+    @draftprojects = @person.projects.all_draft
+    @draftprojects = @person.projects.all_draft.paginate(:page => params[:page], :per_page => 12, :order => 'created_at DESC') if @draftprojects.size > 0
+    
+    unless @person.active? or current_person.admin?
+      flash[:error] = "That person is not active"
+      redirect_to home_url and return
+    end
+    
+    if logged_in?
+      @some_contacts = @person.some_contacts
+      @common_contacts = current_person.common_contacts_with(@person)
+      @person_projects = @person.projects.all_published
+    end
+    
+    @views = 0
+    @publishedprojects.each do |p|
+      unless !p.views
+        @views += p.views
+      end
     end
 
     respond_to do |format|
@@ -70,6 +204,33 @@ class MessagesController < ApplicationController
                            :sender => current_person,
                            :recipient => original_message.sender)
     @recipient = not_current_person(original_message)
+    
+    @person = Person.find(params[:person_id])
+    
+    @publishedprojects = @person.projects.all_published
+    @publishedprojects = @person.projects.all_published.paginate(:page => params[:page], :per_page => 12, :order => 'created_at DESC') if @publishedprojects.size > 0
+      
+    @draftprojects = @person.projects.all_draft
+    @draftprojects = @person.projects.all_draft.paginate(:page => params[:page], :per_page => 12, :order => 'created_at DESC') if @draftprojects.size > 0
+    
+    unless @person.active? or current_person.admin?
+      flash[:error] = "That person is not active"
+      redirect_to home_url and return
+    end
+    
+    if logged_in?
+      @some_contacts = @person.some_contacts
+      @common_contacts = current_person.common_contacts_with(@person)
+      @person_projects = @person.projects.all_published
+    end
+    
+    @views = 0
+    @publishedprojects.each do |p|
+      unless !p.views
+        @views += p.views
+      end
+    end    
+    
     respond_to do |format|
       format.html { render :action => "new" }
     end    

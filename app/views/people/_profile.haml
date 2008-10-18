@@ -1,0 +1,64 @@
+- column_div :type => :primary do
+  -if current_person?(@person)
+    = stylesheet_link_tag "current_profile"
+  #profile
+    =image_tag "profile_top.gif"
+    #profile_details
+      = image_tag @person.profile, :id => "profile_image", :alt => h(@person.name)
+      %table#details
+        %tr
+          %td#infos
+            %p
+              %b
+                =h @person.first_name
+                =h @person.name
+            =image_tag @person.gender_image
+            ,
+            =pluralize(@person.age, "year")
+            %br
+            -if @person.city != ''
+              =h @person.city.capitalize
+              ,
+            -if @person.origin_country
+              =h @person.origin_country.name
+        %tr
+          %td#skills
+            -if @person.skills.length >0
+              -for skill in @person.skills do
+                =skill.name
+                -if not(@person.skills.last == skill)
+                  %br
+            -else
+              -if current_person?(@person)
+                =link_to "Add skills", edit_person_path(@person) + "#person[skill_ids][]"
+
+      #stats
+        %p
+          =pluralize(@person.projects.count, "project")
+          %br
+          =pluralize(@person.contacts.count, "contact")
+          %br
+          =pluralize(@views, "total view")
+          %br
+          =pluralize(102, "total vote")
+
+
+      =render :partial => 'people/actions'
+    = image_tag "profile_bottom.gif"
+
+  #my_page
+    #persontabs
+      -if current_person?(@person)
+        %ul.clearfix.yellow
+          =tab_to "Profile", profile_path(@person, "profile"), :class => "current"
+          =tab_to "News", profile_path(@person, "news"), :class => "current"
+          =tab_to "Network", profile_path(@person, "network"), :class => "current"
+          =tab_to "Favorites", profile_path(@person, "favorites"), :class => "current"
+          =tab_to "Wall", profile_path(@person, "wall"), :class => "current"
+          =tab_to "Messages", profile_path(@person, "messages"), :class => "current"
+      -else
+        %ul.clearfix.green
+          =tab_to "Profile", profile_path(@person, "profile"), :class => "current"
+          =tab_to "Network", profile_path(@person, "network"), :class => "current"
+          =tab_to "Favorites", profile_path(@person, "favorites"), :class => "current"
+          =tab_to "Wall", profile_path(@person, "wall"), :class => "current"
