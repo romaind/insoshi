@@ -15,7 +15,7 @@
             ,
             =pluralize(@person.age, "year")
             %br
-            -if @person.city != ''
+            -if @person.city and @person.city != ''
               =h @person.city.capitalize
               ,
             -if @person.origin_country
