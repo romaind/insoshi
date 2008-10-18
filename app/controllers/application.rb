@@ -85,7 +85,7 @@ class ApplicationController < ActionController::Base
       if logged_in?
         unless current_person.activated?
           flash[:error] = "Please fill your personal informations"
-          redirect_to edit_person_path(current_person)
+          redirect_to editprofile_path(current_person, "mandatory")
         end
       end
     end
