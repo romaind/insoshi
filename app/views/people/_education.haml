@@ -20,21 +20,21 @@
     = f.text_field :phone
 
 
+  #skills_content
     %h3 Skills and Education
-    #skills_content
-
-      .form_row
-        %label{ :for => "p_schools" } Schools:
-        =text_field :p, :schools
-        = button_to "Add a school", { :controller => ""}, :id => "newschool"
-
-      #languages_checkboxes
-        %h3 Languages
-        =render :partial => "languages", :locals =>{ :f => f }
     
-      #softwares_checkboxes
-        %h3 Software
-        =render :partial => "software", :locals =>{ :f => f }
+    .form_row
+      %label{ :for => "p_schools" } Schools:
+      =text_field :p, :schools
+      = button_to "Add a school", { :controller => ""}, :id => "newschool"
+
+    #languages_checkboxes
+      %h3 Languages
+      =render :partial => "languages", :locals =>{ :f => f }
+  
+    #softwares_checkboxes
+      %h3 Software
+      =render :partial => "software", :locals =>{ :f => f }
 
       / .form_row
       /   %label{ :for => "p_cv" } CV (PDF format):
@@ -43,9 +43,7 @@
 
   %input{ :type => "hidden", :name => "type", :value => "skill_edit"}
 
-  .form_row
-    = f.submit "Update", :class => "button"
-
+  = f.submit "Update", :class => "button"
 
   #photo
     =render :partial => "photo"
