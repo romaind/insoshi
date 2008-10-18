@@ -42,21 +42,13 @@
       /=link_to "Creative Contests",{ :controller => "creative_contest", :action => "index" }, { :id =>"creativecontests" }
   %li.top
     .bgGrey.top.topRounded.b
-      %span.opa50
-        What is Coaliz ?
-      /=link_to 'What is Coaliz ?',{ :controller => "coaliz", :action => "index" }, { :id =>"coaliz" }
-    / %ul.bgGrey.botRounded.abs
-    /       %li
-    /         =link_to "Contact",projects_path
-    /       %li
-    /         =link_to "About us",projects_path
-    /       %li
-    /         =link_to "Terms of use",projects_path
-    /       %li.botRounded
-    /         =link_to "FAQ",projects_path
-    
-    / Gallery: People, Projects  /  
-    /    News & links: Cool stuff, Websites, Events, News, All  /  
-    /    My portfolio: Messages, Edit my project, Edit my profile, My portfolio  /  
-    /    Creative contests  /  
-    /    What is Coaliz?: Contact (lien vers formulaire de contact: contact@coaliz.com), About us (contact vers page: "about us"), Terms of use (lien vers terms of use), FAQ (lien vers FAQ), What is Coaliz? (lien vers page d'inscription ou si loggé vers FAQ)
+      =link_to 'What is Coaliz ?', about_path
+    %ul.bgGrey.botRounded.abs
+      %li
+        =link_to "Contact", contact_us_path
+      %li
+        =link_to "About us", about_path
+      %li
+        =link_to "Terms of use", terms_path
+      %li.botRounded
+        =link_to "FAQ", faq_path

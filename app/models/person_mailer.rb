@@ -73,8 +73,16 @@ class PersonMailer < ActionMailer::Base
   
   def abuse(email, message)
     from        "Email verification <email@#{domain}>"
-    recipients  "abus@coaliz.com"
+    recipients  "abuse@coaliz.com"
     subject     formatted_subject("New abuse message")
+    body        "message" => message,
+                "email"    => email
+  end
+  
+  def contact(email, message)
+    from        "Email verification <email@#{domain}>"
+    recipients  "contact@coaliz.com"
+    subject     formatted_subject("New contact message")
     body        "message" => message,
                 "email"    => email
   end

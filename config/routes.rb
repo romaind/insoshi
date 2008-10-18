@@ -83,7 +83,12 @@ ActionController::Routing::Routes.draw do |map|
   map.send_abuse '/home/send_abuse', :controller => 'home', :action => 'send_abuse'
   
   map.home '/', :controller => 'home'
+  
   map.about '/about', :controller => 'home', :action => 'about'
+  map.terms '/terms', :controller => 'home', :action => 'terms'
+  map.faq '/faq', :controller => 'home', :action => 'faq'
+  map.contact_us '/contact_us', :controller => 'home', :action => 'contact_us'
+  
   map.admin_home '/admin/home', :controller => 'home'
 
   # The priority is based upon order of creation: first created -> highest priority.

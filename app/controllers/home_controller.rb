@@ -42,26 +42,41 @@ class HomeController < ApplicationController
     render :layout => false
   end
   
+  def contact_us
+    if request.post?
+      if !params[:contact][:email].blank? && !params[:contact][:message].blank?
+        PersonMailer.deliver_contact(params[:contact][:email], params[:contact][:message])
+        respond_to do |format|
+          format.html {
+            flash[:notice] = "Your message has been sent. Thank you"
+            redirect_to home_path
+          }
+        end
+      else
+        respond_to do |format|
+          format.html {
+            flash[:error] = "Email and Message can't be blank"
+            redirect_to :back
+          }
+        end
+      end
+      
+    end
+  end
+  
   def send_abuse
     if params[:item] == "project"
       item = Project.find(params[:id])
     end
     if params[:abuse] && params[:abuse][:message]
-      # if params[:abuse][:message]
-      #   email = params[:abuse][:message]
-      # else
-      #   email = "no email"
-      # end
-      PersonMailer.deliver_abuse(params[:abuse][:message], params[:abuse][:message])
+      PersonMailer.deliver_abuse(params[:abuse][:email], params[:abuse][:message])
     end
     respond_to do |format|
       format.html {
         flash[:notice] = "Your message has been sent. Thank you"
         redirect_to person_project_path(item.person, item)
       }
-      
     end
-    
   end
   
 end
