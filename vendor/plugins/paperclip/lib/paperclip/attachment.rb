@@ -47,6 +47,24 @@ module Paperclip
 
       logger.info("[paperclip] Paperclip attachment #{name} on #{instance.class} initialized.")
     end
+    
+    
+    @@content_types      = ['image/jpeg', 'image/pjpeg', 'image/gif', 'image/png', 'image/x-png', 'image/jpg']
+    
+    # Returns true or false if the given content type is recognized as an image.
+    def image?(arg_content_type = @instance[:"#{@name}_content_type"])
+      @@content_types.include?(arg_content_type)
+    end
+    
+    # Checks whether the attachment's content type is an image content type
+    # def image?
+    #   self.image?(@instance[:"#{@name}_content_type"])
+    # end
+
+    # Returns true/false if an attachment is thumbnailable.  A thumbnailable attachment has an image content type and the parent_id attribute.
+    def thumbnailable?
+      image? && respond_to?(:parent_id) && parent_id.nil?
+    end
 
     # What gets called when you call instance.attachment = File. It clears errors,
     # assigns attributes, processes the file, and runs validations. It also queues up
@@ -286,6 +304,7 @@ module Paperclip
         
       @styles.each do |name, args|
         begin
+          thumbnailable? || raise(PaperclipError.new("Can not create thumbnails if the content type is not an image."))
           dimensions, format = args
           dimensions = dimensions.call(instance) if dimensions.respond_to? :call
           @queued_for_write[name] = Thumbnail.make(file_for_thumbnail, 

@@ -1,7 +1,7 @@
 %h3 Contact data
 #contact_content
 
--form_for @person do |f|
+-form_for @person, :html => { :multipart => true } do |f|
 
   .form_row
     %label{ :for => "person_adress" } Address:
@@ -36,10 +36,9 @@
       %h3 Software
       =render :partial => "software", :locals =>{ :f => f }
 
-      / .form_row
-      /   %label{ :for => "p_cv" } CV (PDF format):
-      /   =text_field :p, :cv
-      /   = button_to "Browse", { :controller => ""}, :id => "cv"
+  .form_row
+    %label{ :for => "p_cv" } CV (PDF format):
+    =f.file_field :cv
 
   %input{ :type => "hidden", :name => "type", :value => "skill_edit"}
 
