@@ -147,7 +147,12 @@
         %h4 PUBLISHED PROJECTS
         -per_line = 3
         #my_projects
-          =render :partial => 'projects/projects_list', :locals => {:per_line => per_line, :projects => @publishedprojects} 
+          =render :partial => 'projects/projects_list', :locals => {:per_line => per_line, :projects => @publishedprojects}
+    -else
+      %h4 PUBLISHED PROJECTS
+      -per_line = 3
+      #my_projects
+        =render :partial => 'projects/projects_list', :locals => {:per_line => per_line, :projects => @publishedprojects}
 
 -elsif params[:tab] == 'news'
   -if current_person?(@person)
