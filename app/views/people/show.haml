@@ -85,9 +85,9 @@
         %p
           -if @person.cv?
             #cv
-              =link_to image_tag("portfolio/logoPDF.jpg") #, person_cv_path
+              =link_to image_tag("portfolio/logoPDF.jpg"), @person.cv.url, :target => :blank
               %br
-              =link_to "My CV"
+              =link_to "My CV", @person.cv.url, :target => :blank
             =link_to image_tag("portfolio/get_adobe.jpg"), "http://www.adobe.fr/products/acrobat/readstep2.html"
             -if current_person?(@person)
               .profile_edit
