@@ -1,5 +1,25 @@
-=render :partial => 'people/profile'
+-if current_person?(@person)
+  = stylesheet_link_tag "current_profile"
+
+#my_page
+  #persontabs
+    -if current_person?(@person)
+      %ul.clearfix.yellow
+        =tab_to "Profile", profile_path(@person, "profile"), :class => "current"
+        =tab_to "News", profile_path(@person, "news"), :class => "current"
+        =tab_to "Network", profile_path(@person, "network"), :class => "current"
+        =tab_to "Favorites", profile_path(@person, "favorites"), :class => "current"
+        =tab_to "Wall", profile_path(@person, "wall"), :class => "current"
+        =tab_to "Messages", profile_path(@person, "messages"), :class => "current"
+    -else
+      %ul.clearfix.green
+        =tab_to "Profile", profile_path(@person, "profile"), :class => "current"
+        =tab_to "Network", profile_path(@person, "network"), :class => "current"
+        =tab_to "Favorites", profile_path(@person, "favorites"), :class => "current"
+        =tab_to "Wall", profile_path(@person, "wall"), :class => "current"
+
 -if not params[:tab] or params[:tab] == 'profile'
+  =render :partial => 'people/profile'
   #right
     .profile_right_column
       %h4 DESCRIPTION
@@ -85,9 +105,9 @@
         %p
           -if @person.cv?
             #cv
-              =link_to image_tag("portfolio/logoPDF.jpg") #, person_cv_path
+              =link_to image_tag("portfolio/logoPDF.jpg"), @person.cv.url, :target => :blank
               %br
-              =link_to "My CV"
+              =link_to "My CV", @person.cv.url, :target => :blank
             =link_to image_tag("portfolio/get_adobe.jpg"), "http://www.adobe.fr/products/acrobat/readstep2.html"
             -if current_person?(@person)
               .profile_edit
