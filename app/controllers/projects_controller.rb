@@ -29,7 +29,10 @@ class ProjectsController < ApplicationController
     @author = @project.person
     @author_projects = @author.projects.all_published.paginate(:page => params[:author_page],:per_page => 5, :order => 'created_at DESC')
     @all_projects = Project.all_published.paginate(:page => params[:all_page], :per_page => 5)
-
+    @canvote = true
+    if Vote.find_by_voteable_id_and_voteable_type_and_voter_id(@project.id, "Project", current_person.id)
+      @canvote = false
+    end
 
     respond_to do |format|
       format.html {
