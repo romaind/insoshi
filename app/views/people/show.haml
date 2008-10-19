@@ -2,6 +2,8 @@
   = stylesheet_link_tag "current_profile"
 
 #my_page
+  #person_name
+    =h @person.first_name.upcase + " " + @person.name.upcase
   #persontabs
     -if current_person?(@person)
       %ul.clearfix.yellow

@@ -18,11 +18,9 @@
         =tab_to "Wall", profile_path(@person, "wall"), :class => "current"
 
 #inbox
-  %h4 MESSAGES
   #messages
     = render :partial => 'message_nav' 
     #new_message
-      %h4 New message
       - column_div :type => :primary do
 
         = error_messages_for :message
