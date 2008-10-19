@@ -140,8 +140,14 @@
       <% form_for(@project, :url => person_project_path(current_person, @project)) do |f| %>
         <label>Want to change ?</label>
         <%= f.select :creative_common_id, CreativeCommon.find(:all).map{|obj| [obj.label,obj.id]} %>
+        <%= observe_field "project_creative_common_id", :update => "cc_details",
+        :with => "'id='+ escape(value)", :url => {:action => "cc_detail" } %>
         <%= submit_tag 'Save' %>
       <% end %>
+      
+      <div id="cc_details">
+      
+      </div>
     <% else %>
       <p>
         Please choose a correct tab

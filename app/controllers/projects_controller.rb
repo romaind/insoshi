@@ -141,7 +141,32 @@ class ProjectsController < ApplicationController
         redirect_to person_project_path(project.person, project)
         }
     end
-    
+  end
+  
+  def cc_detail
+    case params[:id]
+    when "1"
+      # render :partial => "projects/commons/attribution.html.erb"
+      render :text => "You reserve all property of this work"
+    when "2"
+      render :partial => "projects/commons/attribution.html.erb"
+      
+    when "3"
+      render :partial => "projects/commons/attribution_nocommercial.html.erb"
+      
+    when "4"
+      render :partial => "projects/commons/attribution_nocommercial_noderivative.html.erb"
+      
+    when "5"
+      render :partial => "projects/commons/attribution_nocommercial_sharealike.html.erb"
+      
+    when "6"
+      render :partial => "projects/commons/attribution_noderivative.html.erb"
+      
+    when "7"
+      render :partial => "projects/commons/attribution_sharealike.html.erb"
+      
+    end
     
   end
   
