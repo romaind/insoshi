@@ -2,10 +2,6 @@
 
 -form_for @person do |f|
 
-  #photo
-    =render :partial => "photo"
-    = button_to "Add a photo", new_photo_path, :id => "newphoto"
-
   .form_row
     %label{ :for => "status" } Status:
     =f.select :status, ["working", "studying", "looking for a job", "looking for a partner"]
