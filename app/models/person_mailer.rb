@@ -30,7 +30,8 @@ class PersonMailer < ActionMailer::Base
     subject      formatted_subject("New contact request")
     body         "domain" => server,
                  "connection" => connection,
-                 "url" => edit_connection_path(connection),
+                 # "url" => edit_connection_path(connection),
+                 "url" => profile_path(connection.person, "network"),
                  "preferences_note" => preferences_note(connection.person)
   end
   
