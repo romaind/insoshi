@@ -1,24 +1,22 @@
+#contact_content
 -form_for @person, :html => { :multipart => true } do |f|
-  %h3 Contact data
-  #contact_content
 
-    .form_row
-      %label{ :for => "person_adress" } Address:
-      = f.text_field :address
+  .form_row
+    %label{ :for => "person_adress" } Address:
+    = f.text_field :address
 
-    .form_row
-      %label{ :for => "person_zipcode" } Zipcode:
-      = f.text_field :zipcode
+  .form_row
+    %label{ :for => "person_zipcode" } Zipcode:
+    = f.text_field :zipcode
 
-    .form_row
-      %label{ :for => "person_city" } City:
-      = f.text_field :city
+  .form_row
+    %label{ :for => "person_city" } City:
+    = f.text_field :city
 
-    .form_row
-      %label{ :for => "person_phone" } Phone:
-      = f.text_field :phone
+  .form_row
+    %label{ :for => "person_phone" } Phone:
+    = f.text_field :phone
 
+  %input{ :type => "hidden", :name => "type", :value => "contact_edit"}
 
-    %input{ :type => "hidden", :name => "type", :value => "contact_edit"}
-
-    = f.submit "Update", :class => "button"
+  = f.submit "Update", :class => "button"
