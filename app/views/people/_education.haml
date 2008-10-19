@@ -2,7 +2,6 @@
 
 -form_for @person, :html => { :multipart => true } do |f|
   #contact_content
-  -form_for @person, :html => { :multipart => true } do |f|
 
     .form_row
       %label{ :for => "person_adress" } Address:
@@ -39,10 +38,11 @@
       %label{ :for => "person_cv" } CV (PDF format):
       =f.file_field :cv
 
+  %input{ :type => "hidden", :name => "type", :value => "skill_edit"}
+
+  = f.submit "Update", :class => "button"
+
   #photo
     =render :partial => "photo"
     = button_to "Add a photo", new_photo_path, :id => "newphoto"
 
-  %input{ :type => "hidden", :name => "type", :value => "skill_edit"}
-
-  = f.submit "Update", :class => "button"
