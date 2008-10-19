@@ -159,23 +159,30 @@ class ProjectsController < ApplicationController
       render :text => "You reserve all property of this work"
     when "2"
       render :partial => "projects/commons/attribution.html.erb"
-      
     when "3"
       render :partial => "projects/commons/attribution_nocommercial.html.erb"
-      
     when "4"
       render :partial => "projects/commons/attribution_nocommercial_noderivative.html.erb"
-      
     when "5"
       render :partial => "projects/commons/attribution_nocommercial_sharealike.html.erb"
-      
     when "6"
       render :partial => "projects/commons/attribution_noderivative.html.erb"
-      
     when "7"
       render :partial => "projects/commons/attribution_sharealike.html.erb"
-      
     end
+  end
+  
+  def publish
+    project = Project.find(params[:id])
+    project.publish!
+    
+    respond_to do |format|
+      format.html {
+        flash[:notice] = "Your project has been published"
+        redirect_to profile_path(current_person, "profile")
+      }
+    end
+    
     
   end
   
