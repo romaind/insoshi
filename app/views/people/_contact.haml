@@ -1,19 +1,24 @@
-%h3 Change Password
--form_for @person, :html => { :id => "change_password" } do |f|
+-form_for @person, :html => { :multipart => true } do |f|
+  %h3 Contact data
+  #contact_content
 
-  .form_row
-    %label{ :for => "password" } Current Password
-    = f.password_field :verify_password, :maxlength => Person::MAX_PASSWORD
+    .form_row
+      %label{ :for => "person_adress" } Address:
+      = f.text_field :address
 
-  .form_row
-    %label{ :for => "password" } New Password
-    = f.password_field :new_password, :maxlength => Person::MAX_PASSWORD
+    .form_row
+      %label{ :for => "person_zipcode" } Zipcode:
+      = f.text_field :zipcode
 
-  .form_row
-    %label{ :for => "password_confirmation" } Confirm Password
-    = f.password_field :password_confirmation, :maxlength => Person::MAX_PASSWORD, :value => ""
+    .form_row
+      %label{ :for => "person_city" } City:
+      = f.text_field :city
 
-  .form_row
-    = submit_tag 'Change password', :class => "button"
+    .form_row
+      %label{ :for => "person_phone" } Phone:
+      = f.text_field :phone
 
-  %input{ :type => "hidden", :name => "type", :value => "password_edit" }
+
+    %input{ :type => "hidden", :name => "type", :value => "contact_edit"}
+
+    = f.submit "Update", :class => "button"

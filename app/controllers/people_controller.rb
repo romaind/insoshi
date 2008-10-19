@@ -167,6 +167,17 @@ class PeopleController < ApplicationController
           end
           format.html { render :action => "edit" }
         end
+      when "contact_edit"
+        if !preview? and @person.update_attributes(params[:person])
+          @person.be_active!
+          flash[:success] = 'Profile updated!'
+          format.html { redirect_to(@person) }
+        else
+          if preview?
+            @preview = @person.description = params[:person][:description]
+          end
+          format.html { render :action => "edit" }
+        end
       when 'password_edit'
         if global_prefs.demo?
           flash[:error] = "Passwords can't be changed in demo mode."

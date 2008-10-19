@@ -12,6 +12,7 @@
         =tab_to "About you", editprofile_path(current_person, "about"), :class => "current"
         =tab_to "Skills & Education", editprofile_path(current_person, "education"), :class => "current"
         =tab_to "Contact info", editprofile_path(current_person, "contact"), :class => "current"
+        =tab_to "Password", editprofile_path(current_person, "password"), :class => "current"
     
     
     #legend    
@@ -24,5 +25,7 @@
         =render :partial => "education"
       -when "contact"
         =render :partial => "contact"
+      -when "password"
+        =render :partial => "password"
 
   =image_tag "personaldata_bottom.gif"
