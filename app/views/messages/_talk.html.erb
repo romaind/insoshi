@@ -36,11 +36,11 @@
 	  <td class = "right_border"></td>
   <tr><td colspan = "3" class = "bottom">
   <p class="tools_meta">
-    <%= link_to "Reply", reply_message_path(talk) %> |
+    <%= link_to "Reply", reply_person_message_path(current_person, talk) %> |
     <% unless talk.trashed?(current_person) -%>
-      <%= link_to("Trash", talk, :method => :delete) %>
+      <%= link_to("Trash", person_message_path(current_person, talk), :method => :delete) %>
     <% else -%>
-      <%= link_to "Untrash", undestroy_message_path(talk), 
+      <%= link_to "Untrash", undestroy_person_message_path(current_person, talk), 
                              :method => :put %>
     <% end -%>    
   </p>

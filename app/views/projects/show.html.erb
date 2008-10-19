@@ -40,7 +40,11 @@
   <%=image_tag ("desc_bottom.gif") %>
   <% if logged_in? %>
   <p>
-    <%= link_to "vote", vote_person_project_path(@project.person, @project) %>
+    <% if @canvote %>
+      <%= link_to "vote", vote_person_project_path(@project.person, @project) %>
+    <% else %>
+      Thank you for your vote
+    <% end %>
   </p>
   <% end %>
 </div>

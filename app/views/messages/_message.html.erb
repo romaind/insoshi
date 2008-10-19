@@ -28,10 +28,10 @@
 </tr>
 </table>
 <table class = "comment">
-  <tr><td colspan = "3" class = "head"><span class="subject">Subject: <%=link_to sanitize(message.subject), message, :class => "title" %></span></td>
+  <tr><td colspan = "3" class = "head"><span class="subject">Subject: <%=link_to sanitize(message.subject), person_message_path(current_person, message), :class => "title" %></span></td>
 	  <td rowspan = "4" class  = "mail" >
 		<%- unless message.read? %>
-			<%=link_to image_tag("icons/mail.gif"), message, :class => "read" %>
+			<%=link_to image_tag("icons/mail.gif"), person_message_path(current_person, message), :class => "read" %>
 		<%- else %>
 			&nbsp;
 		<%- end %>
@@ -41,12 +41,12 @@
 	  <td class = "right_border"></td>
   <tr><td colspan = "3" class = "bottom">
   <p class="tools_meta">
-	<%= link_to "Read", message %> |
-    <%= link_to "Reply", reply_message_path(message) %> |
+	<%= link_to "Read", person_message_path(current_person, message) %> |
+    <%= link_to "Reply", reply_person_message_path(current_person, message) %> |
     <% unless message.trashed?(current_person) -%>
-      <%= link_to("Trash", message, :method => :delete) %>
+      <%= link_to("Trash", person_message_path(current_person, message), :method => :delete) %>
     <% else -%>
-      <%= link_to "Untrash", undestroy_message_path(message),
+      <%= link_to "Untrash", undestroy_person_message_path(current_person, message),
                              :method => :put %>
     <% end -%>    
   </p>

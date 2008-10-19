@@ -249,7 +249,7 @@ class MessagesController < ApplicationController
         if !preview? and @message.save
           messages.each { |m| m.save }
           flash[:success] = 'Message sent to everyone!'
-          format.html { redirect_to messages_url }
+          format.html { redirect_to person_messages_url(current_person) }
         else
           @preview = @message.content if preview?
           format.html { render :action => "new" }
@@ -266,7 +266,7 @@ class MessagesController < ApplicationController
       respond_to do |format|
         if !preview? and @message.save
           flash[:success] = 'Message sent!'
-          format.html { redirect_to messages_url }
+          format.html { redirect_to person_messages_url(current_person) }
         else
           @preview = @message.content if preview?
           format.html { render :action => "new" }
@@ -285,7 +285,7 @@ class MessagesController < ApplicationController
     end
   
     respond_to do |format|
-      format.html { redirect_to messages_url }
+      format.html { redirect_to person_messages_url(current_person) }
     end
   end
   

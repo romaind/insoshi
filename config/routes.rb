@@ -29,7 +29,7 @@ ActionController::Routing::Routes.draw do |map|
      person.resources :photos
      person.resources :connections
      person.resources :comments
-     person.resources :projects, :collection => {:choose => :get}, :member => {:vote => :get} do |project|
+     person.resources :projects, :collection => {:choose => :get}, :member => {:vote => :get, :publish => :get} do |project|
        project.resources :comments
        project.resources :creations do |creation|
          creation.resources :assets
