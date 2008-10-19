@@ -5,7 +5,11 @@ if ENV["deploy_to"] == "production"
   set :domain, application
   set :rails_env, "production"
   set :deploy_to, "/home/web/coaliz.com/"
-  set :branch, ENV["tag"]
+  if ENV["tag"]
+    set :branch, ENV["tag"]
+  else
+    set :branch, "coaliz"
+  end
 else
   set :domain, "coaliz.typhon.net"
   set :rails_env, "staging"
