@@ -5,7 +5,7 @@
   <table>
 	<tr>
 	  <td rowspan="3" class="person_thumb">
-    	<%= image_link person, :class => "photo", :image => :thumbnail %>
+    	<%= image_link(person, :link => profile_path(person, "profile"), :class => "photo", :image => :thumbnail) %>
       </td>
 	  <td>
       	<b><%= person_link person, :class => "url fn" %></b>
