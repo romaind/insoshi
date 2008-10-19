@@ -1,28 +1,8 @@
-%h3 Contact data
 #contact_content
 
 -form_for @person, :html => { :multipart => true } do |f|
 
-  .form_row
-    %label{ :for => "person_adress" } Address:
-    = f.text_field :address
-
-  .form_row
-    %label{ :for => "person_zipcode" } Zipcode:
-    = f.text_field :zipcode
-
-  .form_row
-    %label{ :for => "person_city" } City:
-    = f.text_field :city
-
-  .form_row
-    %label{ :for => "person_phone" } Phone:
-    = f.text_field :phone
-
-
-  #skills_content
-    %h3 Skills and Education
-    
+  #skills_content    
     .form_row
       %label{ :for => "p_schools" } Schools:
       =text_field :p, :schools
@@ -37,13 +17,11 @@
       =render :partial => "software", :locals =>{ :f => f }
 
   .form_row
-    %label{ :for => "p_cv" } CV (PDF format):
-    =f.file_field :cv
+    #cv
+      %h3 CV
+      %label{ :for => "person_cv" } CV (PDF format):
+      =f.file_field :cv
 
   %input{ :type => "hidden", :name => "type", :value => "skill_edit"}
 
   = f.submit "Update", :class => "button"
-
-  #photo
-    =render :partial => "photo"
-    = button_to "Add a photo", new_photo_path, :id => "newphoto"

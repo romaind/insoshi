@@ -947,7 +947,6 @@ ul#menus, ul#menus li{
 
 #profile_edit #legend {
 	float: left;
-	border: 1px solid #FF9900;
 	margin-left: 10px;
 	padding: 5px;
 }
@@ -1069,6 +1068,10 @@ ul#menus, ul#menus li{
 	font-size: 9pt;
 }
 
+#profile_edit #languages_checkboxes h3{
+	font-size: 10pt;
+}
+
 #profile_edit #languages_checkboxes table {
 	margin-left: 325px;
 	margin-bottom: 20px;
@@ -1076,6 +1079,10 @@ ul#menus, ul#menus li{
 
 #profile_edit #softwares_checkboxes {
 	font-size: 9pt;
+}
+
+#profile_edit #softwares_checkboxes h3{
+	font-size: 10pt;
 }
 
 #profile_edit #softwares_checkboxes table {
@@ -1086,6 +1093,11 @@ ul#menus, ul#menus li{
 
 #profile_edit #cv {
 	margin-top: 5px;
+	padding-left: 20px;
+}
+
+#profile_edit #cv h3{
+	padding-left: 80px;
 }
 
 #profile_edit #person_phone {
@@ -2417,7 +2429,6 @@ margin-right: 20px; */
 	font-size: 9pt;
 	margin-bottom: 20px;
 	margin-top: 10px;
-	border: 1px solid green;
 }
 
 #project #project_header img {
@@ -2428,7 +2439,7 @@ margin-right: 20px; */
 	margin-top: 10px;
 	width: 188px;
 	height: 135px;
-	background-color: red;
+	background-color: #EFEFEF;
 }
 
 #project #previews {
