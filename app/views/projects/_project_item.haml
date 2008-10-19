@@ -1,24 +1,26 @@
-- unless project.creations.first.nil?
-  %td
-    .project_item
-      =link_to image_tag(project.creations.first.asset.item.url(:preview)), person_project_path(project.person,project)
-      .project_details
-        %h4
-          =link_to h(truncate(project.title.upcase, 40)), person_project_path(project.person,project)
-        By
-        =person_link project.person
-        .votes_views
-          =project.votes_for
-          =image_tag ("icons/heart.gif")
-          \- 
-          =project.views
-          =image_tag ("icons/eye.gif")
-      .category
-        -if project.skills
-          =truncate(project.skills.collect{|skill| skill.name}.join(", "), 35)
+%td
+  .project_item
+    -if project.creations.count > 0
+      =link_to image_tag(project.creations.first.asset.url(:preview)), person_project_path(project.person,project)
+    -else
+      =image_tag("waiting-preview.gif")
+    .project_details
+      %h4
+        =link_to h(truncate(project.title.upcase, 40)), person_project_path(project.person,project)
+      By
+      =person_link project.person
+      .votes_views
+        =project.votes_for
+        =image_tag ("icons/heart.gif")
+        \- 
+        =project.views
+        =image_tag ("icons/eye.gif")
+    .category
+      -if project.skills
+        =truncate(project.skills.collect{|skill| skill.name}.join(", "), 35)
 
-      -if logged_in? and current_person?(@person)
-        .project_edit
-          =link_to image_tag("icons/mini_edit.gif") + "Edit", edit_person_project_path(current_person, project)
-          |
-          =link_to image_tag("icons/trash.gif") + "Delete", person_project_path(current_person, project), :confirm => 'Are you sure?', :method => :delete
+    -if logged_in? and current_person?(@person)
+      .project_edit
+        =link_to image_tag("icons/mini_edit.gif") + "Edit", edit_person_project_path(current_person, project)
+        |
+        =link_to image_tag("icons/trash.gif") + "Delete", person_project_path(current_person, project), :confirm => 'Are you sure?', :method => :delete

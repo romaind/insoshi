@@ -55,7 +55,7 @@
       		<table class="buttons" >
       				<tr>
       				  <td><%= submit_tag 'Save' %></td>
-      				  <td><%= link_to button_to("Cancel"), :back %></td>
+      				  <td><%= link_to button_to("Exit"), choose_person_projects_path(current_person) %></td>
       				</tr>
       		</table>
     		
@@ -92,6 +92,7 @@
         <br>
     		<p class="buttons">
       		<%= f.submit "Create" %>
+      		<%= link_to button_to("Exit"), choose_person_projects_path(current_person) %>
     		</p>
   		<% end %>
   		<p>
@@ -107,8 +108,8 @@
               <% row.each do |crea| %>
                 <% if crea %>
                   <td>
-                      <%= link_to(image_tag(crea.asset.url(:tiny)), person_project_creation_path(current_person, @project, crea)) %>
-                     <%= link_to image_tag("icons/trash.gif") + "delete", person_project_creation_path(current_person, @project, crea), :confirm => 'Are you sure?', :method => :delete, :class => "del" %>
+                    <%= image_tag crea.asset.url(:tiny) %>
+                    <%= link_to image_tag("icons/trash.gif") + "delete", person_project_creation_path(current_person, @project, crea), :confirm => 'Are you sure?', :method => :delete, :class => "del" %>
                   </td>
                 <% else %>
                   <td>
@@ -141,6 +142,7 @@
         <label>Want to change ?</label>
         <%= f.select :creative_common_id, CreativeCommon.find(:all).map{|obj| [obj.label,obj.id]} %>
         <%= submit_tag 'Save' %>
+        <%= link_to button_to("Exit"), choose_person_projects_path(current_person) %>
       <% end %>
     <% else %>
       <p>

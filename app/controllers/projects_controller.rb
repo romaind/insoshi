@@ -101,7 +101,13 @@ class ProjectsController < ApplicationController
           @project.publish!
         end
         flash[:notice] = 'Project was successfully updated.'
-        format.html { redirect_to person_project_path(current_person, @project) }
+        format.html {
+          if params[:project][:creative_common_id]
+            redirect_to editproject_path(current_person, @project, "copyrights")
+          else
+            redirect_to editproject_path(current_person, @project, "content")
+          end
+        }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

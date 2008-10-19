@@ -2741,3 +2741,13 @@ margin-right: 20px; */
 	width: 745px;
 }
 
+/* @group lightwindow */
+
+#lightwindow_contents {
+	line-height: normal;
+}
+
+/* @end */
+
+
+

@@ -1,21 +1,21 @@
-<div class="w310">
-<p>The abuse form</p>
-<% form_tag send_abuse_path, :id => "theform", :name => "theform", :method => :post do %>
-  <p>
-    <label>Email</label>
-    <%= text_field :abuse, :email %>
-  </p>
-  <p>
-    <label>Message</label><br/>
-    <%= text_area :abuse, :message, :rows => 5, :cols => 30 %>
-  </p>
-  <%= hidden_field_tag :item, nil, :value => params[:item] -%>
-  <%= hidden_field_tag :id, nil, :value => params[:id] -%>
+<div class="w310 c">
+  <h3 class="top20 bot10">The abuse form</h3>
+  <% form_tag send_abuse_path, :id => "theform", :name => "theform", :method => :post do %>
+    <p class="top10">
+      <label>Email</label>
+      <%= text_field :abuse, :email %>
+    </p>
+    <p class="top10">
+      <label class="bot10">Message</label>
+      <%= text_area :abuse, :message, :rows => 5, :cols => 30 %>
+    </p>
+    <%= hidden_field_tag :item, nil, :value => params[:item] -%>
+    <%= hidden_field_tag :id, nil, :value => params[:id] -%>
   
-  <%= submit_tag "Send" %>
+    <%= submit_tag "Send" %>
   
-  <!-- <a href="<%= send_abuse_path %>" params="lightwindow_form=theform," class="lightwindow_action" rel="submitForm"><button>Submit</button></a> -->
-  <a href="#" class="lightwindow_action" rel="deactivate">Cancel</a>
+    <!-- <a href="<%= send_abuse_path %>" params="lightwindow_form=theform," class="lightwindow_action" rel="submitForm"><button>Submit</button></a> -->
+    <a href="#" class="lightwindow_action" rel="deactivate">Cancel</a>
   
-<% end %>
+  <% end %>
 </div>
