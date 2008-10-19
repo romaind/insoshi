@@ -410,7 +410,49 @@ p.small {
   font-weight: bold;
 }
 
+.u{
+  text-decoration: underline;
+}
+
+h1, h2, h3, h4{
+  margin-bottom: 15px;
+}
+
+h1, .h1{
+  font-size: 18pt;
+}
+
+h2, .h2{
+  font-size: 16pt;
+}
+
+h3, .h3{
+  font-size: 14pt;
+}
+
+h4, .h4{
+  font-size: 12pt;
+}
+
 /* @end */
+
+/* @group List */
+
+ol{
+  list-style-type: decimal;
+}
+
+/* @end */
+
+/* @group Text */
+
+p{
+  margin-bottom: 7px;
+}
+
+/* @end */
+
+
 
 body {
 	background-image: url(../images/background_squares.jpg);
@@ -746,11 +788,6 @@ ul#menus, ul#menus li{
 #content .description .desc_message h2 {
 	margin-top: 0;
 	text-align: center;
-}
-
-#content .description .desc_message h4 {
-	font-weight: normal;
-	margin-top: 0;
 }
 
 #content .description .desc_message p {
@@ -2392,6 +2429,16 @@ margin-right: 20px; */
 	margin-bottom: 0;
 }
 
+/* @group Terms */
+
+#terms ul li{
+  list-style-type: square;
+  margin-left: 50px;
+  margin-bottom: 7px;
+}
+
+/* @end */
+
 #project #new_creation .buttons {
 	text-align: right;
 }
@@ -2693,3 +2740,4 @@ margin-right: 20px; */
 	margin-bottom: 2px;
 	width: 745px;
 }
+
