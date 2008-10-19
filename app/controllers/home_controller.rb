@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   skip_before_filter :require_activation
-  
+  skip_before_filter :must_be_active, :only => [:terms ]
+
   def index
     @body = "home"
     @topics = Topic.find_recent
@@ -77,6 +78,10 @@ class HomeController < ApplicationController
         redirect_to person_project_path(item.person, item)
       }
     end
+  end
+  
+  def terms
+    
   end
   
 end
