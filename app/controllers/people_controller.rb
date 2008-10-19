@@ -36,11 +36,16 @@ class PeopleController < ApplicationController
     end
     
     @views = 0
+    @votes = 0
     @publishedprojects.each do |p|
+      @votes += p.votes_for
       unless !p.views
         @views += p.views
       end
     end
+    
+    
+    
     respond_to do |format|
       format.html
     end
