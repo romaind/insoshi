@@ -66,7 +66,8 @@ namespace :deploy do
   end
 end
 
-# A callback 
+# A callback
+after "deploy:setup", "coaliz:shared_folder"
 after "deploy:symlink", "coaliz:symlink_shared"
 
 namespace :coaliz do 
@@ -79,6 +80,16 @@ namespace :coaliz do
     ln -nfs #{shared_path}/files/items #{current_path}/public/items &&
     ln -nfs #{shared_path}/files/cvs #{current_path}/public/cvs &&
     ln -nfs #{shared_path}/files/photos #{current_path}/public/photos
+    CMD
+  end
+  
+  desc "Create the shared folder"
+  task :shared_folder do
+    run <<-CMD
+    mkdir #{shared_path}/files &&
+    mkdir #{shared_path}/files/items &&
+    mkdir #{shared_path}/files/cvs &&
+    mkdir #{shared_path}/files/photos
     CMD
   end
 end
