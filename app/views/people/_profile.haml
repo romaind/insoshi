@@ -1,7 +1,6 @@
 - column_div :type => :primary do
     
   #profile
-    =image_tag "profile_top.gif"
     #profile_details
       = image_tag @person.profile, :id => "profile_image", :alt => h(@person.name)
       %table#details
@@ -43,6 +42,5 @@
 
 
       =render :partial => 'people/actions'
-    = image_tag "profile_bottom.gif"
 
 

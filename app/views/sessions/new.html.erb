@@ -26,6 +26,23 @@
 		</td>
 	</tr>
 	<tr>
+		<td class="login_body">
+		<div>Please enter your invitation code<br> for your first visit on Coaliz</div>
+		  <%- form_tag coupon_validator_people_path do %>
+			  <table id="invitation_form">
+				  <tr><td>
+					  <label for="invitation">Code</label>
+					  <%=text_field_tag('invitation', params[:betacoupon]) %>
+					  </td>
+					  <td>
+					  <%=image_submit_tag "login_arrow.gif" %>
+					  </td>
+				  </tr>
+			  </table>
+			<%- end %>
+		</td>
+	</tr>
+	<tr>
 		<td class="login_body">Please login to enter the alpha version
 			<%-form_tag session_path do %>
 				<table class="form_row">
@@ -44,23 +61,6 @@
 					</td>
 					</tr>
 				</table>
-			<%- end %>
-		</td>
-	</tr>
-	<tr>
-		<td class="login_body">
-		<div>Please enter your invitation code<br> for your first visit on Coaliz</div>
-		  <%- form_tag coupon_validator_people_path do %>
-			  <table id="invitation_form">
-				  <tr><td>
-					  <label for="invitation">Code</label>
-					  <%=text_field_tag('invitation', params[:betacoupon]) %>
-					  </td>
-					  <td>
-					  <%=image_submit_tag "login_arrow.gif" %>
-					  </td>
-				  </tr>
-			  </table>
 			<%- end %>
 		</td>
 	</tr>

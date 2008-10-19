@@ -51,6 +51,14 @@
           	Status of your project: <%=image_tag "portfolio/mandatory.gif", :class => "mandatory"%><br />
             <%= f.select :state, ["draft", "published"] %>
         	</p>
+		  <p id="desc_status">
+			The status of your project determines its visibility:
+			<ul>
+				<li><b>Draft</b> can only be seen by you
+				<li><b>Published</b> shows the project on your public portfolio.
+			</ul><br>
+			To publish a project, you have to upload at least one file.
+		  	</p>
 
       		<table class="buttons" >
       				<tr>
@@ -62,12 +70,11 @@
     		<% end %>
   		</div>
 		<% when "content" %>
-  		<h3>New creation</h3>
 
   		<%= error_messages_for :creation %>
 
   		<p id="project_header">
-  			Header of your project:
+  			Header of your project:<br>
   			<%- if @project.creations.first.nil? %>
           <span id="preview_empty">&nbsp;</span>
         <%- else %>
