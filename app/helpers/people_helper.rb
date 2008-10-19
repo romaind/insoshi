@@ -40,7 +40,7 @@ module PeopleHelper
     end
     # We normally write link_to(..., person) for brevity, but that breaks
     # activities_helper_spec due to an RSpec bug.
-    link_to(h(text), person, html_options)
+    link_to(h(text), profile_path(person, "profile"), html_options)
   end
   
   #If the field is empty, display depending current person
