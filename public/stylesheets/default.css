@@ -811,10 +811,6 @@ ul#menus, ul#menus li {
 	margin-bottom: 10px;
 }
 
-#person_name {
-	color: #333333;
-}
-
 #lastproject #lastprojectstab {
 	background-image: url(../images/lastproj_tab.gif);
 	background-repeat: no-repeat;
@@ -956,6 +952,10 @@ ul#menus, ul#menus li {
 	width: 777px;
 }
 
+#person_name {
+	color: #333333;
+}
+
 #data_title {
 	background-image: url(../images/personaldata_top.gif);
 	background-repeat: no-repeat;
@@ -991,7 +991,6 @@ ul#menus, ul#menus li {
 
 #profile_edit #legend {
 	float: left;
-	/*border: 1px solid #FF9900;*/
 	margin-left: 10px;
 	padding: 5px;
 }
@@ -1126,6 +1125,10 @@ ul#menus, ul#menus li {
 	font-size: 9pt;
 }
 
+#profile_edit #softwares_checkboxes h3 {
+	font-size: 10pt;
+}
+
 #profile_edit #softwares_checkboxes table {
 	width: 675px;
 	margin-left: 10px;
@@ -1254,8 +1257,6 @@ margin-top: 10px;
 	height: 153px;
 	background-color: white;
 	padding-top: 10px;
-	/*border-left: 1px solid #DDDDDD;
-	border-right: 1px solid #DDDDDD;*/
 }
 
 #profile_details a {
@@ -1808,7 +1809,6 @@ order-bottom: 2px solid #FF9900;*/
 
 #feed_requests #minifeeds .list_feed {
 	background-color: white;
-	/*border-top: 2px solid #009900;*/
 	width: 580px;
 	margin-bottom: 20px;
 	padding-top: 20px;
@@ -2420,12 +2420,6 @@ margin-right: 20px; */
 	width: 270px;
 }
 
-#project #project_edition #desc_status {
-	margin-top: 10px;
-	width: 270px;
-	text-align: left;
-}
-
 #project #project_edition #title #project_title {
 	width: 265px;
 }
@@ -2458,6 +2452,12 @@ margin-right: 20px; */
 
 #project #project_edition #status {
 	width: 270px;
+}
+
+#project #project_edition #desc_status {
+	margin-top: 10px;
+	width: 270px;
+	text-align: left;
 }
 
 #project #project_edition .buttons {
@@ -2532,7 +2532,7 @@ margin-right: 20px; */
 	margin-top: 10px;
 	width: 188px;
 	height: 135px;
-	background-color: #EEEEEE;
+	background-color: #EFEFEF;
 }
 
 #project #previews {
