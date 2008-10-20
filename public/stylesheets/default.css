@@ -605,9 +605,6 @@ ul#menus, ul#menus li {
 	border-right: 1px solid #DDDDDD;
 	width: 972px;
 	height: 20px;
-	
-
-/*margin-left: 2px;*/
 	margin-right: auto;
 	padding-left: 10px;
 	padding-right: 10px;
@@ -1183,12 +1180,6 @@ ul#menus, ul#menus li {
 #persontabs {
 	width: 777px;
 	height: 32px;
-
-
-/*
-
-margin-top: 10px;
-  	margin-bottom: 10px;*/
 }
 
 #persontabs ul {
@@ -1548,13 +1539,6 @@ margin-top: 10px;
 #projecttabs {
 	width: 560px;
 	height: 32px;
-
-
-/*
-	
-
-margin-top: 10px;
-	  	margin-bottom: 10px;*/
 }
 
 #projecttabs ul {
@@ -1563,11 +1547,6 @@ margin-top: 10px;
 	background-color: #FF9900;
 	margin: 0 0 0 0;
 	padding: 0 0 0 0;
-
-
-/*		b
-
-order-bottom: 2px solid #FF9900;*/
 }
 
 #projecttabs ul li {
@@ -1584,12 +1563,6 @@ order-bottom: 2px solid #FF9900;*/
 #projecttabs ul li a, #projecttabs ul li span {
 	text-decoration: none;
 	font-size: 12px;
-	
-
-/*	padding-top: 5px;*/
-	
-
-/*	font-weight: bold;*/
 	color: #FFFFFF;
 }
 
@@ -1615,13 +1588,6 @@ order-bottom: 2px solid #FF9900;*/
 	width: 775px;
 	height: 32px;
 	margin-bottom: 20px;
-
-
-/*
-	
-
-margin-top: 10px;
-	  	margin-bottom: 10px;*/
 }
 
 #editprofiletabs ul {
@@ -1630,11 +1596,6 @@ margin-top: 10px;
 	background-color: #FF9900;
 	margin: 0 0 20 0;
 	padding: 0 0 0 0;
-
-
-/*		b
-
-order-bottom: 2px solid #FF9900;*/
 }
 
 #editprofiletabs ul li {
@@ -1651,12 +1612,6 @@ order-bottom: 2px solid #FF9900;*/
 #editprofiletabs ul li a, #projecttabs ul li span {
 	text-decoration: none;
 	font-size: 12px;
-	
-
-/*	padding-top: 5px;*/
-	
-
-/*	font-weight: bold;*/
 	color: #FFFFFF;
 }
 
@@ -2230,24 +2185,9 @@ body img {
 	padding: 0;
 }
 
-/*#new_message h4 {
-	margin: 0;
-	padding: 0;
-	width: 777px;
-	text-align: right;
-	color: #FF9900;
-}*/
-
 #new_message .col1 {
 	background-color: white;
-	
-
-/*
-
-width: 757px;*/
-  padding: 10px;
-	/*border: 1px solid #DDDDDD;
-	border-top: 2px solid #FF9900;*/
+  	padding: 10px;
 }
 
 #new_message .col1 img {
@@ -2311,23 +2251,8 @@ width: 757px;*/
 
 #project #project_global span {
 	color: #FF9900;
-	
-
-/*
-
-float: left;*/
-
-
-/*
-
-width: 270px;*/
-      font-size: 9pt;
+    font-size: 9pt;
 	text-align: right;
-
-
-/* 
-
-margin-right: 20px; */
 }
 
 #project #project_global span #person_projects {
@@ -2592,10 +2517,7 @@ margin-right: 20px; */
 
 #show_project #right .project_content .tab_title {
 	text-align: right;
-	/*	 
-
-background-color: #FFFFFF;*/
-      padding-right: 10px;
+    padding-right: 10px;
 	padding-top: 7px;
 	width: 190px;
 	height: 12px;
