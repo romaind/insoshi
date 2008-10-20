@@ -1,10 +1,11 @@
 #about_content
 
--form_for @person do |f|
 
-  #photo
-    =render :partial => "photo"
-    = button_to "Add a photo", new_photo_path, :id => "newphoto"
+#photo
+  =render :partial => "photo"
+  = button_to "Add a photo", new_photo_path, :id => "newphoto"
+  
+-form_for @person do |f|
 
   .form_row
     %label{ :for => "status" } Status:
