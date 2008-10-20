@@ -1859,12 +1859,6 @@ ul#menus, ul#menus li {
 #persontabs {
 	width: 777px;
 	height: 32px;
-
-
-/*
-
-margin-top: 10px;
-  	margin-bottom: 10px;*/
 }
 
 #persontabs ul {
@@ -2408,12 +2402,6 @@ margin-top: 10px;
 #editprofiletabs ul li a, #projecttabs ul li span {
 	text-decoration: none;
 	font-size: 12px;
-	
-
-/*	padding-top: 5px;*/
-	
-
-/*	font-weight: bold;*/
 	color: #FFFFFF;
 }
 
@@ -2619,9 +2607,6 @@ margin-top: 10px;
 }
 
 #personal_requests #person_request table {
-	
-
-/*width: 777px;*/
   margin-left: 7px;
 	width: 190px;
 	text-align: right;
