@@ -2450,10 +2450,10 @@ ul#menus, ul#menus li {
 
 /* *********Profile right column********** */
 
-/*#right {
+#right {
 	float: right;
-	margin-right: 12px;
-}*/
+	/*margin-right: 12px;*/
+}
 
 .profile_right_column {
 	width: 188px;
