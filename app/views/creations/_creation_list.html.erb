@@ -1,25 +1,27 @@
-<div class="accordion_toggle tab_title top clearfix hand"><h4 class="">Project content</h4</div>
+<div class="accordion_toggle tab_title clearfix hand">
+  <h4>Project content</h4>
+</div>
 <div class="accordion_content content">
   <div>
-	by <%=link_to @project.person.first_name + " " + @project.person.name, person_path(@project.person) %>
-	<table>
-  	<%- unless @project.creations.nil? %>
-  		<%- @project.creations.in_groups_of(3) do |row| %>
- 				<tr>
-    		  <% row.each_with_index do |crea, i| %>
-   				  <% if crea %>
-      				<td>
-          				<%= link_to(image_tag(crea.asset.url(:thumb)), person_project_creation_path(current_person, @project, crea), :id => i , :class => "thumb_creation") %>
-      				</td>
-      			<% else %>
-      			  <td>
-      			    <%= image_tag "defaults/minipreview.gif", :class => "img_preview", :width => "57px" %>
-      			  </td>
-      			<% end %>
-        	<%- end %>
-        </tr>
+	  by <%=link_to @project.person.first_name + " " + @project.person.name, person_path(@project.person) %>
+	  <table>
+    	<%- unless @project.creations.nil? %>
+    		<%- @project.creations.in_groups_of(3) do |row| %>
+   				<tr>
+      		  <% row.each_with_index do |crea, i| %>
+     				  <% if crea %>
+        				<td>
+            				<%= link_to(image_tag(crea.asset.url(:thumb)), person_project_creation_path(current_person, @project, crea), :id => i , :class => "thumb_creation") %>
+        				</td>
+        			<% else %>
+        			  <td>
+        			    <%= image_tag "defaults/minipreview.gif", :class => "img_preview", :width => "57px" %>
+        			  </td>
+        			<% end %>
+          	<%- end %>
+          </tr>
+        <%- end %>
       <%- end %>
-    <%- end %>
-	</table>
+  	</table>
 	</div>
 </div>

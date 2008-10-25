@@ -1,4 +1,4 @@
-%td
+%td.fl
   .project_item
     -if project.creations.count > 0
       =link_to image_tag(project.creations.first.asset.url(:preview)), person_project_path(project.person,project)

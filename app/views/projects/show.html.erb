@@ -1,56 +1,100 @@
 <div id="show_project" class="clearfix">
-  <script type="text/javascript" charset="utf-8">
-   //
-   // In my case I want to load them onload, this is how you do it!
-   //
-   Event.observe(window, 'load', loadAccordions, false);
-  
-   //
-   // Set up all accordions
-   //
-   function loadAccordions() {
-    
-     var bottomAccordion = new accordion('project_content');
-    
-     // var nestedVerticalAccordion = new accordion('project_content', {
-     //   classNames : {
-     //     toggle : 'accordion_toggle',
-     //     toggleActive : 'accordion_toggle_active',
-     //     content : 'accordion_content'
-     //   }
-     // });
-  
-     // Open first one
-     bottomAccordion.activate($$('#project_content .accordion_toggle')[0]);
-    
-     // Open second one
-     // topAccordion.activate($$('#horizontal_container .horizontal_accordion_toggle')[2]);
-   }
-  </script>
-<div id="right" class="clearfix">
-  <div id="project_content" class="project_content clearfix">
-		<%=render :partial => "creations/creation_list" %>
-
-		<%=render :partial => "project_description" %>
-  		
-		<%= render :partial => "project_data" %>
-		
-		<%=render :partial => "project_options" %>
-	</div>  
-  <%=image_tag ("desc_bottom.gif") %>
-  <% if logged_in? %>
-  <p>
-    <% if @canvote %>
-      <%= link_to "vote", vote_person_project_path(@project.person, @project) %>
-    <% else %>
-      Thank you for your vote
+  <div id="right" class="clearfix">
+    <div id="project_content" class="project_content clearfix">
+		  <%= render :partial => "creations/creation_list" %>
+		  <%= render :partial => "project_description" %>
+  	  <%= render :partial => "project_data" %>
+		  <%= render :partial => "project_options" %>
+	  </div>  
+    <%=image_tag "desc_bottom.gif", :class => "mar5" %>
+    <% if logged_in? %>
+      <p>
+        <% if @canvote %>
+          <%= link_to "vote", vote_person_project_path(@project.person, @project) %>
+        <% else %>
+          Thank you for your vote
+        <% end %>
+      </p>
     <% end %>
-  </p>
-  <% end %>
-</div>
+  </div>
 
-<h3><%=h @project.title.upcase %></h3>
-<div id="player">There should be a player here... in fact...</div>
+  <h3><%=h @project.title.upcase %></h3>
+  <div id="player">There should be a player here... in fact...</div>
+  <div class ="playlist_tab">
+    <h4>PROJECTS FROM THIS AUTHOR</h4>
+    <%- will_paginate @author_projects %>
+    <table class="playlist">
+      <tr>
+        <%- if @author_projects.previous_page %>
+          <td class="left"><%= link_to(image_tag('last_project.gif'), :author_page => @author_projects.previous_page)%></td>
+        <%- else %>
+          <td class="left"><%= image_tag 'last_project_off.gif'%></td>
+        <%- end %>
+        <td>
+        <table>
+          <tr>
+          <%=render :partial => "projects_playlist", :collection => @author_projects %>
+          </tr>
+        </table>
+        </td>
+        <%- if @author_projects.next_page %>
+          <td class="right"><%= link_to(image_tag('next_project.gif'), :author_page => @author_projects.next_page)%></td>
+        <%- else %>
+          <td class="right"><%= image_tag 'next_project_off.gif'%></td>
+        <%- end %>
+      </tr>
+    </table>
+  </div>
+
+  <div class ="playlist_tab">
+    <h4>ALL PROJECTS</h4>
+    <%- will_paginate @all_projects %>
+    <table class="playlist">
+      <tr>
+        <%- if @all_projects.previous_page %>
+          <td class="left"><%= link_to(image_tag('last_project.gif'), :all_page => @all_projects.previous_page)%></td>
+        <%- else %>
+          <td class="left"><%= image_tag 'last_project_off.gif'%></td>
+        <%- end %>
+        <td>
+        <table>
+          <tr>
+          <%=render :partial => "projects_playlist", :collection => @all_projects %>
+          </tr>
+        </table>
+        </td>
+        <%- if @all_projects.next_page %>
+          <td class="right"><%= link_to(image_tag('next_project.gif'), :all_page => @all_projects.next_page)%></td>
+        <%- else %>
+          <td class="right"><%= image_tag 'next_project_off.gif'%></td>
+        <%- end %>
+      </tr>
+    </table>
+  </div>
+  <%= render :partial => 'wall' %>
+</div>
+<script type="text/javascript" charset="utf-8">
+  // In my case I want to load them onload, this is how you do it!
+  Event.observe(window, 'load', loadAccordions, false);
+  
+  // Set up all accordions
+  function loadAccordions() {
+    var bottomAccordion = new accordion('project_content');
+    // var nestedVerticalAccordion = new accordion('project_content', {
+    //   classNames : {
+    //     toggle : 'accordion_toggle',
+    //     toggleActive : 'accordion_toggle_active',
+    //     content : 'accordion_content'
+    //   }
+    // });
+    
+    // Open first one
+    bottomAccordion.activate($$('#project_content .accordion_toggle')[0]);
+    
+    // Open second one
+    // topAccordion.activate($$('#horizontal_container .horizontal_accordion_toggle')[2]);
+  }
+</script>
 <script type="text/javascript">
   var so = new SWFObject('/swf/player.swf','mpl','584','380','9','#000000');
   so.addParam('allowscriptaccess','always');
@@ -59,57 +103,3 @@
   so.addParam('flashvars','&file=<%= formatted_person_project_url(@author, @project, :xml) %>&screencolor=000000&logo=<%= image_path("logo-player.png") %>&playlistsize=85&playlist=right&autostart=true&fullscreen=true&backcolor=000000&frontcolor=ffffff');
   so.write('player');
 </script>
-
-<div class ="playlist_tab">
-	<h4>PROJECTS FROM THIS AUTHOR</h4>
-	<%- will_paginate @author_projects %>
-	<table class="playlist">
-		<tr>
-			<%- if @author_projects.previous_page %>
-				<td class="left"><%= link_to(image_tag('last_project.gif'), :author_page => @author_projects.previous_page)%></td>
-			<%- else %>
-				<td class="left"><%= image_tag 'last_project_off.gif'%></td>
-			<%- end %>
-			<td>
-			<table>
-				<tr>
-				<%=render :partial => "projects_playlist", :collection => @author_projects %>
-				</tr>
-			</table>
-			</td>
-			<%- if @author_projects.next_page %>
-				<td class="right"><%= link_to(image_tag('next_project.gif'), :author_page => @author_projects.next_page)%></td>
-			<%- else %>
-				<td class="right"><%= image_tag 'next_project_off.gif'%></td>
-			<%- end %>
-		</tr>
-	</table>
-</div>
-
-<div class ="playlist_tab">
-	<h4>ALL PROJECTS</h4>
-	<%- will_paginate @all_projects %>
-	<table class="playlist">
-		<tr>
-			<%- if @all_projects.previous_page %>
-				<td class="left"><%= link_to(image_tag('last_project.gif'), :all_page => @all_projects.previous_page)%></td>
-			<%- else %>
-				<td class="left"><%= image_tag 'last_project_off.gif'%></td>
-			<%- end %>
-			<td>
-			<table>
-				<tr>
-				<%=render :partial => "projects_playlist", :collection => @all_projects %>
-				</tr>
-			</table>
-			</td>
-			<%- if @all_projects.next_page %>
-				<td class="right"><%= link_to(image_tag('next_project.gif'), :all_page => @all_projects.next_page)%></td>
-			<%- else %>
-				<td class="right"><%= image_tag 'next_project_off.gif'%></td>
-			<%- end %>
-		</tr>
-	</table>
-</div>
-<%= render :partial => 'wall' %>
-</div>

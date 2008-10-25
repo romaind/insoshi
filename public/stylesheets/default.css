@@ -783,6 +783,7 @@ ul#menus, ul#menus li {
 	padding-right: 5px;
 	padding-top: 5px;
 	padding-bottom: 20px;
+	height: 100%;
 	min-height: 1000px;
 }
 
@@ -857,6 +858,11 @@ ul#menus, ul#menus li {
 	height: 500px;
 	padding-left: 1px;
 	padding-top: 5px;
+}
+
+#lastproject #lastprojects_content td {
+	float: 	left;
+	width: 190px;
 }
 
 #lastproject #lastprojects_content .lastprojects {
@@ -2444,10 +2450,10 @@ ul#menus, ul#menus li {
 
 /* *********Profile right column********** */
 
-#right {
+/*#right {
 	float: right;
-	/*margin-right: 12px;*/
-}
+	margin-right: 12px;
+}*/
 
 .profile_right_column {
 	width: 188px;
@@ -3327,13 +3333,12 @@ body img {
 }
 
 #show_project #right .project_content .tab_title {
-	text-align: right;
+	/*text-align: right;*/
 	padding-right: 10px;
 	padding-top: 7px;
 	width: 190px;
 	height: 12px;
-	background-image: url(../images/desc_top.gif);
-	background-repeat: no-repeat;
+	background: url(../images/desc_top.gif) top center no-repeat;
 }
 
 #show_project #right .project_content .tab_title h4 {
@@ -3346,7 +3351,9 @@ body img {
 
 #show_project #right .project_content .content {
 	margin: 0;
+	margin-left: 5px;
 	padding-top: 10px;
+	width: 178px;
 	padding-right: 10px;
 	background-color: white;
 	border-left: 1px solid #DDDDDD;
@@ -3511,8 +3518,7 @@ body img {
 	background-color: black;
 	color: white;
 	height: 20px;
-	width: 988px;
-	margin-left: -2px;
+	width: 984px;
 	font-size: 9pt;
 	text-align: center;
 	padding: 0 0 0 10px;

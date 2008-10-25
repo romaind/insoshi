@@ -2,8 +2,8 @@
   %table
     = will_paginate projects, :prev_label => "<span class='prev'><</span>", :next_label => "<span class='next'>></span>", :class =>"paginate"
     - projects.in_groups_of(3) do |row|
-      - row.each do |project|
-        - if project
-          %tr.fl
+      %tr
+        - row.each do |project|
+          - if project
             = render :partial => "projects/project_item", :locals =>{ :project => project}
     = will_paginate projects, :prev_label => "<span class='prev'><</span>", :next_label => "<span class='next'>></span>", :class =>"paginate"
