@@ -14,9 +14,9 @@
 		<td class="add_cell">
 			<%- if logged_in?%>
 				<%- if person.city and person.origin_country %>
-					<%= person.city.capitalize %>
-              		,
-              		<%=h person.origin_country.name%>
+          <%= [person.city.capitalize, person.origin_country.name].join(', ') %>  
+        <%- elsif person.origin_country -%>
+          <%= person.origin_country.name %>  
 				<%- else %>
 					&nbsp;
 				<%- end%>

@@ -9,9 +9,18 @@
       	<%- row.each do |contact| %>
       	  <%- if contact -%>
             <td class="thumb">
+              <div class="fl">
        			  <%= image_link( contact, :image => :thumbnail,
                            						:image_options => { :class => "photo fn" },
                            						:link_options =>  { :class => "url" }) %>
+   						<%- if current_person?(@person) and not(current_person.admin?) %>
+    						<div class="delete">
+    						  <%= link_to image_tag ("icons/delete.gif"), connection_path(Connection.conn(current_person, contact)), :method => :delete, :confirm => "Are you sure you want to end connection with #{h contact.first_name} #{h contact.name}?" %>
+    							<%= link_to "Delete", connection_path(Connection.conn(current_person, contact)), :method => :delete, :confirm => "Are you sure you want to end connection with #{h contact.first_name} #{h contact.name}?" %>
+    						</div>
+    					<%- end %>
+              </div>
+              <div class="fl">
     				  <table>
     				    <tr>
     	  		      <td>
@@ -41,15 +50,12 @@
     							</td>
     						</tr>
     					</table>
-    					<%- if current_person?(@person) and not(current_person.admin?) %>
-    						<div class="delete">
-    						  <%= link_to image_tag ("icons/delete.gif"), connection_path(Connection.conn(current_person, contact)), :method => :delete, :confirm => "Are you sure you want to end connection with #{h contact.first_name} #{h contact.name}?" %>
-    							<%= link_to "Delete", connection_path(Connection.conn(current_person, contact)), :method => :delete, :confirm => "Are you sure you want to end connection with #{h contact.first_name} #{h contact.name}?" %>
-    						</div>
-    					<%- end %>
+
+      				  </div>
           		</td>
           	<%- end -%>
         	<%- end -%>
+          </tr>
       	<%- end -%>
       </table>
   <%- end -%>

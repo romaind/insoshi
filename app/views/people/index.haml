@@ -10,10 +10,12 @@
     =link_to "How to create my network ?"
 
 
-- column_div :type => :primary do
+-column_div :type => :primary do
   -unless @people.empty?
     = will_paginate
     #people
       %table#list_people
-        = render :partial => @people
+        -@people.in_groups_of(4) do |row|
+          %tr
+            =render :partial => "person_row", :locals => {:row => row}
     = will_paginate
