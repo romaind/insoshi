@@ -12,7 +12,8 @@
               <div class="fl">
        			  <%= image_link( contact, :image => :thumbnail,
                            						:image_options => { :class => "photo fn" },
-                           						:link_options =>  { :class => "url" }) %>
+                           						:link_options =>  { :class => "url" },
+                           						:link => profile_path(contact, "profile")) %>
    						<%- if current_person?(@person) and not(current_person.admin?) %>
     						<div class="delete">
     						  <%= link_to image_tag ("icons/delete.gif"), connection_path(Connection.conn(current_person, contact)), :method => :delete, :confirm => "Are you sure you want to end connection with #{h contact.first_name} #{h contact.name}?" %>
@@ -30,8 +31,10 @@
     						<tr>
     							<td class="add_cell">
     								<%- if logged_in?%>
-    									<%- if contact.city #and person.country %>
-    										<%= contact.city.capitalize %>
+    									<%- if contact.city and contact.origin_country %>
+    									  <%= [contact.city.capitalize, contact.origin_country.name].join(', ') %>
+    									<%- elsif contact.origin_country -%>
+    										<%= contact.origin_country.name %>
     									<%- else %>
     										&nbsp;
     									<%- end%>
