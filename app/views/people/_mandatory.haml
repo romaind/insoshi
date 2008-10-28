@@ -1,9 +1,10 @@
-=image_tag "portfolio/mandatory.gif"
-Mandatory fields
+%p.fl
+  =image_tag "portfolio/mandatory.gif"
+  Mandatory fields
 
 -form_for @person do |f|
 
-  .form_row
+  .form_row.top10
     %label{ :for => "person_birthdate" } Birth Date:
     = f.date_select :birthdate, :order => [:day, :month, :year], :start_year => 1900, :end_year => Date.today.year
     =image_tag "portfolio/mandatory.gif", :class => "mandatory"
