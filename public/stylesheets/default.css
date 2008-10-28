@@ -942,7 +942,7 @@ ul#menus, ul#menus li {
 
 #reminder_tab {
 	background-image: url(../images/personaldata_tab.gif);
-	width: 387px;
+	width: 350px;
 	height: 24px;
 }
 
@@ -1608,7 +1608,7 @@ ul#menus, ul#menus li {
 
 #reminder_tab {
 	background-image: url(../images/personaldata_tab.gif);
-	width: 387px;
+	width: 350px;
 	height: 24px;
 }
 
@@ -1626,7 +1626,7 @@ ul#menus, ul#menus li {
 	background-color: white;
 	border-left: 1px solid #DDDDDD;
 	border-right: 1px solid #DDDDDD;
-	width: 365px;
+	width: 345px;
 	padding-left: 10px;
 	padding-right: 10px;
 	padding-top: 20px;
