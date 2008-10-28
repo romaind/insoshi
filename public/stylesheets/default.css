@@ -3587,13 +3587,19 @@ body img {
 /* @group Flashes */
 
 .flash.notice{
-	color: green;
+	color: yellowgreen;
 	font-size: 14px;
 	font-weight: bold;
 }
 
 .flash.error {
 	color: red;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.flash.success {
+	color: green;
 	font-size: 14px;
 	font-weight: bold;
 }

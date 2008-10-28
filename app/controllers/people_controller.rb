@@ -66,8 +66,7 @@ class PeopleController < ApplicationController
     respond_to do |format|
       @person.email_verified = false if global_prefs.email_verifications?
       if @betacoupon = BetaCoupon.find_by_coupon(params[:person][:coupon], :conditions => ["person_id is NULL"])
-        if simple_captcha_valid? && 
-          @person.save
+        if simple_captcha_valid? && @person.save
           @betacoupon.person = @person
           @betacoupon.save
           if @person.errors.empty?
@@ -217,7 +216,7 @@ class PeopleController < ApplicationController
     if params[:invitation]
       STDERR.puts 'Coupooooooooon : ' + params[:invitation]
       if coupon = BetaCoupon.find_by_coupon(params[:invitation], :conditions => ["person_id is NULL"])
-        flash[:error] = "Your beta_coupon is valid, now please loggin"
+        flash[:success] = "Your beta_coupon is valid, now please loggin"
         redirect_to signup_path(:coupon => params[:invitation])
       else
         flash[:error] = "This beta coupon is not valid or already used"
