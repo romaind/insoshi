@@ -3583,3 +3583,21 @@ body img {
 }
 
 /* @end */
+
+/* @group Flashes */
+
+.flash.notice{
+	color: green;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.flash.error {
+	color: red;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+
+/* @end */
+
