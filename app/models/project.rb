@@ -52,11 +52,11 @@ class Project < ActiveRecord::Base
     end
     
     def all_published
-      find_in_state(:all, :published)
+      find_in_state(:all, :published, :order => 'created_at DESC')
     end
     
     def all_draft
-      find_in_state(:all, :draft)
+      find_in_state(:all, :draft, :order => 'created_at DESC')
     end
     
   end

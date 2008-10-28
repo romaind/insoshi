@@ -180,6 +180,7 @@ class Person < ActiveRecord::Base
     def mostly_active(page = 1)
       paginate(:all, :page => page,
                      :per_page => RASTER_PER_PAGE,
+                     :order => "people.created_at DESC",
                      :conditions => conditions_for_mostly_active)
     end
     
