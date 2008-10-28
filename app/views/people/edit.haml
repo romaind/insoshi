@@ -12,6 +12,8 @@
         =tab_to "About you", editprofile_path(current_person, "about"), :class => "current"
         =tab_to "Skills & Education", editprofile_path(current_person, "education"), :class => "current"
         =tab_to "Contact info", editprofile_path(current_person, "contact"), :class => "current"
+        -if global_prefs.email_notifications?
+          =tab_to "Notifications", editprofile_path(current_person, "notifications"), :class => "current"
         =tab_to "Password", editprofile_path(current_person, "password"), :class => "current"
     
     
@@ -25,6 +27,9 @@
         =render :partial => "education"
       -when "contact"
         =render :partial => "contact"
+      -when "notifications"
+        -if global_prefs.email_notifications?
+          =render :partial => "notifications"
       -when "password"
         =render :partial => "password"
 

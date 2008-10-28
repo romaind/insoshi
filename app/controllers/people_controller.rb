@@ -136,7 +136,7 @@ class PeopleController < ApplicationController
         if !preview? and @person.update_attributes(params[:person])
           @person.be_active!
           flash[:success] = 'Profile updated!'
-          format.html { redirect_to(@person) }
+          format.html { redirect_to(profile_path(@person, "profile")) }
         else
           if preview?
             @preview = @person.description = params[:person][:description]
@@ -147,7 +147,7 @@ class PeopleController < ApplicationController
         if !preview? and @person.update_attributes(params[:person])
           @person.be_active!
           flash[:success] = 'Profile updated!'
-          format.html { redirect_to(@person) }
+          format.html { redirect_to(profile_path(@person, "profile")) }
         else
           if preview?
             @preview = @person.description = params[:person][:description]
@@ -159,7 +159,7 @@ class PeopleController < ApplicationController
         if !preview? and @person.update_attributes(params[:person])
           @person.be_active!
           flash[:success] = 'Profile updated!'
-          format.html { redirect_to(@person) }
+          format.html { redirect_to(profile_path(@person, "profile")) }
         else
           if preview?
             @preview = @person.description = params[:person][:description]
@@ -170,7 +170,18 @@ class PeopleController < ApplicationController
         if !preview? and @person.update_attributes(params[:person])
           @person.be_active!
           flash[:success] = 'Profile updated!'
-          format.html { redirect_to(@person) }
+          format.html { redirect_to(profile_path(@person, "profile")) }
+        else
+          if preview?
+            @preview = @person.description = params[:person][:description]
+          end
+          format.html { render :action => "edit" }
+        end
+      when "notif_edit"
+        if !preview? and @person.update_attributes(params[:person])
+          @person.be_active!
+          flash[:success] = 'Profile updated!'
+          format.html { redirect_to(profile_path(@person, "profile")) }
         else
           if preview?
             @preview = @person.description = params[:person][:description]
@@ -184,7 +195,7 @@ class PeopleController < ApplicationController
         end
         if @person.change_password?(params[:person])
           flash[:success] = 'Password changed.'
-          format.html { redirect_to(@person) }
+          format.html { redirect_to(profile_path(@person, "profile")) }
         else
           format.html { render :action => "edit" }
         end
