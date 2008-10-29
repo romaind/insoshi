@@ -3323,7 +3323,8 @@ body img {
 #show_project #right .project_content {
 	margin: 0;
 	text-align: right;
-	width: 190px;
+	width: 198px;
+	/*height: 320px;*/
 	font-size: 9pt;
 }
 
@@ -3575,6 +3576,16 @@ body img {
 	margin-bottom: 2px;
 	width: 745px;
 }
+
+/* @group Accordion */
+
+.accordion_content {
+	height: 300px;
+}
+
+/* @end */
+
+
 
 /* @group lightwindow */
 

@@ -64,7 +64,7 @@ accordion.prototype = {
 			if (this.options.direction == 'horizontal') {
 				var options = {width: '0px', display:'none'};
 			} else {
-				var options = {height: '0px', display:'none'};
+				var options = {height: this.options.defaultSize.height, display:'none'};
 			}
 //			options.merge({display: 'none'});			
 			
@@ -190,7 +190,7 @@ accordion.prototype = {
 					});				
 				}
 				$(this.currentAccordion).setStyle({
-				  height: 'auto'
+				  height: options.height
 				});
 				this.showAccordion = this.currentAccordion;
 				this.animating = false;

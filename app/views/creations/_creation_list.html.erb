@@ -1,8 +1,8 @@
-<div class="accordion_toggle tab_title clearfix hand">
+<div class="accordion_toggle tab_title hand">
   <h4>Project content</h4>
 </div>
-<div class="accordion_content content">
-  <div>
+<div class="accordion_content content clearfix">
+  <div class="clearfix">
 	  by <%=link_to @project.person.first_name + " " + @project.person.name, person_path(@project.person) %>
 	  <table>
     	<%- unless @project.creations.nil? %>
