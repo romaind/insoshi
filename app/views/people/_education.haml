@@ -6,12 +6,11 @@
     %h3 Skills and Education
     
     .form_row
-      %p
-        -@person.schools.each do |sc|
-          =sc.name
+      %div
+        -@person.people_schools.each do |sc|
+          =sc.school.name+" ( Promo : "+sc.year.to_s+" )"
       %label{ :for => "p_schools" } Schools:
       %input{ :name => "school[][name]", :size => "30", :type => "text"}
-      / =date_select "school[][year]", nil, :end_year => Date.today.year-20, :start_year => Date.today.year+5, :discard_day => true, :discard_month => true
       -i = Date.today.year+5
       %select{:id => "school_year", :name => "school[][year]"}
         -25.times do
