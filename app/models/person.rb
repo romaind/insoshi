@@ -520,6 +520,23 @@ class Person < ActiveRecord::Base
     Project.paginate_by_sql(conditions, opts)
   end
   
+  def school_attributes=(school_attributes)
+    if school_attributes
+      school_attributes.each do |school_att|
+        unless school_att[:name] == ""
+          if sch = School.find_by_name(school_att[:name])
+            self.schools.push(sch)
+          else
+            sch = self.schools.create!(:name => school_att[:name])
+          end
+          scho = self.people_schools.find(:first, :conditions => ["school_id = ?", sch.id])
+          scho.update_attribute(:year, school_att[:year].to_i)
+          scho.save!
+        end
+      end
+    end
+  end
+  
   protected
 
     ## Callbacks

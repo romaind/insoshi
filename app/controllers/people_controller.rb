@@ -156,11 +156,15 @@ class PeopleController < ApplicationController
         end
       when 'skill_edit'
         params[:person][:language_ids] ||= []
-        @person.schools.create!(:name => params[:person][:school_name])
-        ps = @person.people_schools.find(:first, :conditions => ["person_id = ?", @person.id])
-        schyear = params[:person]["school_year(1i)"]
-        ps.year = schyear.to_i
-        ps.save!
+        
+        # Schools handling
+        # @person.schools.create!(:name => params[:person][:school_name])
+        # ps = @person.people_schools.find(:first, :conditions => ["person_id = ?", @person.id])
+        # schyear = params[:person]["school_year(1i)"]
+        # ps.year = schyear.to_i
+        # ps.save!
+        @person.school_attributes = params[:school]
+        # End Schools handling
         
         # @person.save!
         if !preview? and @person.update_attributes(params[:person])
