@@ -31,13 +31,15 @@ class Person < ActiveRecord::Base
   extend PreferencesHelper
 
   attr_accessor :password, :verify_password, :new_password,
-                :sorted_photos
+                :sorted_photos,
+                :school_name, :school_year
   attr_accessible :email, :password, :password_confirmation, :name, :first_name,
                   :description, :connection_notifications,
                   :message_notifications, :wall_comment_notifications,
                   :blog_comment_notifications, :skill_ids, :language_ids, :software_ids, :tag_list,
                   #ADDED FIELD
-                  :birthdate, :gender, :website, :address, :zipcode, :city, :phone, :country_id, :status, :terms_of_use, :cv
+                  :birthdate, :gender, :website, :address, :zipcode, :city, :phone, :country_id, :status, :terms_of_use, :cv,
+                  :school_name, :school_year
   # Indexed fields for Sphinx
   is_indexed :fields => [ 'name', 'description', 'deactivated', 'email_verified'],
                              :conditions => "deactivated = false AND (email_verified IS NULL OR email_verified = true)"
@@ -117,6 +119,8 @@ class Person < ActiveRecord::Base
   has_and_belongs_to_many :languages
   has_and_belongs_to_many :skills
   has_and_belongs_to_many :softwares
+  has_and_belongs_to_many :schools
+  has_many :people_schools
   has_one :beta_coupon
   
   validates_presence_of     :email, :on => :create,

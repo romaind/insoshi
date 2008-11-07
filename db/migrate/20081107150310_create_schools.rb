@@ -9,6 +9,7 @@ class CreateSchools < ActiveRecord::Migration
       t.integer :person_id
       t.integer :school_id
       t.integer :year
+      t.timestamps
     end
   end
 
