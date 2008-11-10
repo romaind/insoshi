@@ -56,3 +56,9 @@ function opacityTo0(event) {
   var element = event.element().up();
   new Effect.Opacity(element, { from: 1, to: 0.7, duration: 0.2 });
 };
+
+
+function mark_for_destroy(element) {
+	$(element).next('.should_destroy').value = 1;
+	$(element).up('.school').hide();
+}

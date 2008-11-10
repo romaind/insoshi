@@ -6,21 +6,24 @@
     %h3 Skills and Education
     
     .form_row
-      %div
-        -@person.people_schools.each do |sc|
-          =sc.school.name+" ( Promo : "+sc.year.to_s+" )"
-      %label{ :for => "p_schools" } Schools:
-      %input{ :name => "school[][name]", :size => "30", :type => "text"}
-      -i = Date.today.year+5
-      %select{:id => "school_year", :name => "school[][year]"}
-        -25.times do
-          -if i==Date.today.year
-            %option{:value => i, :selected => "selected"}
-              =i
-          -else
-            %option{:value => i}
-              =i
-          -i = i-1
+      / %div
+      /   -@person.people_schools.each do |sc|
+      /     %label Existing schools:
+      /     %input{ :name => "school[][name]", :size => "30", :type => "text", :value => sc.school.name}
+      /     -i = Date.today.year+5
+      /     %select{:id => "school_year", :name => "school[][year]"}
+      /       -25.times do
+      /         -if i==sc.year
+      /           %option{:value => i, :selected => "selected"}
+      /             =i
+      /         -else
+      /           %option{:value => i}
+      /             =i
+      /         -i = i-1
+      #schools
+        =render :partial => "school", :collection => @person.schools
+      =link_to_function "Add a school" do |page|
+        -page.insert_html :bottom, :schools, :partial => "school", :object => School.new
 
     #languages_checkboxes
       %h3 Languages

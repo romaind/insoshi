@@ -524,14 +524,20 @@ class Person < ActiveRecord::Base
     if school_attributes
       school_attributes.each do |school_att|
         unless school_att[:name] == ""
-          if sch = School.find_by_name(school_att[:name])
-            self.schools.push(sch)
-          else
-            sch = self.schools.create!(:name => school_att[:name])
+          if school_att[:id] && school_att[:should_destroy] == "1"
+            scho = self.people_schools.find(school_att[:id])
+            scho.destroy
+          elsif school_att[:id].blank?
+            sch = School.new(:name => school_att[:name])
+            sch.save!
+            self.people_schools.create!(:person_id => self.id, :school_id => sch.id, :year => school_att[:year].to_i)
+          elsif school_att[:id] && sch = School.find_by_name(school_att[:name])
+            unless ps = PeopleSchool.find_by_person_id_and_school_id(self.id, sch.id)
+              self.people_schools.create!(:person_id => self.id, :school_id => sch.id, :year => school_att[:year].to_i)
+            else
+              ps.update_attribute(:year, school_att[:year].to_i)
+            end
           end
-          scho = self.people_schools.find(:first, :conditions => ["school_id = ?", sch.id])
-          scho.update_attribute(:year, school_att[:year].to_i)
-          scho.save!
         end
       end
     end

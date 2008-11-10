@@ -124,7 +124,6 @@ class PeopleController < ApplicationController
   end
 
   def update
-    params[:person][:software_ids] ||= []
     @person = Person.find(params[:id])
     
     respond_to do |format|
@@ -156,6 +155,7 @@ class PeopleController < ApplicationController
         end
       when 'skill_edit'
         params[:person][:language_ids] ||= []
+        params[:person][:software_ids] ||= []
         
         # Schools handling
         # @person.schools.create!(:name => params[:person][:school_name])
@@ -163,14 +163,16 @@ class PeopleController < ApplicationController
         # schyear = params[:person]["school_year(1i)"]
         # ps.year = schyear.to_i
         # ps.save!
-        @person.school_attributes = params[:school]
+        # @person.school_attributes = params[:school]
         # End Schools handling
-        
+        @person.update_attributes(params[:person])
+        @person.school_attributes = params[:person][:school_attributes]
         # @person.save!
-        if !preview? and @person.update_attributes(params[:person])
+        if !preview? and @person.save
           @person.be_active!
           flash[:success] = 'Profile updated!'
-          format.html { redirect_to(profile_path(@person, "profile")) }
+          # format.html { redirect_to(profile_path(@person, "profile")) }
+          format.html { redirect_to editprofile_path(@person, "education") }
         else
           if preview?
             @preview = @person.description = params[:person][:description]

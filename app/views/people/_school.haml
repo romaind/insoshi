@@ -1,0 +1,21 @@
+.school
+  -fields_for "person[school_attributes][]", school do |school_form|
+    %label{ :for => "p_schools" } Name:
+    =school_form.text_field :name, :index => nil
+    / =school_form.date_select :year, :end_date => Date.today.year+5, :start_date => Date.today.year-20, :index => nil
+    / -i = Date.today.year+5
+    / %select{:id => "school_year", :name => "person[school_attributes][][year]"}
+    /   -25.times do
+    /     -if i==school.year
+    /       %option{:value => i, :selected => "selected"}
+    /         =i
+    /     -else
+    /       %option{:value => i}
+    /         =i
+    /     -i = i-1
+    -if school.new_record?
+      =link_to_function "remove", "this.up('.school').remove()"
+    -else
+      =link_to_function "remove", "mark_for_destroy(this)"
+      =school_form.hidden_field :id, :index => nil
+      =school_form.hidden_field :should_destroy, :index => nil, :class => 'should_destroy'
