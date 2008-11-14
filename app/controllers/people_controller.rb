@@ -82,11 +82,11 @@ class PeopleController < ApplicationController
             end
           else
             @body = "register single-col"
-            format.html { render :action => 'new' }
+            format.html { redirect_to signup_path(:coupon => params[:person][:coupon]) }
           end
         else
           flash[:error] = 'Captcha not valid'
-          format.html { render :action => 'new' }
+          format.html { redirect_to signup_path(:coupon => params[:person][:coupon]) }
         end
       else
         flash[:error] = 'Your coupon code is not valid'
@@ -240,7 +240,7 @@ class PeopleController < ApplicationController
     if params[:invitation]
       STDERR.puts 'Coupooooooooon : ' + params[:invitation]
       if coupon = BetaCoupon.find_by_coupon(params[:invitation], :conditions => ["person_id is NULL"])
-        flash[:success] = "Your beta_coupon is valid, now please loggin"
+        flash[:success] = "Your beta_coupon is valid, now please register"
         redirect_to signup_path(:coupon => params[:invitation])
       else
         flash[:error] = "This beta coupon is not valid or already used"

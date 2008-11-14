@@ -41,7 +41,7 @@ class Person < ActiveRecord::Base
                   :birthdate, :gender, :website, :address, :zipcode, :city, :phone, :country_id, :status, :terms_of_use, :cv,
                   :school_name, :school_year
   # Indexed fields for Sphinx
-  is_indexed :fields => [ 'name', 'description', 'deactivated', 'email_verified'],
+  is_indexed :fields => [ 'name', 'first_name', 'description', 'deactivated', 'email_verified'],
                              :conditions => "deactivated = false AND (email_verified IS NULL OR email_verified = true)"
   
   acts_as_taggable
