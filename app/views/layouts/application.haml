@@ -22,7 +22,7 @@
               / =image_submit_tag("flags/fr_off.jpg", :id => "fr", :title => "Coming soon", :onMouseOver => "this.src = '/images/flags/fr_on.jpg'", :onMouseOut => "this.src = '/images/flags/fr_off.jpg'")
               / =image_submit_tag("flags/es_off.jpg", :id => "es", :title => "Coming soon", :onMouseOver => "this.src = '/images/flags/es_on.jpg'", :onMouseOut => "this.src = '/images/flags/es_off.jpg'")
           %div#searchbox.fr
-            / = render :partial => "searches/box", :locals => { :search => @searches }
+            = render :partial => "searches/box", :locals => { :search => @searches }
         = render :partial => "layouts/top_menu.haml"
       #submenus
       #main

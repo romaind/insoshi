@@ -1,5 +1,27 @@
+/ -form_tag searches_path, :method => :get, :id => "frmSearch" do
+/   %label{ :for =>"q" } Search
+/   =text_field_tag :q, params[:q], :id => "txtSearch", :class => "txt", :maxlength => 50
+/   =image_submit_tag ("go.jpg", :id => "go")
+/   =link_to "Advanced search", { :controller =>"search", :action => "index" }, { :id =>"adv_search" }
+  
+  
+/ Insoshi
+%h2
+  Search
+  
 -form_tag searches_path, :method => :get, :id => "frmSearch" do
-  %label{ :for =>"q" } Search
-  =text_field_tag :q, params[:q], :id => "txtSearch", :class => "txt", :maxlength => 50
-  =image_submit_tag ("go.jpg", :id => "go")
-  =link_to "Advanced search", { :controller =>"search", :action => "index" }, { :id =>"adv_search" }
+  = text_field_tag :q, h(params[:q]), :id => "txtSearch", :class => "txt", :maxlength => 50
+  = submit_tag "Search", :name => nil, :id => "btnSearch", :class => "button"
+  = hidden_field_tag "model", search_model
+    
+  / <h2>Search <%= search_type %></h2>
+  / <% form_tag searches_path, :method => :get, :id => "frmSearch" do %>
+  /   <fieldset title="Search Insoshi">
+  /     <%= text_field_tag :q, h(params[:q]), :id => "txtSearch", :class => "txt",
+  /                                           :maxlength => 50 %>
+  /     <%= submit_tag "Search", :name => nil, :id => "btnSearch",
+  /                              :class => "button"  %>
+  /     <%= hidden_field_tag "model", search_model %>
+  /   </fieldset>
+  / <% end %>
+  / 
