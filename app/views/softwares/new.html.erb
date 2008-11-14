@@ -1,15 +1,15 @@
-<h1>New software</h1>
+<h1><%= _("New software") %></h1>
 
 <%= error_messages_for :software %>
 
 <% form_for(@software) do |f| %>
   <p>
-    <b>Name</b><br />
+    <b><%= _("Name") %></b><br />
     <%= f.text_field :name %>
   </p>
 
   <p>
-    <%= f.submit "Create" %>
+    <%= f.submit _("Create") %>
   </p>
 <% end %>
 

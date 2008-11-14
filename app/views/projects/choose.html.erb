@@ -1,5 +1,5 @@
 <div id="project">
-	<h4>Manage projects</h4>
+	<h4><%= _("Manage projects") %></h4>
 	<div id="project_global" >
     <div id="choose_project" class="clearfix">
       <%- form_for current_person, :html => {:class => "fl"} do |f| %>
@@ -9,7 +9,7 @@
         <%- unless current_person.projects.first %>
           <%- disabled = "disabled" %>
         <%- end %>
-        <%= f.submit "Edit", :disabled => disabled %>
+        <%= f.submit _("Edit"), :disabled => disabled %>
         <input type="hidden", name ="type", value ="project_edit" >
       <%- end %>
       <%#= link_to image_tag("projects/delete_project.gif"), projects_path(),  :class => "fr" %>

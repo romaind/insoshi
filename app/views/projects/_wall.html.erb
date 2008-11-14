@@ -1,5 +1,5 @@
 <%- unless @project.nil? %>
-  <h4 id="wall_title">COMMENTS WALL</h4>
+  <h4 id="wall_title"><%= _("COMMENTS WALL") %></h4>
 <div class="wall">
 <%- if logged_in? -%>
     <div id="wall_form" >
@@ -17,7 +17,7 @@
         </div>
   
         <div id="wall_button">
-          <%= submit_tag "SUBMIT", :class => "button" %>
+          <%= submit_tag "SUBMIT", :class => _("button") %>
         </div>
     <%- end -%>
     </div>

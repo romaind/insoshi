@@ -1,7 +1,7 @@
-<h4>CONTACTS</h4>
+<h4><%= _("CONTACTS") %></h4>
 <div id="contacts_small">
   <%- if @some_contacts.empty? -%>
-  	<p id="nocontact">No contact</p>
+  	<p id="nocontact"><%= _("No contact") %></p>
   <%- else %>
   	<table>
       <%- @some_contacts.in_groups_of(4) do |row| -%>
@@ -44,7 +44,7 @@
     					<%- if current_person?(@person) and not(current_person.admin?) %>
     						<div class="delete">
     						  <%= link_to image_tag ("icons/delete.gif"), connection_path(Connection.conn(current_person, contact)), :method => :delete, :confirm => "Are you sure you want to end connection with #{h contact.first_name} #{h contact.name}?" %>
-    							<%= link_to "Delete", connection_path(Connection.conn(current_person, contact)), :method => :delete, :confirm => "Are you sure you want to end connection with #{h contact.first_name} #{h contact.name}?" %>
+    							<%= link_to "Delete", connection_path(Connection.conn(current_person, contact)), :method => :delete, :confirm => _("Are you sure you want to end connection with #{h contact.first_name} #{h contact.name}?") %>
     						</div>
     					<%- end %>
           		</td>

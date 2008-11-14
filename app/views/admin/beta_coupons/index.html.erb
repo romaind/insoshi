@@ -1,4 +1,4 @@
-<h1>Listing beta_coupons</h1>
+<h1><%= _("Listing beta_coupons") %></h1>
 
 <% form_for :dump, :url=>{:controller=> "admin/beta_coupons", :action=> "csv_import"}, :html => { :multipart => true } do |f| -%>
  <table”>
@@ -14,7 +14,7 @@
    </tr>
    <tr>
      <td colspan="2">
-       <%= submit_tag "Submit" -%>
+       <%= submit_tag _("Submit") -%>
      </td>
    </tr>
  </table>
@@ -22,8 +22,8 @@
 
 <table>
   <tr>
-    <th>Coupon</th>
-    <th>User</th>
+    <th><%= _("Coupon") %></th>
+    <th><%= _("User") %></th>
   </tr>
 
 <% for beta_coupon in @beta_coupons %>

@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
     person = Person.authenticate(params[:email], params[:password])
     unless person.nil?
       if person.deactivated?
-        flash[:error] = "Your account has been deactivated"
+        flash[:error] = _("Your account has been deactivated")
         redirect_to home_url and return
       elsif global_prefs && global_prefs.email_verifications? and 
             not person.email_verified? and not person.admin?
@@ -39,7 +39,7 @@ class SessionsController < ApplicationController
           :value => self.current_person.remember_token,
           :expires => self.current_person.remember_token_expires_at }
       end
-      flash[:success] = "Logged in successfully"
+      flash[:success] = _("Logged in successfully")
       if @first_admin_login
         redirect_to admin_preferences_url
       else
@@ -47,7 +47,7 @@ class SessionsController < ApplicationController
       end
     else
       @body = "login single-col"
-      flash.now[:error] = "Invalid email/password combination"
+      flash.now[:error] = _("Invalid email/password combination")
       params[:password] = nil
       render :action => 'new'
     end
@@ -58,11 +58,11 @@ class SessionsController < ApplicationController
     cookies.delete :auth_token
     if logged_in? and current_person.deactivated?
       reset_session
-      flash[:error] = "Your account is inactive."
+      flash[:error] = _("Your account is inactive.")
       redirect_to home_url
     else
       reset_session
-      flash[:success] = "You have been logged out."
+      flash[:success] = _("You have been logged out.")
       redirect_back_or_default(new_session_url)
     end
   end

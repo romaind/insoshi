@@ -1,5 +1,5 @@
 <%- column_div :type => :primary do -%>
-  <h2>Editing preferences</h2>
+  <h2><%= _("Editing preferences") %></h2>
 
   <%= error_messages_for :preferences %>
 
@@ -27,7 +27,7 @@
       <%= f.text_field :smtp_server %>
     </div>
 
-    <p>Send email when messages, connection requests, etc., are sent</p>
+    <p><%= _("Send email when messages, connection requests, etc., are sent") %></p>
     <div class="form_row">
       <label for="email_notifications"
              class="checkbox">Email notifications</label>
@@ -36,7 +36,7 @@
 
     <br />
 
-    <p>Display a note that the site is just a demonstration</p>  
+    <p><%= _("Display a note that the site is just a demonstration") %></p>  
     <div class="form_row">
       <label for="demo"
              class="checkbox">Demo site</label>
@@ -45,7 +45,7 @@
 
     <br />
 
-    <p>Verify email for new registrations using an activation code</p>  
+    <p><%= _("Verify email for new registrations using an activation code") %></p>  
     <div class="form_row">
       <label for="email_verifications"
              class="checkbox">Email verifications</label>
@@ -71,8 +71,8 @@
     </div>
 
     <div class="form_row">
-      <%= f.submit "Update", :class => "button" %>
+      <%= f.submit "Update", :class => _("button") %>
     </div>
-      or <%= link_to "Cancel", admin_preferences_path %>
+      or <%= link_to _("Cancel"), admin_preferences_path %>
   <% end %>
 <%- end -%>

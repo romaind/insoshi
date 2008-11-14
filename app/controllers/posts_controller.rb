@@ -69,7 +69,7 @@ class PostsController < ApplicationController
   def destroy
     @post = model.find(params[:id])
     @post.destroy
-    flash[:success] = "Post destroyed"
+    flash[:success] = _("Post destroyed")
 
     respond_to do |format|
       format.html { redirect_to posts_url }

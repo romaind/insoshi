@@ -25,7 +25,7 @@ class PeopleController < ApplicationController
     @draftprojects = @person.projects.all_draft.paginate(:page => params[:page], :per_page => 12, :order => 'created_at DESC') if @draftprojects.size > 0
     
     unless @person.active? or current_person.admin?
-      flash[:error] = "That person is not active"
+      flash[:error] = _("That person is not active")
       redirect_to home_url and return
     end
     
@@ -78,7 +78,7 @@ class PeopleController < ApplicationController
               format.html { redirect_to new_session_path }
             else
               self.current_person = @person
-              flash[:notice] = "Thanks for signing up!"
+              _("Thanks for signing up!")
               format.html { redirect_back_or_default(home_url) }
             end
           else
@@ -102,7 +102,7 @@ class PeopleController < ApplicationController
   def verify_email
     verification = EmailVerification.find_by_code(params[:id])
     if verification.nil?
-      flash[:error] = "Invalid email verification code"
+      flash[:error] = _("Invalid email verification code")
       redirect_to home_url
     else
       cookies.delete :auth_token
@@ -110,7 +110,7 @@ class PeopleController < ApplicationController
       person.email_verified = true; person.save!
       person.be_draft!
       self.current_person = person
-      flash[:success] = "Email verified. Your profile is active! Please fill your personnal informations !!"
+      flash[:success] = _("Email verified. Your profile is active! Please fill your personnal informations !!")
       redirect_to editprofile_path(person, "mandatory")
     end
   end
@@ -180,7 +180,7 @@ class PeopleController < ApplicationController
         end
       when 'password_edit'
         if global_prefs.demo?
-          flash[:error] = "Passwords can't be changed in demo mode."
+          _("Passwords can't be changed in demo mode.")
           redirect_to @person and return
         end
         if @person.change_password?(params[:person])
@@ -217,14 +217,14 @@ class PeopleController < ApplicationController
     if params[:invitation]
       STDERR.puts 'Coupooooooooon : ' + params[:invitation]
       if coupon = BetaCoupon.find_by_coupon(params[:invitation], :conditions => ["person_id is NULL"])
-        flash[:error] = "Your beta_coupon is valid, now please loggin"
+        flash[:error] = _("Your beta_coupon is valid, now please register")
         redirect_to signup_path(:coupon => params[:invitation])
       else
-        flash[:error] = "This beta coupon is not valid or already used"
+        flash[:error] = _("This beta coupon is not valid or already used")
         redirect_to new_session_path
       end
     else
-      flash[:error] = "Please enter a beta coupon"
+      flash[:error] = _("Please enter a beta coupon")
       redirect_to new_session_path
     end
   end

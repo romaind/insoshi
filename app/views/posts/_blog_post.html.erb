@@ -5,7 +5,7 @@
                 blog_post_path(@blog, blog_post),
                 :class => "show-follow" %>
     <%- if current_person?(@blog.person) -%>
-      | <%= link_to "Edit", edit_blog_post_path(@blog, blog_post) %>
+      | <%= link_to _("Edit"), edit_blog_post_path(@blog, blog_post) %>
       | <%= link_to "Delete", blog_post_path(@blog, blog_post),
                               :method => :delete %>
     <%- end -%>

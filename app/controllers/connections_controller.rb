@@ -28,7 +28,7 @@ class ConnectionsController < ApplicationController
       else
         # This should only happen when people do something funky
         # like friending themselves.
-        flash[:notice] = "Invalid connection"
+        flash[:notice] = _("Invalid connection")
         format.html { redirect_to :back }
       end
     end
@@ -81,11 +81,11 @@ class ConnectionsController < ApplicationController
       @connection = Connection.find(params[:id],
                                     :include => [:person, :contact])
       unless current_person?(@connection.person)
-        flash[:error] = "Invalid connection."
+        flash[:error] = _("Invalid connection.")
         redirect_to :back
       end
     rescue ActiveRecord::RecordNotFound
-      flash[:error] = "Invalid or expired connection request"
+      flash[:error] = _("Invalid or expired connection request")
       redirect_to :back
     end
     
@@ -94,7 +94,7 @@ class ConnectionsController < ApplicationController
     # deactivates Alice. We don't want Bob to be able to make the connection.
     def redirect_for_inactive
       if @connection.contact.deactivated?
-        flash[:error] = "Invalid connection request: person deactivated"
+        flash[:error] = _("Invalid connection request: person deactivated")
         redirect_to home_url
       end
     end

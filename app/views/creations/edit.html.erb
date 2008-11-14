@@ -1,15 +1,15 @@
-<h1>Editing creation</h1>
+<h1><%= _("Editing creation") %></h1>
 
 <%= error_messages_for :creation %>
 
 <% form_for(@creation, :url => person_project_creation_path(current_person, @project, @creation)) do |f| %>
   <p>
-    <b>Set up Assets handling</b><br />
+    <b><%= _("Set up Assets handling") %></b><br />
     <%#= f.text_field :project_id %>
   </p>
 
   <p>
-    <%= f.submit "Update" %>
+    <%= f.submit _("Update") %>
   </p>
 <% end %>
 

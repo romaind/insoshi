@@ -10,9 +10,9 @@
 	</tr>
 	<tr>
 		<td class="time">
-    		<%= comment.created_at.strftime("On <b>%d/%m/%Y</b>") %>
+    		<%= comment.created_at.strftime(_("On <b>%d/%m/%Y</b>")) %>
 			<br>
-    		<%= comment.created_at.strftime("at <b>%I:%M%p</b>") %>
+    		<%= comment.created_at.strftime(_("at <b>%I:%M%p</b>")) %>
 		</td>
 	</tr>
   </table>
@@ -25,7 +25,7 @@
   			<%- if current_person?(comment.commentable) -%>
 				<br />
   				<%= link_to image_tag("icons/trash.gif"), person_comment_path(@person, comment), :method => :delete %>
-  				<span class = "del"><%= link_to "Delete", person_comment_path(@person, comment), :method => :delete %></span>
+  				<span class = "del"><%= link_to _("Delete"), person_comment_path(@person, comment), :method => :delete %></span>
   			<%- end -%>
 		</td>
 	</table>

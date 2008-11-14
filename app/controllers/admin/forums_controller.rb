@@ -75,7 +75,7 @@ class Admin::ForumsController < ApplicationController
     
     def protect_last_forum
       if Forum.count == 1
-        flash[:error] = "There must be at least one forum."
+        flash[:error] = _("There must be at least one forum.")
         redirect_to admin_forums_url
       end
     end

@@ -18,7 +18,7 @@ class MessagesController < ApplicationController
     @draftprojects = @person.projects.all_draft.paginate(:page => params[:page], :per_page => 12, :order => 'created_at DESC') if @draftprojects.size > 0
     
     unless @person.active? or current_person.admin?
-      flash[:error] = "That person is not active"
+      flash[:error] = _("That person is not active")
       redirect_to home_url and return
     end
     
@@ -53,7 +53,7 @@ class MessagesController < ApplicationController
     @draftprojects = @person.projects.all_draft.paginate(:page => params[:page], :per_page => 12, :order => 'created_at DESC') if @draftprojects.size > 0
     
     unless @person.active? or current_person.admin?
-      flash[:error] = "That person is not active"
+      flash[:error] = _("That person is not active")
       redirect_to home_url and return
     end
     
@@ -88,7 +88,7 @@ class MessagesController < ApplicationController
     @draftprojects = @person.projects.all_draft.paginate(:page => params[:page], :per_page => 12, :order => 'created_at DESC') if @draftprojects.size > 0
     
     unless @person.active? or current_person.admin?
-      flash[:error] = "That person is not active"
+      flash[:error] = _("That person is not active")
       redirect_to home_url and return
     end
     
@@ -128,7 +128,7 @@ class MessagesController < ApplicationController
     @draftprojects = @person.projects.all_draft.paginate(:page => params[:page], :per_page => 12, :order => 'created_at DESC') if @draftprojects.size > 0
     
     unless @person.active? or current_person.admin?
-      flash[:error] = "That person is not active"
+      flash[:error] = _("That person is not active")
       redirect_to home_url and return
     end
     
@@ -167,7 +167,7 @@ class MessagesController < ApplicationController
     @draftprojects = @person.projects.all_draft.paginate(:page => params[:page], :per_page => 12, :order => 'created_at DESC') if @draftprojects.size > 0
     
     unless @person.active? or current_person.admin?
-      flash[:error] = "That person is not active"
+      flash[:error] = _("That person is not active")
       redirect_to home_url and return
     end
     
@@ -214,7 +214,7 @@ class MessagesController < ApplicationController
     @draftprojects = @person.projects.all_draft.paginate(:page => params[:page], :per_page => 12, :order => 'created_at DESC') if @draftprojects.size > 0
     
     unless @person.active? or current_person.admin?
-      flash[:error] = "That person is not active"
+      flash[:error] = _("That person is not active")
       redirect_to home_url and return
     end
     
@@ -278,10 +278,10 @@ class MessagesController < ApplicationController
   def destroy
     @message = Message.find(params[:id])
     if @message.trash(current_person)
-      flash[:success] = "Message trashed"
+      flash[:success] = _("Message trashed")
     else
       # This should never happen...
-      flash[:error] = "Invalid action"
+      flash[:error] = _("Invalid action")
     end
   
     respond_to do |format|
@@ -292,10 +292,10 @@ class MessagesController < ApplicationController
   def undestroy
     @message = Message.find(params[:id])
     if @message.untrash(current_person)
-      flash[:success] = "Message restored to inbox"
+      flash[:success] = _("Message restored to inbox")
     else
       # This should never happen...
-      flash[:error] = "Invalid action"
+      flash[:error] = _("Invalid action")
     end
     respond_to do |format|
       format.html { redirect_to messages_url }

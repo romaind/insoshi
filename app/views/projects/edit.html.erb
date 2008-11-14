@@ -1,13 +1,13 @@
 <%= error_messages_for :project %>
 <div id="project">
-	<h4>Editing project</h4>
+	<h4><%= _("Editing project") %></h4>
 	<div id="project_global" >
 	  
 	  <div id="projecttabs" class="clearfix">
 	    <ul class="clearfix yellow">
-  	    <%= tab_to "Settings", editproject_path(current_person, @project, "settings"), :class => "current" %>
-        <%= tab_to "Content", editproject_path(current_person, @project, "content"), :class => "current" %>
-        <%= tab_to "Copyrights", editproject_path(current_person, @project, "copyrights"), :class => "current" %>
+  	    <%= tab_to "Settings", editproject_path(current_person, @project, "settings"), :class => _("current") %>
+        <%= tab_to "Content", editproject_path(current_person, @project, "content"), :class => _("current") %>
+        <%= tab_to "Copyrights", editproject_path(current_person, @project, "copyrights"), :class => _("current") %>
       </ul>
 	  </div>
 	  <% case @part
@@ -43,7 +43,7 @@
       		</table>
 		
           <p id="tags">
-            <label>Tag your project (separate with ","):</label>
+            <label><%= _("Tag your project (separate with \",\"):") %></label>
             <span><%= f.text_field :tag_list, :default => @project.tags.collect{|t| t.name}.join(", ") %></span>  
           </p>
 
@@ -93,12 +93,12 @@
 
     		<p id="terms_content">
     			<span>I certify Iown all the rights on the content I'm uploading and this content respects the
-    			<%= link_to "Terms of Use", "terms_of_use",{:id => "terms"} %> of Coaliz</span>
+    			<%= link_to "Terms of Use", "terms_of_use",{:id => _("terms")} %> of Coaliz</span>
     			<%#= f.radio_button :p, :terms %>
     		</p>
         <br>
     		<p class="buttons">
-      		<%= f.submit "Create" %>
+      		<%= f.submit _("Create") %>
       		<%= link_to button_to("Exit"), choose_person_projects_path(current_person) %>
     		</p>
   		<% end %>
@@ -146,7 +146,7 @@
       </p>
       
       <% form_for(@project, :url => person_project_path(current_person, @project)) do |f| %>
-        <label>Want to change ?</label>
+        <label><%= _("Want to change ?") %></label>
         <%= f.select :creative_common_id, CreativeCommon.find(:all).map{|obj| [obj.label,obj.id]} %>
         <%= observe_field "project_creative_common_id", :update => "cc_details",
         :with => "'id='+ escape(value)", :url => {:action => "cc_detail" } %>

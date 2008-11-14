@@ -54,7 +54,7 @@ class CreationsController < ApplicationController
         format.html { redirect_to :back }
         format.xml  { render :xml => @creation, :status => :created, :location => @creation }
       else
-        flash[:error] = "Please choose a file"
+        flash[:error] = _("Please choose a file")
         format.html { redirect_to editproject_path(current_person, @project, "content") }
         format.xml  { render :xml => @creation.errors, :status => :unprocessable_entity }
       end
@@ -98,7 +98,7 @@ class CreationsController < ApplicationController
   private
   def correct_project_owner_required
     unless Project.find(params[:project_id]).person == current_person
-      flash[:error] = "You're not allowed to access this area!"
+      flash[:error] = _("You're not allowed to access this area!")
       redirect_to person_path(current_person)
     end
   end

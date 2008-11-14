@@ -9,7 +9,7 @@ class Admin::PeopleController < ApplicationController
   def update
     @person = Person.find(params[:id])
     if current_person?(@person)
-      flash[:error] = "Action failed."
+      _("Action failed.")
     else
       @person.toggle!(params[:task])
       flash[:success] = "#{CGI.escapeHTML @person.name} updated."

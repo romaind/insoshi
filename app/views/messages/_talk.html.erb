@@ -10,10 +10,10 @@
   <td class="commenter">
   	<p>
       <%- if current_person?(talk.sender) -%>
-        <span class="label">To:</span>
+        <span class="label"><%= _("To:") %></span>
         <%= person_link talk.recipient, :class => "url fn" %>
       <%- else -%>
-        <span class="label">From:</span>
+        <span class="label"><%= _("From:") %></span>
         <%= person_link talk.sender, :class => "url fn" %>
       <%- end -%>
 	</p>
@@ -36,9 +36,9 @@
 	  <td class = "right_border"></td>
   <tr><td colspan = "3" class = "bottom">
   <p class="tools_meta">
-    <%= link_to "Reply", reply_person_message_path(current_person, talk) %> |
+    <%= link_to _("Reply"), reply_person_message_path(current_person, talk) %> |
     <% unless talk.trashed?(current_person) -%>
-      <%= link_to("Trash", person_message_path(current_person, talk), :method => :delete) %>
+      <%= link_to(_("Trash"), person_message_path(current_person, talk), :method => :delete) %>
     <% else -%>
       <%= link_to "Untrash", undestroy_person_message_path(current_person, talk), 
                              :method => :put %>

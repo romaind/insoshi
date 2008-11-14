@@ -12,6 +12,34 @@ class ApplicationController < ActionController::Base
                 :admin_warning,
                 :require_login,
                 :must_be_active
+                
+  # I18N with gettext http://www.yotabanana.com/hiki/ruby-gettext-howto-rails.html
+  before_init_gettext :default_locale
+  def default_locale
+    default_locale = 'en'
+      request_language = request.env['HTTP_ACCEPT_LANGUAGE']
+      request_language = request_language.nil? ? nil : request_language[/[^,;]+/]
+
+      # non supported languages should default to english actually
+      unless ["fr", "en"].include? request_language
+        request_language = default_locale
+      end
+
+      @locale = params[:lang] || session[:lang] ||
+                request_language || default_locale
+      # If the user sends a locale in the params, it means he wants to change of it so it has to be stored
+      if logged_in? && params[:lang]
+        current_user.update_attribute(:language, params[:lang])
+      end
+
+      session[:lang] = @locale
+      begin
+        set_locale @locale
+      rescue
+        set_locale default_locale
+      end
+  end 
+  init_gettext "coaliz"
 
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store
@@ -27,7 +55,7 @@ class ApplicationController < ActionController::Base
 
     def admin_required
       unless current_person.admin?
-        flash[:error] = "Admin access required"
+        flash[:error] = _("Admin access required")
         redirect_to home_url
       end
     end
@@ -84,7 +112,7 @@ class ApplicationController < ActionController::Base
     def must_be_active
       if logged_in?
         unless current_person.activated?
-          flash[:error] = "Please fill your personal informations"
+          flash[:error] = _("Please fill your personal informations")
           redirect_to editprofile_path(current_person, "mandatory")
         end
       end
@@ -93,7 +121,7 @@ class ApplicationController < ActionController::Base
     def must_be_a_published_project
       if logged_in?
         unless Project.find(params[:id]).published? or Project.find(params[:id]).person_id == current_person.id
-          flash[:error] = "You're not allowed to access this project"
+          flash[:error] = _("You're not allowed to access this project")
           redirect_to home_url
         end
       end
