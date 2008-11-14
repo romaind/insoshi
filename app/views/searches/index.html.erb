@@ -1,14 +1,23 @@
 <% column_div :type => :primary do %>
-  <h2>Search results</h2>
-  <%= will_paginate(@search) %>
-    <%- if @results.empty? -%>
-      <h3>No results</h3>
-    <%- else -%>
-      <ul class="list people">
-        <%= render :partial => partial(@results), :collection => @results %>
-      </ul>
-    <%- end -%>
-  <%= will_paginate(@search) %>
+  <div id="contact_preview" class="clearfix">
+    <h4>Search results</h4>
+    <%= will_paginate(@search) %>
+      <%- if @results.empty? -%>
+        <h3>No results</h3>
+      <%- else -%>
+        <div id="contacts_small">
+          <table id="list people">
+            <% @results.in_groups_of(3) do |row| %>
+              <tr>
+                <%= render :partial => "people/person_row", :locals => {:row => row} %>
+              </tr>
+            <% end %>
+              <%#= render :partial => partial(@results), :collection => @results %>
+          </table>
+        </div>
+      <%- end -%>
+    <%= will_paginate(@search) %>
+  </div>
 <%- end -%>
 
 <%# column_div :type => :secondary do %>
