@@ -252,6 +252,25 @@ class PeopleController < ApplicationController
     end
   end
   
+  def category_filter
+    # render :layout => false
+    per_line = 4
+    if params[:id] == '0'
+      @people = Person.mostly_active(params[:page])
+    else
+      @people = Skill.find(params[:id].to_s).person.paginate(:page => params[:author_page],:per_page => 5, :order => 'created_at DESC')
+    end
+    respond_to do |format|
+      format.html { 
+        if @people.length > 0
+          render :partial => "people_list", :locals => { :people => @people }
+        else
+          render :text => "No user with this skill"
+        end
+        }
+    end
+  end
+  
   private
 
   def setup

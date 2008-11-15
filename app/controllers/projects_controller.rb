@@ -199,8 +199,7 @@ class ProjectsController < ApplicationController
     if params[:id] == '0'
       @projects = Project.all_published.paginate(:page => params[:author_page],:per_page => 5, :order => 'created_at DESC')
     else
-      # @projects = Skill.find(params[:id].to_i).project
-      @projects = Project.all_from_state(params[:id]).paginate(:page => params[:author_page],:per_page => 5, :order => 'created_at DESC')
+      @projects = Skill.find(params[:id].to_s).project.paginate(:page => params[:author_page],:per_page => 5, :order => 'created_at DESC')
     end
     respond_to do |format|
       format.html { 

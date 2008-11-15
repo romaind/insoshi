@@ -1,0 +1,4 @@
+%table#list_people
+  -people.in_groups_of(4) do |row|
+    %tr
+      =render :partial => "person_row", :locals => {:row => row}
