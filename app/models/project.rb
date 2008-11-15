@@ -59,6 +59,11 @@ class Project < ActiveRecord::Base
       find_in_state(:all, :draft, :order => 'created_at DESC')
     end
     
+    def all_from_state(id)
+      request = "SELECT * FROM `projects` INNER JOIN `projects_skills` ON `projects`.id = `projects_skills`.project_id WHERE (`projects_skills`.skill_id = "+ id +" )"
+      find_by_sql(request)
+    end
+    
   end
   
   protected
