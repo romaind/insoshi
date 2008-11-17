@@ -192,8 +192,25 @@ class ProjectsController < ApplicationController
         redirect_to profile_path(current_person, "profile")
       }
     end
-    
-    
+  end
+  
+  def category_filter
+    # render :layout => false
+    per_line = 4
+    if params[:id] == '0'
+      @projects = Project.all_published.paginate(:page => params[:author_page],:per_page => 5, :order => 'created_at DESC')
+    else
+      @projects = Skill.find(params[:id].to_s).project.paginate(:page => params[:author_page],:per_page => 5, :order => 'created_at DESC')
+    end
+    respond_to do |format|
+      format.html { 
+        if @projects.length > 0
+          render :partial => 'projects_list', :locals => {:per_line => per_line, :projects => @projects} 
+        else
+          render :text => "No project with this category"
+        end
+        }
+    end
   end
   
   private
