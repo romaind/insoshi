@@ -74,6 +74,7 @@ Rails::Initializer.run do |config|
   #                                    :lib => 'will_paginate',
   #                                    :source => 'http://gems.github.com'
   config.gem 'chronic'
+  config.gem "gettext", :lib => "gettext/rails"
 end
 # Set INLINEDIR to override default location for ruby_inline directory
 # The home directory may not be correctly set in an "su"/"sudo" situation

@@ -6,7 +6,7 @@
 	</tr>
 	<tr>
 		<td rowspan="4" id='login_left'></td>
-		<td>The social network for schools and designers</td>
+		<td><%= _("The social network for schools and designers") %></td>
 		<td rowspan="4" id="login_right"></td>
 	</tr>
 	<tr>
@@ -31,7 +31,7 @@
 		  <%- form_tag coupon_validator_people_path do %>
 			  <table id="invitation_form">
 				  <tr><td>
-					  <label for="invitation">Code</label>
+					  <label for="invitation"><%= _("Code") %></label>
 					  <%=text_field_tag('invitation', params[:betacoupon]) %>
 					  </td>
 					  <td>
@@ -48,12 +48,12 @@
 				<table class="form_row">
 					<tr>
 					<td>
-            			<label for="email" >Email</label>
+            			<label for="email" ><%= _("Email") %></label>
             			<%=text_field_tag('email', params[:email], :maxlength => Person::MAX_EMAIL) %>
 					</tr>
 					<tr><td>
           		<%=set_focus_to_id "email"%>
-            		<label for="password">Password</label>
+            		<label for="password"><%= _("Password") %></label>
             		<%=password_field_tag 'password', params[:password], :maxlength => Person::MAX_PASSWORD %>
 					</td>
 					<td>
@@ -69,7 +69,7 @@
 	</tr>
 	<tr>
 		<td colspan="3" id="login_bottom">
-		<%= link_to "contact" %>
+		<%= link_to _("contact") %>
 		</td>
 	</tr>
 </table>

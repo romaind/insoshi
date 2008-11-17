@@ -1,17 +1,17 @@
 <div class="accordion_toggle tab_title clearfix hand"><h4>Project options</h4></div>
 <div class="accordion_content content">
 	<div id="options">
-		<%=link_to "See portfolio", person_path(@project.person) %>
+		<%=link_to _("See portfolio"), person_path(@project.person) %>
 		<% if current_person?(@project.person) %>		
   		<p>
-  			<%= link_to "Edit this project", editproject_path(@project.person, @project, "settings") %>
+  			<%= link_to "Edit this project", editproject_path(@project.person, @project, _("settings")) %>
   		</p>
   		<p>
-  			<%= link_to "Delete this project", person_project_path(@project.person, @project), :confirm => 'Are you sure?', :method => :delete  %>
+  			<%= link_to _("Delete this project"), person_project_path(@project.person, @project), :confirm => 'Are you sure?', :method => :delete  %>
   		</p>
 		<% end %>
 		<p>
-			<%= link_to "Comment this project" %>
+			<%= link_to _("Comment this project") %>
 		</p>
     <!-- <p>
       <%#= link_to "Tag this project" %>

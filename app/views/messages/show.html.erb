@@ -6,19 +6,19 @@
   <div id="persontabs">
     <% if current_person?(@person) %>
       <ul class="clearfix yellow">
-        <%= tab_to "Profile", profile_path(@person, "profile"), :class => "current" %>
-        <%= tab_to "News", profile_path(@person, "news"), :class => "current" %>
-        <%= tab_to "Network", profile_path(@person, "network"), :class => "current" %>
-        <%= tab_to "Favorites", profile_path(@person, "favorites"), :class => "current" %>
-        <%= tab_to "Wall", profile_path(@person, "wall"), :class => "current" %>
-        <%= tab_to "Messages", profile_path(@person, "messages"), :class => "current" %>
+        <%= tab_to "Profile", profile_path(@person, "profile"), :class => _("current") %>
+        <%= tab_to "News", profile_path(@person, "news"), :class => _("current") %>
+        <%= tab_to "Network", profile_path(@person, "network"), :class => _("current") %>
+        <%= tab_to "Favorites", profile_path(@person, "favorites"), :class => _("current") %>
+        <%= tab_to "Wall", profile_path(@person, "wall"), :class => _("current") %>
+        <%= tab_to "Messages", profile_path(@person, "messages"), :class => _("current") %>
       </ul>
     <% else %>
       <ul class="clearfix green">
-        <%= tab_to "Profile", profile_path(@person, "profile"), :class => "current" %>
-        <%= tab_to "Network", profile_path(@person, "network"), :class => "current" %>
-        <%= tab_to "Favorites", profile_path(@person, "favorites"), :class => "current" %>
-        <%= tab_to "Wall", profile_path(@person, "wall"), :class => "current" %>
+        <%= tab_to "Profile", profile_path(@person, "profile"), :class => _("current") %>
+        <%= tab_to "Network", profile_path(@person, "network"), :class => _("current") %>
+        <%= tab_to "Favorites", profile_path(@person, "favorites"), :class => _("current") %>
+        <%= tab_to "Wall", profile_path(@person, "wall"), :class => _("current") %>
       </ul>
     <% end %>
   </div>   
@@ -37,7 +37,7 @@
   <%= render :partial => 'message_nav' %>
 
 <%- if @talks.empty? -%>
-    <h3 class="blankslate">No messages (yet!)</h3>
+    <h3 class="blankslate"><%= _("No messages (yet!)") %></h3>
   <%- else -%>
     <%= render :partial => "talk", :collection => @talks %>
   <%- end -%>

@@ -10,10 +10,10 @@
   <td class="commenter">
   	<p>
       <%- if current_person?(message.sender) -%>
-        <span class="label">To:</span>
+        <span class="label"><%= _("To:") %></span>
         <%= person_link message.recipient, :class => "url fn" %>
       <%- else -%>
-        <span class="label">From:</span>
+        <span class="label"><%= _("From:") %></span>
         <%= person_link message.sender, :class => "url fn" %>
       <%- end -%>
 	</p>
@@ -21,9 +21,9 @@
 </tr>
 <tr>
   <td class="time">
-    <%= message.created_at.strftime("On <b>%d/%m/%Y</b>") %>
+    <%= message.created_at.strftime(_("On <b>%d/%m/%Y</b>")) %>
 	<br>
-    <%= message.created_at.strftime("at <b>%I:%M%p</b>") %>
+    <%= message.created_at.strftime(_("at <b>%I:%M%p</b>")) %>
   </td>
 </tr>
 </table>
@@ -41,10 +41,10 @@
 	  <td class = "right_border"></td>
   <tr><td colspan = "3" class = "bottom">
   <p class="tools_meta">
-	<%= link_to "Read", person_message_path(current_person, message) %> |
-    <%= link_to "Reply", reply_person_message_path(current_person, message) %> |
+	<%= link_to _("Read"), person_message_path(current_person, message) %> |
+    <%= link_to _("Reply"), reply_person_message_path(current_person, message) %> |
     <% unless message.trashed?(current_person) -%>
-      <%= link_to("Trash", person_message_path(current_person, message), :method => :delete) %>
+      <%= link_to(_("Trash"), person_message_path(current_person, message), :method => :delete) %>
     <% else -%>
       <%= link_to "Untrash", undestroy_person_message_path(current_person, message),
                              :method => :put %>

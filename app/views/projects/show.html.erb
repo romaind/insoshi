@@ -10,7 +10,7 @@
     <% if logged_in? %>
       <p>
         <% if @canvote %>
-          <%= link_to "vote", vote_person_project_path(@project.person, @project) %>
+          <%= link_to _("vote"), vote_person_project_path(@project.person, @project) %>
         <% else %>
           Thank you for your vote
         <% end %>
@@ -19,9 +19,9 @@
   </div>
 
   <h3><%=h @project.title.upcase %></h3>
-  <div id="player">There should be a player here... in fact...</div>
+  <div id="player"><%= _("There should be a player here... in fact...") %></div>
   <div class ="playlist_tab">
-    <h4>PROJECTS FROM THIS AUTHOR</h4>
+    <h4><%= _("PROJECTS FROM THIS AUTHOR") %></h4>
     <%- will_paginate @author_projects %>
     <table class="playlist">
       <tr>
@@ -47,7 +47,7 @@
   </div>
 
   <div class ="playlist_tab">
-    <h4>ALL PROJECTS</h4>
+    <h4><%= _("ALL PROJECTS") %></h4>
     <%- will_paginate @all_projects %>
     <table class="playlist">
       <tr>

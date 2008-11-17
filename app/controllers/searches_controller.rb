@@ -12,7 +12,7 @@ class SearchesController < ApplicationController
     page  = params[:page] || 1
 
     unless %(Person Message ForumPost).include?(model)
-      flash[:error] = "Invalid search"
+      flash[:error] = _("Invalid search")
       redirect_to home_url and return
     end
 

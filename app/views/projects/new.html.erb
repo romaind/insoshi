@@ -1,12 +1,12 @@
 <%= error_messages_for :project %>
 <div id="project">
-	<h4>New project</h4>
+	<h4><%= _("New project") %></h4>
 	<div id="project_global" >
 
 
     <div id="projecttabs" class="clearfix">
       <ul class="clearfix yellow">
-        <%= tab_to "Settings", newproject_path(current_person, "settings"), :class => "current" %>
+        <%= tab_to "Settings", newproject_path(current_person, "settings"), :class => _("current") %>
         <%#= tab_to "Content", newproject_path(current_person, "content"), :class => "current" %>
         <%#= tab_to "Copyrights", newproject_path(current_person, "network"), :class => "current" %>
       </ul>
@@ -56,7 +56,7 @@
   		<p>
 			<table id="buttons" >
 				<tr>
-				  <td><%= f.submit "Save & Continue" %></td>
+				  <td><%= f.submit _("Save & Continue") %></td>
 				  <td><%= link_to button_to("Cancel"), :back %></td>
 				</tr>
 			</table>

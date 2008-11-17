@@ -1,14 +1,14 @@
 <div class="w310">
-<p>The Contact form</p>
+<p><%= _("The Contact form") %></p>
 <% form_tag contact_us_path, :id => "theform", :name => "theform", :method => :post do %>
   <p>
-    <label>Email</label>
+    <label><%= _("Email") %></label>
     <%= text_field :contact, :email %>
   </p>
   <p>
-    <label>Message</label><br/>
+    <label><%= _("Message") %></label><br/>
     <%= text_area :contact, :message, :rows => 5, :cols => 30 %>
   </p>
-  <%= submit_tag "Send" %>  
+  <%= submit_tag _("Send") %>  
 <% end %>
 </div>

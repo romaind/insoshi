@@ -1,15 +1,15 @@
-<h1>Editing skill</h1>
+<h1><%= _("Editing skill") %></h1>
 
 <%= error_messages_for :skill %>
 
 <% form_for(@skill) do |f| %>
   <p>
-    <b>Name</b><br />
+    <b><%= _("Name") %></b><br />
     <%= f.text_field :name %>
   </p>
 
   <p>
-    <%= f.submit "Update" %>
+    <%= f.submit _("Update") %>
   </p>
 <% end %>
 

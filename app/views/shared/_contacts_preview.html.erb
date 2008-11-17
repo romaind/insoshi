@@ -1,7 +1,7 @@
-<h4>CONTACTS</h4>
+<h4><%= _("CONTACTS") %></h4>
 <div id="contacts_small">
   <%- if @some_contacts.empty? -%>
-  	<p id="nocontact">No contact</p>
+  	<p id="nocontact"><%= _("No contact") %></p>
   <%- else %>
   	<table>
       <%- @some_contacts.in_groups_of(4) do |row| -%>
@@ -53,8 +53,7 @@
     							</td>
     						</tr>
     					</table>
-
-      				  </div>
+      				</div>
           		</td>
           	<%- end -%>
         	<%- end -%>

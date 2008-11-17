@@ -1,7 +1,7 @@
 <p>
-  <b>Creation :</b><br/>
+  <b><%= _("Creation :") %></b><br/>
   <%- if @creation.asset.item_content_type.starts_with? "video" -%>
-    <div id="player">There should be a player here... in fact...</div>
+    <div id="player"><%= _("There should be a player here... in fact...") %></div>
     <script type="text/javascript">
       var so = new SWFObject('/swf/player.swf','mpl','584','380','9','#000000');
       so.addParam('allowscriptaccess','always');

@@ -1,4 +1,4 @@
-<h1>New beta_coupon</h1>
+<h1><%= _("New beta_coupon") %></h1>
 
 <% form_for(@beta_coupon, :url => admin_beta_coupons_path) do |f| %>
   <%= f.error_messages %>
@@ -8,7 +8,7 @@
     <%= f.text_field :coupon %>
   </p>
   <p>
-    <%= f.submit "Create" %>
+    <%= f.submit _("Create") %>
   </p>
 <% end %>
 

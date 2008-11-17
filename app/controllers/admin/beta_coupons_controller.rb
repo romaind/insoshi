@@ -100,7 +100,7 @@ class Admin::BetaCouponsController < ApplicationController
         n=n+1
         #GC.start if n%50==0
       end
-      flash.now[:message]="CSV Import Successful, #{n} new records added to data base"
+      flash.now[:message] = _("CSV Import Successful, %d new records added to data base") % n
     end
     
     redirect_to admin_beta_coupons_path

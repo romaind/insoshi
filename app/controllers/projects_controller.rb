@@ -143,10 +143,10 @@ class ProjectsController < ApplicationController
   def vote
     project = Project.find(params[:id])
     if Vote.find_by_voteable_id_and_voteable_type_and_voter_id(project.id, "Project", current_person.id)
-      message = "You've already voted for this project"
+      message = _("You've already voted for this project")
     else
       current_person.vote_for(project)
-      message = "Thank you for your vote"
+      message = _("Thank you for your vote")
     end
     
     respond_to do |format|
@@ -161,7 +161,7 @@ class ProjectsController < ApplicationController
     case params[:id]
     when "1"
       # render :partial => "projects/commons/attribution.html.erb"
-      render :text => "You reserve all property of this work"
+      render :text => _("You reserve all property of this work")
     when "2"
       render :partial => "projects/commons/attribution.html.erb"
     when "3"
@@ -188,6 +188,7 @@ class ProjectsController < ApplicationController
     
     respond_to do |format|
       format.html {
+        flash[:notice] = _("Your project has been published")
         redirect_to profile_path(current_person, "profile")
       }
     end
@@ -226,14 +227,14 @@ class ProjectsController < ApplicationController
 
   def correct_user_required
     unless Person.find(params[:person_id]) == current_person
-      flash[:error] = "You're not allowed to access this area!"
+      flash[:error] = _("You're not allowed to access this area!")
       redirect_to person_path(current_person) 
     end
   end
   
   def correct_project_required
     unless Project.find(params[:id]).person_id == current_person.id
-      flash[:error] = "You're not allowed to access this area!"
+      flash[:error] = _("You're not allowed to access this area!")
       redirect_to person_project_path(params[:person_id], params[:id])
     end
   end

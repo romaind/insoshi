@@ -34,7 +34,7 @@ class HomeController < ApplicationController
     
     respond_to do |format|
       format.html {
-        flash[:notice] = "Your message has been sent. Thank you"
+        flash[:notice] = _("Your message has been sent. Thank you")
         redirect_to '/'}
     end
   end
@@ -49,14 +49,14 @@ class HomeController < ApplicationController
         PersonMailer.deliver_contact(params[:contact][:email], params[:contact][:message])
         respond_to do |format|
           format.html {
-            flash[:notice] = "Your message has been sent. Thank you"
+            flash[:notice] = _("Your message has been sent. Thank you")
             redirect_to home_path
           }
         end
       else
         respond_to do |format|
           format.html {
-            flash[:error] = "Email and Message can't be blank"
+            flash[:error] = _("Email and Message can't be blank")
             redirect_to :back
           }
         end
@@ -74,7 +74,7 @@ class HomeController < ApplicationController
     end
     respond_to do |format|
       format.html {
-        flash[:notice] = "Your message has been sent. Thank you"
+        flash[:notice] = _("Your message has been sent. Thank you")
         redirect_to person_project_path(item.person, item)
       }
     end
