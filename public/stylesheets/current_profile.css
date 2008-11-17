@@ -162,6 +162,15 @@
 		padding-top: 14px;	
     margin: 0; }
 
+  #projects #my_projects h4 {
+		background-color: #EFEFEF;
+    text-align: right;
+    color: #FF9900;
+    font-size: 10pt;
+    font-weight: normal;
+		padding-top: 5px;	
+    margin: 0; }
+
 #my_projects {
   background-color: white;
   border-top: 2px solid #FF9900; }

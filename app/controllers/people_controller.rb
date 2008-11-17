@@ -66,8 +66,7 @@ class PeopleController < ApplicationController
     respond_to do |format|
       @person.email_verified = false if global_prefs.email_verifications?
       if @betacoupon = BetaCoupon.find_by_coupon(params[:person][:coupon], :conditions => ["person_id is NULL"])
-        if simple_captcha_valid? && 
-          @person.save
+        if simple_captcha_valid? && @person.save
           @betacoupon.person = @person
           @betacoupon.save
           if @person.errors.empty?
@@ -83,11 +82,11 @@ class PeopleController < ApplicationController
             end
           else
             @body = "register single-col"
-            format.html { render :action => 'new' }
+            format.html { redirect_to signup_path(:coupon => params[:person][:coupon]) }
           end
         else
           flash[:error] = 'Captcha not valid'
-          format.html { render :action => 'new' }
+          format.html { redirect_to signup_path(:coupon => params[:person][:coupon]) }
         end
       else
         flash[:error] = 'Your coupon code is not valid'
@@ -125,7 +124,6 @@ class PeopleController < ApplicationController
   end
 
   def update
-    params[:person][:software_ids] ||= []
     @person = Person.find(params[:id])
     
     respond_to do |format|
@@ -137,7 +135,7 @@ class PeopleController < ApplicationController
         if !preview? and @person.update_attributes(params[:person])
           @person.be_active!
           flash[:success] = 'Profile updated!'
-          format.html { redirect_to(@person) }
+          format.html { redirect_to(profile_path(@person, "profile")) }
         else
           if preview?
             @preview = @person.description = params[:person][:description]
@@ -148,7 +146,7 @@ class PeopleController < ApplicationController
         if !preview? and @person.update_attributes(params[:person])
           @person.be_active!
           flash[:success] = 'Profile updated!'
-          format.html { redirect_to(@person) }
+          format.html { redirect_to(profile_path(@person, "profile")) }
         else
           if preview?
             @preview = @person.description = params[:person][:description]
@@ -157,10 +155,24 @@ class PeopleController < ApplicationController
         end
       when 'skill_edit'
         params[:person][:language_ids] ||= []
-        if !preview? and @person.update_attributes(params[:person])
+        params[:person][:software_ids] ||= []
+        
+        # Schools handling
+        # @person.schools.create!(:name => params[:person][:school_name])
+        # ps = @person.people_schools.find(:first, :conditions => ["person_id = ?", @person.id])
+        # schyear = params[:person]["school_year(1i)"]
+        # ps.year = schyear.to_i
+        # ps.save!
+        # @person.school_attributes = params[:school]
+        # End Schools handling
+        @person.update_attributes(params[:person])
+        @person.school_attributes = params[:person][:school_attributes]
+        # @person.save!
+        if !preview? and @person.save
           @person.be_active!
           flash[:success] = 'Profile updated!'
-          format.html { redirect_to(@person) }
+          # format.html { redirect_to(profile_path(@person, "profile")) }
+          format.html { redirect_to editprofile_path(@person, "education") }
         else
           if preview?
             @preview = @person.description = params[:person][:description]
@@ -171,7 +183,18 @@ class PeopleController < ApplicationController
         if !preview? and @person.update_attributes(params[:person])
           @person.be_active!
           flash[:success] = 'Profile updated!'
-          format.html { redirect_to(@person) }
+          format.html { redirect_to(profile_path(@person, "profile")) }
+        else
+          if preview?
+            @preview = @person.description = params[:person][:description]
+          end
+          format.html { render :action => "edit" }
+        end
+      when "notif_edit"
+        if !preview? and @person.update_attributes(params[:person])
+          @person.be_active!
+          flash[:success] = 'Profile updated!'
+          format.html { redirect_to(profile_path(@person, "profile")) }
         else
           if preview?
             @preview = @person.description = params[:person][:description]
@@ -185,7 +208,7 @@ class PeopleController < ApplicationController
         end
         if @person.change_password?(params[:person])
           flash[:success] = 'Password changed.'
-          format.html { redirect_to(@person) }
+          format.html { redirect_to(profile_path(@person, "profile")) }
         else
           format.html { render :action => "edit" }
         end
@@ -217,7 +240,7 @@ class PeopleController < ApplicationController
     if params[:invitation]
       STDERR.puts 'Coupooooooooon : ' + params[:invitation]
       if coupon = BetaCoupon.find_by_coupon(params[:invitation], :conditions => ["person_id is NULL"])
-        flash[:error] = _("Your beta_coupon is valid, now please register")
+        flash[:success] = "Your beta_coupon is valid, now please register"
         redirect_to signup_path(:coupon => params[:invitation])
       else
         flash[:error] = _("This beta coupon is not valid or already used")

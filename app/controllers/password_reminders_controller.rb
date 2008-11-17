@@ -1,6 +1,8 @@
 class PasswordRemindersController < ApplicationController
 
+  skip_before_filter :require_login
   before_filter :check_can_send_email
+  layout "login"
   
   def new
   end

@@ -31,15 +31,17 @@ class Person < ActiveRecord::Base
   extend PreferencesHelper
 
   attr_accessor :password, :verify_password, :new_password,
-                :sorted_photos
+                :sorted_photos,
+                :school_name, :school_year
   attr_accessible :email, :password, :password_confirmation, :name, :first_name,
                   :description, :connection_notifications,
                   :message_notifications, :wall_comment_notifications,
                   :blog_comment_notifications, :skill_ids, :language_ids, :software_ids, :tag_list,
                   #ADDED FIELD
-                  :birthdate, :gender, :website, :address, :zipcode, :city, :phone, :country_id, :status, :terms_of_use, :cv
+                  :birthdate, :gender, :website, :address, :zipcode, :city, :phone, :country_id, :status, :terms_of_use, :cv,
+                  :school_name, :school_year
   # Indexed fields for Sphinx
-  is_indexed :fields => [ 'name', 'description', 'deactivated', 'email_verified'],
+  is_indexed :fields => [ 'name', 'first_name', 'description', 'deactivated', 'email_verified'],
                              :conditions => "deactivated = false AND (email_verified IS NULL OR email_verified = true)"
   
   acts_as_taggable
@@ -117,6 +119,8 @@ class Person < ActiveRecord::Base
   has_and_belongs_to_many :languages
   has_and_belongs_to_many :skills
   has_and_belongs_to_many :softwares
+  has_and_belongs_to_many :schools
+  has_many :people_schools
   has_one :beta_coupon
   
   validates_presence_of     :email, :on => :create,
@@ -180,6 +184,7 @@ class Person < ActiveRecord::Base
     def mostly_active(page = 1)
       paginate(:all, :page => page,
                      :per_page => RASTER_PER_PAGE,
+                     :order => "people.created_at DESC",
                      :conditions => conditions_for_mostly_active)
     end
     
@@ -513,6 +518,29 @@ class Person < ActiveRecord::Base
     conditions = [sql, id]
     opts = { :page => page, :per_page => RASTER_PER_PAGE }
     Project.paginate_by_sql(conditions, opts)
+  end
+  
+  def school_attributes=(school_attributes)
+    if school_attributes
+      school_attributes.each do |school_att|
+        unless school_att[:name] == ""
+          if school_att[:id] && school_att[:should_destroy] == "1"
+            scho = self.people_schools.find(school_att[:id])
+            scho.destroy
+          elsif school_att[:id].blank?
+            sch = School.new(:name => school_att[:name])
+            sch.save!
+            self.people_schools.create!(:person_id => self.id, :school_id => sch.id, :year => school_att[:year].to_i)
+          elsif school_att[:id] && sch = School.find_by_name(school_att[:name])
+            unless ps = PeopleSchool.find_by_person_id_and_school_id(self.id, sch.id)
+              self.people_schools.create!(:person_id => self.id, :school_id => sch.id, :year => school_att[:year].to_i)
+            else
+              ps.update_attribute(:year, school_att[:year].to_i)
+            end
+          end
+        end
+      end
+    end
   end
   
   protected

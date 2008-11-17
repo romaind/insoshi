@@ -805,7 +805,7 @@ ul#menus, ul#menus li {
 	border-right: 1px solid #DDDDDD;
 	padding-left: 5px;
 	padding-right: 5px;
-	height: 395px;
+	height: 343px;
 	text-align: right;
 }
 
@@ -821,7 +821,7 @@ ul#menus, ul#menus li {
 
 #content .description .desc_message p {
 	text-align: left;
-	margin-top: 20px;
+	margin-top: 17px;
 	margin-bottom: 0;
 }
 
@@ -942,7 +942,7 @@ ul#menus, ul#menus li {
 
 #reminder_tab {
 	background-image: url(../images/personaldata_tab.gif);
-	width: 387px;
+	width: 350px;
 	height: 24px;
 }
 
@@ -1608,7 +1608,7 @@ ul#menus, ul#menus li {
 
 #reminder_tab {
 	background-image: url(../images/personaldata_tab.gif);
-	width: 387px;
+	width: 350px;
 	height: 24px;
 }
 
@@ -1626,7 +1626,7 @@ ul#menus, ul#menus li {
 	background-color: white;
 	border-left: 1px solid #DDDDDD;
 	border-right: 1px solid #DDDDDD;
-	width: 365px;
+	width: 345px;
 	padding-left: 10px;
 	padding-right: 10px;
 	padding-top: 20px;
@@ -2332,7 +2332,7 @@ ul#menus, ul#menus li {
 	list-style-type: none;
 	text-align: center;
 	padding-top: 6px;
-	width: 130px;
+	width: 125px;
 	height: 26px;
 }
 
@@ -3323,7 +3323,8 @@ body img {
 #show_project #right .project_content {
 	margin: 0;
 	text-align: right;
-	width: 190px;
+	width: 198px;
+	/*height: 320px;*/
 	font-size: 9pt;
 }
 
@@ -3576,6 +3577,16 @@ body img {
 	width: 745px;
 }
 
+/* @group Accordion */
+
+.accordion_content {
+	height: 300px;
+}
+
+/* @end */
+
+
+
 /* @group lightwindow */
 
 #lightwindow_contents {
@@ -3583,3 +3594,27 @@ body img {
 }
 
 /* @end */
+
+/* @group Flashes */
+
+.flash.notice{
+	color: yellowgreen;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.flash.error {
+	color: red;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.flash.success {
+	color: green;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+
+/* @end */
+

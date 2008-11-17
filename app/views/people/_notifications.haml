@@ -1,0 +1,23 @@
+%h3 Notification Preferences
+-form_for @person, :html => { :multipart => true } do |f|
+  .form_row
+
+    You will receive email notifications
+    for each event type whose box is checked.
+
+  .form_row
+    %p
+      %label{ :for => "connection_notifications", :class => "checkbox" } Connections:
+      = f.check_box :connection_notifications
+
+    %p
+      %label{ :for => "message_notifications", :class => "checkbox" } Messages:
+      = f.check_box :message_notifications
+
+    %p
+      %label{ :for => "wall_comment_notifications", :class => "checkbox" } Wall comments:
+      = f.check_box :wall_comment_notifications
+
+  %input{ :type => "hidden", :name => "type", :value => "notif_edit"}
+
+  = f.submit "Update", :class => "button"

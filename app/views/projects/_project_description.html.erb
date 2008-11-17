@@ -4,6 +4,6 @@
   <%- if @project.description.empty? %>
     No description
   <%- else %>
-      <%=h @project.description %>
+      <%=h truncate(@project.description, 520) %>
   <%- end %>
 </div>

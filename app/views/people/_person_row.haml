@@ -1,0 +1,31 @@
+-row.each do |person|
+  -if person
+    %td.thumb
+      %table
+        %tr
+          %td.person_thumb{:rowspan => "3"}
+            =image_link(person, :link => profile_path(person, "profile"), :class => "photo", :image => :thumbnail)
+          %td
+            %b
+              =person_link person, :class => "url fn"
+        %tr
+          %td.add_cell
+            -if logged_in?
+              -if person.city and person.origin_country
+                =[person.city.capitalize, person.origin_country.name].join(', ')
+              -elsif person.origin_country
+                =person.origin_country.name
+              -else
+                &nbsp;
+        %tr
+          %td.person_skill
+            -if person.skills.empty?
+              &nbsp;
+            -else
+              %p
+                =truncate(person.skills.collect{|u| u.name}.join(", "), 40)
+        -if logged_in?
+          %tr
+            %td.count_common{:rowspan => "2"}
+              -if person.common_contacts_with(current_person).length > 0
+                =pluralize(person.common_contacts_with(current_person).length, "common contact")

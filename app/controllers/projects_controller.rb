@@ -73,10 +73,13 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save
-        if params[:project][:state] == 'draft' && !@project.draft?
-          @project.be_draft!
-        elsif params[:project][:state] == 'published' && !@project.published?
-          @project.publish!
+        # if params[:project][:state] == 'draft' && !@project.draft?
+        #   @project.be_draft!
+        # elsif params[:project][:state] == 'published' && !@project.published?
+        #   @project.publish!
+        # end
+        if params[:project][:state] == 'published'
+          flash[:error] = "Please upload your creations in this project before publishing it!"
         end
         flash[:notice] = 'Project was successfully created.'
         format.html { redirect_to editproject_path(current_person, @project, "content") }
@@ -100,6 +103,8 @@ class ProjectsController < ApplicationController
       if @project.update_attributes(params[:project])
         if params[:project][:state] == 'draft' && !@project.draft?
           @project.be_draft!
+        elsif params[:project][:state] == 'published' && !@project.published? && @project.creations.length == 0
+          flash[:error] = "You can't publish a project without creations"
         elsif params[:project][:state] == 'published' && !@project.published?
           @project.publish!
         end
@@ -174,7 +179,12 @@ class ProjectsController < ApplicationController
   
   def publish
     project = Project.find(params[:id])
-    project.publish!
+    if project.creations.length > 0
+      project.publish!
+      flash[:notice] = "Your project has been published"
+    else
+      flash[:error] = "You can't publish a project without creations"
+    end
     
     respond_to do |format|
       format.html {
