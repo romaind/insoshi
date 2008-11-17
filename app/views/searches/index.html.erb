@@ -1,16 +1,4 @@
 <% column_div :type => :primary do %>
-<<<<<<< HEAD:app/views/searches/index.html.erb
-  <h2><%= _("Search results") %></h2>
-  <%= will_paginate(@search) %>
-    <%- if @results.empty? -%>
-      <h3><%= _("No results") %></h3>
-    <%- else -%>
-      <ul class="list people">
-        <%= render :partial => partial(@results), :collection => @results %>
-      </ul>
-    <%- end -%>
-  <%= will_paginate(@search) %>
-=======
   <div id="contact_preview" class="clearfix">
     <h4>Search results</h4>
     <%= will_paginate(@search) %>
@@ -30,7 +18,6 @@
       <%- end -%>
     <%= will_paginate(@search) %>
   </div>
->>>>>>> bc060f97c78d5541a10ca68ea76f7687e1fa7254:app/views/searches/index.html.erb
 <%- end -%>
 
 <%# column_div :type => :secondary do %>
